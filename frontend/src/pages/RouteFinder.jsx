@@ -4,6 +4,7 @@ import RouteExplorer from '@/components/RouteExplorer';
 import HalteDirectory from '@/components/HalteDirectory';
 import NearestHalte from '@/components/NearestHalte';
 import TripPlanner from '@/components/TripPlanner';
+import { RoutesDataProvider } from '@/contexts/RoutesDataContext';
 
 const TABS = [
   { key: 'rute', label: 'Rute', icon: RouteIcon },
@@ -12,7 +13,13 @@ const TABS = [
   { key: 'rencana', label: 'Rencanakan Perjalanan', icon: Compass },
 ];
 
-const RouteFinder = () => {
+const RouteFinder = () => (
+  <RoutesDataProvider>
+    <RouteFinderContent />
+  </RoutesDataProvider>
+);
+
+const RouteFinderContent = () => {
   const [tab, setTab] = useState('rute');
 
   return (
@@ -51,11 +58,24 @@ const RouteFinder = () => {
           </div>
         </div>
 
-        {/* Panels */}
-        {tab === 'rute' && <RouteExplorer />}
-        {tab === 'halte' && <HalteDirectory />}
-        {tab === 'terdekat' && <NearestHalte />}
-        {tab === 'rencana' && <TripPlanner />}
+        {/*
+          Panels stay mounted; we toggle visibility with CSS instead of
+          unmounting with `tab === x && <Component/>`. This preserves each
+          tab's state (search results, located haltes, planned trips) and
+          avoids re-fetching from MongoDB on every tab switch.
+        */}
+        <div className={tab === 'rute' ? '' : 'hidden'}>
+          <RouteExplorer />
+        </div>
+        <div className={tab === 'halte' ? '' : 'hidden'}>
+          <HalteDirectory />
+        </div>
+        <div className={tab === 'terdekat' ? '' : 'hidden'}>
+          <NearestHalte />
+        </div>
+        <div className={tab === 'rencana' ? '' : 'hidden'}>
+          <TripPlanner />
+        </div>
       </div>
     </section>
   );

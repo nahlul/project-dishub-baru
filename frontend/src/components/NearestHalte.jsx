@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navigation, MapPin, Bus, Loader2, AlertCircle } from 'lucide-react';
 import { routesAPI } from '@/lib/api';
 import { formatKm, nextBus, currentDayKey, DAY_LABELS } from '@/lib/routeUtils';
+import { getCurrentPosition } from '@/lib/geolocation';
 import HalteMap from './HalteMap';
 
 // Feature 3: find the haltes nearest to the user's current position.
@@ -13,40 +14,31 @@ const NearestHalte = () => {
   const [haltes, setHaltes] = useState([]);
   const dayKey = currentDayKey();
 
-  const findNearest = () => {
+  const findNearest = async () => {
     setError('');
-    if (!('geolocation' in navigator)) {
+    setStatus('locating');
+    let pos;
+    try {
+      pos = await getCurrentPosition();
+    } catch (err) {
       setStatus('error');
-      setError('Peramban Anda tidak mendukung layanan lokasi.');
+      setError(err.message || 'Tidak dapat menentukan lokasi Anda. Coba lagi.');
       return;
     }
-    setStatus('locating');
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        const { latitude, longitude, accuracy: acc } = pos.coords;
-        setUser({ lat: latitude, lng: longitude });
-        setAccuracy(acc);
-        setStatus('loading');
-        try {
-          const { data } = await routesAPI.nearest(latitude, longitude, 5);
-          setHaltes(data);
-          setStatus('done');
-        } catch (err) {
-          console.error(err);
-          setStatus('error');
-          setError('Gagal mengambil data halte terdekat. Coba lagi.');
-        }
-      },
-      (err) => {
-        setStatus('error');
-        if (err.code === err.PERMISSION_DENIED) {
-          setError('Izin lokasi ditolak. Aktifkan izin lokasi untuk memakai fitur ini.');
-        } else {
-          setError('Tidak dapat menentukan lokasi Anda. Coba lagi.');
-        }
-      },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-    );
+
+    const { latitude, longitude, accuracy: acc } = pos.coords;
+    setUser({ lat: latitude, lng: longitude });
+    setAccuracy(acc);
+    setStatus('loading');
+    try {
+      const { data } = await routesAPI.nearest(latitude, longitude, 5);
+      setHaltes(data);
+      setStatus('done');
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+      setError('Gagal mengambil data halte terdekat. Coba lagi.');
+    }
   };
 
   const markers = haltes.map((h) => ({

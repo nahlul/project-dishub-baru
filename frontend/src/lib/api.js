@@ -103,6 +103,12 @@ export const routesAPI = {
   search: (q) =>
     api.get(`/routes/search?q=${encodeURIComponent(q)}`, { withCredentials: false }),
 
+  // Autocomplete halte suggestions (with coordinates) sourced from MongoDB.
+  suggest: (q, limit = 8) =>
+    api.get(`/routes/suggest?q=${encodeURIComponent(q)}&limit=${limit}`, {
+      withCredentials: false,
+    }),
+
   getAllHaltes: () => api.get('/routes/haltes', { withCredentials: false }),
 
   nearest: (lat, lng, limit = 5) =>
