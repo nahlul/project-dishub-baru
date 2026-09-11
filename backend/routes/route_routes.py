@@ -77,6 +77,65 @@ async def search_halte(q: str = "", db: AsyncIOMotorDatabase = Depends(get_db)):
         return []
 
 
+@router.get("/suggest")
+async def suggest_haltes(
+    q: str = "",
+    limit: int = Query(8, ge=1, le=25),
+    db: AsyncIOMotorDatabase = Depends(get_db),
+):
+    """Autocomplete halte suggestions straight from MongoDB.
+
+    Returns deduplicated halte matching the typed text, each with coordinates
+    and the routes serving it, so the "Dari"/"Ke" inputs can suggest real bus
+    stops without depending on any external geocoding service. Matches that
+    start with the query are ranked above matches that merely contain it.
+    """
+    try:
+        term = (q or "").strip().lower()
+        if len(term) < 1:
+            return []
+
+        routes = await _all_routes(db)
+        by_name: dict = {}
+        for route in routes:
+            for halte in route.get("halte", []):
+                nama = halte.get("nama")
+                if not nama or term not in nama.lower():
+                    continue
+                if "lat" not in halte or "lng" not in halte:
+                    continue
+                key = nama.strip().lower()
+                entry = by_name.get(key)
+                if not entry:
+                    entry = {
+                        "nama": nama,
+                        "display_name": nama,
+                        "lat": halte.get("lat"),
+                        "lng": halte.get("lng"),
+                        "routes": [],
+                        "_starts": key.startswith(term),
+                    }
+                    by_name[key] = entry
+                route_nama = route["nama"]
+                if not any(r["route_nama"] == route_nama for r in entry["routes"]):
+                    entry["routes"].append({
+                        "route_id": route["id"],
+                        "route_nama": route_nama,
+                        "route_warna": route.get("warna", "#0284c7"),
+                    })
+
+        items = sorted(
+            by_name.values(),
+            key=lambda h: (not h["_starts"], h["nama"].lower()),
+        )
+        for it in items:
+            it.pop("_starts", None)
+        return items[:limit]
+    except Exception as e:
+        logger.error(f"Suggest haltes error: {e}")
+        return []
+
+
 @router.get("/haltes")
 async def get_all_haltes(db: AsyncIOMotorDatabase = Depends(get_db)):
     """Flat list of every halte across all routes (deduplicated by name).

@@ -1,29 +1,22 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Search, MapPin, Bus, Loader2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { routesAPI } from '@/lib/api';
+import { useRoutesData } from '@/contexts/RoutesDataContext';
 import { timesForDay, nextBus, currentDayKey, DAY_LABELS, DAY_KEYS } from '@/lib/routeUtils';
 
 // Feature 2: directory of every halte with the routes and schedules serving it.
 const HalteDirectory = () => {
-  const [haltes, setHaltes] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { haltes, haltesLoading, loadHaltes } = useRoutesData();
   const [query, setQuery] = useState('');
   const [day, setDay] = useState(currentDayKey());
   const [expanded, setExpanded] = useState(null);
 
+  // Uses the shared cache: the first mount fetches, later tab switches reuse it.
   useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await routesAPI.getAllHaltes();
-        setHaltes(data);
-      } catch (err) {
-        console.error('Failed to fetch haltes:', err);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, []);
+    loadHaltes();
+  }, [loadHaltes]);
+
+  const loading = haltesLoading && haltes.length === 0;
 
   const filtered = useMemo(() => {
     if (!query.trim()) return haltes;

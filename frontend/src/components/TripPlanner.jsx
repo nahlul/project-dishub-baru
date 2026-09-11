@@ -6,50 +6,87 @@ import {
 import { Input } from '@/components/ui/input';
 import { routesAPI } from '@/lib/api';
 import { formatKm, currentDayKey, DAY_LABELS, DAY_KEYS } from '@/lib/routeUtils';
+import { getCurrentPosition } from '@/lib/geolocation';
+import { useRoutesData } from '@/contexts/RoutesDataContext';
 import HalteMap from './HalteMap';
 
 // Feature 4: plan a trip from origin (user location or typed) to a destination.
 const TripPlanner = () => {
+  const { suggestHaltes } = useRoutesData();
+
   const [origin, setOrigin] = useState(null); // {lat,lng,label}
   const [originText, setOriginText] = useState('');
+  const [originSuggestions, setOriginSuggestions] = useState([]);
   const [destText, setDestText] = useState('');
   const [destSuggestions, setDestSuggestions] = useState([]);
   const [dest, setDest] = useState(null); // {lat,lng,label}
   const [day, setDay] = useState(currentDayKey());
   const [locating, setLocating] = useState(false);
   const [planning, setPlanning] = useState(false);
+  const [geocodingOrigin, setGeocodingOrigin] = useState(false);
   const [geocoding, setGeocoding] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
 
-  const useMyLocation = () => {
+  const useMyLocation = async () => {
     setError('');
-    if (!('geolocation' in navigator)) {
-      setError('Peramban Anda tidak mendukung layanan lokasi.');
-      return;
-    }
     setLocating(true);
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setOrigin({ lat: pos.coords.latitude, lng: pos.coords.longitude, label: 'Lokasi Anda' });
-        setOriginText('Lokasi Anda');
-        setLocating(false);
-      },
-      (err) => {
-        setLocating(false);
-        setError(
-          err.code === err.PERMISSION_DENIED
-            ? 'Izin lokasi ditolak. Ketik lokasi asal secara manual atau aktifkan izin lokasi.'
-            : 'Tidak dapat menentukan lokasi Anda.'
-        );
-      },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-    );
+    try {
+      const pos = await getCurrentPosition();
+      setOrigin({
+        lat: pos.coords.latitude,
+        lng: pos.coords.longitude,
+        label: 'Lokasi Anda',
+      });
+      setOriginText('Lokasi Anda');
+      setOriginSuggestions([]);
+    } catch (err) {
+      setError(err.message || 'Tidak dapat menentukan lokasi Anda.');
+    } finally {
+      setLocating(false);
+    }
   };
 
-  const geocodeOrigin = async () => {
-    if (originText.trim().length < 2 || originText === 'Lokasi Anda') return;
+  // "Dari" autocomplete: suggest bus stops (halte) from MongoDB as the user
+  // types. Selecting a halte fixes the origin coordinates immediately.
+  const searchOrigin = async (value) => {
+    setOriginText(value);
+    setOrigin(null);
+    setError('');
+    if (value.trim().length < 1 || value === 'Lokasi Anda') {
+      setOriginSuggestions([]);
+      return;
+    }
+    setGeocodingOrigin(true);
     try {
+      const list = await suggestHaltes(value, 8);
+      setOriginSuggestions(list);
+    } catch {
+      setOriginSuggestions([]);
+    } finally {
+      setGeocodingOrigin(false);
+    }
+  };
+
+  const pickOrigin = (item) => {
+    setOrigin({ lat: item.lat, lng: item.lng, label: item.display_name || item.nama });
+    setOriginText(item.display_name || item.nama);
+    setOriginSuggestions([]);
+  };
+
+  // If the user typed a free-text origin (not a picked halte) and blurs the
+  // field, try to resolve it: first against halte data, then geocoding.
+  const geocodeOrigin = async () => {
+    if (origin || originText.trim().length < 2 || originText === 'Lokasi Anda') return;
+    // Give click-to-pick a chance to fire before we treat this as free text.
+    setTimeout(() => setOriginSuggestions([]), 150);
+    try {
+      const halteMatches = await suggestHaltes(originText, 1);
+      if (halteMatches.length) {
+        const m = halteMatches[0];
+        setOrigin({ lat: m.lat, lng: m.lng, label: m.display_name || m.nama });
+        return;
+      }
       const { data } = await routesAPI.geocode(originText);
       if (data.length) {
         setOrigin({ lat: data[0].lat, lng: data[0].lng, label: originText });
@@ -57,21 +94,35 @@ const TripPlanner = () => {
         setError(`Lokasi asal "${originText}" tidak ditemukan.`);
       }
     } catch {
-      setError('Gagal mencari lokasi asal.');
+      setError('Gagal mencari lokasi asal. Coba pilih halte dari daftar saran.');
     }
   };
 
+  // "Ke" autocomplete: prefer halte suggestions from MongoDB, and fall back to
+  // the geocoding proxy for arbitrary destinations (e.g. "Masjid Raya").
   const searchDest = async (value) => {
     setDestText(value);
     setDest(null);
-    if (value.trim().length < 2) {
+    setError('');
+    if (value.trim().length < 1) {
       setDestSuggestions([]);
       return;
     }
     setGeocoding(true);
     try {
-      const { data } = await routesAPI.geocode(value);
-      setDestSuggestions(data);
+      const halteMatches = await suggestHaltes(value, 6);
+      let suggestions = halteMatches.map((h) => ({ ...h, _halte: true }));
+      // Only reach out to the external geocoder when local halte data is thin.
+      if (suggestions.length < 3 && value.trim().length >= 3) {
+        try {
+          const { data } = await routesAPI.geocode(value);
+          const geo = (data || []).map((g) => ({ ...g, _halte: false }));
+          suggestions = [...suggestions, ...geo];
+        } catch {
+          // Geocoder unavailable (e.g. offline) — halte suggestions still work.
+        }
+      }
+      setDestSuggestions(suggestions);
     } catch {
       setDestSuggestions([]);
     } finally {
@@ -80,8 +131,9 @@ const TripPlanner = () => {
   };
 
   const pickDest = (item) => {
-    setDest({ lat: item.lat, lng: item.lng, label: item.display_name });
-    setDestText(item.display_name.split(',')[0]);
+    const label = item.display_name || item.nama;
+    setDest({ lat: item.lat, lng: item.lng, label });
+    setDestText(label.split(',')[0]);
     setDestSuggestions([]);
   };
 
@@ -136,13 +188,40 @@ const TripPlanner = () => {
         {/* Origin */}
         <label className="block text-sm font-medium text-gray-700 mb-1">Dari (lokasi asal)</label>
         <div className="flex flex-col sm:flex-row gap-2 mb-4">
-          <Input
-            value={originText}
-            onChange={(e) => { setOriginText(e.target.value); setOrigin(null); }}
-            onBlur={geocodeOrigin}
-            placeholder="Ketik lokasi asal (mis. Darussalam) atau pakai lokasi Anda"
-            className="flex-1 rounded-xl border-2 border-gray-200 focus:border-sky-500"
-          />
+          <div className="relative flex-1">
+            <Input
+              value={originText}
+              onChange={(e) => searchOrigin(e.target.value)}
+              onBlur={geocodeOrigin}
+              placeholder="Ketik nama halte asal (mis. Darussalam) atau pakai lokasi Anda"
+              className="w-full rounded-xl border-2 border-gray-200 focus:border-sky-500"
+            />
+            {geocodingOrigin && (
+              <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 animate-spin" />
+            )}
+            {originSuggestions.length > 0 && (
+              <div className="absolute z-[1000] mt-1 w-full bg-white border-2 border-gray-100 rounded-xl shadow-lg max-h-56 overflow-y-auto">
+                {originSuggestions.map((s, i) => (
+                  <button
+                    key={i}
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => pickOrigin(s)}
+                    className="w-full text-left px-4 py-2.5 hover:bg-sky-50 border-b border-gray-50 last:border-0 text-sm flex items-start gap-2"
+                  >
+                    <MapPin className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
+                    <span className="flex-1">
+                      <span className="text-gray-800 font-medium">{s.display_name || s.nama}</span>
+                      {s.routes?.length > 0 && (
+                        <span className="block text-xs text-gray-400">
+                          Rute {s.routes.map((r) => r.route_nama).join(', ')}
+                        </span>
+                      )}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <button
             onClick={useMyLocation}
             disabled={locating}
@@ -171,11 +250,23 @@ const TripPlanner = () => {
               {destSuggestions.map((s, i) => (
                 <button
                   key={i}
+                  onMouseDown={(e) => e.preventDefault()}
                   onClick={() => pickDest(s)}
                   className="w-full text-left px-4 py-2.5 hover:bg-sky-50 border-b border-gray-50 last:border-0 text-sm flex items-start gap-2"
                 >
-                  <MapPin className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{s.display_name}</span>
+                  {s._halte ? (
+                    <Bus className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
+                  ) : (
+                    <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" />
+                  )}
+                  <span className="flex-1">
+                    <span className="text-gray-800">{s.display_name || s.nama}</span>
+                    {s._halte && s.routes?.length > 0 && (
+                      <span className="block text-xs text-gray-400">
+                        Halte · Rute {s.routes.map((r) => r.route_nama).join(', ')}
+                      </span>
+                    )}
+                  </span>
                 </button>
               ))}
             </div>

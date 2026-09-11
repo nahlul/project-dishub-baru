@@ -7,28 +7,23 @@ import { routesAPI } from '@/lib/api';
 import {
   timesForDay, nextBus, currentDayKey, DAY_LABELS, DAY_KEYS, minutesNow,
 } from '@/lib/routeUtils';
+import { useRoutesData } from '@/contexts/RoutesDataContext';
 import HalteMap from './HalteMap';
 
 // Feature 1: browse all routes, open a route to see its ordered haltes,
 // schedules and a map of the corridor.
 const RouteExplorer = () => {
+  const { routes, loadRoutes } = useRoutesData();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
-  const [routes, setRoutes] = useState([]);
   const [selectedRoute, setSelectedRoute] = useState(null);
   const [loading, setLoading] = useState(false);
   const [activeDay, setActiveDay] = useState(currentDayKey());
 
+  // Uses the shared cache: the first mount fetches, later tab switches reuse it.
   useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await routesAPI.getAll();
-        setRoutes(data);
-      } catch (err) {
-        console.error('Failed to fetch routes:', err);
-      }
-    })();
-  }, []);
+    loadRoutes();
+  }, [loadRoutes]);
 
   const handleSearch = async (value) => {
     setQuery(value);
