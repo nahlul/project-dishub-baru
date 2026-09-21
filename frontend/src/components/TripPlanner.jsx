@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Route as RouteIcon, MapPin, Navigation, Search, Bus, ArrowRight,
   Loader2, AlertCircle, Clock, Footprints, RefreshCw, CheckCircle2, Info,
-  ChevronDown, ChevronUp, List,
+  ChevronDown, ChevronUp, List, FileText, ListOrdered, Sparkles,
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -552,6 +552,137 @@ const TripPlanner = () => {
                       </div>
                     );
                   })}
+                </div>
+
+                {/* Official Dishub Guide Card */}
+                <div className="bg-gradient-to-b from-sky-50/70 to-slate-50 border-t border-sky-100 p-4 sm:p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-7 h-7 rounded-lg bg-sky-600 text-white flex items-center justify-center shadow-sm">
+                      <Sparkles className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h5 className="font-bold text-gray-900 text-sm">Panduan Resmi Trans Koetaradja</h5>
+                      <p className="text-[11px] text-gray-500">Dinas Perhubungan Aceh • Petunjuk Lengkap Perjalanan</p>
+                    </div>
+                  </div>
+
+                  {/* 1. Ringkasan Perjalanan */}
+                  <div className="bg-white rounded-xl p-3.5 border border-sky-100 mb-3 shadow-xs text-xs space-y-1.5">
+                    <div className="font-bold text-sky-900 flex items-center gap-1.5 mb-1 text-[13px]">
+                      <FileText className="w-3.5 h-3.5 text-sky-600" />
+                      1. Ringkasan Perjalanan:
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700">
+                      <div>
+                        <span className="font-semibold text-gray-500">Titik Berangkat:</span>{' '}
+                        <span className="font-bold text-gray-900">{opt.legs[0]?.board_halte}</span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-gray-500">Titik Tujuan:</span>{' '}
+                        <span className="font-bold text-gray-900">{opt.legs[opt.legs.length - 1]?.alight_halte}</span>
+                      </div>
+                    </div>
+                    <div className="text-gray-700 pt-1.5 border-t border-gray-100">
+                      <span className="font-semibold text-gray-500">Estimasi Koridor:</span>{' '}
+                      <span className="font-bold text-sky-800">
+                        {opt.legs.map((l, i) => (
+                          <React.Fragment key={i}>
+                            {i > 0 && (
+                              <span className="text-amber-700 font-bold mx-1.5">
+                                ➔ Transit di <span className="underline">{l.board_halte}</span> ➔
+                              </span>
+                            )}
+                            <span className="bg-sky-100 text-sky-800 px-2 py-0.5 rounded-md">Koridor {l.route_nama}</span>
+                          </React.Fragment>
+                        ))}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* 2. Langkah Demi Langkah (Step-by-Step) */}
+                  <div className="bg-white rounded-xl p-3.5 border border-sky-100 mb-3 shadow-xs text-xs space-y-2">
+                    <div className="font-bold text-sky-900 flex items-center gap-1.5 text-[13px]">
+                      <ListOrdered className="w-3.5 h-3.5 text-sky-600" />
+                      2. Langkah Demi Langkah (Step-by-Step):
+                    </div>
+                    <div className="space-y-2 pl-1">
+                      {(() => {
+                        const steps = [];
+                        let sIdx = 1;
+                        opt.legs.forEach((leg, li) => {
+                          steps.push(
+                            <div key={`step-board-${li}`} className="flex items-start gap-2 text-gray-800">
+                              <span className="w-5 h-5 rounded-full bg-sky-100 text-sky-700 font-bold flex items-center justify-center flex-shrink-0 text-[11px] mt-0.5">
+                                {sIdx++}
+                              </span>
+                              <p className="leading-relaxed">
+                                <strong className="text-gray-900">Naik Bus Trans Koetaradja Koridor {leg.route_nama}</strong> dari{' '}
+                                <span className="font-bold text-sky-700">{leg.board_halte}</span> (Arah: {leg.arah})
+                                {leg.departure ? ` dengan estimasi keberangkatan ±${leg.departure}` : ''}.
+                              </p>
+                            </div>
+                          );
+
+                          const interStops = (leg.stops || []).slice(1, -1);
+                          if (interStops.length > 0) {
+                            const preview = interStops.slice(0, 3).join(' ➔ ');
+                            const sisa = interStops.length > 3 ? ` dan ${interStops.length - 3} halte lainnya` : '';
+                            steps.push(
+                              <div key={`step-pass-${li}`} className="flex items-start gap-2 text-gray-700">
+                                <span className="w-5 h-5 rounded-full bg-gray-100 text-gray-600 font-bold flex items-center justify-center flex-shrink-0 text-[11px] mt-0.5">
+                                  {sIdx++}
+                                </span>
+                                <p className="leading-relaxed">
+                                  Lewati rute: <span className="text-gray-900 font-medium">{preview}{sisa}</span>.
+                                </p>
+                              </div>
+                            );
+                          }
+
+                          if (li < opt.legs.length - 1) {
+                            const nextLeg = opt.legs[li + 1];
+                            const isSameStop = leg.alight_halte.toLowerCase().trim() === nextLeg.board_halte.toLowerCase().trim();
+                            steps.push(
+                              <div key={`step-transit-${li}`} className="flex items-start gap-2 text-amber-900 bg-amber-50/70 p-2 rounded-lg border border-amber-200/60">
+                                <span className="w-5 h-5 rounded-full bg-amber-200 text-amber-900 font-bold flex items-center justify-center flex-shrink-0 text-[11px] mt-0.5">
+                                  {sIdx++}
+                                </span>
+                                <p className="leading-relaxed">
+                                  <strong className="text-amber-950">(Transit &amp; Ganti Bus)</strong>: Turun di{' '}
+                                  <span className="font-bold text-amber-950 underline">{leg.alight_halte}</span>. {isSameStop ? 'Tunggu dan pindah ke' : `Jalan ke ${nextLeg.board_halte} lalu pindah ke`}{' '}
+                                  <strong className="text-amber-950">Bus Koridor {nextLeg.route_nama}</strong> (Arah: {nextLeg.arah}).
+                                </p>
+                              </div>
+                            );
+                          } else {
+                            steps.push(
+                              <div key={`step-final-${li}`} className="flex items-start gap-2 text-emerald-900 bg-emerald-50/70 p-2 rounded-lg border border-emerald-200/60">
+                                <span className="w-5 h-5 rounded-full bg-emerald-200 text-emerald-900 font-bold flex items-center justify-center flex-shrink-0 text-[11px] mt-0.5">
+                                  {sIdx++}
+                                </span>
+                                <p className="leading-relaxed">
+                                  <strong className="text-emerald-950">Tiba di Tujuan</strong>: Lanjutkan perjalanan hingga turun di{' '}
+                                  <span className="font-bold text-emerald-950 underline">{leg.alight_halte}</span>. Perjalanan Anda selesai!
+                                </p>
+                              </div>
+                            );
+                          }
+                        });
+                        return steps;
+                      })()}
+                    </div>
+                  </div>
+
+                  {/* 3. Tips Operasional */}
+                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-900 flex items-start gap-2.5">
+                    <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-amber-950">3. Tips Operasional Dishub Aceh:</span>
+                      <p className="mt-0.5 text-amber-900/90 leading-relaxed">
+                        Layanan Bus Trans Koetaradja saat ini <strong>gratis</strong> (cukup tap kartu uang elektronik / e-money seperti Flazz, TapCash, atau Brizzi di pintu masuk). Jam operasional reguler mulai pukul <strong>06.30 – 18.30 WIB</strong>.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
