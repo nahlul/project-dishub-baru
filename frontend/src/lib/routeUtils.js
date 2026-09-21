@@ -397,6 +397,11 @@ export function planJourneyClient({
         num_stops: numStops,
         departure: dep ? dep.time : null,
         stops: seg.stops.slice(state.boardIdx, pi + 1).map((s) => s.nama),
+        path: seg.stops.slice(state.boardIdx, pi + 1).map((s) => ({
+          nama: s.nama,
+          lat: s.lat,
+          lng: s.lng,
+        })),
         board_lat: boardStop.lat,
         board_lng: boardStop.lng,
         alight_lat: curStop.lat,

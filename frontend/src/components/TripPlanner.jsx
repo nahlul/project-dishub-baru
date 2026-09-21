@@ -267,25 +267,157 @@ const TripPlanner = () => {
     }
   };
 
-  const mapMarkers = (option) => {
-    const m = [];
-    option?.legs?.forEach((leg) => {
-      if (leg.board_lat != null)
-        m.push({
-          lat: leg.board_lat,
-          lng: leg.board_lng,
-          label: `Naik: ${leg.board_halte}`,
-          color: leg.route_warna || '#0284c7',
-        });
-      if (leg.alight_lat != null)
-        m.push({
-          lat: leg.alight_lat,
-          lng: leg.alight_lng,
-          label: `Turun: ${leg.alight_halte}`,
-          color: leg.route_warna || '#0284c7',
-        });
+  const getMapPolylines = (option) => {
+    if (!option || !option.legs) return [];
+    const polylines = [];
+
+    // Lookup map of all known haltes for fallback coordinates
+    const coordsMap = new Map();
+    (allHaltes || []).forEach((h) => {
+      if (h.lat != null && h.lng != null) {
+        coordsMap.set(h.nama.trim().toLowerCase(), [h.lat, h.lng]);
+      }
     });
-    return m;
+
+    option.legs.forEach((leg, li) => {
+      const positions = [];
+
+      // 1. If leg has explicit path array with lat/lng
+      if (Array.isArray(leg.path) && leg.path.length > 0) {
+        leg.path.forEach((p) => {
+          if (p.lat != null && p.lng != null) {
+            positions.push([p.lat, p.lng]);
+          }
+        });
+      }
+
+      // 2. If positions is empty or less than 2, build from leg.stops using coordsMap
+      if (positions.length < 2 && Array.isArray(leg.stops) && leg.stops.length > 0) {
+        leg.stops.forEach((sName) => {
+          const pt = coordsMap.get(sName.trim().toLowerCase());
+          if (pt) {
+            positions.push(pt);
+          }
+        });
+      }
+
+      // Ensure board and alight are included if positions is still sparse
+      if (positions.length === 0) {
+        if (leg.board_lat != null && leg.board_lng != null) {
+          positions.push([leg.board_lat, leg.board_lng]);
+        }
+        if (leg.alight_lat != null && leg.alight_lng != null) {
+          positions.push([leg.alight_lat, leg.alight_lng]);
+        }
+      }
+
+      if (positions.length >= 2) {
+        polylines.push({
+          positions,
+          color: leg.route_warna || '#0284c7',
+          weight: 6,
+          opacity: 0.9,
+          tooltip: `Trayek ${li + 1}: Koridor ${leg.route_nama} (${leg.board_halte} ➔ ${leg.alight_halte})`,
+        });
+      }
+
+      // 3. Connect between transit legs if alight and next board are different points
+      if (li < option.legs.length - 1) {
+        const nextLeg = option.legs[li + 1];
+        const curAlight =
+          positions.length > 0
+            ? positions[positions.length - 1]
+            : leg.alight_lat != null
+            ? [leg.alight_lat, leg.alight_lng]
+            : null;
+        const nextBoard =
+          nextLeg.board_lat != null
+            ? [nextLeg.board_lat, nextLeg.board_lng]
+            : coordsMap.get(nextLeg.board_halte?.trim().toLowerCase());
+
+        if (curAlight && nextBoard) {
+          const distM = Math.hypot(curAlight[0] - nextBoard[0], curAlight[1] - nextBoard[1]);
+          if (distM > 0.0001) {
+            polylines.push({
+              positions: [curAlight, nextBoard],
+              color: '#d97706',
+              weight: 4,
+              dashArray: '5, 8',
+              opacity: 0.8,
+              tooltip: `Transit / Oper: Jalan ke Halte ${nextLeg.board_halte}`,
+            });
+          }
+        }
+      }
+    });
+
+    return polylines;
+  };
+
+  const getMapMarkers = (option) => {
+    if (!option || !option.legs) return [];
+    const markers = [];
+    const legs = option.legs;
+
+    // Origin Halte Marker (Emerald Green)
+    const firstLeg = legs[0];
+    if (firstLeg.board_lat != null && firstLeg.board_lng != null) {
+      markers.push({
+        lat: firstLeg.board_lat,
+        lng: firstLeg.board_lng,
+        label: `Halte Asal: ${firstLeg.board_halte}`,
+        sub: `Naik Koridor ${firstLeg.route_nama} (Arah: ${firstLeg.arah})`,
+        color: '#10b981',
+        number: '1',
+      });
+    }
+
+    // Transit Halte Markers (Amber)
+    for (let i = 0; i < legs.length - 1; i++) {
+      const curLeg = legs[i];
+      const nextLeg = legs[i + 1];
+      const isSameStop =
+        curLeg.alight_halte.trim().toLowerCase() === nextLeg.board_halte.trim().toLowerCase();
+
+      if (curLeg.alight_lat != null && curLeg.alight_lng != null) {
+        markers.push({
+          lat: curLeg.alight_lat,
+          lng: curLeg.alight_lng,
+          label: `Halte Transit: ${curLeg.alight_halte}`,
+          sub: isSameStop
+            ? `Ganti ke Koridor ${nextLeg.route_nama} (Arah: ${nextLeg.arah})`
+            : `Turun di sini, jalan ke ${nextLeg.board_halte} untuk naik Koridor ${nextLeg.route_nama}`,
+          color: '#f59e0b',
+          number: `${i + 2}`,
+        });
+      }
+
+      if (!isSameStop && nextLeg.board_lat != null && nextLeg.board_lng != null) {
+        markers.push({
+          lat: nextLeg.board_lat,
+          lng: nextLeg.board_lng,
+          label: `Halte Naik Transit: ${nextLeg.board_halte}`,
+          sub: `Naik Koridor ${nextLeg.route_nama} (Arah: ${nextLeg.arah})`,
+          color: '#f97316',
+          number: `${i + 2}B`,
+        });
+      }
+    }
+
+    // Destination Halte Marker (Red)
+    const lastLeg = legs[legs.length - 1];
+    if (lastLeg.alight_lat != null && lastLeg.alight_lng != null) {
+      markers.push({
+        lat: lastLeg.alight_lat,
+        lng: lastLeg.alight_lng,
+        label: `Halte Tujuan: ${lastLeg.alight_halte}`,
+        sub: `Turun dari Koridor ${lastLeg.route_nama}`,
+        color: '#ef4444',
+        number: `${legs.length + 1}`,
+      });
+    }
+
+    return markers;
   };
 
   return (
@@ -441,10 +573,45 @@ const TripPlanner = () => {
                   <span className="text-xs text-white/80 font-semibold">{opt.total_stops} halte total</span>
                 </div>
 
-                {/* Map */}
+                {/* Map with Route Lines & Legend */}
                 {opt.legs?.some((l) => l.board_lat != null) && (
                   <div className="border-b border-gray-100">
-                    <HalteMap markers={mapMarkers(opt)} height={220} />
+                    <HalteMap
+                      markers={getMapMarkers(opt)}
+                      polylines={getMapPolylines(opt)}
+                      height={280}
+                    />
+                    {/* Visual Route Legend */}
+                    <div className="bg-gray-50/90 border-t border-gray-100 px-4 py-2 flex items-center justify-between flex-wrap gap-2 text-[11px] text-gray-600">
+                      <div className="flex items-center gap-3 flex-wrap font-medium">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block shadow-xs"></span>
+                          Asal
+                        </span>
+                        {opt.legs.length > 1 && (
+                          <span className="flex items-center gap-1.5">
+                            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block shadow-xs"></span>
+                            Halte Transit
+                          </span>
+                        )}
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block shadow-xs"></span>
+                          Tujuan
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs font-semibold text-sky-700 flex-wrap">
+                        <span>Garis rute:</span>
+                        {opt.legs.map((l, li) => (
+                          <span
+                            key={li}
+                            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] text-white font-bold"
+                            style={{ backgroundColor: l.route_warna || '#0284c7' }}
+                          >
+                            Koridor {l.route_nama}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 )}
 

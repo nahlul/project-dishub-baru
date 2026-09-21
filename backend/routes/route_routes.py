@@ -376,6 +376,11 @@ async def plan_trip(
             alight = stops[alight_pi]
             dep = _next_departure(board.get("jadwal", {}), day, after_minutes)
             names = [h["nama"] for h in stops[board_pi:alight_pi + 1]]
+            path_coords = [
+                {"nama": h["nama"], "lat": h.get("lat"), "lng": h.get("lng")}
+                for h in stops[board_pi:alight_pi + 1]
+                if h.get("lat") is not None and h.get("lng") is not None
+            ]
             return {
                 "route_id": route["id"],
                 "route_nama": route["nama"],
@@ -385,6 +390,7 @@ async def plan_trip(
                 "alight_halte": alight["nama"],
                 "num_stops": alight_pi - board_pi,
                 "stops": names,
+                "path": path_coords,
                 "departure": dep[0] if dep else None,
                 "board_lat": board.get("lat"),
                 "board_lng": board.get("lng"),

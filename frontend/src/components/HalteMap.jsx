@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Circle, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -54,18 +54,26 @@ function FitBounds({ points }) {
 }
 
 /**
- * Reusable Leaflet Map component
+ * Reusable Leaflet Map component with Polylines & Markers support
  */
-const HalteMap = ({ user, markers = [], fit, height = 360, accuracy }) => {
+const HalteMap = ({ user, markers = [], polylines = [], fit, height = 360, accuracy }) => {
   const center = user
     ? [user.lat, user.lng]
     : markers[0]
     ? [markers[0].lat, markers[0].lng]
     : [5.5483, 95.3238]; // Banda Aceh default center
 
+  // Extract all coordinates from polylines for fitBounds
+  const polyPoints = polylines.flatMap((poly) =>
+    (poly.positions || []).map((pos) =>
+      Array.isArray(pos) ? { lat: pos[0], lng: pos[1] } : pos
+    )
+  );
+
   const fitPoints = fit || [
     ...(user ? [user] : []),
     ...markers.filter((m) => m.lat != null && m.lng != null),
+    ...polyPoints.filter((p) => p && p.lat != null && p.lng != null),
   ];
 
   return (
@@ -76,6 +84,44 @@ const HalteMap = ({ user, markers = [], fit, height = 360, accuracy }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <FitBounds points={fitPoints} />
+
+        {/* Polylines for Route Paths */}
+        {polylines.map((poly, idx) => {
+          if (!poly.positions || poly.positions.length < 2) return null;
+          return (
+            <React.Fragment key={`poly-${idx}`}>
+              {/* Outer stroke / glow */}
+              <Polyline
+                positions={poly.positions}
+                pathOptions={{
+                  color: poly.color || '#0284c7',
+                  weight: (poly.weight || 6) + 4,
+                  opacity: 0.3,
+                  lineCap: 'round',
+                  lineJoin: 'round',
+                }}
+              />
+              {/* Main inner line */}
+              <Polyline
+                positions={poly.positions}
+                pathOptions={{
+                  color: poly.color || '#0284c7',
+                  weight: poly.weight || 6,
+                  opacity: poly.opacity || 0.9,
+                  dashArray: poly.dashArray || null,
+                  lineCap: 'round',
+                  lineJoin: 'round',
+                }}
+              >
+                {poly.tooltip && (
+                  <Popup>
+                    <div className="text-xs font-bold text-gray-800">{poly.tooltip}</div>
+                  </Popup>
+                )}
+              </Polyline>
+            </React.Fragment>
+          );
+        })}
 
         {user && (
           <>
