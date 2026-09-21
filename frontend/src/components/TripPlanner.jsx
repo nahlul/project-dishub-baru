@@ -359,25 +359,44 @@ const TripPlanner = () => {
     const markers = [];
     const legs = option.legs;
 
-    // Origin Halte Marker (Emerald Green)
+    // 1. Origin Halte Marker (Emerald Green) - ALWAYS PROMINENT #1
     const firstLeg = legs[0];
-    if (firstLeg.board_lat != null && firstLeg.board_lng != null) {
+    const originLat = firstLeg.board_lat;
+    const originLng = firstLeg.board_lng;
+
+    if (originLat != null && originLng != null) {
       markers.push({
-        lat: firstLeg.board_lat,
-        lng: firstLeg.board_lng,
+        lat: originLat,
+        lng: originLng,
         label: `Halte Asal: ${firstLeg.board_halte}`,
-        sub: `Naik Koridor ${firstLeg.route_nama} (Arah: ${firstLeg.arah})`,
+        sub: `Titik Keberangkatan • Naik Koridor ${firstLeg.route_nama} (Arah: ${firstLeg.arah})`,
         color: '#10b981',
         number: '1',
+        isOrigin: true,
       });
     }
 
-    // Transit Halte Markers (Amber)
+    // 2. Intermediate Transit Halte Markers (Amber)
+    let transitStep = 2;
     for (let i = 0; i < legs.length - 1; i++) {
       const curLeg = legs[i];
       const nextLeg = legs[i + 1];
       const isSameStop =
         curLeg.alight_halte.trim().toLowerCase() === nextLeg.board_halte.trim().toLowerCase();
+
+      // Check distance from origin: if transit stop is at the origin hub/terminal (< 100 meters)
+      const distFromOrigin =
+        originLat != null && curLeg.alight_lat != null
+          ? Math.hypot(curLeg.alight_lat - originLat, curLeg.alight_lng - originLng) * 111000
+          : 999;
+
+      if (distFromOrigin < 100) {
+        // Transfer happens right at the origin hub (e.g. Mata Ie 1 -> Mata Ie 2)
+        if (markers.length > 0) {
+          markers[0].sub = `Titik Keberangkatan • Oper di ${curLeg.alight_halte} ke Koridor ${nextLeg.route_nama}`;
+        }
+        continue; // Never place a transit pin on top of the origin pin!
+      }
 
       if (curLeg.alight_lat != null && curLeg.alight_lng != null) {
         markers.push({
@@ -388,32 +407,23 @@ const TripPlanner = () => {
             ? `Ganti ke Koridor ${nextLeg.route_nama} (Arah: ${nextLeg.arah})`
             : `Turun di sini, jalan ke ${nextLeg.board_halte} untuk naik Koridor ${nextLeg.route_nama}`,
           color: '#f59e0b',
-          number: `${i + 2}`,
-        });
-      }
-
-      if (!isSameStop && nextLeg.board_lat != null && nextLeg.board_lng != null) {
-        markers.push({
-          lat: nextLeg.board_lat,
-          lng: nextLeg.board_lng,
-          label: `Halte Naik Transit: ${nextLeg.board_halte}`,
-          sub: `Naik Koridor ${nextLeg.route_nama} (Arah: ${nextLeg.arah})`,
-          color: '#f97316',
-          number: `${i + 2}B`,
+          number: `${transitStep++}`,
+          isTransit: true,
         });
       }
     }
 
-    // Destination Halte Marker (Red)
+    // 3. Destination Halte Marker (Red)
     const lastLeg = legs[legs.length - 1];
     if (lastLeg.alight_lat != null && lastLeg.alight_lng != null) {
       markers.push({
         lat: lastLeg.alight_lat,
         lng: lastLeg.alight_lng,
         label: `Halte Tujuan: ${lastLeg.alight_halte}`,
-        sub: `Turun dari Koridor ${lastLeg.route_nama}`,
+        sub: `Tujuan Akhir • Turun dari Koridor ${lastLeg.route_nama}`,
         color: '#ef4444',
-        number: `${legs.length + 1}`,
+        number: `${transitStep}`,
+        isDest: true,
       });
     }
 

@@ -13,16 +13,19 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
-// Colored circular pin with optional index number (1-5)
-function haltePin(color = '#0284c7', number = null) {
-  const numHtml = number != null ? `<span style="color:#fff;font-weight:bold;font-size:11px;line-height:1">${number}</span>` : '';
-  const size = number != null ? 24 : 16;
+// Colored circular pin with optional index number (1-5) and origin highlight
+function haltePin(color = '#0284c7', number = null, isOrigin = false) {
+  const numHtml = number != null ? `<span style="color:#fff;font-weight:900;font-size:${isOrigin ? '12px' : '11px'};line-height:1">${number}</span>` : '';
+  const size = isOrigin ? 28 : (number != null ? 24 : 16);
   const radius = size / 2;
+  const extraShadow = isOrigin
+    ? 'box-shadow:0 0 0 4px rgba(16,185,129,0.35), 0 3px 8px rgba(0,0,0,0.4);'
+    : 'box-shadow:0 2px 5px rgba(0,0,0,0.35);';
 
   return L.divIcon({
     className: 'custom-halte-pin',
     html: `<div style="display:flex;align-items:center;justify-content:center;width:${size}px;height:${size}px;border-radius:50%;
-      background:${color};border:2px solid #fff;box-shadow:0 2px 5px rgba(0,0,0,0.35);">${numHtml}</div>`,
+      background:${color};border:2px solid #fff;${extraShadow}">${numHtml}</div>`,
     iconSize: [size, size],
     iconAnchor: [radius, radius],
   });
@@ -145,7 +148,8 @@ const HalteMap = ({ user, markers = [], polylines = [], fit, height = 360, accur
             <Marker
               key={i}
               position={[m.lat, m.lng]}
-              icon={haltePin(m.color || '#0284c7', m.number != null ? m.number : i + 1)}
+              zIndexOffset={m.isOrigin ? 1000 : m.isDest ? 900 : 500}
+              icon={haltePin(m.color || '#0284c7', m.number != null ? m.number : i + 1, m.isOrigin)}
             >
               <Popup>
                 <div className="text-sm">
