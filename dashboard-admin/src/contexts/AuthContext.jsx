@@ -29,6 +29,12 @@ export const AuthProvider = ({ children }) => {
       setUser(data);
       return { success: true };
     } catch (error) {
+      if (!error.response) {
+        return {
+          success: false,
+          error: 'Gagal terhubung ke server backend (port 8001). Pastikan server backend berjalan.',
+        };
+      }
       const errorMessage = formatApiErrorDetail(error.response?.data?.detail) || error.message;
       return { success: false, error: errorMessage };
     }

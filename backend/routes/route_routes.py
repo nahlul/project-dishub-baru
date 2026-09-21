@@ -127,31 +127,40 @@ async def nearest_haltes(
             dist = haversine_km(lat, lng, halte["lat"], halte["lng"])
             key = halte["nama"].strip().lower()
             existing = seen.get(key)
-            if existing and existing["distance_km"] <= dist:
-                # keep nearest instance; still record the extra route
-                existing["routes"].append({
-                    "route_id": route["id"],
-                    "route_nama": route["nama"],
-                    "route_warna": route.get("warna", "#0284c7"),
-                })
-                continue
-            routes_list = existing["routes"] if existing else []
-            routes_list.append({
+            route_info = {
                 "route_id": route["id"],
                 "route_nama": route["nama"],
                 "route_warna": route.get("warna", "#0284c7"),
-            })
-            seen[key] = {
-                "nama": halte["nama"],
-                "arah": halte.get("arah", ""),
-                "lat": halte["lat"],
-                "lng": halte["lng"],
-                "distance_km": round(dist, 3),
-                "jadwal": halte.get("jadwal", {}),
-                "routes": routes_list,
             }
+            if existing:
+                if dist < existing["distance_km"]:
+                    existing["distance_km"] = round(dist, 4)
+                    existing["lat"] = halte["lat"]
+                    existing["lng"] = halte["lng"]
+                    existing["arah"] = halte.get("arah", "")
+                    existing["jadwal"] = halte.get("jadwal", {})
+                if not any(r["route_id"] == route["id"] for r in existing["routes"]):
+                    existing["routes"].append(route_info)
+            else:
+                seen[key] = {
+                    "nama": halte["nama"],
+                    "arah": halte.get("arah", ""),
+                    "lat": halte["lat"],
+                    "lng": halte["lng"],
+                    "distance_km": round(dist, 4),
+                    "jadwal": halte.get("jadwal", {}),
+                    "routes": [route_info],
+                }
         results = sorted(seen.values(), key=lambda h: h["distance_km"])
-        return results[:limit]
+        top_results = results[:limit]
+
+        logger.info(f"=== [NEAREST DEBUG] GPS User Position: ({lat}, {lng}) ===")
+        for idx, h in enumerate(results[:10]):
+            logger.info(
+                f"  #{idx+1:2d} | {h['nama']:35s} | Dist: {int(h['distance_km']*1000):4d} m ({h['distance_km']:.4f} km) | Lat: {h['lat']}, Lng: {h['lng']}"
+            )
+
+        return top_results
     except Exception as e:
         logger.error(f"Nearest haltes error: {e}")
         raise HTTPException(status_code=500, detail="Failed to find nearest haltes")
@@ -220,6 +229,8 @@ async def plan_trip(
     to_lng: float = Query(..., ge=-180, le=180),
     day: str = Query("senin_kamis"),
     depart_after: Optional[str] = Query(None, description="HH:MM earliest departure"),
+    from_name: Optional[str] = Query(None, description="Exact origin halte name"),
+    to_name: Optional[str] = Query(None, description="Exact destination halte name"),
     db: AsyncIOMotorDatabase = Depends(get_db),
 ):
     """Plan a trip from an origin to a destination using the bus network.
@@ -289,79 +300,235 @@ async def plan_trip(
                 "alight_lng": alight.get("lng"),
             }
 
-        WALK_LIMIT_KM = 1.2  # max walk to a boarding/alighting halte
+        WALK_LIMIT_KM = 1.2  # max walk from user to first halte / last halte to dest
 
-        # 1) Direct routes: within one direction segment, board precedes alight.
-        direct = []
+        # Official interchange points where a rider may switch corridors. A
+        # transfer is only allowed when both the alighting and next boarding
+        # halte are one of these (matched by normalized name, ignoring the
+        # trailing 1/2 side marker so e.g. "Halte Mata Ie 2" counts).
+        TRANSIT_HUBS = {
+            "masjid raya baiturrahman", "masjid jamik darussalam", "keudah",
+            "mata ie", "bandara sim", "pasar aceh", "terminal batoh",
+            "pelabuhan ulee lheue", "masjid jamik",
+        }
+
+        def norm_hub(nama: str) -> str:
+            n = nama.lower()
+            for pref in ("halte ", "shelter ", "portabel "):
+                if n.startswith(pref):
+                    n = n[len(pref):]
+            n = n.strip()
+            # drop trailing side marker "1"/"2"
+            if n.endswith(" 1") or n.endswith(" 2"):
+                n = n[:-2].strip()
+            return n
+
+        def is_hub(nama: str) -> bool:
+            return norm_hub(nama) in TRANSIT_HUBS
+
+        # Flatten every route into directed "segments" (one travel direction).
+        # Each segment is a list of stop dicts with a global position so we can
+        # slice board->alight while preserving order.
+        seg_list = []  # each: {"route": route, "stops": [halte,...]}
         for route in routes:
-            for seg in segments(route):
-                nb = nearest_in_segment(route, seg, from_lat, from_lng)
-                na = nearest_in_segment(route, seg, to_lat, to_lng)
-                if not nb or not na:
-                    continue
-                if nb[0] > WALK_LIMIT_KM or na[0] > WALK_LIMIT_KM:
-                    continue
-                if nb[1] < na[1]:
-                    leg = build_leg(route, nb[1], na[1])
-                    direct.append({
-                        "type": "direct",
-                        "walk_from_km": round(nb[0], 3),
-                        "walk_to_km": round(na[0], 3),
-                        "legs": [leg],
-                    })
-        direct.sort(key=lambda p: (p["legs"][0]["num_stops"], p["walk_from_km"] + p["walk_to_km"]))
+            for s0, s1 in segments(route):
+                stops = [route["halte"][i] for i in range(s0, s1)]
+                seg_list.append({"route": route, "stops": stops})
 
-        if direct:
-            return {"found": True, "options": direct[:3]}
-
-        # 2) One-transfer itineraries via a shared interchange halte, matched
-        # within direction segments on both legs.
-        # origin_segs: (route, seg, board_idx, walk_from)
-        # dest_segs:   (route, seg, alight_idx, walk_to)
-        origin_segs = []
-        dest_segs = []
-        for route in routes:
-            for seg in segments(route):
-                nb = nearest_in_segment(route, seg, from_lat, from_lng)
-                if nb and nb[0] <= WALK_LIMIT_KM:
-                    origin_segs.append((route, seg, nb[1], nb[0]))
-                na = nearest_in_segment(route, seg, to_lat, to_lng)
-                if na and na[0] <= WALK_LIMIT_KM:
-                    dest_segs.append((route, seg, na[1], na[0]))
-
-        transfers = []
-        for r1, seg1, board_idx, walk_from in origin_segs:
-            h1 = r1["halte"]
-            for r2, seg2, alight2_idx, walk_to in dest_segs:
-                if r1["id"] == r2["id"]:
-                    continue
-                h2 = r2["halte"]
-                # interchange: a halte on leg 1 after boarding (within seg1) close
-                # to a halte on leg 2 before alighting (within seg2)
-                best_x = None
-                for i in range(board_idx + 1, seg1[1]):
-                    if "lat" not in h1[i]:
+        def find_board_indices(lat, lng, name):
+            """Return list of (seg_index, stop_index, walk_km) where a rider at
+            (lat,lng)/name can board. If an exact halte name is given, match it;
+            otherwise use every stop within the walk limit."""
+            out = []
+            for si, seg in enumerate(seg_list):
+                for pi, h in enumerate(seg["stops"]):
+                    if h.get("lat") is None:
                         continue
-                    for j in range(seg2[0], alight2_idx):
-                        if "lat" not in h2[j]:
-                            continue
-                        d = haversine_km(h1[i]["lat"], h1[i]["lng"], h2[j]["lat"], h2[j]["lng"])
-                        if d <= 0.4 and (best_x is None or d < best_x[0]):
-                            best_x = (d, i, j)
-                if best_x:
-                    leg1 = build_leg(r1, board_idx, best_x[1])
-                    leg2 = build_leg(r2, best_x[2], alight2_idx)
-                    transfers.append({
-                        "type": "transfer",
-                        "walk_from_km": round(walk_from, 3),
-                        "walk_to_km": round(walk_to, 3),
-                        "interchange_km": round(best_x[0], 3),
-                        "legs": [leg1, leg2],
-                    })
-        transfers.sort(key=lambda p: sum(l["num_stops"] for l in p["legs"]) + p["walk_from_km"] + p["walk_to_km"])
+                    if name:
+                        if h["nama"].strip().lower() == name.strip().lower():
+                            out.append((si, pi, 0.0))
+                    else:
+                        d = haversine_km(lat, lng, h["lat"], h["lng"])
+                        if d <= WALK_LIMIT_KM:
+                            out.append((si, pi, d))
+            return out
 
-        if transfers:
-            return {"found": True, "options": transfers[:3]}
+        def find_alight_indices(lat, lng, name):
+            out = []
+            for si, seg in enumerate(seg_list):
+                for pi, h in enumerate(seg["stops"]):
+                    if h.get("lat") is None:
+                        continue
+                    if name:
+                        if h["nama"].strip().lower() == name.strip().lower():
+                            out.append((si, pi, 0.0))
+                    else:
+                        d = haversine_km(lat, lng, h["lat"], h["lng"])
+                        if d <= WALK_LIMIT_KM:
+                            out.append((si, pi, d))
+            return out
+
+        def seg_leg(si, board_pi, alight_pi):
+            seg = seg_list[si]
+            route = seg["route"]
+            stops = seg["stops"]
+            board = stops[board_pi]
+            alight = stops[alight_pi]
+            dep = _next_departure(board.get("jadwal", {}), day, after_minutes)
+            names = [h["nama"] for h in stops[board_pi:alight_pi + 1]]
+            return {
+                "route_id": route["id"],
+                "route_nama": route["nama"],
+                "route_warna": route.get("warna", "#0284c7"),
+                "arah": board.get("arah", ""),
+                "board_halte": board["nama"],
+                "alight_halte": alight["nama"],
+                "num_stops": alight_pi - board_pi,
+                "stops": names,
+                "departure": dep[0] if dep else None,
+                "board_lat": board.get("lat"),
+                "board_lng": board.get("lng"),
+                "alight_lat": alight.get("lat"),
+                "alight_lng": alight.get("lng"),
+            }
+
+        # BFS over states = (segment index, stop index). We ride a segment from
+        # a boarding stop; at every downstream hub stop we may either alight (if
+        # it reaches the destination) or transfer to another segment whose own
+        # hub stop is within a short walk. Central hubs (Pasar Aceh, Masjid Raya,
+        # Keudah) sit within ~300 m of each other, so transfers are matched by
+        # proximity rather than identical names; corridor-end U-turns (same route,
+        # opposite direction) are allowed too.
+        board_starts = find_board_indices(from_lat, from_lng, from_name)
+        alight_goals = find_alight_indices(to_lat, to_lng, to_name)
+        goal_set = {(si, pi) for si, pi, _ in alight_goals}
+        goal_walk = {(si, pi): w for si, pi, w in alight_goals}
+
+        MAX_LEGS = 4
+        TRANSFER_WALK_KM = 0.35  # max walk between two hub stops to transfer
+
+        # All hub stops across every segment (for proximity-based transfers).
+        hub_stops = []  # (si, pi, lat, lng)
+        for si, seg in enumerate(seg_list):
+            for pi, h in enumerate(seg["stops"]):
+                if is_hub(h["nama"]) and h.get("lat") is not None:
+                    hub_stops.append((si, pi, h["lat"], h["lng"]))
+
+        from collections import deque
+
+        best_options = []
+        start_states = []
+        for si, pi, walk in board_starts:
+            # state: (si, board_pi, legs, used_segs, walk_from, transfer_walk_km)
+            start_states.append((si, pi, [], frozenset({si}), walk, 0.0))
+
+        seen = set()
+        q = deque(start_states)
+        while q and len(best_options) < 20:
+            si, board_pi, legs, used_segs, walk_from, xfer_walk = q.popleft()
+            seg = seg_list[si]
+            stops = seg["stops"]
+            # If the destination halte lies further along this segment, ride
+            # straight to it. Transferring at an earlier hub only adds a pointless
+            # extra leg that loops back toward the origin (e.g. Bandara ->
+            # Terminal Batoh -> Bandara -> Masjid Raya), so suppress transfers
+            # until that goal is passed; the direct ride is recorded in (a).
+            goal_ahead = min((gpi for gsi, gpi in goal_set if gsi == si and gpi > board_pi), default=None)
+            for pi in range(board_pi + 1, len(stops)):
+                h = stops[pi]
+                if h.get("lat") is None:
+                    continue
+                # a) Finish here if this stop reaches the destination.
+                if (si, pi) in goal_set:
+                    leg = seg_leg(si, board_pi, pi)
+                    opt_legs = legs + [leg]
+                    best_options.append({
+                        "type": "direct" if len(opt_legs) == 1 else "transfer",
+                        "walk_from_km": round(walk_from, 3),
+                        "walk_to_km": round(goal_walk[(si, pi)], 3),
+                        "transfer_walk_km": round(xfer_walk, 3),
+                        "legs": opt_legs,
+                    })
+                # b) Transfer at this stop if it is a hub and budget remains.
+                #    Never transfer at a stop that already reaches the goal, and
+                #    never transfer before a goal stop that lies ahead on this
+                #    segment — the trip is finished best by riding to it.
+                nh = norm_hub(h["nama"])
+                reaches_goal = (si, pi) in goal_set
+                if (len(legs) + 1 < MAX_LEGS and is_hub(h["nama"])
+                        and not reaches_goal
+                        and (goal_ahead is None or pi >= goal_ahead)):
+                    for (nsi, npi, hlat, hlng) in hub_stops:
+                        if nsi in used_segs:
+                            continue
+                        d = haversine_km(h["lat"], h["lng"], hlat, hlng)
+                        if d > TRANSFER_WALK_KM:
+                            continue
+                        # Key on the alighting stop too, so transferring at
+                        # Pasar Aceh vs. riding one more stop to Masjid Raya are
+                        # explored as distinct paths and ranked by total walking.
+                        state_key = (si, pi, nsi, npi, len(legs) + 1)
+                        if state_key in seen:
+                            continue
+                        seen.add(state_key)
+                        leg = seg_leg(si, board_pi, pi)
+                        q.append((
+                            nsi, npi, legs + [leg],
+                            used_segs | {nsi}, walk_from, xfer_walk + d,
+                        ))
+
+        if best_options:
+            # Drop options where an earlier leg already arrives at the exact
+            # destination halte — the trailing legs are redundant detours.
+            dest_names = {seg_list[si]["stops"][pi]["nama"] for si, pi in goal_set}
+            trimmed = []
+            for opt in best_options:
+                cut = None
+                for i, leg in enumerate(opt["legs"]):
+                    if leg["alight_halte"] in dest_names:
+                        cut = i
+                        break
+                if cut is not None and cut < len(opt["legs"]) - 1:
+                    opt = {**opt, "legs": opt["legs"][:cut + 1],
+                           "type": "direct" if cut == 0 else "transfer"}
+                trimmed.append(opt)
+            best_options = trimmed
+
+            # Count same-stop transfers: where the alight halte of leg N
+            # matches the board halte of leg N+1 exactly. More same-stop
+            # transfers = better (passenger stays put, no walking).
+            def count_same_stop_transfers(opt):
+                legs = opt["legs"]
+                count = 0
+                for i in range(len(legs) - 1):
+                    if legs[i]["alight_halte"].strip().lower() == legs[i + 1]["board_halte"].strip().lower():
+                        count += 1
+                return count
+
+            # Rank: fewer legs, then MOST same-stop transfers (descending),
+            # then least total walking, then fewer bus stops.
+            best_options.sort(key=lambda p: (
+                len(p["legs"]),
+                -count_same_stop_transfers(p),
+                p["walk_from_km"] + p["walk_to_km"] + p.get("transfer_walk_km", 0),
+                sum(l["num_stops"] for l in p["legs"]),
+            ))
+            # Deduplicate by the sequence of (route, board, alight).
+            uniq = []
+            sig_seen = set()
+            for opt in best_options:
+                sig = tuple((l["route_id"], l["board_halte"], l["alight_halte"]) for l in opt["legs"])
+                if sig in sig_seen:
+                    continue
+                sig_seen.add(sig)
+                uniq.append(opt)
+
+            # If direct options exist, prioritize and return ONLY direct options
+            direct_opts = [opt for opt in uniq if opt["type"] == "direct"]
+            if direct_opts:
+                return {"found": True, "options": direct_opts[:3]}
+
+            return {"found": True, "options": uniq[:3]}
 
         return {"found": False, "options": [], "message": "Tidak ditemukan rute bus yang menghubungkan lokasi ini."}
     except Exception as e:

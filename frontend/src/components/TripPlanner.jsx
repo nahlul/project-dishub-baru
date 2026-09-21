@@ -1,114 +1,267 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Route as RouteIcon, MapPin, Navigation, Search, Bus, ArrowRight,
-  Loader2, AlertCircle, Clock, Footprints, RefreshCw,
+  Loader2, AlertCircle, Clock, Footprints, RefreshCw, CheckCircle2, Info,
+  ChevronDown, ChevronUp, List,
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
 import { routesAPI } from '@/lib/api';
-import { formatKm, currentDayKey, DAY_LABELS, DAY_KEYS } from '@/lib/routeUtils';
+import { TRANS_ROUTES } from '@/lib/transData';
+import {
+  formatKm,
+  currentDayKey,
+  DAY_LABELS,
+  DAY_KEYS,
+  planJourneyClient,
+  getAllHaltesDirectoryClient,
+  getNearestHaltesClient,
+  getTransitHubBadge,
+} from '@/lib/routeUtils';
 import HalteMap from './HalteMap';
 
-// Feature 4: plan a trip from origin (user location or typed) to a destination.
 const TripPlanner = () => {
-  const [origin, setOrigin] = useState(null); // {lat,lng,label}
+  const [allHaltes, setAllHaltes] = useState([]);
   const [originText, setOriginText] = useState('');
+  const [originHalte, setOriginHalte] = useState(null);
+  const [originSuggestions, setOriginSuggestions] = useState([]);
+
   const [destText, setDestText] = useState('');
+  const [destHalte, setDestHalte] = useState(null);
   const [destSuggestions, setDestSuggestions] = useState([]);
-  const [dest, setDest] = useState(null); // {lat,lng,label}
+
   const [day, setDay] = useState(currentDayKey());
   const [locating, setLocating] = useState(false);
   const [planning, setPlanning] = useState(false);
-  const [geocoding, setGeocoding] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
+  const [expandedLegs, setExpandedLegs] = useState({});
+
+  const renderStopList = (leg, legKey) => {
+    if (!leg || !leg.stops || leg.stops.length === 0) return null;
+    const isExpanded = expandedLegs[legKey] !== false; // Default: expanded so users immediately see stops
+
+    return (
+      <div className="mt-3 bg-white border border-slate-200 rounded-xl p-3.5 shadow-xs">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 font-bold text-xs text-slate-800">
+            <List className="w-4 h-4 text-sky-600" />
+            <span>Daftar Halte yang Dilewati ({leg.stops.length} Halte):</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setExpandedLegs((prev) => ({ ...prev, [legKey]: !isExpanded }))}
+            className="text-[11px] font-bold text-sky-600 hover:text-sky-800 flex items-center gap-1 bg-sky-50 px-2.5 py-1 rounded-lg border border-sky-200 hover:bg-sky-100 transition-colors"
+          >
+            <span>{isExpanded ? 'Sembunyikan' : 'Lihat Semua Halte'}</span>
+            {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+          </button>
+        </div>
+
+        {isExpanded && (
+          <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {leg.stops.map((stopName, sIdx) => {
+                const isFirst = sIdx === 0;
+                const isLast = sIdx === leg.stops.length - 1;
+
+                return (
+                  <div
+                    key={sIdx}
+                    className={`flex items-center gap-2 p-2 rounded-lg text-xs transition-colors ${
+                      isFirst
+                        ? 'bg-emerald-50 border border-emerald-300 text-emerald-950 font-bold'
+                        : isLast
+                        ? 'bg-rose-50 border border-rose-300 text-rose-950 font-bold'
+                        : 'bg-slate-50 border border-slate-200 text-slate-700'
+                    }`}
+                  >
+                    <span
+                      className={`w-5 h-5 rounded-md flex items-center justify-center font-mono text-[10px] font-black flex-shrink-0 ${
+                        isFirst
+                          ? 'bg-emerald-600 text-white'
+                          : isLast
+                          ? 'bg-rose-600 text-white'
+                          : 'bg-sky-100 text-sky-800 border border-sky-200'
+                      }`}
+                    >
+                      {sIdx + 1}
+                    </span>
+                    <span className="truncate leading-tight flex-grow" title={stopName}>
+                      {stopName}
+                    </span>
+                    {isFirst && (
+                      <span className="ml-auto text-[10px] bg-emerald-600 text-white px-1.5 py-0.5 rounded font-bold uppercase tracking-tight flex-shrink-0">
+                        Naik
+                      </span>
+                    )}
+                    {isLast && (
+                      <span className="ml-auto text-[10px] bg-rose-600 text-white px-1.5 py-0.5 rounded font-bold uppercase tracking-tight flex-shrink-0">
+                        Turun
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    const haltesList = getAllHaltesDirectoryClient();
+    setAllHaltes(haltesList);
+  }, []);
+
+  const handleOriginChange = (val) => {
+    setOriginText(val);
+    setOriginHalte(null);
+    if (!val.trim()) {
+      setOriginSuggestions([]);
+      return;
+    }
+    const q = val.toLowerCase().trim();
+    const matches = allHaltes.filter((h) => h.nama.toLowerCase().includes(q));
+    setOriginSuggestions(matches.slice(0, 8));
+  };
+
+  const pickOrigin = (halte) => {
+    setOriginHalte(halte);
+    setOriginText(halte.nama);
+    setOriginSuggestions([]);
+  };
+
+  const handleDestChange = (val) => {
+    setDestText(val);
+    setDestHalte(null);
+    if (!val.trim()) {
+      setDestSuggestions([]);
+      return;
+    }
+    const q = val.toLowerCase().trim();
+    const matches = allHaltes.filter((h) => h.nama.toLowerCase().includes(q));
+    setDestSuggestions(matches.slice(0, 8));
+  };
+
+  const pickDest = (halte) => {
+    setDestHalte(halte);
+    setDestText(halte.nama);
+    setDestSuggestions([]);
+  };
 
   const useMyLocation = () => {
     setError('');
     if (!('geolocation' in navigator)) {
-      setError('Peramban Anda tidak mendukung layanan lokasi.');
+      setError('Browser tidak mendukung Geolocation.');
       return;
     }
     setLocating(true);
+
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        setOrigin({ lat: pos.coords.latitude, lng: pos.coords.longitude, label: 'Lokasi Anda' });
-        setOriginText('Lokasi Anda');
+        const nearest = getNearestHaltesClient(
+          pos.coords.latitude,
+          pos.coords.longitude,
+          1,
+          day
+        );
+        if (nearest && nearest.length) {
+          const top = nearest[0];
+          setOriginHalte(top);
+          setOriginText(`${top.nama} (${formatKm(top.distance_km)} dari lokasi Anda)`);
+        } else {
+          setError('Tidak dapat menemukan halte terdekat dari lokasi Anda.');
+        }
         setLocating(false);
       },
       (err) => {
         setLocating(false);
-        setError(
-          err.code === err.PERMISSION_DENIED
-            ? 'Izin lokasi ditolak. Ketik lokasi asal secara manual atau aktifkan izin lokasi.'
-            : 'Tidak dapat menentukan lokasi Anda.'
-        );
+        setError('Gagal mengakses lokasi GPS Anda. Silakan ketik halte asal secara manual.');
       },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      { enableHighAccuracy: true, timeout: 10000 }
     );
-  };
-
-  const geocodeOrigin = async () => {
-    if (originText.trim().length < 2 || originText === 'Lokasi Anda') return;
-    try {
-      const { data } = await routesAPI.geocode(originText);
-      if (data.length) {
-        setOrigin({ lat: data[0].lat, lng: data[0].lng, label: originText });
-      } else {
-        setError(`Lokasi asal "${originText}" tidak ditemukan.`);
-      }
-    } catch {
-      setError('Gagal mencari lokasi asal.');
-    }
-  };
-
-  const searchDest = async (value) => {
-    setDestText(value);
-    setDest(null);
-    if (value.trim().length < 2) {
-      setDestSuggestions([]);
-      return;
-    }
-    setGeocoding(true);
-    try {
-      const { data } = await routesAPI.geocode(value);
-      setDestSuggestions(data);
-    } catch {
-      setDestSuggestions([]);
-    } finally {
-      setGeocoding(false);
-    }
-  };
-
-  const pickDest = (item) => {
-    setDest({ lat: item.lat, lng: item.lng, label: item.display_name });
-    setDestText(item.display_name.split(',')[0]);
-    setDestSuggestions([]);
   };
 
   const plan = async () => {
     setError('');
     setResult(null);
-    if (!origin) {
-      setError('Tentukan lokasi asal dahulu (pakai lokasi Anda atau ketik lokasi).');
+
+    let rawOrig = originHalte ? originHalte.nama : originText.trim();
+    let rawDst = destHalte ? destHalte.nama : destText.trim();
+
+    if (!rawOrig) {
+      setError('Tentukan halte asal terlebih dahulu.');
       return;
     }
-    if (!dest) {
-      setError('Pilih tujuan dari daftar saran.');
+    if (!rawDst) {
+      setError('Tentukan halte tujuan terlebih dahulu.');
       return;
     }
+
+    // Auto-resolve typed names against allHaltes directory if not selected via dropdown
+    let resolvedOrigin = originHalte;
+    if (!resolvedOrigin && rawOrig) {
+      const match = allHaltes.find(
+        (h) => h.nama.toLowerCase().trim() === rawOrig.toLowerCase().trim()
+      ) || allHaltes.find(
+        (h) => h.nama.toLowerCase().includes(rawOrig.toLowerCase().trim())
+      );
+      if (match) resolvedOrigin = match;
+    }
+
+    let resolvedDest = destHalte;
+    if (!resolvedDest && rawDst) {
+      const match = allHaltes.find(
+        (h) => h.nama.toLowerCase().trim() === rawDst.toLowerCase().trim()
+      ) || allHaltes.find(
+        (h) => h.nama.toLowerCase().includes(rawDst.toLowerCase().trim())
+      );
+      if (match) resolvedDest = match;
+    }
+
+    const origName = resolvedOrigin ? resolvedOrigin.nama : rawOrig;
+    const dstName = resolvedDest ? resolvedDest.nama : rawDst;
+
     setPlanning(true);
+
     try {
-      const { data } = await routesAPI.plan({
-        fromLat: origin.lat,
-        fromLng: origin.lng,
-        toLat: dest.lat,
-        toLng: dest.lng,
-        day,
+      if (resolvedOrigin?.lat != null && resolvedDest?.lat != null) {
+        try {
+          const { data } = await routesAPI.plan({
+            fromLat: resolvedOrigin.lat,
+            fromLng: resolvedOrigin.lng,
+            toLat: resolvedDest.lat,
+            toLng: resolvedDest.lng,
+            fromName: origName,
+            toName: dstName,
+            day,
+          });
+          if (data && data.found && data.options?.length > 0) {
+            setResult(data);
+            setPlanning(false);
+            return;
+          }
+        } catch (apiErr) {
+          console.log('Backend plan fallback to client BFS planner');
+        }
+      }
+
+      const clientResult = planJourneyClient({
+        originLat: resolvedOrigin?.lat,
+        originLng: resolvedOrigin?.lng,
+        originName: origName,
+        destLat: resolvedDest?.lat,
+        destLng: resolvedDest?.lng,
+        destName: dstName,
+        dayKey: day,
       });
-      setResult(data);
+
+      setResult(clientResult);
     } catch (err) {
       console.error(err);
-      setError('Gagal merencanakan perjalanan. Coba lagi.');
+      setError('Gagal merencanakan perjalanan. Silakan periksa kembali nama halte.');
     } finally {
       setPlanning(false);
     }
@@ -118,206 +271,291 @@ const TripPlanner = () => {
     const m = [];
     option?.legs?.forEach((leg) => {
       if (leg.board_lat != null)
-        m.push({ lat: leg.board_lat, lng: leg.board_lng, label: `Naik: ${leg.board_halte}`, color: leg.route_warna });
+        m.push({
+          lat: leg.board_lat,
+          lng: leg.board_lng,
+          label: `Naik: ${leg.board_halte}`,
+          color: leg.route_warna || '#0284c7',
+        });
       if (leg.alight_lat != null)
-        m.push({ lat: leg.alight_lat, lng: leg.alight_lng, label: `Turun: ${leg.alight_halte}`, color: leg.route_warna });
+        m.push({
+          lat: leg.alight_lat,
+          lng: leg.alight_lng,
+          label: `Turun: ${leg.alight_halte}`,
+          color: leg.route_warna || '#0284c7',
+        });
     });
     return m;
   };
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="bg-white border-2 border-gray-100 rounded-2xl p-6 mb-6">
-        <div className="flex items-center gap-2 mb-4">
-          <RouteIcon className="w-6 h-6 text-sky-600" />
-          <h3 className="text-xl font-bold text-gray-900">Rencanakan Perjalanan</h3>
+      {/* Form Input Card */}
+      <div className="bg-white border-2 border-gray-100 rounded-3xl p-6 sm:p-8 mb-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-12 h-12 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 flex-shrink-0">
+            <RouteIcon className="w-6 h-6" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-gray-900">Rencanakan Perjalanan</h3>
+            <p className="text-xs text-gray-500">
+              Ketik nama halte asal dan tujuan untuk melihat skema panduan rute (Rute Langsung atau Transit)
+            </p>
+          </div>
         </div>
 
-        {/* Origin */}
-        <label className="block text-sm font-medium text-gray-700 mb-1">Dari (lokasi asal)</label>
-        <div className="flex flex-col sm:flex-row gap-2 mb-4">
-          <Input
-            value={originText}
-            onChange={(e) => { setOriginText(e.target.value); setOrigin(null); }}
-            onBlur={geocodeOrigin}
-            placeholder="Ketik lokasi asal (mis. Darussalam) atau pakai lokasi Anda"
-            className="flex-1 rounded-xl border-2 border-gray-200 focus:border-sky-500"
-          />
-          <button
-            onClick={useMyLocation}
-            disabled={locating}
-            className="inline-flex items-center justify-center gap-2 bg-sky-50 hover:bg-sky-100 text-sky-700 border-2 border-sky-200 font-medium px-4 py-2 rounded-xl whitespace-nowrap"
-          >
-            {locating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Navigation className="w-4 h-4" />}
-            Lokasi Saya
-          </button>
-        </div>
+        {/* Origin Autocomplete */}
+        <div className="mb-4 relative">
+          <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Halte Asal (Origin)
+          </label>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <div className="relative flex-1">
+              <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-sky-600" />
+              <Input
+                value={originText}
+                onChange={(e) => handleOriginChange(e.target.value)}
+                placeholder="Ketik nama halte asal (mis. Bandara SIM, Pelabuhan Ulee Lheue)"
+                className="pl-10 rounded-xl border-2 border-gray-200 focus:border-sky-500"
+              />
+            </div>
 
-        {/* Destination */}
-        <label className="block text-sm font-medium text-gray-700 mb-1">Ke (tujuan)</label>
-        <div className="relative mb-4">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-          <Input
-            value={destText}
-            onChange={(e) => searchDest(e.target.value)}
-            placeholder="Ketik tujuan (mis. Masjid Raya, Bandara SIM)"
-            className="pl-10 rounded-xl border-2 border-gray-200 focus:border-sky-500"
-          />
-          {geocoding && (
-            <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 animate-spin" />
-          )}
-          {destSuggestions.length > 0 && (
-            <div className="absolute z-[1000] mt-1 w-full bg-white border-2 border-gray-100 rounded-xl shadow-lg max-h-56 overflow-y-auto">
-              {destSuggestions.map((s, i) => (
+            <button
+              onClick={useMyLocation}
+              disabled={locating}
+              className="inline-flex items-center justify-center gap-2 bg-sky-50 hover:bg-sky-100 text-sky-700 border-2 border-sky-200 font-semibold px-4 py-2.5 rounded-xl text-xs whitespace-nowrap transition-colors"
+            >
+              {locating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Navigation className="w-4 h-4" />}
+              Lokasi Saya (Halte Terdekat)
+            </button>
+          </div>
+
+          {originSuggestions.length > 0 && (
+            <div className="absolute z-50 mt-1 w-full bg-white border-2 border-gray-100 rounded-2xl shadow-xl max-h-56 overflow-y-auto">
+              {originSuggestions.map((s, i) => (
                 <button
                   key={i}
-                  onClick={() => pickDest(s)}
-                  className="w-full text-left px-4 py-2.5 hover:bg-sky-50 border-b border-gray-50 last:border-0 text-sm flex items-start gap-2"
+                  onClick={() => pickOrigin(s)}
+                  className="w-full text-left px-4 py-2.5 hover:bg-sky-50 border-b border-gray-50 last:border-0 text-sm flex items-center justify-between"
                 >
-                  <MapPin className="w-4 h-4 text-sky-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{s.display_name}</span>
+                  <span className="font-semibold text-gray-800">{s.nama}</span>
+                  <span className="text-xs text-gray-400">{s.routes?.length} Rute</span>
                 </button>
               ))}
             </div>
           )}
         </div>
 
-        {/* Day + plan button */}
-        <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+        {/* Destination Autocomplete */}
+        <div className="mb-6 relative">
+          <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Halte Tujuan (Destination)
+          </label>
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-sky-600" />
+            <Input
+              value={destText}
+              onChange={(e) => handleDestChange(e.target.value)}
+              placeholder="Ketik nama halte tujuan (mis. Masjid Raya, Darussalam, Mata Ie)"
+              className="pl-10 rounded-xl border-2 border-gray-200 focus:border-sky-500"
+            />
+          </div>
+
+          {destSuggestions.length > 0 && (
+            <div className="absolute z-50 mt-1 w-full bg-white border-2 border-gray-100 rounded-2xl shadow-xl max-h-56 overflow-y-auto">
+              {destSuggestions.map((s, i) => (
+                <button
+                  key={i}
+                  onClick={() => pickDest(s)}
+                  className="w-full text-left px-4 py-2.5 hover:bg-sky-50 border-b border-gray-50 last:border-0 text-sm flex items-center justify-between"
+                >
+                  <span className="font-semibold text-gray-800">{s.nama}</span>
+                  <span className="text-xs text-gray-400">{s.routes?.length} Rute</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Day & Search Button */}
+        <div className="flex flex-col sm:flex-row gap-3">
           <select
             value={day}
             onChange={(e) => setDay(e.target.value)}
-            className="rounded-xl border-2 border-gray-200 focus:border-sky-500 px-3 py-2 text-sm text-gray-700 bg-white"
+            className="rounded-xl border-2 border-gray-200 focus:border-sky-500 px-4 py-3 text-sm font-semibold text-gray-700 bg-white"
           >
             {DAY_KEYS.map((k) => (
-              <option key={k} value={k}>{DAY_LABELS[k]}</option>
+              <option key={k} value={k}>
+                {DAY_LABELS[k]}
+              </option>
             ))}
           </select>
+
           <button
             onClick={plan}
             disabled={planning}
-            className="flex-1 inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 disabled:opacity-60 text-white font-medium px-6 py-2.5 rounded-xl"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-sky-600 hover:bg-sky-700 disabled:opacity-60 text-white font-bold px-6 py-3 rounded-xl shadow-lg shadow-sky-600/30 transition-all"
           >
-            {planning ? <Loader2 className="w-4 h-4 animate-spin" /> : <RouteIcon className="w-4 h-4" />}
-            Cari Rute Perjalanan
+            {planning ? <Loader2 className="w-5 h-5 animate-spin" /> : <RouteIcon className="w-5 h-5" />}
+            Cari Rute & Panduan Perjalanan
           </button>
         </div>
 
         {error && (
-          <div className="mt-4 flex items-center gap-2 text-sm text-red-600">
-            <AlertCircle className="w-4 h-4" />
+          <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-2xl flex items-center gap-3 text-sm text-red-700">
+            <AlertCircle className="w-5 h-5 flex-shrink-0 text-red-600" />
             <span>{error}</span>
           </div>
         )}
       </div>
 
-      {/* Results */}
+      {/* No Route Found State */}
       {result && !result.found && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 text-center">
-          <AlertCircle className="w-8 h-8 text-amber-500 mx-auto mb-2" />
-          <p className="text-amber-800 font-medium">{result.message || 'Rute tidak ditemukan.'}</p>
-          <p className="text-amber-600 text-sm mt-1">Coba tujuan lain atau lokasi asal yang lebih dekat dengan jalur bus.</p>
+        <div className="bg-amber-50 border-2 border-amber-200 rounded-3xl p-8 text-center">
+          <AlertCircle className="w-10 h-10 text-amber-500 mx-auto mb-3" />
+          <h4 className="font-bold text-amber-900 text-lg mb-1">Rute Tidak Ditemukan</h4>
+          <p className="text-amber-800 text-sm max-w-md mx-auto">
+            {result.message || 'Tidak ada jalur bus langsung maupun transit yang menghubungkan halte ini.'}
+          </p>
         </div>
       )}
 
+      {/* RESULTS VIEW */}
       {result?.found && (
-        <div className="space-y-8">
-          {result.options.map((opt, oi) => (
-            <div key={oi} className="bg-white border-2 border-gray-100 rounded-2xl p-5">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-bold text-gray-900">
-                  Opsi {oi + 1}{' '}
-                  <span className="text-sm font-normal text-gray-500">
-                    ({opt.type === 'direct' ? 'Langsung' : `${opt.legs.length} rute · transit`})
-                  </span>
-                </h4>
-                <span className="text-xs text-gray-500">{DAY_LABELS[day]}</span>
-              </div>
+        <div className="space-y-5">
+          {result.options.map((opt, oi) => {
+            const isDirect = opt.type === 'direct';
 
-              <HalteMap markers={mapMarkers(opt)} height={260} />
-
-              <ol className="mt-5 space-y-4">
-                {/* walk to first board */}
-                <li className="flex items-start gap-3 text-sm text-gray-600">
-                  <span className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                    <Footprints className="w-4 h-4 text-gray-500" />
-                  </span>
-                  <div className="pt-1">
-                    Jalan kaki ±{formatKm(opt.walk_from_km)} ke halte{' '}
-                    <span className="font-semibold text-gray-900">{opt.legs[0].board_halte}</span>
+            return (
+              <div key={oi} className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                {/* Option Header */}
+                <div className={`flex items-center justify-between px-4 py-3 ${isDirect ? 'bg-emerald-600' : 'bg-sky-700'}`}>
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-white/20 text-white text-xs font-black flex items-center justify-center">{oi + 1}</span>
+                    <span className="text-white font-bold text-sm">
+                      {isDirect
+                        ? '🟢 Rute Langsung (Tanpa Transit)'
+                        : `🔄 Rute Transit (${opt.legs.length - 1}× Ganti Bus)`}
+                    </span>
                   </div>
-                </li>
+                  <span className="text-xs text-white/80 font-semibold">{opt.total_stops} halte total</span>
+                </div>
 
-                {opt.legs.map((leg, li) => (
-                  <li key={li} className="flex items-start gap-3">
-                    <span
-                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-white"
-                      style={{ backgroundColor: leg.route_warna }}
-                    >
-                      <Bus className="w-4 h-4" />
-                    </span>
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-semibold text-gray-900">Rute {leg.route_nama}</span>
-                        {leg.departure && (
-                          <span className="inline-flex items-center gap-1 text-xs bg-sky-50 text-sky-700 px-2 py-0.5 rounded-full">
-                            <Clock className="w-3 h-3" /> Berangkat ±{leg.departure}
-                          </span>
-                        )}
-                        <span className="text-xs text-gray-500">{leg.num_stops} halte</span>
-                      </div>
-                      <div className="mt-1 flex items-center gap-2 text-sm text-gray-600">
-                        <span className="font-medium">{leg.board_halte}</span>
-                        <ArrowRight className="w-3 h-3 text-gray-400" />
-                        <span className="font-medium">{leg.alight_halte}</span>
-                      </div>
-                      {leg.stops?.length > 2 && (
-                        <details className="mt-1">
-                          <summary className="text-xs text-sky-600 cursor-pointer">
-                            Lihat {leg.stops.length} halte perhentian
-                          </summary>
-                          <div className="mt-1 flex flex-wrap gap-1">
-                            {leg.stops.map((s, si) => (
-                              <span key={si} className="text-xs bg-gray-50 text-gray-600 px-2 py-0.5 rounded">
-                                {s}
-                              </span>
-                            ))}
-                          </div>
-                        </details>
-                      )}
-                    </div>
-                  </li>
-                ))}
-
-                {opt.type === 'transfer' && (
-                  <li className="flex items-start gap-3 text-sm text-gray-600">
-                    <span className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                      <RefreshCw className="w-4 h-4 text-gray-500" />
-                    </span>
-                    <div className="pt-1">
-                      Transit ±{formatKm(opt.interchange_km)} antara halte{' '}
-                      <span className="font-semibold text-gray-900">{opt.legs[0].alight_halte}</span> dan{' '}
-                      <span className="font-semibold text-gray-900">{opt.legs[1].board_halte}</span>
-                    </div>
-                  </li>
+                {/* Map */}
+                {opt.legs?.some((l) => l.board_lat != null) && (
+                  <div className="border-b border-gray-100">
+                    <HalteMap markers={mapMarkers(opt)} height={220} />
+                  </div>
                 )}
 
-                {/* walk from last alight */}
-                <li className="flex items-start gap-3 text-sm text-gray-600">
-                  <span className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
-                    <Footprints className="w-4 h-4 text-gray-500" />
-                  </span>
-                  <div className="pt-1">
-                    Jalan kaki ±{formatKm(opt.walk_to_km)} dari halte{' '}
-                    <span className="font-semibold text-gray-900">
-                      {opt.legs[opt.legs.length - 1].alight_halte}
-                    </span>{' '}
-                    ke tujuan.
-                  </div>
-                </li>
-              </ol>
-            </div>
-          ))}
+                {/* Legs */}
+                <div className="p-4 space-y-1">
+                  {opt.legs.map((leg, li) => {
+                    const legKey = `${oi}-leg${li}`;
+                    const isExp = expandedLegs[legKey] !== false;
+                    const stops = leg.stops || [];
+
+                    const prevLeg = li > 0 ? opt.legs[li - 1] : null;
+                    const isSameStopTransfer = prevLeg && prevLeg.alight_halte.toLowerCase().trim() === leg.board_halte.toLowerCase().trim();
+
+                    return (
+                      <div key={li}>
+                        {/* Transit connector between legs */}
+                        {li > 0 && (
+                          <div className="flex items-center gap-2.5 py-3 px-3.5 my-2 bg-amber-50 border border-amber-200 rounded-xl">
+                            <RefreshCw className="w-4 h-4 text-amber-600 flex-shrink-0 animate-spin-slow" />
+                            <p className="text-xs sm:text-sm text-amber-900 font-semibold leading-relaxed">
+                              {isSameStopTransfer ? (
+                                <>
+                                  <span className="font-bold text-amber-950">Transit &amp; Ganti Bus</span> di{' '}
+                                  <span className="font-black text-amber-950 bg-amber-200/70 px-1.5 py-0.5 rounded">{prevLeg.alight_halte}</span>
+                                  {' ➔ '}Pindah ke bus <span className="font-black text-amber-950">Rute {leg.route_nama}</span> (Arah: {leg.arah}).
+                                </>
+                              ) : (
+                                <>
+                                  <span className="font-bold text-amber-950">Transit Halte</span>: Turun di{' '}
+                                  <span className="font-black text-amber-950 bg-amber-200/70 px-1.5 py-0.5 rounded">{prevLeg.alight_halte}</span>
+                                  {', '}jalan ke{' '}
+                                  <span className="font-black text-amber-950 bg-amber-200/70 px-1.5 py-0.5 rounded">{leg.board_halte}</span>
+                                  {' '}untuk ganti bus <span className="font-black text-amber-950">Rute {leg.route_nama}</span> (Arah: {leg.arah}).
+                                </>
+                              )}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Leg Card */}
+                        <div className="border border-gray-200 rounded-xl overflow-hidden">
+                          {/* Leg Header */}
+                          <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 border-b border-gray-200">
+                            <Bus className="w-5 h-5 text-sky-600 flex-shrink-0" />
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="font-black text-gray-900 text-sm">
+                                  Trayek {li + 1}: Rute {leg.route_nama}
+                                </span>
+                                {leg.departure && (
+                                  <span className="flex items-center gap-1 text-xs text-sky-600 font-semibold bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200">
+                                    <Clock className="w-3 h-3" />
+                                    Berangkat ±{leg.departure}
+                                  </span>
+                                )}
+                                <span className="text-xs text-gray-500 font-semibold bg-gray-100 px-2 py-0.5 rounded-full">
+                                  {leg.num_stops} halte
+                                </span>
+                              </div>
+                              <p className="text-xs text-gray-500 mt-0.5 truncate">Arah: {leg.arah}</p>
+                            </div>
+                          </div>
+
+                          {/* Board / Alight */}
+                          <div className="px-4 py-3 flex items-center gap-2 flex-wrap text-sm">
+                            <span className="text-emerald-700 font-bold">Naik:</span>
+                            <span className="font-semibold text-gray-800">{leg.board_halte}</span>
+                            <ArrowRight className="w-4 h-4 text-gray-400 flex-shrink-0" />
+                            <span className="text-red-600 font-bold">Turun:</span>
+                            <span className="font-semibold text-gray-800">{leg.alight_halte}</span>
+                          </div>
+
+                          {/* Stop List */}
+                          {stops.length > 0 && (
+                            <div className="px-4 pb-3">
+                              <button
+                                type="button"
+                                onClick={() => setExpandedLegs((prev) => ({ ...prev, [legKey]: !isExp }))}
+                                className="flex items-center gap-1.5 text-xs text-sky-600 font-bold hover:text-sky-800 mb-2"
+                              >
+                                {isExp ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                                {isExp ? 'Sembunyikan' : `Lihat ${stops.length} halte perhentian`}
+                              </button>
+                              {isExp && (
+                                <div className="flex flex-wrap gap-1.5">
+                                  {stops.map((s, si) => (
+                                    <span
+                                      key={si}
+                                      className={`inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full font-medium border ${
+                                        si === 0
+                                          ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                                          : si === stops.length - 1
+                                          ? 'bg-red-100 text-red-800 border-red-300'
+                                          : 'bg-gray-100 text-gray-700 border-gray-200'
+                                      }`}
+                                    >
+                                      {s}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

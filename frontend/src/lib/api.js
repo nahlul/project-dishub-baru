@@ -113,14 +113,15 @@ export const routesAPI = {
   geocode: (q) =>
     api.get(`/routes/geocode?q=${encodeURIComponent(q)}`, { withCredentials: false }),
 
-  plan: ({ fromLat, fromLng, toLat, toLng, day, departAfter }) => {
-    const params = new URLSearchParams({
-      from_lat: fromLat,
-      from_lng: fromLng,
-      to_lat: toLat,
-      to_lng: toLng,
-      day: day || 'senin_kamis',
-    });
+  plan: ({ fromLat, fromLng, toLat, toLng, day, departAfter, fromName, toName }) => {
+    const params = new URLSearchParams();
+    if (fromLat != null) params.set('from_lat', fromLat);
+    if (fromLng != null) params.set('from_lng', fromLng);
+    if (toLat != null) params.set('to_lat', toLat);
+    if (toLng != null) params.set('to_lng', toLng);
+    if (fromName) params.set('from_name', fromName);
+    if (toName) params.set('to_name', toName);
+    if (day) params.set('day', day || 'senin_kamis');
     if (departAfter) params.set('depart_after', departAfter);
     return api.get(`/routes/plan?${params.toString()}`, { withCredentials: false });
   },

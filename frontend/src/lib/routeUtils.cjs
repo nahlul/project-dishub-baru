@@ -1,6 +1,6 @@
-import { TRANS_ROUTES } from './transData.js';
+const { TRANS_ROUTES } = require('./transData.cjs');
 
-export const DAY_LABELS = {
+const DAY_LABELS = {
   senin_kamis: 'Senin - Kamis',
   jumat: "Jum'at",
   sabtu: 'Sabtu',
@@ -8,9 +8,9 @@ export const DAY_LABELS = {
   sabtu_minggu: 'Sabtu - Minggu',
 };
 
-export const DAY_KEYS = ['senin_kamis', 'jumat', 'sabtu', 'minggu', 'sabtu_minggu'];
+const DAY_KEYS = ['senin_kamis', 'jumat', 'sabtu', 'minggu', 'sabtu_minggu'];
 
-export function currentDayKey() {
+function currentDayKey() {
   const d = new Date().getDay();
   if (d === 5) return 'jumat';
   if (d === 6) return 'sabtu';
@@ -18,7 +18,7 @@ export function currentDayKey() {
   return 'senin_kamis';
 }
 
-export function timesForDay(jadwal = {}, dayKey) {
+function timesForDay(jadwal = {}, dayKey) {
   if (jadwal[dayKey]?.length) return jadwal[dayKey];
   if ((dayKey === 'sabtu' || dayKey === 'minggu') && jadwal.sabtu_minggu?.length) {
     return jadwal.sabtu_minggu;
@@ -27,12 +27,12 @@ export function timesForDay(jadwal = {}, dayKey) {
   return jadwal[dayKey] || [];
 }
 
-export function minutesNow() {
+function minutesNow() {
   const now = new Date();
   return now.getHours() * 60 + now.getMinutes();
 }
 
-export function nextBus(jadwal, dayKey, refMinutes = minutesNow()) {
+function nextBus(jadwal, dayKey, refMinutes = minutesNow()) {
   const times = timesForDay(jadwal, dayKey);
   for (const time of times) {
     const [h, m] = time.split(':').map(Number);
@@ -42,7 +42,7 @@ export function nextBus(jadwal, dayKey, refMinutes = minutesNow()) {
   return null;
 }
 
-export function formatKm(km) {
+function formatKm(km) {
   if (km == null || isNaN(km)) return '';
   if (km < 1) return `${Math.round(km * 1000)} m`;
   return `${km.toFixed(1)} km`;
@@ -52,7 +52,7 @@ export function formatKm(km) {
  * Haversine formula calculation for distance between 2 coordinates in km.
  * d = 2R * asin( sqrt( sin^2(dlat/2) + cos(lat1)*cos(lat2)*sin^2(dlng/2) ) )
  */
-export function haversineKm(lat1, lng1, lat2, lng2) {
+function haversineKm(lat1, lng1, lat2, lng2) {
   if (lat1 == null || lng1 == null || lat2 == null || lng2 == null) return Infinity;
   const R = 6371.0; // Earth radius in km
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -66,7 +66,7 @@ export function haversineKm(lat1, lng1, lat2, lng2) {
 }
 
 // Transit Hub Definitions
-export const TRANSIT_HUBS = [
+const TRANSIT_HUBS = [
   'masjid raya baiturrahman',
   'pasar aceh',
   'blang padang',
@@ -83,12 +83,12 @@ export const TRANSIT_HUBS = [
   'pelabuhan ulee lheue',
 ];
 
-export function isTransitHub(halteName = '') {
+function isTransitHub(halteName = '') {
   const norm = halteName.toLowerCase();
   return TRANSIT_HUBS.some((hub) => norm.includes(hub));
 }
 
-export function getTransitHubBadge(halteName = '') {
+function getTransitHubBadge(halteName = '') {
   const norm = halteName.toLowerCase();
   if (norm.includes('masjid raya baiturrahman')) return 'Titik Transit Utama Antar-Koridor';
   if (norm.includes('pasar aceh') || norm.includes('blang padang')) return 'Titik Transit Pusat Kota';
@@ -105,7 +105,7 @@ export function getTransitHubBadge(halteName = '') {
 /**
  * Get all OTHER corridors connecting at this transit stop
  */
-export function getConnectingCorridors(halteName = '', currentRouteId = '') {
+function getConnectingCorridors(halteName = '', currentRouteId = '') {
   if (!halteName) return [];
   const norm = halteName.trim().toLowerCase();
   const connectingMap = new Map();
@@ -132,7 +132,7 @@ export function getConnectingCorridors(halteName = '', currentRouteId = '') {
 /**
  * Split route haltes into separated directions (Arah Pergi vs Arah Pulang)
  */
-export function getDirectionsForRoute(route) {
+function getDirectionsForRoute(route) {
   if (!route || !route.halte) return [];
   const groups = [];
   let currentGroup = null;
@@ -155,7 +155,7 @@ export function getDirectionsForRoute(route) {
 /**
  * Calculate nearest haltes for user location
  */
-export function getNearestHaltesClient(userLat, userLng, limit = 5, dayKey = currentDayKey()) {
+function getNearestHaltesClient(userLat, userLng, limit = 5, dayKey = currentDayKey()) {
   if (userLat == null || userLng == null) return [];
   const seenMap = new Map();
 
@@ -213,7 +213,7 @@ export function getNearestHaltesClient(userLat, userLng, limit = 5, dayKey = cur
 /**
  * Get all haltes directory (deduplicated by name)
  */
-export function getAllHaltesDirectoryClient(query = '', dayKey = currentDayKey()) {
+function getAllHaltesDirectoryClient(query = '', dayKey = currentDayKey()) {
   const seenMap = new Map();
   const q = (query || '').toLowerCase().trim();
 
@@ -262,7 +262,7 @@ export function getAllHaltesDirectoryClient(query = '', dayKey = currentDayKey()
 /**
  * Client Journey Planner using multi-leg BFS graph search across bus corridors
  */
-export function planJourneyClient({
+function planJourneyClient({
   originLat,
   originLng,
   originName,
@@ -494,3 +494,5 @@ export function planJourneyClient({
   };
 }
 
+
+module.exports = { planJourneyClient, TRANS_ROUTES };

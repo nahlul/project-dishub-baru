@@ -17,30 +17,32 @@ const NewsDetailPage = () => {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
+    const fetchNewsDetail = async () => {
+      setLoading(true);
+      try {
+        const { data } = await newsAPI.getById(id);
+        setNews(data);
+      } catch (err) {
+        setError('Berita tidak ditemukan');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const fetchAllNews = async () => {
+      try {
+        const { data } = await newsAPI.getAll();
+        setAllNews(data);
+      } catch (err) {
+        console.error('Failed to fetch all news:', err);
+      }
+    };
+
     fetchNewsDetail();
     fetchAllNews();
   }, [id]);
 
-  const fetchNewsDetail = async () => {
-    setLoading(true);
-    try {
-      const { data } = await newsAPI.getById(id);
-      setNews(data);
-    } catch (err) {
-      setError('Berita tidak ditemukan');
-    } finally {
-      setLoading(false);
-    }
-  };
 
-  const fetchAllNews = async () => {
-    try {
-      const { data } = await newsAPI.getAll();
-      setAllNews(data);
-    } catch (err) {
-      console.error('Failed to fetch all news:', err);
-    }
-  };
 
   // Share functions
   const shareToWhatsApp = () => {
