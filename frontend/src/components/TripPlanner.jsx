@@ -356,78 +356,92 @@ const TripPlanner = () => {
 
   const getMapMarkers = (option) => {
     if (!option || !option.legs) return [];
-    const markers = [];
+    const rawMarkers = [];
     const legs = option.legs;
 
-    // 1. Origin Halte Marker (Emerald Green) - ALWAYS PROMINENT #1
+    // 1. Origin Halte Marker (Emerald Green #1) - Always the start
     const firstLeg = legs[0];
-    const originLat = firstLeg.board_lat;
-    const originLng = firstLeg.board_lng;
-
-    if (originLat != null && originLng != null) {
-      markers.push({
-        lat: originLat,
-        lng: originLng,
+    if (firstLeg.board_lat != null && firstLeg.board_lng != null) {
+      rawMarkers.push({
+        lat: firstLeg.board_lat,
+        lng: firstLeg.board_lng,
         label: `Halte Asal: ${firstLeg.board_halte}`,
         sub: `Titik Keberangkatan • Naik Koridor ${firstLeg.route_nama} (Arah: ${firstLeg.arah})`,
-        color: '#10b981',
+        color: '#10b981', // Emerald green
         number: '1',
         isOrigin: true,
       });
     }
 
-    // 2. Intermediate Transit Halte Markers (Amber)
-    let transitStep = 2;
+    // 2. Intermediate Transit Halte Markers (Amber #2, #3, ...)
+    let stepNum = 2;
     for (let i = 0; i < legs.length - 1; i++) {
       const curLeg = legs[i];
       const nextLeg = legs[i + 1];
       const isSameStop =
         curLeg.alight_halte.trim().toLowerCase() === nextLeg.board_halte.trim().toLowerCase();
 
-      // Check distance from origin: if transit stop is at the origin hub/terminal (< 100 meters)
-      const distFromOrigin =
-        originLat != null && curLeg.alight_lat != null
-          ? Math.hypot(curLeg.alight_lat - originLat, curLeg.alight_lng - originLng) * 111000
-          : 999;
-
-      if (distFromOrigin < 100) {
-        // Transfer happens right at the origin hub (e.g. Mata Ie 1 -> Mata Ie 2)
-        if (markers.length > 0) {
-          markers[0].sub = `Titik Keberangkatan • Oper di ${curLeg.alight_halte} ke Koridor ${nextLeg.route_nama}`;
-        }
-        continue; // Never place a transit pin on top of the origin pin!
-      }
-
       if (curLeg.alight_lat != null && curLeg.alight_lng != null) {
-        markers.push({
+        rawMarkers.push({
           lat: curLeg.alight_lat,
           lng: curLeg.alight_lng,
           label: `Halte Transit: ${curLeg.alight_halte}`,
           sub: isSameStop
-            ? `Ganti ke Koridor ${nextLeg.route_nama} (Arah: ${nextLeg.arah})`
+            ? `Oper ke Koridor ${nextLeg.route_nama} (Arah: ${nextLeg.arah})`
             : `Turun di sini, jalan ke ${nextLeg.board_halte} untuk naik Koridor ${nextLeg.route_nama}`,
-          color: '#f59e0b',
-          number: `${transitStep++}`,
+          color: '#f59e0b', // Amber
+          number: `${stepNum++}`,
           isTransit: true,
         });
       }
     }
 
-    // 3. Destination Halte Marker (Red)
+    // 3. Final Destination Halte Marker (Red)
     const lastLeg = legs[legs.length - 1];
     if (lastLeg.alight_lat != null && lastLeg.alight_lng != null) {
-      markers.push({
+      rawMarkers.push({
         lat: lastLeg.alight_lat,
         lng: lastLeg.alight_lng,
         label: `Halte Tujuan: ${lastLeg.alight_halte}`,
         sub: `Tujuan Akhir • Turun dari Koridor ${lastLeg.route_nama}`,
-        color: '#ef4444',
-        number: `${transitStep}`,
+        color: '#ef4444', // Red
+        number: `${stepNum}`,
         isDest: true,
       });
     }
 
-    return markers;
+    // 4. Smart De-overlapping: If any two markers are within ~40 meters of each other,
+    // nudge them slightly apart so BOTH pins are 100% visible and neat!
+    const finalMarkers = [];
+    const usedPositions = [];
+
+    rawMarkers.forEach((m) => {
+      let finalLat = m.lat;
+      let finalLng = m.lng;
+
+      // Count existing markers within 45 meters
+      const conflicting = usedPositions.filter((pos) => {
+        const d = Math.hypot(pos.lat - finalLat, pos.lng - finalLng) * 111000;
+        return d < 45;
+      });
+
+      if (conflicting.length > 0) {
+        // Offset laterally so both markers sit neatly side-by-side
+        const angle = (conflicting.length * Math.PI) / 2;
+        const offsetDegrees = 0.00035; // ~38 meters
+        finalLat = finalLat + Math.sin(angle) * offsetDegrees;
+        finalLng = finalLng + Math.cos(angle) * offsetDegrees;
+      }
+
+      usedPositions.push({ lat: finalLat, lng: finalLng });
+      finalMarkers.push({
+        ...m,
+        lat: finalLat,
+        lng: finalLng,
+      });
+    });
+
+    return finalMarkers;
   };
 
   return (
