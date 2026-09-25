@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import AdminLayout from '@/components/AdminLayout';
 import AdminPageHeader from '@/components/AdminPageHeader';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Plus, Pencil, Trash2, Upload, X } from 'lucide-react';
+import { Plus, Pencil, Trash2, Upload, X, ImageOff } from 'lucide-react';
 import { newsAPI, formatApiErrorDetail } from '@/lib/api';
 import { toast } from 'sonner';
 import {
@@ -27,6 +26,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
+
+const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+const MAX_FILE_MB = 10;
+const MAX_FILE_BYTES = MAX_FILE_MB * 1024 * 1024;
 
 const AdminNews = () => {
   const [newsList, setNewsList] = useState([]);
@@ -61,18 +64,31 @@ const AdminNews = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      if (file.size > 5 * 1024 * 1024) {
-        toast.error('Ukuran file maksimal 5MB');
-        return;
-      }
-      setImageFile(file);
-      setImagePreview(URL.createObjectURL(file));
+    if (!file) return;
+
+    if (!ALLOWED_TYPES.includes(file.type)) {
+      toast.error('Tipe file tidak didukung. Gunakan JPEG, PNG, atau WebP.');
+      return;
     }
+    if (file.size > MAX_FILE_BYTES) {
+      toast.error(`Ukuran file terlalu besar (maks ${MAX_FILE_MB} MB).`);
+      return;
+    }
+
+    // Revoke old preview to avoid memory leak
+    if (imagePreview && !imagePreview.startsWith('http')) {
+      URL.revokeObjectURL(imagePreview);
+    }
+
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
   };
 
   const resetForm = () => {
     setFormData({ title: '', excerpt: '', content: '', category: 'Berita' });
+    if (imagePreview && !imagePreview.startsWith('http')) {
+      URL.revokeObjectURL(imagePreview);
+    }
     setImageFile(null);
     setImagePreview(null);
     setEditingNews(null);
@@ -152,76 +168,80 @@ const AdminNews = () => {
         />
 
         {loading ? (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3].map((i) => (
               <Card key={i} className="animate-pulse">
-                <div className="h-48 bg-gray-200" />
-                <CardContent className="p-4 space-y-3">
-                  <div className="h-4 bg-gray-200 rounded" />
-                  <div className="h-3 bg-gray-200 rounded w-3/4" />
+                <div className="h-44 bg-gray-200 rounded-t-lg" />
+                <CardContent className="p-4 space-y-2">
+                  <div className="h-4 bg-gray-200 rounded w-3/4" />
+                  <div className="h-3 bg-gray-200 rounded w-1/2" />
                 </CardContent>
               </Card>
             ))}
           </div>
         ) : newsList.length === 0 ? (
           <Card>
-            <CardContent className="p-12 text-center text-gray-500">
-              <p>Belum ada berita. Klik "Tambah Berita" untuk memulai.</p>
+            <CardContent className="p-12 text-center">
+              <p className="font-medium text-gray-700 mb-1">Belum ada berita</p>
+              <p className="text-sm text-gray-500">Klik "Tambah Berita" untuk memulai.</p>
             </CardContent>
           </Card>
         ) : (
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {newsList.map((news, index) => (
-              <motion.div
-                key={news.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-              >
-                <Card className="overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
-                  {news.image_url && (
-                    <div className="aspect-video w-full overflow-hidden bg-gray-100">
-                      <img
-                        src={news.image_url}
-                        alt={news.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => { e.target.style.display='none'; }}
-                      />
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {newsList.map((news) => (
+              <Card key={news.id} className="overflow-hidden border border-gray-200 flex flex-col">
+                {news.image_url ? (
+                  <div className="aspect-video w-full overflow-hidden bg-gray-100">
+                    <img
+                      src={news.image_url}
+                      alt={news.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div
+                      className="hidden w-full h-full items-center justify-center flex-col gap-2 text-gray-300"
+                      style={{ display: 'none' }}
+                    >
+                      <ImageOff className="w-8 h-8" />
+                      <span className="text-xs text-gray-400">Gambar tidak tersedia</span>
                     </div>
-                  )}
-                  <CardContent className="p-4 flex-1 flex flex-col">
-                    <span className="inline-block px-2 py-1 text-xs font-medium bg-sky-100 text-sky-700 rounded mb-2 w-fit">
-                      {news.category}
-                    </span>
-                    <h3 className="font-semibold text-gray-900 line-clamp-2 mb-2">
-                      {news.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 line-clamp-2 mb-3 flex-1">
-                      {news.excerpt}
-                    </p>
-                    <p className="text-xs text-gray-500 mb-4">{news.date}</p>
-                    <div className="flex gap-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => handleEdit(news)}
-                        className="flex-1"
-                      >
-                        <Pencil className="w-4 h-4 mr-1" />
-                        Edit
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => setDeleteConfirm(news)}
-                        className="text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                  </div>
+                ) : (
+                  <div className="aspect-video w-full bg-gray-50 flex items-center justify-center border-b border-gray-100">
+                    <ImageOff className="w-8 h-8 text-gray-200" />
+                  </div>
+                )}
+                <CardContent className="p-4 flex-1 flex flex-col">
+                  <span className="inline-block px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 rounded mb-2 w-fit">
+                    {news.category}
+                  </span>
+                  <h3 className="font-semibold text-gray-900 line-clamp-2 mb-1">{news.title}</h3>
+                  <p className="text-sm text-gray-600 line-clamp-2 mb-3 flex-1">{news.excerpt}</p>
+                  <p className="text-xs text-gray-400 mb-3">{news.date}</p>
+                  <div className="flex gap-2">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleEdit(news)}
+                      className="flex-1"
+                    >
+                      <Pencil className="w-3 h-3 mr-1" />
+                      Edit
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => setDeleteConfirm(news)}
+                      className="text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200"
+                    >
+                      <Trash2 className="w-3 h-3" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         )}
@@ -247,12 +267,12 @@ const AdminNews = () => {
               <div className="mt-2">
                 {imagePreview ? (
                   <div className="relative w-full">
-                    <div className="aspect-video w-full rounded-lg overflow-hidden bg-gray-100">
+                    <div className="aspect-video w-full rounded-lg overflow-hidden bg-gray-100 border border-gray-200">
                       <img
                         src={imagePreview}
                         alt="Preview"
                         className="w-full h-full object-cover"
-                        onError={(e) => { e.target.style.display='none'; }}
+                        onError={(e) => { e.target.style.display = 'none'; }}
                       />
                     </div>
                     <Button
@@ -261,6 +281,9 @@ const AdminNews = () => {
                       variant="destructive"
                       className="absolute top-2 right-2 h-8 w-8 p-0 rounded-full"
                       onClick={() => {
+                        if (imagePreview && !imagePreview.startsWith('http')) {
+                          URL.revokeObjectURL(imagePreview);
+                        }
                         setImageFile(null);
                         setImagePreview(null);
                       }}
@@ -269,12 +292,13 @@ const AdminNews = () => {
                     </Button>
                   </div>
                 ) : (
-                  <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-sky-500 transition-colors">
-                    <Upload className="w-12 h-12 text-gray-400 mb-2" />
-                    <span className="text-sm text-gray-600">Upload Foto (Max 5MB)</span>
+                  <label className="flex flex-col items-center justify-center w-full h-44 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-sky-500 transition-colors">
+                    <Upload className="w-10 h-10 text-gray-300 mb-2" />
+                    <span className="text-sm text-gray-600">Upload Foto Cover</span>
+                    <span className="text-xs text-gray-400 mt-1">JPEG, PNG, WebP &bull; maks {MAX_FILE_MB} MB</span>
                     <input
                       type="file"
-                      accept="image/*"
+                      accept="image/jpeg,image/png,image/webp"
                       onChange={handleImageChange}
                       className="hidden"
                     />
@@ -329,7 +353,7 @@ const AdminNews = () => {
               />
             </div>
 
-            <div className="flex gap-3 pt-4">
+            <div className="flex gap-3 pt-2">
               <Button
                 type="button"
                 variant="outline"
@@ -344,7 +368,7 @@ const AdminNews = () => {
                 className="flex-1 bg-sky-600 hover:bg-sky-700"
                 disabled={uploading}
               >
-                {uploading ? 'Menyimpan...' : editingNews ? 'Update' : 'Simpan'}
+                {uploading ? 'Menyimpan...' : editingNews ? 'Update Berita' : 'Simpan Berita'}
               </Button>
             </div>
           </form>

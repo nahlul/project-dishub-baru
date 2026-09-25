@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
 import {
   Bus,
@@ -55,119 +54,109 @@ const AdminLayout = ({ children }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Mobile Sidebar Overlay */}
-      <AnimatePresence>
-        {sidebarOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-            onClick={() => setSidebarOpen(false)}
-          />
-        )}
-      </AnimatePresence>
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
       {/* Sidebar */}
-      <motion.aside
-        initial={false}
-        animate={{ x: sidebarOpen ? 0 : '-100%' }}
-        className="fixed top-0 left-0 h-full w-64 bg-white shadow-xl z-50 lg:translate-x-0 transition-transform duration-300"
+      <aside
+        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 flex flex-col
+          transition-transform duration-300
+          ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+          lg:translate-x-0`}
       >
-        {/* Logo */}
-        <div className="h-16 flex items-center justify-between px-6 border-b border-gray-200">
+        {/* Logo — Navy header per identitas institusional Dishub */}
+        <div className="h-16 flex items-center justify-between px-5 bg-[#1e3a5f]">
           <Link to="/admin/dashboard" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-sky-600 rounded-lg flex items-center justify-center">
-              <Bus className="w-6 h-6 text-white" />
+            <div className="w-9 h-9 bg-white/15 rounded-lg flex items-center justify-center">
+              <Bus className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="font-bold text-gray-900 text-sm">Trans Koetaradja</h1>
-              <p className="text-xs text-gray-500">Admin Panel</p>
+              <h1 className="font-bold text-white text-sm leading-tight">Trans Koetaradja</h1>
+              <p className="text-xs text-blue-200">Admin Panel</p>
             </div>
           </Link>
           <button
             onClick={() => setSidebarOpen(false)}
-            className="lg:hidden text-gray-500 hover:text-gray-700"
+            className="lg:hidden text-white/70 hover:text-white"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* User Info */}
-        <div className="px-6 py-4 border-b border-gray-200 bg-sky-50">
-          <p className="text-xs text-gray-500 mb-1">Masuk sebagai</p>
-          <p className="font-semibold text-gray-900">{user?.username}</p>
+        <div className="px-5 py-3 border-b border-gray-100 bg-gray-50">
+          <p className="text-xs text-gray-400 mb-0.5">Masuk sebagai</p>
+          <p className="font-semibold text-gray-800 text-sm">{user?.username}</p>
         </div>
 
         {/* Navigation */}
-        <nav className="p-4 space-y-1 overflow-y-auto h-[calc(100vh-200px)]">
+        <nav className="flex-1 p-3 space-y-0.5 overflow-y-auto">
           {menuItems.map((item) => {
             const Icon = item.icon;
             const active = isActive(item.path);
-            
+
             return (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors text-sm font-medium ${
                   active
-                    ? 'bg-sky-600 text-white shadow-md'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-sky-600 text-white'
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                 }`}
               >
-                <Icon className="w-5 h-5" />
-                <span className="font-medium text-sm">{item.label}</span>
-                {active && <ChevronRight className="w-4 h-4 ml-auto" />}
+                <Icon className="w-4 h-4 flex-shrink-0" />
+                <span>{item.label}</span>
+                {active && <ChevronRight className="w-3.5 h-3.5 ml-auto" />}
               </Link>
             );
           })}
         </nav>
 
         {/* Logout Button */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200 bg-white">
+        <div className="p-3 border-t border-gray-100">
           <Button
             onClick={() => setShowLogoutDialog(true)}
             variant="outline"
-            className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200"
+            className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200 text-sm h-9"
           >
-            <LogOut className="w-5 h-5 mr-3" />
+            <LogOut className="w-4 h-4 mr-2.5" />
             Keluar
           </Button>
         </div>
-      </motion.aside>
+      </aside>
 
       {/* Main Content */}
       <div className="lg:ml-64">
         {/* Top Bar */}
-        <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 sticky top-0 z-30">
+        <header className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-5 sticky top-0 z-30">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="lg:hidden text-gray-600 hover:text-gray-900"
+            className="lg:hidden text-gray-500 hover:text-gray-800 p-1"
+            aria-label="Buka menu"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5" />
           </button>
-          
-          <div className="flex items-center gap-4 ml-auto">
+
+          <div className="flex items-center gap-3 ml-auto">
             <Link
               to="/"
               target="_blank"
-              className="text-sm text-sky-600 hover:text-sky-700 font-medium flex items-center gap-2"
+              className="text-sm text-sky-600 hover:text-sky-700 font-medium"
             >
               Lihat Website
-              <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </header>
 
         {/* Page Content */}
-        <main className="p-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {children}
-          </motion.div>
+        <main className="p-5 lg:p-6">
+          {children}
         </main>
       </div>
 

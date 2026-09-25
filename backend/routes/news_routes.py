@@ -82,6 +82,10 @@ async def create_news(
         logger.error(f"Create news error: {e}")
         raise HTTPException(status_code=500, detail="Failed to create news")
 
+ALLOWED_MIME_TYPES = {"image/jpeg", "image/png", "image/webp"}
+MAX_UPLOAD_BYTES = 10 * 1024 * 1024  # 10 MB
+
+
 @router.post("/{news_id}/upload-image")
 async def upload_news_image(
     news_id: str,
@@ -93,24 +97,33 @@ async def upload_news_image(
     try:
         # Verify admin authentication
         await get_current_user(request, db)
-        
-        # Validate file type
-        if not file.content_type or not file.content_type.startswith("image/"):
-            raise HTTPException(status_code=400, detail="File must be an image")
-        
+
+        # Validate MIME type — only jpeg, png, webp
+        if not file.content_type or file.content_type not in ALLOWED_MIME_TYPES:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Tipe file tidak didukung. Gunakan JPEG, PNG, atau WebP."
+            )
+
         # Check if news exists
         news = await db.news.find_one({"id": news_id}, {"_id": 0})
         if not news:
             raise HTTPException(status_code=404, detail="News not found")
-        
-        # Read and upload image
+
+        # Read file and validate size
         image_data = await file.read()
-        upload_result = upload_image(image_data, file.filename, folder="news")
-        
-        # Generate public URL pointing to the BACKEND server (not frontend)
+        if len(image_data) > MAX_UPLOAD_BYTES:
+            raise HTTPException(
+                status_code=400,
+                detail=f"File terlalu besar ({len(image_data) // (1024*1024)} MB). Maksimal 10 MB."
+            )
+
+        upload_result = upload_image(image_data, file.filename, folder="news", content_type=file.content_type)
+
+        # Generate public URL pointing to the BACKEND server
         backend_url = os.environ.get('BACKEND_URL', 'http://localhost:8001')
         image_url = f"{backend_url}/api/files/{upload_result['storage_path']}"
-        
+
         # Update news with image info
         await db.news.update_one(
             {"id": news_id},
@@ -122,17 +135,19 @@ async def upload_news_image(
                 }
             }
         )
-        
+
         logger.info(f"Image uploaded for news: {news_id}")
-        
+
         return {
             "message": "Image uploaded successfully",
             "image_url": image_url,
             "storage_path": upload_result["storage_path"]
         }
-        
+
     except HTTPException:
         raise
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         logger.error(f"Upload news image error: {e}")
         raise HTTPException(status_code=500, detail="Failed to upload image")

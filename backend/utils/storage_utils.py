@@ -79,22 +79,40 @@ def resize_image(image_data: bytes, max_width: int = 1200, max_height: int = 800
         raise ValueError(f"Failed to process image: {str(e)}")
 
 
-def upload_image(image_data: bytes, filename: str, folder: str = "uploads") -> dict:
+ALLOWED_MIME_TYPES = {"image/jpeg", "image/png", "image/webp"}
+MAX_UPLOAD_BYTES = 10 * 1024 * 1024  # 10 MB
+
+
+def upload_image(image_data: bytes, filename: str, folder: str = "uploads", content_type: str = None) -> dict:
     """
     Upload image with automatic resizing to local storage.
+    Validates MIME type (jpeg/png/webp only) and size (<= 10 MB).
     Returns dict with path and metadata.
     """
+    import time
+
+    # Validate size
+    if len(image_data) > MAX_UPLOAD_BYTES:
+        mb_sent = len(image_data) / (1024 * 1024)
+        raise ValueError(f"File terlalu besar ({mb_sent:.1f} MB). Maksimal 10 MB.")
+
+    # Validate MIME type
+    if content_type and content_type not in ALLOWED_MIME_TYPES:
+        raise ValueError(f"Tipe file tidak didukung: {content_type}. Gunakan JPEG, PNG, atau WebP.")
+
     # Resize image
     processed_data = resize_image(image_data)
-    
-    # Generate unique path
-    ext = filename.split(".")[-1].lower() if "." in filename else "jpg"
-    unique_filename = f"{uuid.uuid4()}.{ext}"
+
+    # Generate unique path with timestamp prefix
+    ext = filename.rsplit(".", 1)[-1].lower() if "." in filename else "jpg"
+    if ext not in ("jpg", "jpeg", "png", "webp"):
+        ext = "jpg"
+    unique_filename = f"{int(time.time())}_{uuid.uuid4().hex[:8]}.{ext}"
     path = f"{APP_NAME}/{folder}/{unique_filename}"
-    
+
     # Save to local storage
     result = put_object(path, processed_data, "image/jpeg")
-    
+
     return {
         "storage_path": result["path"],
         "original_filename": filename,

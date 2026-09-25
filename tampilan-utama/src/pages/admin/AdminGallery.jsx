@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import AdminLayout from '@/components/AdminLayout';
 import AdminPageHeader from '@/components/AdminPageHeader';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Upload, Trash2, X } from 'lucide-react';
+import { Upload, Trash2, X, ImageOff } from 'lucide-react';
 import { galleryAPI, formatApiErrorDetail } from '@/lib/api';
 import { toast } from 'sonner';
 import {
@@ -27,6 +26,10 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 
+const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+const MAX_FILE_MB = 10;
+const MAX_FILE_BYTES = MAX_FILE_MB * 1024 * 1024;
+
 const AdminGallery = () => {
   const [gallery, setGallery] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,6 +37,7 @@ const AdminGallery = () => {
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [filePreviews, setFilePreviews] = useState([]);
   const [uploadData, setUploadData] = useState({
     title: '',
     category: 'Galeri',
@@ -42,6 +46,13 @@ const AdminGallery = () => {
   useEffect(() => {
     fetchGallery();
   }, []);
+
+  useEffect(() => {
+    // Cleanup object URLs to prevent memory leaks
+    return () => {
+      filePreviews.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [filePreviews]);
 
   const fetchGallery = async () => {
     try {
@@ -56,14 +67,26 @@ const AdminGallery = () => {
 
   const handleFileSelect = (e) => {
     const files = Array.from(e.target.files);
-    const validFiles = files.filter((file) => {
-      if (file.size > 5 * 1024 * 1024) {
-        toast.error(`${file.name} terlalu besar (max 5MB)`);
-        return false;
+    const validFiles = [];
+    const previews = [];
+
+    for (const file of files) {
+      if (!ALLOWED_TYPES.includes(file.type)) {
+        toast.error(`${file.name}: Tipe tidak didukung. Gunakan JPEG, PNG, atau WebP.`);
+        continue;
       }
-      return file.type.startsWith('image/');
-    });
+      if (file.size > MAX_FILE_BYTES) {
+        toast.error(`${file.name}: Terlalu besar (maks ${MAX_FILE_MB} MB).`);
+        continue;
+      }
+      validFiles.push(file);
+      previews.push(URL.createObjectURL(file));
+    }
+
+    // Revoke old previews
+    filePreviews.forEach((url) => URL.revokeObjectURL(url));
     setSelectedFiles(validFiles);
+    setFilePreviews(previews);
   };
 
   const handleUpload = async (e) => {
@@ -83,15 +106,21 @@ const AdminGallery = () => {
       }
       toast.success(`${successCount} foto berhasil diupload`);
       fetchGallery();
-      setShowUploadDialog(false);
-      setSelectedFiles([]);
-      setUploadData({ title: '', category: 'Galeri' });
+      closeUploadDialog();
     } catch (error) {
       const msg = formatApiErrorDetail(error.response?.data?.detail);
       toast.error(msg || `Berhasil upload ${successCount} dari ${selectedFiles.length} foto`);
     } finally {
       setUploading(false);
     }
+  };
+
+  const closeUploadDialog = () => {
+    filePreviews.forEach((url) => URL.revokeObjectURL(url));
+    setSelectedFiles([]);
+    setFilePreviews([]);
+    setUploadData({ title: '', category: 'Galeri' });
+    setShowUploadDialog(false);
   };
 
   const handleDelete = async () => {
@@ -124,90 +153,106 @@ const AdminGallery = () => {
         />
 
         {loading ? (
-          <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
             {[1, 2, 3, 4].map((i) => (
               <Card key={i} className="animate-pulse">
-                <div className="h-64 bg-gray-200" />
+                <div className="h-48 bg-gray-200 rounded-t-lg" />
               </Card>
             ))}
           </div>
         ) : gallery.length === 0 ? (
           <Card>
-            <CardContent className="p-12 text-center text-gray-500">
-              <Upload className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-              <p>Belum ada foto. Klik "Upload Foto" untuk menambahkan.</p>
+            <CardContent className="p-12 text-center">
+              <Upload className="w-12 h-12 mx-auto mb-3 text-gray-300" />
+              <p className="font-medium text-gray-700 mb-1">Belum ada foto</p>
+              <p className="text-sm text-gray-500">Klik "Upload Foto" untuk menambahkan.</p>
             </CardContent>
           </Card>
         ) : (
-          <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {gallery.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.03 }}
-              >
-                <Card className="overflow-hidden group hover:shadow-lg transition-shadow">
-                  <div className="relative aspect-square">
-                    <img
-                      src={item.image_url}
-                      alt={item.title || 'Gallery'}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Button
-                        size="sm"
-                        variant="destructive"
-                        onClick={() => setDeleteConfirm(item)}
-                      >
-                        <Trash2 className="w-4 h-4 mr-1" />
-                        Hapus
-                      </Button>
-                    </div>
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
+            {gallery.map((item) => (
+              <Card key={item.id} className="overflow-hidden border border-gray-200 group">
+                <div className="relative aspect-square bg-gray-100">
+                  <img
+                    src={item.image_url}
+                    alt={item.title || 'Foto galeri'}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div
+                    className="hidden w-full h-full items-center justify-center flex-col gap-2 text-gray-400"
+                    style={{ display: 'none' }}
+                  >
+                    <ImageOff className="w-8 h-8" />
+                    <span className="text-xs">Gambar tidak tersedia</span>
                   </div>
-                  {item.title && (
-                    <CardContent className="p-3">
-                      <p className="text-sm font-medium text-gray-900 truncate">{item.title}</p>
-                      <p className="text-xs text-gray-500">{item.category}</p>
-                    </CardContent>
-                  )}
-                </Card>
-              </motion.div>
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      onClick={() => setDeleteConfirm(item)}
+                    >
+                      <Trash2 className="w-4 h-4 mr-1" />
+                      Hapus
+                    </Button>
+                  </div>
+                </div>
+                {item.title && (
+                  <CardContent className="p-3">
+                    <p className="text-sm font-medium text-gray-900 truncate">{item.title}</p>
+                    <p className="text-xs text-gray-500">{item.category}</p>
+                  </CardContent>
+                )}
+              </Card>
             ))}
           </div>
         )}
       </div>
 
       {/* Upload Dialog */}
-      <Dialog open={showUploadDialog} onOpenChange={setShowUploadDialog}>
+      <Dialog open={showUploadDialog} onOpenChange={(open) => { if (!open) closeUploadDialog(); }}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
             <DialogTitle>Upload Foto Galeri</DialogTitle>
             <DialogDescription>
-              Upload satu atau beberapa foto sekaligus (max 5MB per foto)
+              Pilih satu atau beberapa foto (JPEG, PNG, WebP, maks {MAX_FILE_MB} MB per foto)
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleUpload} className="space-y-4 mt-4">
             <div>
               <Label>Pilih Foto *</Label>
-              <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-sky-500 transition-colors mt-2">
+              <label className="flex flex-col items-center justify-center w-full min-h-[120px] border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-sky-500 transition-colors mt-2 p-4">
                 {selectedFiles.length > 0 ? (
-                  <div className="text-center">
-                    <Upload className="w-12 h-12 text-sky-600 mx-auto mb-2" />
-                    <span className="text-sm font-medium text-gray-900">
+                  <div className="w-full space-y-3">
+                    <p className="text-sm font-medium text-gray-700 text-center">
                       {selectedFiles.length} foto dipilih
-                    </span>
+                    </p>
+                    <div className="grid grid-cols-4 gap-2">
+                      {filePreviews.map((previewUrl, idx) => (
+                        <div key={idx} className="relative aspect-square rounded overflow-hidden bg-gray-100 border border-gray-200">
+                          <img
+                            src={previewUrl}
+                            alt={`Preview ${idx + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <p className="text-xs text-gray-500 text-center">Klik untuk ganti pilihan</p>
                   </div>
                 ) : (
                   <div className="text-center">
-                    <Upload className="w-12 h-12 text-gray-400 mx-auto mb-2" />
+                    <Upload className="w-10 h-10 text-gray-300 mx-auto mb-2" />
                     <span className="text-sm text-gray-600">Klik untuk pilih foto</span>
-                    <span className="text-xs text-gray-500 block mt-1">Bisa pilih beberapa sekaligus</span>
+                    <span className="text-xs text-gray-400 block mt-1">JPEG, PNG, WebP &bull; maks {MAX_FILE_MB} MB per file</span>
                   </div>
                 )}
                 <input
                   type="file"
-                  accept="image/*"
+                  accept="image/jpeg,image/png,image/webp"
                   multiple
                   onChange={handleFileSelect}
                   className="hidden"
@@ -235,11 +280,11 @@ const AdminGallery = () => {
               />
             </div>
 
-            <div className="flex gap-3 pt-4">
+            <div className="flex gap-3 pt-2">
               <Button
                 type="button"
                 variant="outline"
-                onClick={() => setShowUploadDialog(false)}
+                onClick={closeUploadDialog}
                 className="flex-1"
                 disabled={uploading}
               >
@@ -250,7 +295,7 @@ const AdminGallery = () => {
                 className="flex-1 bg-sky-600 hover:bg-sky-700"
                 disabled={uploading || selectedFiles.length === 0}
               >
-                {uploading ? 'Mengupload...' : 'Upload'}
+                {uploading ? 'Mengupload...' : `Upload ${selectedFiles.length > 0 ? `(${selectedFiles.length} foto)` : ''}`}
               </Button>
             </div>
           </form>

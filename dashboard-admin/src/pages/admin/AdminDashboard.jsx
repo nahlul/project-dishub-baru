@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import AdminLayout from '@/components/AdminLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Newspaper, Images, Calendar, TrendingUp, Plus, ArrowRight } from 'lucide-react';
+import { Newspaper, Images, Calendar, Plus } from 'lucide-react';
 import { newsAPI, galleryAPI } from '@/lib/api';
 
 const AdminDashboard = () => {
@@ -38,141 +37,137 @@ const AdminDashboard = () => {
     }
   };
 
-  const statCards = [
-    {
-      title: 'Total Berita',
-      value: stats.totalNews,
-      icon: Newspaper,
-      color: 'bg-sky-500',
-      link: '/admin/news',
-    },
-    {
-      title: 'Total Foto Galeri',
-      value: stats.totalGallery,
-      icon: Images,
-      color: 'bg-purple-500',
-      link: '/admin/gallery',
-    },
-    {
-      title: 'Bulan Ini',
-      value: new Date().toLocaleDateString('id-ID', { month: 'long', year: 'numeric' }),
-      icon: Calendar,
-      color: 'bg-green-500',
-      isText: true,
-    },
-  ];
-
   return (
     <AdminLayout>
       <div className="space-y-6">
         {/* Header */}
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Dashboard Admin</h1>
-            <p className="text-gray-600 mt-1">Selamat datang di panel admin Trans Koetaradja</p>
+            <h1 className="text-2xl font-bold text-gray-900">Dashboard Admin</h1>
+            <p className="text-sm text-gray-500 mt-0.5">Selamat datang di panel admin Trans Koetaradja</p>
           </div>
-          <div className="flex gap-3">
-            <Button asChild className="bg-sky-600 hover:bg-sky-700">
-              <Link to="/admin/news">
-                <Plus className="w-4 h-4 mr-2" />
-                Tambah Berita
-              </Link>
-            </Button>
-          </div>
+          <Button asChild className="bg-sky-600 hover:bg-sky-700 w-fit">
+            <Link to="/admin/news">
+              <Plus className="w-4 h-4 mr-2" />
+              Tambah Berita
+            </Link>
+          </Button>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {statCards.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={stat.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+        {/* Stats Cards — real data only (R-17: no invented numbers) */}
+        <div className="grid gap-4 sm:grid-cols-3">
+          {/* Total Berita */}
+          <Card className="border border-gray-200">
+            <CardContent className="p-5">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Total Berita</p>
+                  <p className="text-3xl font-bold text-gray-900">
+                    {loading ? <span className="text-gray-300">...</span> : stats.totalNews}
+                  </p>
+                </div>
+                <div className="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Newspaper className="w-5 h-5 text-sky-600" />
+                </div>
+              </div>
+              <Link
+                to="/admin/news"
+                className="mt-3 text-xs text-sky-600 hover:text-sky-700 font-medium inline-flex items-center gap-1"
               >
-                <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <p className="text-sm font-medium text-gray-600 mb-2">
-                          {stat.title}
-                        </p>
-                        <p className={`text-3xl font-bold ${stat.isText ? 'text-lg' : 'text-gray-900'}`}>
-                          {loading ? (
-                            <span className="text-gray-400">...</span>
-                          ) : (
-                            stat.value
-                          )}
-                        </p>
-                      </div>
-                      <div className={`${stat.color} p-3 rounded-xl`}>
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                    {stat.link && (
-                      <Link
-                        to={stat.link}
-                        className="mt-4 text-sm text-sky-600 hover:text-sky-700 font-medium inline-flex items-center gap-1"
-                      >
-                        Lihat Detail
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    )}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
+                Kelola Berita
+              </Link>
+            </CardContent>
+          </Card>
+
+          {/* Total Galeri */}
+          <Card className="border border-gray-200">
+            <CardContent className="p-5">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Total Foto Galeri</p>
+                  <p className="text-3xl font-bold text-gray-900">
+                    {loading ? <span className="text-gray-300">...</span> : stats.totalGallery}
+                  </p>
+                </div>
+                <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Images className="w-5 h-5 text-slate-600" />
+                </div>
+              </div>
+              <Link
+                to="/admin/gallery"
+                className="mt-3 text-xs text-sky-600 hover:text-sky-700 font-medium inline-flex items-center gap-1"
+              >
+                Kelola Galeri
+              </Link>
+            </CardContent>
+          </Card>
+
+          {/* Bulan Aktif */}
+          <Card className="border border-gray-200">
+            <CardContent className="p-5">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">Bulan Ini</p>
+                  <p className="text-lg font-bold text-gray-900 leading-tight">
+                    {new Date().toLocaleDateString('id-ID', { month: 'long', year: 'numeric' })}
+                  </p>
+                </div>
+                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-5 h-5 text-emerald-600" />
+                </div>
+              </div>
+              <p className="mt-3 text-xs text-gray-400">Periode aktif saat ini</p>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Recent News */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center justify-between">
+        <Card className="border border-gray-200">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center justify-between text-base">
               <span>Berita Terbaru</span>
               <Link
                 to="/admin/news"
-                className="text-sm font-normal text-sky-600 hover:text-sky-700"
+                className="text-xs font-normal text-sky-600 hover:text-sky-700"
               >
-                Lihat Semua →
+                Lihat Semua
               </Link>
             </CardTitle>
           </CardHeader>
           <CardContent>
             {loading ? (
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="animate-pulse flex items-center gap-4">
-                    <div className="w-20 h-20 bg-gray-200 rounded-lg" />
+                  <div key={i} className="animate-pulse flex items-center gap-3">
+                    <div className="w-16 h-16 bg-gray-200 rounded-lg flex-shrink-0" />
                     <div className="flex-1 space-y-2">
-                      <div className="h-4 bg-gray-200 rounded w-3/4" />
+                      <div className="h-3.5 bg-gray-200 rounded w-3/4" />
                       <div className="h-3 bg-gray-200 rounded w-1/2" />
                     </div>
                   </div>
                 ))}
               </div>
             ) : stats.recentNews.length > 0 ? (
-              <div className="space-y-4">
+              <div className="divide-y divide-gray-100">
                 {stats.recentNews.map((news) => (
                   <div
                     key={news.id}
-                    className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex items-start gap-3 py-3 first:pt-0 last:pb-0"
                   >
                     {news.image_url && (
                       <img
                         src={news.image_url}
                         alt={news.title}
-                        className="w-20 h-20 object-cover rounded-lg"
+                        className="w-16 h-16 object-cover rounded-lg flex-shrink-0 border border-gray-100"
+                        onError={(e) => { e.target.style.display = 'none'; }}
                       />
                     )}
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 line-clamp-2">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-medium text-gray-900 line-clamp-2 text-sm">
                         {news.title}
                       </h3>
-                      <p className="text-sm text-gray-600 mt-1">{news.date}</p>
-                      <span className="inline-block mt-2 px-2 py-1 text-xs font-medium bg-sky-100 text-sky-700 rounded">
+                      <p className="text-xs text-gray-400 mt-1">{news.date}</p>
+                      <span className="inline-block mt-1 px-2 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 rounded">
                         {news.category}
                       </span>
                     </div>
@@ -180,39 +175,52 @@ const AdminDashboard = () => {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-8 text-gray-500">
-                <Newspaper className="w-12 h-12 mx-auto mb-3 text-gray-400" />
-                <p>Belum ada berita</p>
+              <div className="text-center py-8">
+                <Newspaper className="w-10 h-10 mx-auto mb-2 text-gray-200" />
+                <p className="text-sm text-gray-500">Belum ada berita</p>
+                <Link to="/admin/news" className="mt-2 text-xs text-sky-600 hover:underline inline-block">
+                  Tambahkan berita pertama
+                </Link>
               </div>
             )}
           </CardContent>
         </Card>
 
         {/* Quick Actions */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Aksi Cepat</CardTitle>
+        <Card className="border border-gray-200">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base">Aksi Cepat</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { label: 'Kelola Berita', link: '/admin/news', icon: Newspaper, color: 'sky' },
-                { label: 'Kelola Galeri', link: '/admin/gallery', icon: Images, color: 'purple' },
-                { label: 'Edit Kontak', link: '/admin/contact', icon: TrendingUp, color: 'green' },
-                { label: 'Ganti Password', link: '/admin/change-password', icon: Plus, color: 'orange' },
-              ].map((action) => {
-                const Icon = action.icon;
-                return (
-                  <Link
-                    key={action.link}
-                    to={action.link}
-                    className={`p-4 rounded-lg border-2 border-${action.color}-200 hover:border-${action.color}-400 hover:bg-${action.color}-50 transition-all group`}
-                  >
-                    <Icon className={`w-8 h-8 text-${action.color}-600 mb-2 group-hover:scale-110 transition-transform`} />
-                    <p className="font-medium text-gray-900">{action.label}</p>
-                  </Link>
-                );
-              })}
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <Link
+                to="/admin/news"
+                className="p-4 rounded-lg border border-sky-200 hover:border-sky-400 hover:bg-sky-50 transition-colors"
+              >
+                <Newspaper className="w-6 h-6 text-sky-600 mb-2" />
+                <p className="text-sm font-medium text-gray-900">Kelola Berita</p>
+              </Link>
+              <Link
+                to="/admin/gallery"
+                className="p-4 rounded-lg border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition-colors"
+              >
+                <Images className="w-6 h-6 text-slate-600 mb-2" />
+                <p className="text-sm font-medium text-gray-900">Kelola Galeri</p>
+              </Link>
+              <Link
+                to="/admin/contact"
+                className="p-4 rounded-lg border border-emerald-200 hover:border-emerald-400 hover:bg-emerald-50 transition-colors"
+              >
+                <Calendar className="w-6 h-6 text-emerald-600 mb-2" />
+                <p className="text-sm font-medium text-gray-900">Edit Kontak</p>
+              </Link>
+              <Link
+                to="/admin/change-password"
+                className="p-4 rounded-lg border border-gray-200 hover:border-gray-400 hover:bg-gray-50 transition-colors"
+              >
+                <Plus className="w-6 h-6 text-gray-500 mb-2" />
+                <p className="text-sm font-medium text-gray-900">Ganti Password</p>
+              </Link>
             </div>
           </CardContent>
         </Card>

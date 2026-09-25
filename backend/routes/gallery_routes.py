@@ -34,6 +34,10 @@ async def get_all_gallery(db: AsyncIOMotorDatabase = Depends(get_db)):
 
 # ============= ADMIN ENDPOINTS (PROTECTED) =============
 
+ALLOWED_MIME_TYPES = {"image/jpeg", "image/png", "image/webp"}
+MAX_UPLOAD_BYTES = 10 * 1024 * 1024  # 10 MB
+
+
 @router.post("/upload")
 async def upload_gallery_image(
     file: UploadFile = File(...),
@@ -46,19 +50,28 @@ async def upload_gallery_image(
     try:
         # Verify admin authentication
         await get_current_user(request, db)
-        
-        # Validate file type
-        if not file.content_type or not file.content_type.startswith("image/"):
-            raise HTTPException(status_code=400, detail="File must be an image")
-        
-        # Read and upload image
+
+        # Validate MIME type — only jpeg, png, webp
+        if not file.content_type or file.content_type not in ALLOWED_MIME_TYPES:
+            raise HTTPException(
+                status_code=400,
+                detail="Tipe file tidak didukung. Gunakan JPEG, PNG, atau WebP."
+            )
+
+        # Read file and validate size
         image_data = await file.read()
-        upload_result = upload_image(image_data, file.filename, folder="gallery")
-        
-        # Generate public URL pointing to the BACKEND server (not frontend)
+        if len(image_data) > MAX_UPLOAD_BYTES:
+            raise HTTPException(
+                status_code=400,
+                detail=f"File terlalu besar ({len(image_data) // (1024*1024)} MB). Maksimal 10 MB."
+            )
+
+        upload_result = upload_image(image_data, file.filename, folder="gallery", content_type=file.content_type)
+
+        # Generate public URL pointing to the BACKEND server
         backend_url = os.environ.get('BACKEND_URL', 'http://localhost:8001')
         image_url = f"{backend_url}/api/files/{upload_result['storage_path']}"
-        
+
         # Create gallery entry
         gallery = Gallery(
             image_url=image_url,
@@ -66,23 +79,25 @@ async def upload_gallery_image(
             title=title or f"Foto {datetime.now().strftime('%d %B %Y')}",
             category=category
         )
-        
+
         # Insert to database
         gallery_dict = gallery.model_dump()
         gallery_dict["created_at"] = gallery_dict["created_at"].isoformat()
-        
+
         await db.gallery.insert_one(gallery_dict)
-        
+
         logger.info(f"Gallery image uploaded: {gallery.id}")
         await log_activity(db, f"Mengupload foto galeri: {gallery.title}")
-        
+
         return {
             "message": "Image uploaded successfully",
             "gallery": gallery
         }
-        
+
     except HTTPException:
         raise
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         logger.error(f"Upload gallery image error: {e}")
         raise HTTPException(status_code=500, detail="Failed to upload image")
