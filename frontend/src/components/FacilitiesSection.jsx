@@ -1,71 +1,51 @@
 import React from 'react';
 import { facilities } from '../mockData';
 import { ShieldCheck, Users, Clock, MapPin, Wifi, Smartphone } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 
-const iconComponents = {
-  ShieldCheck,
-  Users,
-  Clock,
-  MapPin,
-  Wifi,
-  Smartphone
-};
+const iconComponents = { ShieldCheck, Users, Clock, MapPin, Wifi, Smartphone };
 
 const FacilitiesSection = () => {
   return (
-    <section  className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Fasilitas & Keunggulan
-          </h2>
-          <div className="w-24 h-1 bg-sky-600 mx-auto mb-6" />
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Nikmati perjalanan yang nyaman dengan berbagai fasilitas modern yang kami sediakan
+
+        {/* Header */}
+        <div className="text-center mb-14">
+          <span className="text-sky-500 text-sm font-semibold uppercase tracking-widest">Keunggulan Layanan</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">Fasilitas &amp; Keunggulan</h2>
+          <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
+            Nikmati perjalanan nyaman dengan berbagai fasilitas modern yang kami sediakan
           </p>
         </div>
 
-        {/* Facilities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {facilities.map((facility, index) => {
-            const IconComponent = iconComponents[facility.icon];
+            const Icon = iconComponents[facility.icon];
             return (
-              <Card 
-                key={index} 
-                className="border-2 hover:border-sky-500 hover:shadow-2xl transition-all duration-300 group hover:scale-105 bg-gradient-to-br from-white to-sky-50/30"
+              <div
+                key={index}
+                className="group bg-white border border-gray-100 rounded-2xl p-6 hover:border-sky-200 hover:shadow-lg hover:shadow-sky-500/5 transition-all duration-300"
               >
-                <CardHeader>
-                  <div className="w-14 h-14 bg-sky-100 group-hover:bg-sky-600 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300">
-                    <IconComponent className="w-7 h-7 text-sky-600 group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  <CardTitle className="text-xl font-bold text-gray-900">
-                    {facility.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base text-gray-600 leading-relaxed">
-                    {facility.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                <div className="w-12 h-12 bg-sky-50 group-hover:bg-sky-500 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300">
+                  {Icon && <Icon className="w-6 h-6 text-sky-500 group-hover:text-white transition-colors duration-300" />}
+                </div>
+                <h3 className="font-bold text-gray-900 text-base mb-2">{facility.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{facility.description}</p>
+              </div>
             );
           })}
         </div>
 
-        {/* Additional Info */}
-        <div className="mt-16 max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 p-6 rounded-r-xl">
-            <h3 className="font-bold text-xl text-gray-900 mb-2">
-              Standar Keselamatan Terjamin
-            </h3>
-            <p className="text-gray-700 leading-relaxed">
-              Seluruh armada Trans Koetaradja telah melalui inspeksi keselamatan (rampcheck) dan pemeriksaan berkala. 
-              Dilengkapi dengan sopir profesional yang berpengalaman dan terlatih untuk memberikan pelayanan terbaik.
-            </p>
-          </div>
+        {/* Safety note */}
+        <div className="mt-12 max-w-4xl mx-auto border-l-4 border-sky-500 bg-white rounded-r-2xl p-6">
+          <h4 className="font-bold text-gray-900 mb-1">Standar Keselamatan Terjamin</h4>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            Seluruh armada Trans Koetaradja telah melalui inspeksi keselamatan (rampcheck) dan pemeriksaan berkala.
+            Dilengkapi sopir profesional berpengalaman untuk pelayanan terbaik.
+          </p>
         </div>
+
       </div>
     </section>
   );

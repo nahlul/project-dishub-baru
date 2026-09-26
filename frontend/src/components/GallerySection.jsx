@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { galleryAPI } from '@/lib/api';
-import { X, Loader2 } from 'lucide-react';
-import { Badge } from './ui/badge';
+import { Loader2, ZoomIn } from 'lucide-react';
 import { Dialog, DialogContent } from './ui/dialog';
+import { Badge } from './ui/badge';
 
 const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -10,102 +10,96 @@ const GallerySection = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchGallery();
+    galleryAPI.getAll().then(({ data }) => setGallery(data)).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
-  const fetchGallery = async () => {
-    try {
-      const { data } = await galleryAPI.getAll();
-      setGallery(data);
-    } catch (error) {
-      console.error('Failed to fetch gallery:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <section  className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
+
+        {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Galeri
-          </h2>
-          <div className="w-24 h-1 bg-sky-600 mx-auto mb-6" />
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <span className="text-sky-500 text-sm font-semibold uppercase tracking-widest">Dokumentasi</span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mt-2">Galeri</h2>
+          <p className="text-gray-500 mt-3 max-w-xl mx-auto">
             Lihat armada dan layanan Trans Koetaradja dalam aksi
           </p>
         </div>
 
-        {/* Loading State */}
         {loading ? (
-          <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-12 h-12 text-sky-600 animate-spin" />
+          <div className="flex justify-center py-20">
+            <Loader2 className="w-10 h-10 text-sky-500 animate-spin" />
           </div>
         ) : gallery.length === 0 ? (
-          <div className="text-center py-20 text-gray-500">
-            <p>Belum ada foto di galeri</p>
-          </div>
+          <div className="text-center py-20 text-gray-400 text-sm">Belum ada foto di galeri</div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {gallery.map((item) => (
-            <div
-              key={item.id}
-              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-              onClick={() => setSelectedImage(item)}
-            >
-              <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                <img
-                  src={item.image_url}
-                  alt={item.title || 'Gallery'}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
+              <div
+                key={item.id}
+                className="group cursor-pointer rounded-2xl overflow-hidden bg-white border border-gray-100 hover:border-sky-200 hover:shadow-lg transition-all duration-300"
+                onClick={() => setSelectedImage(item)}
+              >
+                <div className="aspect-[4/3] relative overflow-hidden bg-gray-100">
+                  <img
+                    src={item.image_url}
+                    alt={item.title || 'Gallery'}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                    <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                </div>
+                <div className="p-4">
+                  {item.title && <h3 className="text-sm font-semibold text-gray-900 line-clamp-1">{item.title}</h3>}
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-xs text-gray-400">
+                      {item.created_at ? new Date(item.created_at).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' }) : ''}
+                    </span>
+                    {item.category && (
+                      <span className="text-xs bg-sky-50 text-sky-500 border border-sky-100 px-2 py-0.5 rounded-full">
+                        {item.category}
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
-              {/* Caption outside image */}
-              <div className="p-4 bg-white">
-                {item.title && (
-                  <h3 className="text-sm font-semibold text-gray-900 line-clamp-2">{item.title}</h3>
-                )}
-                <p className="text-xs text-sky-600 mt-1">
-                  {item.created_at ? new Date(item.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' }) : ''}
-                </p>
-                <span className="inline-block mt-2 px-2 py-1 text-xs bg-sky-100 text-sky-700 rounded">
-                  {item.category}
-                </span>
-              </div>
-            </div>
             ))}
           </div>
         )}
 
-        {/* Image Modal */}
+        {/* Modal */}
         <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto p-0 rounded-2xl">
             {selectedImage && (
               <div>
-                <div className="w-full max-h-[60vh] overflow-hidden rounded-lg bg-gray-100 flex items-center justify-center">
+                <div className="w-full max-h-[60vh] bg-gray-100 flex items-center justify-center rounded-t-2xl overflow-hidden">
                   <img
                     src={selectedImage.image_url}
                     alt={selectedImage.title || 'Gallery'}
                     className="w-full h-full object-contain max-h-[60vh]"
                   />
                 </div>
-                <div className="mt-4">
-                  <Badge className="bg-sky-600 text-white mb-2">
-                    {selectedImage.category}
-                  </Badge>
-                  {selectedImage.title && (
-                    <h3 className="text-2xl font-bold text-gray-900">{selectedImage.title}</h3>
+                <div className="p-6">
+                  {selectedImage.category && (
+                    <span className="text-xs bg-sky-50 text-sky-500 border border-sky-100 px-3 py-1 rounded-full">
+                      {selectedImage.category}
+                    </span>
                   )}
-                  <p className="text-sm text-sky-600 mt-1">
-                    {selectedImage.created_at ? new Date(selectedImage.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' }) : ''}
-                  </p>
+                  {selectedImage.title && (
+                    <h3 className="text-xl font-bold text-gray-900 mt-3">{selectedImage.title}</h3>
+                  )}
+                  {selectedImage.created_at && (
+                    <p className="text-sm text-gray-400 mt-1">
+                      {new Date(selectedImage.created_at).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' })}
+                    </p>
+                  )}
                 </div>
               </div>
             )}
           </DialogContent>
         </Dialog>
+
       </div>
     </section>
   );
