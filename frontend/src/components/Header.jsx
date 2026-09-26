@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from './ui/button';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,12 +8,15 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Tutup mobile menu saat navigasi
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const menuItems = [
     { label: 'Beranda', path: '/' },
@@ -25,151 +26,129 @@ const Header = () => {
     { label: 'Galeri', path: '/galeri' },
     { label: 'Berita', path: '/berita' },
     { label: 'FAQ', path: '/faq' },
-    { label: 'Hubungi', path: 'https://wa.me/628116712349', external: true },
   ];
 
   const isActive = (path) => location.pathname === path;
+  const isHero = location.pathname === '/';
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: 'spring', stiffness: 100 }}
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 backdrop-blur-md py-4'
+        isScrolled || !isHero
+          ? 'bg-white border-b border-gray-100 shadow-sm py-3'
+          : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo - Motif Batik Biru yang Baru */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative"
-            >
-              <img
-                src="https://customer-assets.emergentagent.com/job_kutaradja-app-center/artifacts/6z3d8lef_Cuplikan_layar_2026-07-01_152844-removebg-preview.png"
-                alt="Trans Koetaradja Logo"
-                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-            </motion.div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold text-gray-900 leading-tight">Trans</span>
-              <span className="text-xl font-bold text-sky-700 leading-tight">Koetaradja</span>
+
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src="https://customer-assets.emergentagent.com/job_kutaradja-app-center/artifacts/6z3d8lef_Cuplikan_layar_2026-07-01_152844-removebg-preview.png"
+              alt="Trans Koetaradja"
+              className="h-12 w-auto object-contain"
+            />
+            <div className="leading-tight">
+              <div className={`text-lg font-extrabold leading-none transition-colors ${isScrolled || !isHero ? 'text-gray-900' : 'text-white'}`}>
+                Trans
+              </div>
+              <div className="text-lg font-extrabold leading-none text-sky-500">
+                Koetaradja
+              </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1">
             {menuItems.map((item) => (
-              item.external ? (
-                <a
-                  key={item.label}
-                  href={item.path}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 font-medium transition-all duration-200 rounded-lg text-gray-700 hover:text-sky-600 hover:bg-sky-50"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.label}
-                  to={item.path}
-                  className={`px-4 py-2 font-medium transition-all duration-200 rounded-lg relative group ${
-                    isActive(item.path)
-                      ? 'text-sky-600 bg-sky-50'
-                      : 'text-gray-700 hover:text-sky-600 hover:bg-sky-50'
-                  }`}
-                >
-                  {item.label}
-                  {isActive(item.path) && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-sky-600"
-                      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              )
+              <Link
+                key={item.label}
+                to={item.path}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative ${
+                  isActive(item.path)
+                    ? 'text-sky-600 bg-sky-50'
+                    : isScrolled || !isHero
+                    ? 'text-gray-600 hover:text-sky-600 hover:bg-gray-50'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {item.label}
+                {isActive(item.path) && (
+                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-sky-500 rounded-full" />
+                )}
+              </Link>
             ))}
           </nav>
 
-          {/* CTA Button Desktop */}
-          <div className="hidden lg:block">
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="https://wa.me/628116712349"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200 ${
+                isScrolled || !isHero
+                  ? 'text-gray-600 hover:text-sky-600 hover:bg-gray-50'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              Hubungi
+            </a>
             <Link to="/download">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button className="bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-xl">
-                  Download App
-                </Button>
-              </motion.div>
+              <button className="bg-sky-500 hover:bg-sky-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-sky-500/20">
+                Download App
+              </button>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-sky-600 transition-colors"
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              isScrolled || !isHero ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+            }`}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.nav
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
+        {isMobileMenuOpen && (
+          <div className="lg:hidden mt-3 pb-4 border-t border-gray-100 pt-4 space-y-1 bg-white rounded-xl shadow-xl">
+            {menuItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  isActive(item.path)
+                    ? 'text-sky-600 bg-sky-50'
+                    : 'text-gray-700 hover:text-sky-600 hover:bg-gray-50'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <a
+              href="https://wa.me/628116712349"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:text-sky-600 hover:bg-gray-50"
             >
-              <div className="mt-4 pb-4 border-t border-gray-200 pt-4 space-y-2">
-                {menuItems.map((item) => (
-                  item.external ? (
-                    <a
-                      key={item.label}
-                      href={item.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block px-4 py-3 font-medium transition-colors duration-200 rounded-lg text-gray-700 hover:text-sky-600 hover:bg-sky-50"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link
-                      key={item.label}
-                      to={item.path}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block px-4 py-3 font-medium transition-colors duration-200 rounded-lg ${
-                        isActive(item.path)
-                          ? 'text-sky-600 bg-sky-50'
-                          : 'text-gray-700 hover:text-sky-600 hover:bg-sky-50'
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  )
-                ))}
-                <div className="px-4 pt-2">
-                  <Link to="/download" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-gradient-to-r from-sky-600 to-blue-600 text-white py-3 rounded-lg font-semibold">
-                      Download App
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </motion.nav>
-          )}
-        </AnimatePresence>
+              Hubungi
+            </a>
+            <div className="px-4 pt-2">
+              <Link to="/download" onClick={() => setIsMobileMenuOpen(false)}>
+                <button className="w-full bg-sky-500 hover:bg-sky-600 text-white py-3 rounded-xl text-sm font-bold transition-colors">
+                  Download App
+                </button>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
-    </motion.header>
+    </header>
   );
 };
 

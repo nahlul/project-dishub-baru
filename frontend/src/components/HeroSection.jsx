@@ -1,132 +1,131 @@
-import React from 'react';
-import { ArrowRight, Download, Bus, Clock, MapPin } from 'lucide-react';
-import { Button } from './ui/button';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Download, Bus, Clock, MapPin, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const quickLinks = [
+    { label: 'Bandara SIM', path: '/rute' },
+    { label: 'Kampus Darussalam', path: '/rute' },
+    { label: 'Pelabuhan Ulee Lheue', path: '/rute' },
+    { label: 'Pantai Lampuuk', path: '/rute' },
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 lg:pt-20">
-      {/* Background with overlay */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-blue-50" />
-        {/* Logo Dishub Watermark - subtle */}
-        <div className="absolute top-32 right-10 opacity-5 hidden lg:block">
-          <div className="text-gray-400 text-9xl font-bold">DISHUB</div>
-        </div>
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-sky-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Photo Full-Width with parallax */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+      >
+        <img
+          src="https://dishub.acehprov.go.id/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-24-at-20.39.53.jpeg"
+          alt="Armada Bus Trans Koetaradja"
+          className="w-full h-full object-cover scale-110"
+        />
       </div>
 
-      <div className="container mx-auto px-4 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-left space-y-4 lg:space-y-6">
-            <div className="inline-block">
-              <span className="bg-sky-100 text-sky-700 px-3 py-2 lg:px-4 lg:py-2 rounded-full text-xs lg:text-sm font-semibold block">
-                ✨ 100% Gratis - Didukung Pemerintah Aceh
-              </span>
-            </div>
-            
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-              Trans Koetaradja
-            </h1>
-            
-            <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 font-medium">
-              Transportasi Publik Modern Kota Banda Aceh
-            </p>
-            
-            <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
-              Hadir sebagai solusi modern yang menjawab kebutuhan transportasi publik masyarakat Kota Banda Aceh dan sekitarnya. Melayani 14 rute dengan fasilitas lengkap dan nyaman.
-            </p>
+      {/* Overlay gelap elegan */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-900/90 via-slate-900/75 to-slate-900/40" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 pt-2 lg:pt-4">
-              <Link to="/download" className="w-full sm:w-auto">
-                <Button
-                  className="bg-sky-600 hover:bg-sky-700 text-white px-6 lg:px-8 py-5 lg:py-6 rounded-xl font-bold text-base lg:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full"
-                >
-                  <Download className="mr-2 h-4 w-4 lg:h-5 lg:w-5" />
-                  Download Aplikasi
-                </Button>
-              </Link>
-              <Link to="/rute" className="w-full sm:w-auto">
-                <Button
-                  variant="outline"
-                  className="border-2 border-sky-600 text-sky-600 hover:bg-sky-50 px-6 lg:px-8 py-5 lg:py-6 rounded-xl font-bold text-base lg:text-lg transition-all duration-300 w-full"
-                >
-                  Lihat Rute
-                  <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
-                </Button>
-              </Link>
-            </div>
+      {/* Content */}
+      <div className="relative z-20 w-full container mx-auto px-4 pt-28 pb-24">
+        <div className="max-w-3xl">
 
-            {/* Quick Features */}
-            <div className="grid grid-cols-3 gap-3 lg:gap-4 pt-4 lg:pt-8">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-sky-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Bus className="w-4 h-4 lg:w-5 lg:h-5 text-sky-600" />
-                </div>
-                <div>
-                  <div className="text-xs lg:text-sm font-bold text-gray-900">50+ Bus</div>
-                  <div className="text-xs text-gray-500 hidden sm:block">Armada Modern</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-sky-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4 lg:w-5 lg:h-5 text-sky-600" />
-                </div>
-                <div>
-                  <div className="text-xs lg:text-sm font-bold text-gray-900">14 Rute</div>
-                  <div className="text-xs text-gray-500 hidden sm:block">Jangkauan Luas</div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 lg:w-10 lg:h-10 bg-sky-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-4 h-4 lg:w-5 lg:h-5 text-sky-600" />
-                </div>
-                <div>
-                  <div className="text-xs lg:text-sm font-bold text-gray-900">12 Jam</div>
-                  <div className="text-xs text-gray-500 hidden sm:block">Setiap Hari</div>
-                </div>
-              </div>
-            </div>
+          {/* Tag status */}
+          <div className="inline-flex items-center gap-2 mb-6">
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-green-400 text-sm font-semibold tracking-wide uppercase">
+              Layanan Aktif · 06.30 – 18.30 WIB
+            </span>
           </div>
 
-          {/* Right Content - Image Bus Tanpa Logo Besar */}
-          <div className="relative">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://dishub.acehprov.go.id/wp-content/uploads/2025/02/WhatsApp-Image-2025-02-24-at-20.39.53.jpeg"
-                alt="Bus Trans Koetaradja"
-                className="w-full h-auto"
-              />
-              {/* Badge overlay */}
-              <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-6 py-4 rounded-xl shadow-lg">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center">
-                    <Bus className="w-6 h-6 text-sky-600" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-gray-500">Gratis untuk</div>
-                    <div className="text-xl font-bold text-sky-600">Semua Warga</div>
-                  </div>
-                </div>
+          {/* Headline */}
+          <h1 className="text-5xl lg:text-7xl font-extrabold text-white leading-none tracking-tight mb-4">
+            Trans<br />
+            <span className="text-sky-400">Koetaradja</span>
+          </h1>
+
+          {/* Sub-headline */}
+          <p className="text-xl lg:text-2xl text-slate-300 font-medium mb-3">
+            Transportasi Publik Modern Banda Aceh
+          </p>
+          <p className="text-base text-slate-400 leading-relaxed mb-8 max-w-xl">
+            Bus kota bersubsidi Pemerintah Aceh — melayani 14 rute dengan armada modern, ber-AC, dan 100% gratis untuk seluruh warga dan wisatawan.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 mb-10">
+            <Link to="/rute">
+              <button className="flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold px-7 py-4 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-sky-500/25 text-base">
+                <MapPin className="w-5 h-5" />
+                Jelajahi Rute & Halte
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+            <Link to="/download">
+              <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-7 py-4 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-200 text-base backdrop-blur-sm">
+                <Download className="w-5 h-5" />
+                Download Aplikasi
+              </button>
+            </Link>
+          </div>
+
+          {/* Quick destination chips */}
+          <div className="flex flex-wrap gap-2 mb-12">
+            <span className="text-slate-400 text-sm self-center mr-1">Tujuan populer:</span>
+            {quickLinks.map((q) => (
+              <Link
+                key={q.label}
+                to={q.path}
+                className="text-sm px-4 py-1.5 rounded-full border border-slate-600 text-slate-300 hover:border-sky-400 hover:text-sky-400 transition-all duration-200"
+              >
+                {q.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Stats bar */}
+          <div className="flex items-center gap-6 sm:gap-10 border-t border-white/10 pt-8">
+            <div className="flex items-center gap-2 text-white">
+              <Bus className="w-5 h-5 text-sky-400" />
+              <div>
+                <div className="text-xl font-bold leading-none">50+</div>
+                <div className="text-xs text-slate-400 mt-0.5">Armada Bus</div>
               </div>
             </div>
-            {/* Decorative elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-sky-200 rounded-full opacity-50 blur-2xl" />
-            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-blue-200 rounded-full opacity-50 blur-2xl" />
+            <div className="w-px h-8 bg-white/10" />
+            <div className="flex items-center gap-2 text-white">
+              <MapPin className="w-5 h-5 text-sky-400" />
+              <div>
+                <div className="text-xl font-bold leading-none">14</div>
+                <div className="text-xs text-slate-400 mt-0.5">Rute Koridor</div>
+              </div>
+            </div>
+            <div className="w-px h-8 bg-white/10" />
+            <div className="flex items-center gap-2 text-white">
+              <Clock className="w-5 h-5 text-sky-400" />
+              <div>
+                <div className="text-xl font-bold leading-none">12 Jam</div>
+                <div className="text-xs text-slate-400 mt-0.5">Setiap Hari</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-sky-600 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-sky-600 rounded-full" />
-        </div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 text-slate-400">
+        <span className="text-xs tracking-widest uppercase">Gulir</span>
+        <ChevronDown className="w-5 h-5 animate-bounce" />
       </div>
     </section>
   );
