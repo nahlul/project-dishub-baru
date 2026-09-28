@@ -12,13 +12,50 @@ import {
 } from '@/lib/routeUtils';
 import HalteMap from './HalteMap';
 
+const POPULAR_LANDMARKS = [
+  { name: 'Masjid Raya Baiturrahman', lat: 5.55411, lng: 95.318376, desc: 'Pusat Kota' },
+  { name: 'Simpang Lima', lat: 5.556624, lng: 95.323256, desc: 'Pusat Bisnis' },
+  { name: 'RSUZA Lamprit', lat: 5.565767, lng: 95.337351, desc: 'Rumah Sakit' },
+  { name: 'Darussalam (USK)', lat: 5.571437, lng: 95.371407, desc: 'Kopelma' },
+  { name: 'UIN Ar-Raniry', lat: 5.580878, lng: 95.367519, desc: 'Kampus' },
+  { name: 'Terminal Batoh', lat: 5.529230, lng: 95.330343, desc: 'Terminal' },
+  { name: 'Pelabuhan Ulee Lheue', lat: 5.564787, lng: 95.293857, desc: 'Pelabuhan' },
+  { name: 'Pasar Lambaro', lat: 5.508356, lng: 95.355465, desc: 'Aceh Besar' },
+  { name: 'Bandara SIM', lat: 5.516959, lng: 95.416443, desc: 'Bandara' },
+  { name: 'Pantai Lampuuk', lat: 5.493722, lng: 95.235698, desc: 'Lhoknga' },
+];
+
 const NearestHalte = () => {
   const [status, setStatus] = useState('idle'); // idle | locating | loading | done | error
   const [error, setError] = useState('');
   const [user, setUser] = useState(null);
+  const [locationLabel, setLocationLabel] = useState('');
   const [accuracy, setAccuracy] = useState(null);
   const [haltes, setHaltes] = useState([]);
   const dayKey = currentDayKey();
+
+  const searchFromCoords = async (latitude, longitude, label = 'Posisi Anda', acc = null) => {
+    setError('');
+    setUser({ lat: latitude, lng: longitude });
+    setLocationLabel(label);
+    setAccuracy(acc);
+    setStatus('loading');
+
+    try {
+      const { data } = await routesAPI.nearest(latitude, longitude, 5);
+      if (data && data.length) {
+        setHaltes(data);
+        setStatus('done');
+        return;
+      }
+    } catch (err) {
+      console.log('Using client-side Haversine nearest calculation fallback:', err);
+    }
+
+    const clientNearest = getNearestHaltesClient(latitude, longitude, 5, dayKey);
+    setHaltes(clientNearest);
+    setStatus('done');
+  };
 
   const findNearest = () => {
     setError('');
@@ -30,66 +67,25 @@ const NearestHalte = () => {
     setStatus('locating');
 
     navigator.geolocation.getCurrentPosition(
-      async (pos) => {
+      (pos) => {
         const { latitude, longitude, accuracy: acc } = pos.coords;
-        setUser({ lat: latitude, lng: longitude });
-        setAccuracy(acc);
-        setStatus('loading');
-
-        try {
-          // Attempt API nearest call
-          const { data } = await routesAPI.nearest(latitude, longitude, 5);
-          if (data && data.length) {
-            console.log(`[Cari Halte Terdekat] GPS Position: Lat ${latitude}, Lng ${longitude} (Akurasi: ${acc}m)`);
-            console.table(
-              data.map((h, i) => ({
-                No: i + 1,
-                'Nama Halte': h.nama,
-                'Jarak (Meter)': Math.round(h.distance_km * 1000) + ' m',
-                'Jarak (KM)': h.distance_km,
-                Latitude: h.lat,
-                Longitude: h.lng,
-              }))
-            );
-            setHaltes(data);
-            setStatus('done');
-            return;
-          }
-        } catch (err) {
-          console.log('Using client-side Haversine nearest calculation fallback:', err);
-        }
-
-        // Fallback Haversine calculation client-side
-        const clientNearest = getNearestHaltesClient(latitude, longitude, 5, dayKey);
-        console.log(`[Cari Halte Terdekat Client Fallback] GPS Position: Lat ${latitude}, Lng ${longitude}`);
-        console.table(
-          clientNearest.map((h, i) => ({
-            No: i + 1,
-            'Nama Halte': h.nama,
-            'Jarak (Meter)': Math.round(h.distance_km * 1000) + ' m',
-            'Jarak (KM)': h.distance_km,
-            Latitude: h.lat,
-            Longitude: h.lng,
-          }))
-        );
-        setHaltes(clientNearest);
-        setStatus('done');
+        searchFromCoords(latitude, longitude, 'Posisi GPS Anda', acc);
       },
       (err) => {
         setStatus('error');
         if (err.code === err.PERMISSION_DENIED) {
           setError(
-            'Izin akses lokasi ditolak oleh browser. Mohon aktifkan izin lokasi di pengaturan browser Anda untuk mencari halte terdekat.'
+            'Browser (Google Chrome/Brave) otomatis memblokir sensor GPS pada koneksi HTTP (bukan HTTPS). Silakan pilih salah satu titik lokasi populer di bawah untuk langsung menemukan 5 halte terdekat secara instan.'
           );
         } else if (err.code === err.POSITION_UNAVAILABLE) {
-          setError('Sinyal GPS atau lokasi Anda tidak dapat ditemukan saat ini.');
+          setError('Sinyal GPS atau lokasi Anda tidak dapat ditemukan saat ini. Silakan pilih titik lokasi di bawah.');
         } else if (err.code === err.TIMEOUT) {
-          setError('Waktu permintaan lokasi telah habis (Timeout). Silakan coba lagi.');
+          setError('Waktu permintaan lokasi telah habis (Timeout). Silakan pilih titik lokasi di bawah.');
         } else {
-          setError('Tidak dapat menentukan lokasi Anda. Silakan coba lagi.');
+          setError('Tidak dapat menentukan lokasi Anda. Silakan pilih titik lokasi di bawah.');
         }
       },
-      { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
+      { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
     );
   };
 
@@ -115,27 +111,53 @@ const NearestHalte = () => {
           Klik tombol di bawah untuk mendeteksi posisi GPS Anda. Sistem akan menghitung jarak Haversine ke seluruh halte Trans Koetaradja secara presisi.
         </p>
 
-        <button
-          onClick={findNearest}
-          disabled={status === 'locating' || status === 'loading'}
-          className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 disabled:opacity-60 text-white font-bold px-8 py-3.5 rounded-2xl shadow-lg shadow-sky-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
-        >
-          {(status === 'locating' || status === 'loading') && (
-            <Loader2 className="w-5 h-5 animate-spin" />
-          )}
-          {status === 'locating'
-            ? 'Mendeteksi Posisi GPS...'
-            : status === 'loading'
-            ? 'Menghitung Jarak Haversine...'
-            : 'Izinkan & Cari Halte Terdekat'}
-        </button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button
+            onClick={findNearest}
+            disabled={status === 'locating' || status === 'loading'}
+            className="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 disabled:opacity-60 text-white font-bold px-7 py-3 rounded-2xl shadow-lg shadow-sky-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
+          >
+            {(status === 'locating' || status === 'loading') && (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            )}
+            {status === 'locating'
+              ? 'Mendeteksi Posisi GPS...'
+              : status === 'loading'
+              ? 'Menghitung Jarak...'
+              : 'Deteksi Otomatis via GPS'}
+          </button>
+        </div>
 
         {error && (
-          <div className="mt-5 p-4 bg-red-50 border border-red-200 rounded-2xl flex items-center justify-center gap-3 text-sm text-red-700 max-w-lg mx-auto text-left">
-            <AlertCircle className="w-5 h-5 flex-shrink-0 text-red-600" />
-            <span>{error}</span>
+          <div className="mt-5 p-4 bg-amber-50 border border-amber-200 rounded-2xl flex items-start gap-3 text-sm text-amber-900 max-w-xl mx-auto text-left">
+            <AlertCircle className="w-5 h-5 flex-shrink-0 text-amber-600 mt-0.5" />
+            <div className="space-y-1">
+              <p className="font-semibold text-amber-800">Perhatian Browser:</p>
+              <p className="text-xs text-amber-700 leading-relaxed">{error}</p>
+            </div>
           </div>
         )}
+
+        {/* Quick Landmark Chips */}
+        <div className="mt-6 pt-5 border-t border-gray-100">
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+            Atau Pilih Titik Lokasi Populer di Banda Aceh & Aceh Besar:
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto">
+            {POPULAR_LANDMARKS.map((lm, idx) => (
+              <button
+                key={idx}
+                onClick={() => searchFromCoords(lm.lat, lm.lng, lm.name)}
+                disabled={status === 'loading'}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-gray-50 hover:bg-sky-50 text-gray-700 hover:text-sky-700 border border-gray-200 hover:border-sky-300 transition-all active:scale-95 shadow-2xs"
+              >
+                <MapPin className="w-3.5 h-3.5 text-sky-500" />
+                <span>{lm.name}</span>
+                <span className="text-[10px] text-gray-400 font-normal">({lm.desc})</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Results View */}
@@ -146,12 +168,19 @@ const NearestHalte = () => {
             <HalteMap user={user} accuracy={accuracy} markers={markers} height={360} />
           </div>
 
-          <div className="flex items-center justify-between mb-4">
-            <h4 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-sky-600" />
-              5 Halte Terdekat Hari Ini ({DAY_LABELS[dayKey]})
-            </h4>
-            <span className="text-xs text-sky-700 bg-sky-50 px-3 py-1 rounded-full font-medium border border-sky-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+            <div>
+              <h4 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-sky-600" />
+                5 Halte Terdekat Hari Ini ({DAY_LABELS[dayKey]})
+              </h4>
+              {locationLabel && (
+                <p className="text-xs text-gray-500 mt-0.5">
+                  Dihitung dari titik acuan: <span className="font-semibold text-sky-700">{locationLabel}</span>
+                </p>
+              )}
+            </div>
+            <span className="text-xs text-sky-700 bg-sky-50 px-3 py-1 rounded-full font-medium border border-sky-200 self-start sm:self-auto">
               Diurutkan dari Jarak Terdekat
             </span>
           </div>
