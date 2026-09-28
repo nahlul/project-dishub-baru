@@ -60,25 +60,27 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {menuItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative ${
-                  isActive(item.path)
-                    ? 'text-sky-600 bg-sky-50'
-                    : isScrolled || !isHero
-                    ? 'text-gray-600 hover:text-sky-600 hover:bg-gray-50'
-                    : 'text-white/80 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {item.label}
-                {isActive(item.path) && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-sky-500 rounded-full" />
-                )}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center gap-1.5">
+            {menuItems.map((item) => {
+              const active = isActive(item.path);
+              return (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  className={`px-3.5 py-1.5 rounded-full text-sm transition-all duration-150 ${
+                    active
+                      ? isScrolled || !isHero
+                        ? 'text-sky-700 bg-sky-50 font-semibold shadow-2xs border border-sky-100/80'
+                        : 'text-white bg-white/20 font-semibold backdrop-blur-md border border-white/20'
+                      : isScrolled || !isHero
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-medium'
+                      : 'text-white/80 hover:text-white hover:bg-white/10 font-medium'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop CTA */}
