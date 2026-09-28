@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, ShieldCheck, Bus, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { settingsAPI } from '@/lib/api';
 
@@ -26,156 +26,269 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Section */}
-          <div>
-            <div className="mb-4">
-              <h3 className="text-xl font-bold text-white">Trans Koetaradja</h3>
+    <footer className="bg-slate-950 text-slate-300 border-t border-slate-800/80 font-sans relative overflow-hidden">
+      {/* Subtle top ambient glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-sky-500/40 to-transparent" />
+
+      {/* Official Government Trust Ribbon */}
+      <div className="border-b border-slate-800/80 bg-slate-900/40 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 flex-shrink-0">
+                <Bus className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-white tracking-wide">
+                  Layanan Resmi Dinas Perhubungan Pemerintah Aceh
+                </p>
+                <p className="text-[11px] text-slate-400">
+                  Dikelola oleh UPTD Angkutan Massal Trans Kutaraja • Banda Aceh & Aceh Besar
+                </p>
+              </div>
             </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Transportasi publik modern yang melayani mobilitas masyarakat Kota Banda Aceh dan sekitarnya dengan gratis dan nyaman.
+
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>100% Gratis Tanpa Biaya Tiket</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+          
+          {/* Brand & About Column (5 cols) */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-sky-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-sky-500/20">
+                TK
+              </div>
+              <div>
+                <h3 className="text-xl font-extrabold text-white tracking-tight">
+                  Trans Koetaradja
+                </h3>
+                <p className="text-[11px] font-semibold text-sky-400 uppercase tracking-widest">
+                  Modern Transit Aceh
+                </p>
+              </div>
+            </div>
+
+            <p className="text-slate-400 text-sm leading-relaxed pr-2">
+              Sistem angkutan massal bus kota modern bersubsidi penuh Pemerintah Aceh. Menghubungkan pusat pendidikan, kawasan bisnis, fasilitas publik, bandara, dan pelabuhan dengan armada ber-AC yang nyaman dan tepat waktu.
             </p>
+
+            {/* Operational badge */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300">
+              <Clock className="w-4 h-4 text-sky-400 flex-shrink-0" />
+              <div>
+                <span className="font-semibold text-white">Jam Operasi: </span>
+                <span>{contact?.operational_hours || '06.30 – 18.30 WIB (Setiap Hari)'}</span>
+              </div>
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-bold text-lg mb-4 text-sky-400">Menu Cepat</h3>
-            <ul className="space-y-2">
+          {/* Quick Links Column (2 cols) */}
+          <div className="lg:col-span-2 lg:pl-4">
+            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4 pb-1 border-b border-slate-800/60 inline-block">
+              Navigasi
+            </h4>
+            <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/tentang" className="text-gray-300 hover:text-sky-400 transition-colors duration-200 text-sm">
+                <Link to="/" className="text-slate-400 hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-sky-400 transition-colors" />
+                  Beranda
+                </Link>
+              </li>
+              <li>
+                <Link to="/rute" className="text-slate-400 hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-sky-400 transition-colors" />
+                  Rute & Halte
+                </Link>
+              </li>
+              <li>
+                <Link to="/tentang" className="text-slate-400 hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-sky-400 transition-colors" />
                   Tentang Kami
                 </Link>
               </li>
               <li>
-                <Link to="/rute" className="text-gray-300 hover:text-sky-400 transition-colors duration-200 text-sm">
-                  Rute & Koridor
+                <Link to="/fasilitas" className="text-slate-400 hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-sky-400 transition-colors" />
+                  Fasilitas Armada
                 </Link>
               </li>
               <li>
-                <Link to="/fasilitas" className="text-gray-300 hover:text-sky-400 transition-colors duration-200 text-sm">
-                  Fasilitas
+                <Link to="/berita" className="text-slate-400 hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-sky-400 transition-colors" />
+                  Berita Terkini
                 </Link>
               </li>
               <li>
-                <Link to="/berita" className="text-gray-300 hover:text-sky-400 transition-colors duration-200 text-sm">
-                  Berita
-                </Link>
-              </li>
-              <li>
-                <Link to="/faq" className="text-gray-300 hover:text-sky-400 transition-colors duration-200 text-sm">
-                  FAQ
+                <Link to="/faq" className="text-slate-400 hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
+                  <span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-sky-400 transition-colors" />
+                  Tanya Jawab (FAQ)
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info - Dynamic from API */}
-          <div>
-            <h3 className="font-bold text-lg mb-4 text-sky-400">Kontak Kami</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm">
-                  {contact?.address || 'Dinas Perhubungan Aceh'}
-                </span>
+          {/* Koridor Populer Column (2 cols) */}
+          <div className="lg:col-span-2">
+            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4 pb-1 border-b border-slate-800/60 inline-block">
+              Koridor Utama
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/rute" className="text-slate-400 hover:text-sky-300 transition-colors flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-blue-500" />
+                  <span>Kopelma Darussalam</span>
+                </Link>
               </li>
-              <li className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-sky-400 flex-shrink-0" />
-                <a 
-                  href={`https://wa.me/${(contact?.phone || '').replace(/[^0-9]/g, '')}`}
+              <li>
+                <Link to="/rute" className="text-slate-400 hover:text-sky-300 transition-colors flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-500" />
+                  <span>Bandara SIM</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/rute" className="text-slate-400 hover:text-sky-300 transition-colors flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span>Pelabuhan Ulee Lheue</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/rute" className="text-slate-400 hover:text-sky-300 transition-colors flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-purple-500" />
+                  <span>Mata Ie & Keutapang</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/rute" className="text-slate-400 hover:text-sky-300 transition-colors flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-rose-500" />
+                  <span>Pantai Lampuuk</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact & Official Channels (4 cols) */}
+          <div className="lg:col-span-4 space-y-4">
+            <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider mb-4 pb-1 border-b border-slate-800/60 inline-block">
+              Kontak & Pengaduan
+            </h4>
+
+            <div className="space-y-3">
+              <div className="flex items-start gap-3 text-sm">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-sky-400 flex-shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div className="text-slate-300 leading-snug">
+                  <p className="font-medium text-white">Dinas Perhubungan Aceh</p>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {contact?.address || 'Jl. Teuku Nyak Arief No. 209, Banda Aceh, Aceh 23114'}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 text-sm">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-sky-400 flex-shrink-0">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <a
+                  href={`https://wa.me/${(contact?.phone || '').replace(/[^0-9]/g, '') || '628116712349'}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 text-sm hover:text-sky-400 transition-colors"
+                  className="text-slate-300 hover:text-white font-medium transition-colors"
                 >
                   {contact?.phone || '+62 811 6712349'}
+                  <span className="ml-2 text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-normal">
+                    WhatsApp Resmi
+                  </span>
                 </a>
-              </li>
-              <li className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-sky-400 flex-shrink-0" />
-                <a 
-                  href={`mailto:${contact?.email || ''}`}
-                  className="text-gray-300 text-sm hover:text-sky-400 transition-colors"
+              </div>
+
+              <div className="flex items-center gap-3 text-sm">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-sky-400 flex-shrink-0">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <a
+                  href={`mailto:${contact?.email || 'info@transkutaraja.acehprov.go.id'}`}
+                  className="text-slate-300 hover:text-white font-medium transition-colors truncate"
                 >
                   {contact?.email || 'info@transkutaraja.acehprov.go.id'}
                 </a>
-              </li>
-              {contact?.operational_hours && (
-                <li className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-sky-400 flex-shrink-0" />
-                  <span className="text-gray-300 text-sm">
-                    {contact.operational_hours}
-                  </span>
-                </li>
-              )}
-            </ul>
+              </div>
+            </div>
+
+            {/* Social channels */}
+            <div className="pt-2">
+              <p className="text-xs font-medium text-slate-400 mb-2.5">
+                Kanal Informasi Resmi:
+              </p>
+              <div className="flex items-center gap-2">
+                {social?.facebook && (
+                  <a
+                    href={social.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-sky-600 border border-slate-800 hover:border-sky-500 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-xs"
+                    title="Facebook"
+                  >
+                    <Facebook className="w-4 h-4" />
+                  </a>
+                )}
+                {social?.instagram && (
+                  <a
+                    href={social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-pink-600 border border-slate-800 hover:border-pink-500 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-xs"
+                    title="Instagram"
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                )}
+                {social?.twitter && (
+                  <a
+                    href={social.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-800 hover:border-slate-600 flex items-center justify-center text-slate-300 hover:text-white transition-all shadow-xs"
+                    title="X (Twitter)"
+                  >
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </a>
+                )}
+                <a
+                  href="https://dishub.acehprov.go.id"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 h-9 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-white flex items-center gap-1.5 text-xs font-medium transition-all"
+                >
+                  <span>Portal Dishub</span>
+                  <ExternalLink className="w-3 h-3 text-slate-400" />
+                </a>
+              </div>
+            </div>
+
           </div>
 
-          {/* Social Media - Dynamic from API */}
-          <div>
-            <h3 className="font-bold text-lg mb-4 text-sky-400">Ikuti Kami</h3>
-            <p className="text-gray-300 text-sm mb-4">
-              Dapatkan update terbaru tentang layanan Trans Koetaradja
-            </p>
-            <div className="flex space-x-4">
-              {(social?.facebook) && (
-                <a
-                  href={social.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 hover:bg-sky-600 rounded-full flex items-center justify-center transition-colors duration-200"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-              )}
-              {(social?.instagram) && (
-                <a
-                  href={social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 hover:bg-sky-600 rounded-full flex items-center justify-center transition-colors duration-200"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-              )}
-              {(social?.twitter) && (
-                <a
-                  href={social.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 hover:bg-sky-600 rounded-full flex items-center justify-center transition-colors duration-200"
-                  title="X (Twitter)"
-                >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </a>
-              )}
-              {(social?.whatsapp) && (
-                <a
-                  href={social.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-700 hover:bg-green-600 rounded-full flex items-center justify-center transition-colors duration-200"
-                  title="WhatsApp"
-                >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                  </svg>
-                </a>
-              )}
-            </div>
-          </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
-            &copy; {currentYear} Trans Koetaradja - Dinas Perhubungan Aceh. All rights reserved.
+        {/* Bottom Copyright & Accreditation */}
+        <div className="border-t border-slate-800/80 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs text-slate-500">
+          <p>
+            &copy; {currentYear} <span className="text-slate-300 font-semibold">Trans Koetaradja</span> • Dinas Perhubungan Provinsi Aceh.
           </p>
-          <p className="text-gray-500 text-xs mt-2">
-            Didukung oleh APBA Pemerintah Aceh
+          <p className="flex items-center gap-1.5 justify-center">
+            <span>Dibiayai melalui APBA Pemerintah Aceh</span>
+            <span className="w-1 h-1 rounded-full bg-slate-600" />
+            <span>Karya Siswa PKL SMKN 5 Telkom Banda Aceh</span>
           </p>
         </div>
       </div>
