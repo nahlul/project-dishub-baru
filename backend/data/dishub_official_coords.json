@@ -1,0 +1,1710 @@
+[
+  {
+    "no": 1,
+    "nama": "Halte Keudah",
+    "jenis": "Halte Permanen",
+    "lat": 5.55979599,
+    "lng": 95.31767663
+  },
+  {
+    "no": 2,
+    "nama": "Halte Masjid Raya Baiturrahman",
+    "jenis": "Halte Permanen",
+    "lat": 5.55411,
+    "lng": 95.318376
+  },
+  {
+    "no": 3,
+    "nama": "Halte Sp Lima 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.55662433,
+    "lng": 95.32325626
+  },
+  {
+    "no": 4,
+    "nama": "Halte Sp Keramat 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.558251,
+    "lng": 95.327387
+  },
+  {
+    "no": 5,
+    "nama": "Halte Jambo Tape 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.559712,
+    "lng": 95.33095
+  },
+  {
+    "no": 6,
+    "nama": "Halte RSUZA 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.56576733,
+    "lng": 95.33735116
+  },
+  {
+    "no": 7,
+    "nama": "Halte Kantor Gubernur",
+    "jenis": "Halte Permanen",
+    "lat": 5.57129828,
+    "lng": 95.34300261
+  },
+  {
+    "no": 8,
+    "nama": "Halte Lingke",
+    "jenis": "Halte Permanen",
+    "lat": 5.575514,
+    "lng": 95.347323
+  },
+  {
+    "no": 9,
+    "nama": "Halte Lamnyong 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.57586649,
+    "lng": 95.35520433
+  },
+  {
+    "no": 10,
+    "nama": "Halte F.Teknik",
+    "jenis": "Halte Permanen",
+    "lat": 5.56617,
+    "lng": 95.366663
+  },
+  {
+    "no": 11,
+    "nama": "Halte F.Kedokteran",
+    "jenis": "Halte Permanen",
+    "lat": 5.564891,
+    "lng": 95.372006
+  },
+  {
+    "no": 12,
+    "nama": "Halte Beurabong",
+    "jenis": "Halte Permanen",
+    "lat": 5.568617,
+    "lng": 95.377415
+  },
+  {
+    "no": 13,
+    "nama": "Halte Masjid Jamik Darussalam",
+    "jenis": "Halte Permanen",
+    "lat": 5.57143721,
+    "lng": 95.3714071
+  },
+  {
+    "no": 14,
+    "nama": "Halte UIN",
+    "jenis": "Halte Permanen",
+    "lat": 5.58087776,
+    "lng": 95.36751853
+  },
+  {
+    "no": 15,
+    "nama": "Halte Ekonomi",
+    "jenis": "Halte Permanen",
+    "lat": 5.573846,
+    "lng": 95.365581
+  },
+  {
+    "no": 16,
+    "nama": "Halte Lamnyong 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.57556486,
+    "lng": 95.35509735
+  },
+  {
+    "no": 17,
+    "nama": "Halte Sp Mesra",
+    "jenis": "Halte Permanen",
+    "lat": 5.5800089,
+    "lng": 95.35303867
+  },
+  {
+    "no": 18,
+    "nama": "Halte Prada",
+    "jenis": "Halte Permanen",
+    "lat": 5.5739776,
+    "lng": 95.3460156
+  },
+  {
+    "no": 19,
+    "nama": "Halte Kantor DPKA",
+    "jenis": "Halte Permanen",
+    "lat": 5.5708115,
+    "lng": 95.34272042
+  },
+  {
+    "no": 20,
+    "nama": "Halte RSUZA 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.56472478,
+    "lng": 95.33653621
+  },
+  {
+    "no": 21,
+    "nama": "Halte Jambo Tape 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.55973759,
+    "lng": 95.33140513
+  },
+  {
+    "no": 22,
+    "nama": "Halte Sp Keramat 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.55800808,
+    "lng": 95.32712607
+  },
+  {
+    "no": 23,
+    "nama": "Halte Sp Lima 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.55646795,
+    "lng": 95.32336817
+  },
+  {
+    "no": 24,
+    "nama": "Halte Peunayong",
+    "jenis": "Halte Permanen",
+    "lat": 5.558657,
+    "lng": 95.318962
+  },
+  {
+    "no": 25,
+    "nama": "Halte Batoh 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.54232257,
+    "lng": 95.33032041
+  },
+  {
+    "no": 26,
+    "nama": "Halte Sp. Batoh 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.53366058,
+    "lng": 95.3303358
+  },
+  {
+    "no": 27,
+    "nama": "Halte Darul imarah 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.51427665,
+    "lng": 95.33106485
+  },
+  {
+    "no": 28,
+    "nama": "Halte Siron 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.511327982,
+    "lng": 95.36438048
+  },
+  {
+    "no": 29,
+    "nama": "Halte BKN 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.512481332,
+    "lng": 95.37817776
+  },
+  {
+    "no": 30,
+    "nama": "Halte Gani 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.51194489,
+    "lng": 95.38530707
+  },
+  {
+    "no": 31,
+    "nama": "Halte Blang Bintang 1 (Koridor 2A)",
+    "jenis": "Halte Permanen",
+    "lat": 5.511505008,
+    "lng": 95.41382778
+  },
+  {
+    "no": 32,
+    "nama": "Halte Bandara SIM",
+    "jenis": "Halte Permanen",
+    "lat": 5.51695855,
+    "lng": 95.41644265
+  },
+  {
+    "no": 33,
+    "nama": "Halte Gampong Blang",
+    "jenis": "Halte Permanen",
+    "lat": 5.517684,
+    "lng": 95.413377
+  },
+  {
+    "no": 34,
+    "nama": "Halte Blang Bintang 2 (Koridor 2A)",
+    "jenis": "Halte Permanen",
+    "lat": 5.511561,
+    "lng": 95.41393
+  },
+  {
+    "no": 35,
+    "nama": "Halte SDN 1 Blang Bintang",
+    "jenis": "Halte Permanen",
+    "lat": 5.509051,
+    "lng": 95.404946
+  },
+  {
+    "no": 36,
+    "nama": "Halte Modal Bangsa",
+    "jenis": "Halte Permanen",
+    "lat": 5.510142446,
+    "lng": 95.39486647
+  },
+  {
+    "no": 37,
+    "nama": "Halte Gani 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.511590838,
+    "lng": 95.38553238
+  },
+  {
+    "no": 38,
+    "nama": "Halte BKN 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.513485,
+    "lng": 95.380002
+  },
+  {
+    "no": 39,
+    "nama": "Halte Siron 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.511343,
+    "lng": 95.364261
+  },
+  {
+    "no": 40,
+    "nama": "Halte Lambaro 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.50747633,
+    "lng": 95.35627484
+  },
+  {
+    "no": 41,
+    "nama": "Halte Darul Imarah 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.515088439,
+    "lng": 95.33009112
+  },
+  {
+    "no": 42,
+    "nama": "Halte Depan Terminal Batoh",
+    "jenis": "Halte Permanen",
+    "lat": 5.529561639,
+    "lng": 95.33015549
+  },
+  {
+    "no": 43,
+    "nama": "Halte Sp Batoh 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.533917,
+    "lng": 95.330143
+  },
+  {
+    "no": 44,
+    "nama": "Halte Sp Surabaya",
+    "jenis": "Halte Permanen",
+    "lat": 5.547145,
+    "lng": 95.330086
+  },
+  {
+    "no": 45,
+    "nama": "Halte Barata",
+    "jenis": "Halte Permanen",
+    "lat": 5.55225169,
+    "lng": 95.31893189
+  },
+  {
+    "no": 46,
+    "nama": "Halte Aspol Punge",
+    "jenis": "Halte Permanen",
+    "lat": 5.5498023,
+    "lng": 95.3085412
+  },
+  {
+    "no": 47,
+    "nama": "Halte Punge 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.551244,
+    "lng": 95.304212
+  },
+  {
+    "no": 48,
+    "nama": "Halte Blang Oi",
+    "jenis": "Halte Permanen",
+    "lat": 5.553126,
+    "lng": 95.297547
+  },
+  {
+    "no": 49,
+    "nama": "Halte Cot Lamkueweuh",
+    "jenis": "Halte Permanen",
+    "lat": 5.55321856,
+    "lng": 95.29225265
+  },
+  {
+    "no": 50,
+    "nama": "Halte Kuburan Massal 1",
+    "jenis": "Halte Permanen",
+    "lat": 5.55564113,
+    "lng": 95.28585638
+  },
+  {
+    "no": 51,
+    "nama": "Halte Pelabuhan Ulee Lheue",
+    "jenis": "Halte Permanen",
+    "lat": 5.56478691,
+    "lng": 95.29385669
+  },
+  {
+    "no": 52,
+    "nama": "Halte Kuburan Massal 2",
+    "jenis": "Halte Permanen",
+    "lat": 5.555793643,
+    "lng": 95.28621554
+  },
+  {
+    "no": 53,
+    "nama": "Halte Lambung",
+    "jenis": "Halte Permanen",
+    "lat": 5.55352153,
+    "lng": 95.29181432
+  },
+  {
+    "no": 93,
+    "nama": "Halte RSUD Meuraxa",
+    "jenis": "Halte Permanen",
+    "lat": 5.517147,
+    "lng": 95.319024
+  },
+  {
+    "no": 94,
+    "nama": "Halte SMK Lhong Raya",
+    "jenis": "Halte Permanen",
+    "lat": 5.523088,
+    "lng": 95.321342
+  },
+  {
+    "no": 95,
+    "nama": "Halte Portabel Polda",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.576249,
+    "lng": 95.348519
+  },
+  {
+    "no": 96,
+    "nama": "Halte Portabel Simpang Mesra",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.58038,
+    "lng": 95.35312
+  },
+  {
+    "no": 97,
+    "nama": "Halte Portabel Lamgugop 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.57181,
+    "lng": 95.3569
+  },
+  {
+    "no": 98,
+    "nama": "Halte Portabel Lamgugop 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.57129,
+    "lng": 95.357
+  },
+  {
+    "no": 99,
+    "nama": "Halte Portabel Pasar Rukoh",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5741,
+    "lng": 95.36016
+  },
+  {
+    "no": 100,
+    "nama": "Halte Portabel Masjid Fatun Qarib UIN",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.57754,
+    "lng": 95.36968
+  },
+  {
+    "no": 101,
+    "nama": "Halte Portabel Man Rukoh",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.58115,
+    "lng": 95.36326
+  },
+  {
+    "no": 102,
+    "nama": "Halte Portabel Puskesmas Kopelma",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.57807,
+    "lng": 95.36398
+  },
+  {
+    "no": 103,
+    "nama": "Halte Portabel PLN",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5620461,
+    "lng": 95.3337064
+  },
+  {
+    "no": 104,
+    "nama": "Halte Portabel TK Khalifah",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5624969,
+    "lng": 95.3338569
+  },
+  {
+    "no": 105,
+    "nama": "Halte Portabel Fantasi Darussalam",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.57287,
+    "lng": 95.36361
+  },
+  {
+    "no": 106,
+    "nama": "Halte Portabel MRB",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.553993,
+    "lng": 95.318532
+  },
+  {
+    "no": 107,
+    "nama": "Halte Portabel Bank Aceh Batoh",
+    "jenis": "Halte Portable Tipe A",
+    "lat": 5.54069,
+    "lng": 95.32996
+  },
+  {
+    "no": 108,
+    "nama": "Halte Portabel Sp Surabaya",
+    "jenis": "Halte Portable Tipe A",
+    "lat": 5.54707,
+    "lng": 95.33008
+  },
+  {
+    "no": 109,
+    "nama": "Halte Portabel Arena Ban",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.55552,
+    "lng": 95.33047
+  },
+  {
+    "no": 110,
+    "nama": "Halte Portabel Yamaha Beurawe",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.55741,
+    "lng": 95.33023
+  },
+  {
+    "no": 111,
+    "nama": "Halte Portabel Gampong Blang 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.51742,
+    "lng": 95.413
+  },
+  {
+    "no": 112,
+    "nama": "Halte Portabel Masjid Nurul Huda 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.508615,
+    "lng": 95.410904
+  },
+  {
+    "no": 113,
+    "nama": "Halte Portabel Masjid Nurul Huda 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.50844,
+    "lng": 95.41056
+  },
+  {
+    "no": 114,
+    "nama": "Halte Portabel SDN 1 Blang Bintang",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.50929,
+    "lng": 95.40501
+  },
+  {
+    "no": 115,
+    "nama": "Halte Portabel Poliven",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.51021,
+    "lng": 95.39394
+  },
+  {
+    "no": 116,
+    "nama": "Halte Portabel MIS Mon Malem 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.50963,
+    "lng": 95.39093
+  },
+  {
+    "no": 117,
+    "nama": "Halte Portabel MIS Mon Malem 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.50973,
+    "lng": 95.39047
+  },
+  {
+    "no": 118,
+    "nama": "Halte Portabel Siron 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.51191,
+    "lng": 95.3696
+  },
+  {
+    "no": 119,
+    "nama": "Halte Portabel Siron 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.51217,
+    "lng": 95.36959
+  },
+  {
+    "no": 120,
+    "nama": "Halte Portabel Lambaro 1",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.50862,
+    "lng": 95.35524
+  },
+  {
+    "no": 121,
+    "nama": "Halte Portabel Metro TV 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.50975,
+    "lng": 95.34977
+  },
+  {
+    "no": 122,
+    "nama": "Halte Portabel Metro TV 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.51012,
+    "lng": 95.35002
+  },
+  {
+    "no": 123,
+    "nama": "Halte Portabel Paud Nurul Quran",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.51105,
+    "lng": 95.34562
+  },
+  {
+    "no": 124,
+    "nama": "Halte Portabel Taman Bunga",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.51275,
+    "lng": 95.3382
+  },
+  {
+    "no": 125,
+    "nama": "Halte Portabel Kejaksaan",
+    "jenis": "Halte Portable Tipe A",
+    "lat": 5.522813,
+    "lng": 95.33009
+  },
+  {
+    "no": 126,
+    "nama": "Halte Portabel Wali Nanggroe 2",
+    "jenis": "Halte Portable Tipe A",
+    "lat": 5.51158,
+    "lng": 95.34225
+  },
+  {
+    "no": 127,
+    "nama": "Halte Portabel Wali Nanggroe 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.51266,
+    "lng": 95.3391774
+  },
+  {
+    "no": 128,
+    "nama": "Halte Portabel Terminal Batoh",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.52923,
+    "lng": 95.3303429
+  },
+  {
+    "no": 129,
+    "nama": "Halte Portabel Smp 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.552194,
+    "lng": 95.313005
+  },
+  {
+    "no": 130,
+    "nama": "Halte Portabel Punge Jurong",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5500919,
+    "lng": 95.3084568
+  },
+  {
+    "no": 131,
+    "nama": "Halte Portabel Karantina",
+    "jenis": "Halte Portable Tipe A",
+    "lat": 5.550371721,
+    "lng": 95.28340278
+  },
+  {
+    "no": 132,
+    "nama": "Halte Portabel Gerbang Pelabuhan",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.55058044,
+    "lng": 95.28371605
+  },
+  {
+    "no": 133,
+    "nama": "Halte Portabel Koridor 3 MRB",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.553877,
+    "lng": 95.318671
+  },
+  {
+    "no": 134,
+    "nama": "Halte Portabel Sp 3 (Halte Lama)",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.535306,
+    "lng": 95.304945
+  },
+  {
+    "no": 135,
+    "nama": "Halte Portabel Fakinah 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.530034,
+    "lng": 95.303532
+  },
+  {
+    "no": 136,
+    "nama": "Halte Portabel Mushalla Meuligo Kupi 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.52625,
+    "lng": 95.303056
+  },
+  {
+    "no": 137,
+    "nama": "Halte Portabel Mushalla Meuligo Kupi 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.525667,
+    "lng": 95.302861
+  },
+  {
+    "no": 138,
+    "nama": "Halte Portabel SDN 2 Mata Ie 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.500385,
+    "lng": 95.300262
+  },
+  {
+    "no": 139,
+    "nama": "Halte Portabel Sp Punie 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.504562,
+    "lng": 95.303166
+  },
+  {
+    "no": 140,
+    "nama": "Halte Portabel Sp Punie 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5047137,
+    "lng": 95.3032663
+  },
+  {
+    "no": 141,
+    "nama": "Halte Portabel Pasar Keutapang 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.515538,
+    "lng": 95.303431
+  },
+  {
+    "no": 142,
+    "nama": "Halte Portabel Pasar Keutapang 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5155,
+    "lng": 95.303528
+  },
+  {
+    "no": 143,
+    "nama": "Halte Portabel Hino 2",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.500661265,
+    "lng": 95.31691011
+  },
+  {
+    "no": 144,
+    "nama": "Halte Portabel Depan Paud",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.516667245,
+    "lng": 95.31695756
+  },
+  {
+    "no": 145,
+    "nama": "Halte Portabel Mesjid Lhong Raya 2",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.517141204,
+    "lng": 95.31676022
+  },
+  {
+    "no": 146,
+    "nama": "Halte Portabel Mesjid Lhong Raya 1",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.517141204,
+    "lng": 95.3167716
+  },
+  {
+    "no": 147,
+    "nama": "Halte Portabel UPTD Autis",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.517304398,
+    "lng": 95.31669136
+  },
+  {
+    "no": 148,
+    "nama": "Halte Portabel STIE 2",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.533426505,
+    "lng": 95.30064969
+  },
+  {
+    "no": 149,
+    "nama": "Halte Portabel STIE 1",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.533427662,
+    "lng": 95.30064969
+  },
+  {
+    "no": 150,
+    "nama": "Halte Portabel Mesjid Selawah 2",
+    "jenis": "Halte Portable Tipe A",
+    "lat": 5.533612461,
+    "lng": 95.300511
+  },
+  {
+    "no": 151,
+    "nama": "Halte Portabel Mesjid Selawah 1",
+    "jenis": "Halte Portable Tipe A",
+    "lat": 5.533622685,
+    "lng": 95.300511
+  },
+  {
+    "no": 152,
+    "nama": "Halte Portabel Sp Lam Ara (Hope Kupi)",
+    "jenis": "Halte Portable Tipe A",
+    "lat": 5.516817515,
+    "lng": 95.3002093
+  },
+  {
+    "no": 153,
+    "nama": "Halte Portabel Gp. Lambheu (Solong Lampeneurut)",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.516783372,
+    "lng": 95.30031424
+  },
+  {
+    "no": 154,
+    "nama": "Halte Portabel Gp. Lampeuot (Indomaret Lampeuneurut)",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.516748264,
+    "lng": 95.30051061
+  },
+  {
+    "no": 155,
+    "nama": "Halte Portabel Meunasah Gp Lampeot",
+    "jenis": "Halte Portable Tipe B",
+    "lat": 5.516737076,
+    "lng": 95.3005108
+  },
+  {
+    "no": 156,
+    "nama": "Halte Portabel Meuraxa 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.516679205,
+    "lng": 95.31671296
+  },
+  {
+    "no": 157,
+    "nama": "Halte Portabel Hino 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.515778,
+    "lng": 95.322806
+  },
+  {
+    "no": 158,
+    "nama": "Halte Portabel Smp 1 Darul Imarah",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5150356,
+    "lng": 95.3273449
+  },
+  {
+    "no": 159,
+    "nama": "Halte Portabel Koridor 5 MRB",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.553797,
+    "lng": 95.318764
+  },
+  {
+    "no": 160,
+    "nama": "Halte Portabel Cot Cut",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.53418,
+    "lng": 95.37566
+  },
+  {
+    "no": 161,
+    "nama": "Halte Portabel Babah Jurong 2",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.531069,
+    "lng": 95.384148
+  },
+  {
+    "no": 162,
+    "nama": "Halte Portabel Babah Jurong 1",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.531174,
+    "lng": 95.383578
+  },
+  {
+    "no": 163,
+    "nama": "Halte Portabel Mns Bueng Bak Jok",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5275471,
+    "lng": 95.4114107
+  },
+  {
+    "no": 164,
+    "nama": "Halte Portabel Pesantren Dayah",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.532074,
+    "lng": 95.391806
+  },
+  {
+    "no": 165,
+    "nama": "Halte Portabel Moorden Beurawe",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.553702,
+    "lng": 95.333437
+  },
+  {
+    "no": 166,
+    "nama": "Halte Portabel Simpang Lambhuk",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.55332,
+    "lng": 95.33928
+  },
+  {
+    "no": 167,
+    "nama": "Halte Portabel PT Djarum",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.551634,
+    "lng": 95.354171
+  },
+  {
+    "no": 168,
+    "nama": "Halte Portabel Masjid Ulee Kareng",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.551408,
+    "lng": 95.355514
+  },
+  {
+    "no": 169,
+    "nama": "Halte Portabel Masjid Babbussalam Lam Ujong",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.54499,
+    "lng": 95.36481
+  },
+  {
+    "no": 170,
+    "nama": "Halte Portabel Indomaret Cot Iri",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.54052,
+    "lng": 95.36856
+  },
+  {
+    "no": 171,
+    "nama": "Halte Portabel Taman Bunga",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5424,
+    "lng": 95.36685
+  },
+  {
+    "no": 172,
+    "nama": "Halte Portabel Cot Iri",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.53958,
+    "lng": 95.36904
+  },
+  {
+    "no": 173,
+    "nama": "Halte Portabel Bundaran Bandara",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.52078,
+    "lng": 95.41363
+  },
+  {
+    "no": 174,
+    "nama": "Halte Portabel Abulyatama (Dayah)",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5308802,
+    "lng": 95.3881713
+  },
+  {
+    "no": 175,
+    "nama": "Halte Portabel Cot Sawah",
+    "jenis": "Halte Portabel Tangga",
+    "lat": 5.5279218,
+    "lng": 95.4003576
+  },
+  {
+    "no": 176,
+    "nama": "Shelter Fak. Ekonomi",
+    "jenis": "Shelter Permanen",
+    "lat": 5.572949,
+    "lng": 95.36772
+  },
+  {
+    "no": 177,
+    "nama": "Shelter SMAN 5 Banda Aceh",
+    "jenis": "Shelter Permanen",
+    "lat": 5.574833,
+    "lng": 95.367458
+  },
+  {
+    "no": 178,
+    "nama": "Shelter Gelanggang Mahasiswa",
+    "jenis": "Shelter Permanen",
+    "lat": 5.570409,
+    "lng": 95.365029
+  },
+  {
+    "no": 179,
+    "nama": "Shelter Fak. MIPA",
+    "jenis": "Shelter Permanen",
+    "lat": 5.568365,
+    "lng": 95.36759
+  },
+  {
+    "no": 180,
+    "nama": "Shelter SMAN 4 Banda Aceh",
+    "jenis": "Shelter Permanen",
+    "lat": 5.565744,
+    "lng": 95.343224
+  },
+  {
+    "no": 181,
+    "nama": "Shelter Stadion H. Dimurthala",
+    "jenis": "Shelter Permanen",
+    "lat": 5.566141,
+    "lng": 95.339932
+  },
+  {
+    "no": 182,
+    "nama": "Shelter RSUDZA",
+    "jenis": "Shelter Permanen",
+    "lat": 5.565855,
+    "lng": 95.337833
+  },
+  {
+    "no": 183,
+    "nama": "Shelter SDN 1 Peukan Bada",
+    "jenis": "Shelter Permanen",
+    "lat": 5.535426,
+    "lng": 95.282554
+  },
+  {
+    "no": 184,
+    "nama": "Shelter Asrama USK",
+    "jenis": "Shelter Permanen",
+    "lat": 5.578988,
+    "lng": 95.363433
+  },
+  {
+    "no": 185,
+    "nama": "Shelter Portable MRB Ulee Kareng",
+    "jenis": "Shelter Portable",
+    "lat": 5.553877,
+    "lng": 95.318671
+  },
+  {
+    "no": 186,
+    "nama": "Shelter Portable MRB Ulee Kareng",
+    "jenis": "Shelter Portable",
+    "lat": 5.553877,
+    "lng": 95.318671
+  },
+  {
+    "no": 187,
+    "nama": "Shelter Portable MRB Mata Ie",
+    "jenis": "Shelter Portable",
+    "lat": 5.553797,
+    "lng": 95.318764
+  },
+  {
+    "no": 188,
+    "nama": "Shelter Portable MRB Mata Ie",
+    "jenis": "Shelter Portable",
+    "lat": 5.553797,
+    "lng": 95.318764
+  },
+  {
+    "no": 189,
+    "nama": "Park and Ride Masjid Jamik",
+    "jenis": "Park and Ride",
+    "lat": 5.57145,
+    "lng": 95.371601
+  },
+  {
+    "no": 190,
+    "nama": "Park and Ride Stadion Lhong Raya",
+    "jenis": "Park and Ride",
+    "lat": 5.522819,
+    "lng": 95.321208
+  },
+  {
+    "no": 191,
+    "nama": "Park and Ride Batoh",
+    "jenis": "Park and Ride",
+    "lat": 5.542081,
+    "lng": 95.330206
+  },
+  {
+    "no": 192,
+    "nama": "Park and Ride Ulee Lheue",
+    "jenis": "Park and Ride",
+    "lat": 5.553378,
+    "lng": 95.291853
+  },
+  {
+    "no": 193,
+    "nama": "Park and Ride TVRI",
+    "jenis": "Park and Ride",
+    "lat": 5.509409,
+    "lng": 95.30314
+  },
+  {
+    "no": 194,
+    "nama": "Shelter Masjid Jamik",
+    "jenis": "Rambu",
+    "lat": 5.570628,
+    "lng": 95.37202
+  },
+  {
+    "no": 195,
+    "nama": "Shelter Auditorium UIN 1",
+    "jenis": "Rambu",
+    "lat": 5.576785,
+    "lng": 95.367571
+  },
+  {
+    "no": 196,
+    "nama": "Shelter Bundaran UIN 1",
+    "jenis": "Rambu",
+    "lat": 5.5781,
+    "lng": 95.367523
+  },
+  {
+    "no": 197,
+    "nama": "Shelter Bundaran UIN 2",
+    "jenis": "Rambu",
+    "lat": 5.578482,
+    "lng": 95.367616
+  },
+  {
+    "no": 198,
+    "nama": "Shelter Auditorium UIN 2",
+    "jenis": "Rambu",
+    "lat": 5.576956,
+    "lng": 95.367749
+  },
+  {
+    "no": 199,
+    "nama": "Shelter Sospol",
+    "jenis": "Rambu",
+    "lat": 5.566063,
+    "lng": 95.369895
+  },
+  {
+    "no": 200,
+    "nama": "Shelter Kedokteran Hewan",
+    "jenis": "Rambu",
+    "lat": 5.567601,
+    "lng": 95.371867
+  },
+  {
+    "no": 201,
+    "nama": "Shelter Peuniti 1",
+    "jenis": "Rambu",
+    "lat": 5.551268,
+    "lng": 95.322856
+  },
+  {
+    "no": 202,
+    "nama": "Shelter Flyover 1 (Pegadaian)",
+    "jenis": "Rambu",
+    "lat": 5.548678,
+    "lng": 95.333465
+  },
+  {
+    "no": 203,
+    "nama": "Shelter panteriek 1",
+    "jenis": "Rambu",
+    "lat": 5.546639,
+    "lng": 95.334481
+  },
+  {
+    "no": 204,
+    "nama": "Shelter Mahkamah Militer 1",
+    "jenis": "Rambu",
+    "lat": 5.5436,
+    "lng": 95.33599
+  },
+  {
+    "no": 205,
+    "nama": "Shelter Terminal Lueng Bata",
+    "jenis": "Rambu",
+    "lat": 5.539813,
+    "lng": 95.33924
+  },
+  {
+    "no": 206,
+    "nama": "Shelter DPMPTSP",
+    "jenis": "Rambu",
+    "lat": 5.536918,
+    "lng": 95.341735
+  },
+  {
+    "no": 207,
+    "nama": "Shelter Gampong Tanjong 1",
+    "jenis": "Rambu",
+    "lat": 5.533904,
+    "lng": 95.3452
+  },
+  {
+    "no": 208,
+    "nama": "Shelter SMAN 16 Banda Aceh",
+    "jenis": "Rambu",
+    "lat": 5.545308,
+    "lng": 95.346098
+  },
+  {
+    "no": 209,
+    "nama": "Shelter Amel Convention Hall",
+    "jenis": "Rambu",
+    "lat": 5.55134,
+    "lng": 95.344914
+  },
+  {
+    "no": 210,
+    "nama": "Shelter Gramedia 2",
+    "jenis": "Rambu",
+    "lat": 5.557641,
+    "lng": 95.344065
+  },
+  {
+    "no": 211,
+    "nama": "Shelter SDN 24 Banda Aceh",
+    "jenis": "Rambu",
+    "lat": 5.563192,
+    "lng": 95.343493
+  },
+  {
+    "no": 212,
+    "nama": "Shelter BKKBN",
+    "jenis": "Rambu",
+    "lat": 5.569373,
+    "lng": 95.341717
+  },
+  {
+    "no": 213,
+    "nama": "Shelter Gramedia 1",
+    "jenis": "Rambu",
+    "lat": 5.557447,
+    "lng": 95.344318
+  },
+  {
+    "no": 214,
+    "nama": "Shelter Canai Mamak",
+    "jenis": "Rambu",
+    "lat": 5.551704,
+    "lng": 95.34507
+  },
+  {
+    "no": 215,
+    "nama": "Shelter Pango",
+    "jenis": "Rambu",
+    "lat": 5.546095,
+    "lng": 95.34615
+  },
+  {
+    "no": 216,
+    "nama": "Shelter OJK",
+    "jenis": "Rambu",
+    "lat": 5.538893,
+    "lng": 95.347614
+  },
+  {
+    "no": 217,
+    "nama": "Shelter Harian Serambi 1",
+    "jenis": "Rambu",
+    "lat": 5.533303,
+    "lng": 95.35265
+  },
+  {
+    "no": 218,
+    "nama": "Shelter Santan 1",
+    "jenis": "Rambu",
+    "lat": 5.531016,
+    "lng": 95.356166
+  },
+  {
+    "no": 219,
+    "nama": "Shelter Meunasah Krueng 1",
+    "jenis": "Rambu",
+    "lat": 5.528289,
+    "lng": 95.360254
+  },
+  {
+    "no": 220,
+    "nama": "Shelter Pagar Air 1",
+    "jenis": "Rambu",
+    "lat": 5.527175,
+    "lng": 95.363481
+  },
+  {
+    "no": 221,
+    "nama": "Shelter Dian Pelangi 1",
+    "jenis": "Rambu",
+    "lat": 5.52234,
+    "lng": 95.363989
+  },
+  {
+    "no": 222,
+    "nama": "Shelter Lubok Batee 1",
+    "jenis": "Rambu",
+    "lat": 5.516917,
+    "lng": 95.360519
+  },
+  {
+    "no": 223,
+    "nama": "Shelter Pasar Lambaro 1",
+    "jenis": "Rambu",
+    "lat": 5.512546,
+    "lng": 95.357746
+  },
+  {
+    "no": 224,
+    "nama": "Shelter Lambaro 2",
+    "jenis": "Rambu",
+    "lat": 5.508356,
+    "lng": 95.355465
+  },
+  {
+    "no": 225,
+    "nama": "Shelter Pasar Lambaro 2",
+    "jenis": "Rambu",
+    "lat": 5.512055,
+    "lng": 95.357458
+  },
+  {
+    "no": 226,
+    "nama": "Shelter Lubok Batee 2",
+    "jenis": "Rambu",
+    "lat": 5.516815,
+    "lng": 95.360133
+  },
+  {
+    "no": 227,
+    "nama": "Shelter Dian Pelangi 2",
+    "jenis": "Rambu",
+    "lat": 5.522426,
+    "lng": 95.363847
+  },
+  {
+    "no": 228,
+    "nama": "Shelter Pagar Air 2",
+    "jenis": "Rambu",
+    "lat": 5.527113,
+    "lng": 95.36308
+  },
+  {
+    "no": 229,
+    "nama": "Shelter Meunasah Krueng 2",
+    "jenis": "Rambu",
+    "lat": 5.528448,
+    "lng": 95.359553
+  },
+  {
+    "no": 230,
+    "nama": "Shelter Santan 2",
+    "jenis": "Rambu",
+    "lat": 5.530761,
+    "lng": 95.356223
+  },
+  {
+    "no": 231,
+    "nama": "Shelter Harian Serambi 2",
+    "jenis": "Rambu",
+    "lat": 5.532811,
+    "lng": 95.353158
+  },
+  {
+    "no": 232,
+    "nama": "Shelter Gampong Tanjong 2",
+    "jenis": "Rambu",
+    "lat": 5.533553,
+    "lng": 95.346967
+  },
+  {
+    "no": 233,
+    "nama": "Shelter DPMPTSP 2",
+    "jenis": "Rambu",
+    "lat": 5.53572,
+    "lng": 95.342029
+  },
+  {
+    "no": 234,
+    "nama": "Shelter Terminal Lueng Bata 2",
+    "jenis": "Rambu",
+    "lat": 5.53945,
+    "lng": 95.339466
+  },
+  {
+    "no": 235,
+    "nama": "Shelter Mahkamah Militer 2",
+    "jenis": "Rambu",
+    "lat": 5.543541,
+    "lng": 95.335798
+  },
+  {
+    "no": 236,
+    "nama": "Shelter panteriek 2",
+    "jenis": "Rambu",
+    "lat": 5.546185,
+    "lng": 95.334519
+  },
+  {
+    "no": 237,
+    "nama": "Shelter Flyover 2",
+    "jenis": "Rambu",
+    "lat": 5.548602,
+    "lng": 95.333332
+  },
+  {
+    "no": 238,
+    "nama": "Shelter Simpang Surabaya",
+    "jenis": "Rambu",
+    "lat": 5.550774,
+    "lng": 95.331198
+  },
+  {
+    "no": 239,
+    "nama": "Shelter Peuniti 2",
+    "jenis": "Rambu",
+    "lat": 5.551132,
+    "lng": 95.321898
+  },
+  {
+    "no": 240,
+    "nama": "Shleter SDN 51 Banda Aceh",
+    "jenis": "Rambu",
+    "lat": 5.521666,
+    "lng": 95.300662
+  },
+  {
+    "no": 241,
+    "nama": "Shelter Bea Cukai Banda Aceh",
+    "jenis": "Rambu",
+    "lat": 5.526459,
+    "lng": 95.29696
+  },
+  {
+    "no": 242,
+    "nama": "Shelter Simpang Dodik 2",
+    "jenis": "Rambu",
+    "lat": 5.528203,
+    "lng": 95.293235
+  },
+  {
+    "no": 243,
+    "nama": "Shelter Ajun 2",
+    "jenis": "Rambu",
+    "lat": 5.52627,
+    "lng": 95.286923
+  },
+  {
+    "no": 244,
+    "nama": "Shelter Villa Buana 2",
+    "jenis": "Rambu",
+    "lat": 5.523717,
+    "lng": 95.279754
+  },
+  {
+    "no": 245,
+    "nama": "Shelter Simpang Rima",
+    "jenis": "Rambu",
+    "lat": 5.523213,
+    "lng": 95.272771
+  },
+  {
+    "no": 246,
+    "nama": "Shelter Rumoh Cut Nyak Dhien 1",
+    "jenis": "Rambu",
+    "lat": 5.516804,
+    "lng": 95.271526
+  },
+  {
+    "no": 247,
+    "nama": "Shelter Puskesmas Lampisang 1",
+    "jenis": "Rambu",
+    "lat": 5.51379,
+    "lng": 95.271956
+  },
+  {
+    "no": 248,
+    "nama": "Shelter Desa Wisata Nusa 1",
+    "jenis": "Rambu",
+    "lat": 5.502143,
+    "lng": 95.268036
+  },
+  {
+    "no": 249,
+    "nama": "Shelter Simpang Tanjong 1",
+    "jenis": "Rambu",
+    "lat": 5.497074,
+    "lng": 95.262685
+  },
+  {
+    "no": 250,
+    "nama": "Shelter Lamcok 1",
+    "jenis": "Rambu",
+    "lat": 5.492014,
+    "lng": 95.26204
+  },
+  {
+    "no": 251,
+    "nama": "Shelter Keude Bing 1",
+    "jenis": "Rambu",
+    "lat": 5.487748,
+    "lng": 95.260441
+  },
+  {
+    "no": 252,
+    "nama": "Shelter Simpang Mata Ie 1",
+    "jenis": "Rambu",
+    "lat": 5.486117,
+    "lng": 95.257773
+  },
+  {
+    "no": 253,
+    "nama": "Shelter Dayah Durul 1",
+    "jenis": "Rambu",
+    "lat": 5.481255,
+    "lng": 95.251281
+  },
+  {
+    "no": 254,
+    "nama": "Shelter Masjid Lhoknga",
+    "jenis": "Rambu",
+    "lat": 5.477833,
+    "lng": 95.245399
+  },
+  {
+    "no": 255,
+    "nama": "Shelter Mon Ikeun 1",
+    "jenis": "Rambu",
+    "lat": 5.476292,
+    "lng": 95.241203
+  },
+  {
+    "no": 256,
+    "nama": "Shelter SMK Lampuuk 1",
+    "jenis": "Rambu",
+    "lat": 5.484533,
+    "lng": 95.237662
+  },
+  {
+    "no": 257,
+    "nama": "Shelter Simpang Wisata Lampuuk 1",
+    "jenis": "Rambu",
+    "lat": 5.489597,
+    "lng": 95.236427
+  },
+  {
+    "no": 258,
+    "nama": "Shelter Masjid Lampuuk",
+    "jenis": "Rambu",
+    "lat": 5.493722,
+    "lng": 95.235698
+  },
+  {
+    "no": 259,
+    "nama": "Shelter SMPN 2 Lhoknga",
+    "jenis": "Rambu",
+    "lat": 5.487407,
+    "lng": 95.237069
+  },
+  {
+    "no": 260,
+    "nama": "Shelter Mon Ikeun 2",
+    "jenis": "Rambu",
+    "lat": 5.476185,
+    "lng": 95.240826
+  },
+  {
+    "no": 261,
+    "nama": "Shelter MIN 29 Lhoknga",
+    "jenis": "Rambu",
+    "lat": 5.477883,
+    "lng": 95.245118
+  },
+  {
+    "no": 262,
+    "nama": "Shelter Dayah Darul 2",
+    "jenis": "Rambu",
+    "lat": 5.481521,
+    "lng": 95.251427
+  },
+  {
+    "no": 263,
+    "nama": "Shelter Simpang Mata Ie 2",
+    "jenis": "Rambu",
+    "lat": 5.48617,
+    "lng": 95.257672
+  },
+  {
+    "no": 264,
+    "nama": "Shelter Keude Bing 2",
+    "jenis": "Rambu",
+    "lat": 5.487857,
+    "lng": 95.260432
+  },
+  {
+    "no": 265,
+    "nama": "Shelter Lamcok 2",
+    "jenis": "Rambu",
+    "lat": 5.491808,
+    "lng": 95.261945
+  },
+  {
+    "no": 266,
+    "nama": "Shelter Simpang Tanjong 2",
+    "jenis": "Rambu",
+    "lat": 5.497166,
+    "lng": 95.262571
+  },
+  {
+    "no": 267,
+    "nama": "Shelter Desa Wisata Nusa 2",
+    "jenis": "Rambu",
+    "lat": 5.501752,
+    "lng": 95.267739
+  },
+  {
+    "no": 268,
+    "nama": "Shelter Puskesmas Lampisang 2",
+    "jenis": "Rambu",
+    "lat": 5.51373,
+    "lng": 95.27185
+  },
+  {
+    "no": 269,
+    "nama": "Shelter Rumoh Cut Nyak Dhien 2",
+    "jenis": "Rambu",
+    "lat": 5.516804,
+    "lng": 95.271526
+  },
+  {
+    "no": 270,
+    "nama": "Shelter Simpang Rima",
+    "jenis": "Rambu",
+    "lat": 5.523213,
+    "lng": 95.272771
+  },
+  {
+    "no": 271,
+    "nama": "Shelter Villa Buana 1",
+    "jenis": "Rambu",
+    "lat": 5.523741,
+    "lng": 95.27956
+  },
+  {
+    "no": 272,
+    "nama": "Shelter Ajun 1",
+    "jenis": "Rambu",
+    "lat": 5.526362,
+    "lng": 95.286885
+  },
+  {
+    "no": 273,
+    "nama": "Shelter Simpang Dodik 1",
+    "jenis": "Rambu",
+    "lat": 5.528455,
+    "lng": 95.293435
+  },
+  {
+    "no": 274,
+    "nama": "Shelter MIN 7 Banda Aceh",
+    "jenis": "Rambu",
+    "lat": 5.530354,
+    "lng": 95.297296
+  },
+  {
+    "no": 275,
+    "nama": "Shelter Lamteumen Timur",
+    "jenis": "Rambu",
+    "lat": 5.532879,
+    "lng": 95.301317
+  },
+  {
+    "no": 276,
+    "nama": "Shelter Lampoh Dayah",
+    "jenis": "Rambu",
+    "lat": 5.533636,
+    "lng": 95.288819
+  },
+  {
+    "no": 277,
+    "nama": "Shelter Simpang Lamjame 1",
+    "jenis": "Rambu",
+    "lat": 5.53924,
+    "lng": 95.284535
+  },
+  {
+    "no": 278,
+    "nama": "Shelter Simpang Ujung Pancu 1",
+    "jenis": "Rambu",
+    "lat": 5.547495,
+    "lng": 95.287142
+  },
+  {
+    "no": 279,
+    "nama": "Shelter TDMRC 1",
+    "jenis": "Rambu",
+    "lat": 5.552878,
+    "lng": 95.285935
+  },
+  {
+    "no": 280,
+    "nama": "Shelter TDMRC 2",
+    "jenis": "Rambu",
+    "lat": 5.553164,
+    "lng": 95.285816
+  },
+  {
+    "no": 281,
+    "nama": "Shelter Simpang Ujung Pancu 2",
+    "jenis": "Rambu",
+    "lat": 5.548605,
+    "lng": 95.287214
+  },
+  {
+    "no": 282,
+    "nama": "Shelter Simpang Lamjame 2",
+    "jenis": "Rambu",
+    "lat": 5.540136,
+    "lng": 95.284945
+  },
+  {
+    "no": 283,
+    "nama": "Shelter Pasar Peukan Bada",
+    "jenis": "Rambu",
+    "lat": 5.53313,
+    "lng": 95.27839
+  }
+]

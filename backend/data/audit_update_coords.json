@@ -1,0 +1,5537 @@
+{
+  "blang_bintang": {
+    "total": 51,
+    "updated": 51,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Halte Sp. Lima 1",
+        "dishub_no": 3,
+        "dishub_nama": "Halte Sp Lima 1",
+        "old_coords": [
+          5.557053,
+          95.323453
+        ],
+        "new_coords": [
+          5.55662433,
+          95.32325626
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 3,
+        "db_nama": "Portabel Sp. Keramat 1",
+        "dishub_no": 4,
+        "dishub_nama": "Halte Sp Keramat 1",
+        "old_coords": [
+          5.559467,
+          95.329167
+        ],
+        "new_coords": [
+          5.558251,
+          95.327387
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 4,
+        "db_nama": "Portabel Yamaha Beurawe",
+        "dishub_no": 110,
+        "dishub_nama": "Halte Portabel Yamaha Beurawe",
+        "old_coords": [
+          5.562,
+          95.335
+        ],
+        "new_coords": [
+          5.55741,
+          95.33023
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 5,
+        "db_nama": "Portabel Sp. Surabaya",
+        "dishub_no": 44,
+        "dishub_nama": "Halte Sp Surabaya",
+        "old_coords": [
+          5.54712,
+          95.335
+        ],
+        "new_coords": [
+          5.547145,
+          95.330086
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 6,
+        "db_nama": "Halte Batoh 1",
+        "dishub_no": 25,
+        "dishub_nama": "Halte Batoh 1",
+        "old_coords": [
+          5.532,
+          95.335
+        ],
+        "new_coords": [
+          5.54232257,
+          95.33032041
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 7,
+        "db_nama": "Halte Sp. Batoh 1",
+        "dishub_no": 26,
+        "dishub_nama": "Halte Sp. Batoh 1",
+        "old_coords": [
+          5.532,
+          95.335
+        ],
+        "new_coords": [
+          5.53366058,
+          95.3303358
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Portabel Terminal Batoh",
+        "dishub_no": 128,
+        "dishub_nama": "Halte Portabel Terminal Batoh",
+        "old_coords": [
+          5.532,
+          95.335
+        ],
+        "new_coords": [
+          5.52923,
+          95.3303429
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 9,
+        "db_nama": "Halte Darul Imarah 1",
+        "dishub_no": 27,
+        "dishub_nama": "Halte Darul imarah 1",
+        "old_coords": [
+          5.503,
+          95.326
+        ],
+        "new_coords": [
+          5.51427665,
+          95.33106485
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 10,
+        "db_nama": "Portabel Wali Nanggroe 1",
+        "dishub_no": 127,
+        "dishub_nama": "Halte Portabel Wali Nanggroe 1",
+        "old_coords": [
+          5.506715,
+          95.33162
+        ],
+        "new_coords": [
+          5.51266,
+          95.3391774
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 11,
+        "db_nama": "Portabel Nurul Quran",
+        "dishub_no": 123,
+        "dishub_nama": "Halte Portabel Paud Nurul Quran",
+        "old_coords": [
+          5.51007,
+          95.337
+        ],
+        "new_coords": [
+          5.51105,
+          95.34562
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Portabel Metro TV 1",
+        "dishub_no": 121,
+        "dishub_nama": "Halte Portabel Metro TV 1",
+        "old_coords": [
+          5.513425,
+          95.34262
+        ],
+        "new_coords": [
+          5.50975,
+          95.34977
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Portabel Lambaro 1",
+        "dishub_no": 120,
+        "dishub_nama": "Halte Portabel Lambaro 1",
+        "old_coords": [
+          5.5169,
+          95.348
+        ],
+        "new_coords": [
+          5.50862,
+          95.35524
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 14,
+        "db_nama": "Halte Siron 1",
+        "dishub_no": 28,
+        "dishub_nama": "Halte Siron 1",
+        "old_coords": [
+          5.522,
+          95.37
+        ],
+        "new_coords": [
+          5.51132798,
+          95.36438048
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 15,
+        "db_nama": "Portabel Siron 1",
+        "dishub_no": 28,
+        "dishub_nama": "Halte Siron 1",
+        "old_coords": [
+          5.522,
+          95.37
+        ],
+        "new_coords": [
+          5.51132798,
+          95.36438048
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 16,
+        "db_nama": "Halte BKN 1",
+        "dishub_no": 29,
+        "dishub_nama": "Halte BKN 1",
+        "old_coords": [
+          5.52144,
+          95.37832
+        ],
+        "new_coords": [
+          5.51248133,
+          95.37817776
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 17,
+        "db_nama": "Halte Gani 1",
+        "dishub_no": 30,
+        "dishub_nama": "Halte Gani 1",
+        "old_coords": [
+          5.52052,
+          95.3864
+        ],
+        "new_coords": [
+          5.51194489,
+          95.38530707
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 18,
+        "db_nama": "Portabel MIS Mon Malem 1",
+        "dishub_no": 117,
+        "dishub_nama": "Halte Portabel MIS Mon Malem 1",
+        "old_coords": [
+          5.5196,
+          95.39472
+        ],
+        "new_coords": [
+          5.50973,
+          95.39047
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 19,
+        "db_nama": "Portabel Poliven",
+        "dishub_no": 115,
+        "dishub_nama": "Halte Portabel Poliven",
+        "old_coords": [
+          5.51904,
+          95.4028
+        ],
+        "new_coords": [
+          5.51021,
+          95.39394
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 20,
+        "db_nama": "Portabel SDN 1 Blang Bintang",
+        "dishub_no": 35,
+        "dishub_nama": "Halte SDN 1 Blang Bintang",
+        "old_coords": [
+          5.518,
+          95.411
+        ],
+        "new_coords": [
+          5.509051,
+          95.404946
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 21,
+        "db_nama": "Portabel Masjid Nurul Huda 1",
+        "dishub_no": 113,
+        "dishub_nama": "Halte Portabel Masjid Nurul Huda 1",
+        "old_coords": [
+          5.518,
+          95.411
+        ],
+        "new_coords": [
+          5.50844,
+          95.41056
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 22,
+        "db_nama": "Halte Blang Bintang 1",
+        "dishub_no": 31,
+        "dishub_nama": "Halte Blang Bintang 1 (Koridor 2A)",
+        "old_coords": [
+          5.518,
+          95.411
+        ],
+        "new_coords": [
+          5.51150501,
+          95.41382778
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 23,
+        "db_nama": "Portabel Gampong Blang 1",
+        "dishub_no": 111,
+        "dishub_nama": "Halte Portabel Gampong Blang 1",
+        "old_coords": [
+          5.521,
+          95.413
+        ],
+        "new_coords": [
+          5.51742,
+          95.413
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 24,
+        "db_nama": "Halte Bandara SIM",
+        "dishub_no": 32,
+        "dishub_nama": "Halte Bandara SIM",
+        "old_coords": [
+          5.5232,
+          95.4204
+        ],
+        "new_coords": [
+          5.51695855,
+          95.41644265
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 25,
+        "db_nama": "Halte Bandara SIM",
+        "dishub_no": 32,
+        "dishub_nama": "Halte Bandara SIM",
+        "old_coords": [
+          5.5232,
+          95.4204
+        ],
+        "new_coords": [
+          5.51695855,
+          95.41644265
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 26,
+        "db_nama": "Halte Gampong Blang",
+        "dishub_no": 33,
+        "dishub_nama": "Halte Gampong Blang",
+        "old_coords": [
+          5.521,
+          95.413
+        ],
+        "new_coords": [
+          5.517684,
+          95.413377
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 27,
+        "db_nama": "Halte Blang Bintang 2",
+        "dishub_no": 34,
+        "dishub_nama": "Halte Blang Bintang 2 (Koridor 2A)",
+        "old_coords": [
+          5.518,
+          95.411
+        ],
+        "new_coords": [
+          5.511561,
+          95.41393
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 28,
+        "db_nama": "Portabel Masjid Nurul Huda 2",
+        "dishub_no": 112,
+        "dishub_nama": "Halte Portabel Masjid Nurul Huda 2",
+        "old_coords": [
+          5.51824,
+          95.41112
+        ],
+        "new_coords": [
+          5.508615,
+          95.410904
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 29,
+        "db_nama": "Halte SDN 1 Blang Bintang",
+        "dishub_no": 35,
+        "dishub_nama": "Halte SDN 1 Blang Bintang",
+        "old_coords": [
+          5.518,
+          95.411
+        ],
+        "new_coords": [
+          5.509051,
+          95.404946
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 30,
+        "db_nama": "Halte Modal Bangsa",
+        "dishub_no": 36,
+        "dishub_nama": "Halte Modal Bangsa",
+        "old_coords": [
+          5.521,
+          95.398
+        ],
+        "new_coords": [
+          5.51014245,
+          95.39486647
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 31,
+        "db_nama": "Portabel MIS Mon Malem 2",
+        "dishub_no": 116,
+        "dishub_nama": "Halte Portabel MIS Mon Malem 2",
+        "old_coords": [
+          5.52149,
+          95.391
+        ],
+        "new_coords": [
+          5.50963,
+          95.39093
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 32,
+        "db_nama": "Halte Gani 2",
+        "dishub_no": 37,
+        "dishub_nama": "Halte Gani 2",
+        "old_coords": [
+          5.52162,
+          95.38412
+        ],
+        "new_coords": [
+          5.51159084,
+          95.38553238
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 33,
+        "db_nama": "Halte BKN 2",
+        "dishub_no": 38,
+        "dishub_nama": "Halte BKN 2",
+        "old_coords": [
+          5.52175,
+          95.377
+        ],
+        "new_coords": [
+          5.513485,
+          95.380002
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 34,
+        "db_nama": "Portabel Siron 2",
+        "dishub_no": 39,
+        "dishub_nama": "Halte Siron 2",
+        "old_coords": [
+          5.522,
+          95.37
+        ],
+        "new_coords": [
+          5.511343,
+          95.364261
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 35,
+        "db_nama": "Halte Siron 2",
+        "dishub_no": 39,
+        "dishub_nama": "Halte Siron 2",
+        "old_coords": [
+          5.522,
+          95.37
+        ],
+        "new_coords": [
+          5.511343,
+          95.364261
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 36,
+        "db_nama": "Halte Lambaro 2",
+        "dishub_no": 40,
+        "dishub_nama": "Halte Lambaro 2",
+        "old_coords": [
+          5.5169,
+          95.348
+        ],
+        "new_coords": [
+          5.50747633,
+          95.35627484
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 37,
+        "db_nama": "Portabel Metro TV 2",
+        "dishub_no": 122,
+        "dishub_nama": "Halte Portabel Metro TV 2",
+        "old_coords": [
+          5.513665,
+          95.3425
+        ],
+        "new_coords": [
+          5.51012,
+          95.35002
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 38,
+        "db_nama": "Portabel Wali Nanggroe 2",
+        "dishub_no": 126,
+        "dishub_nama": "Halte Portabel Wali Nanggroe 2",
+        "old_coords": [
+          5.51007,
+          95.33712
+        ],
+        "new_coords": [
+          5.51158,
+          95.34225
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 39,
+        "db_nama": "Portabel Taman Bunga",
+        "dishub_no": 124,
+        "dishub_nama": "Halte Portabel Taman Bunga",
+        "old_coords": [
+          5.506475,
+          95.3315
+        ],
+        "new_coords": [
+          5.51275,
+          95.3382
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 40,
+        "db_nama": "Halte Darul Imarah 2",
+        "dishub_no": 41,
+        "dishub_nama": "Halte Darul Imarah 2",
+        "old_coords": [
+          5.503,
+          95.326
+        ],
+        "new_coords": [
+          5.51508844,
+          95.33009112
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 41,
+        "db_nama": "Portabel Kejaksaan",
+        "dishub_no": 125,
+        "dishub_nama": "Halte Portabel Kejaksaan",
+        "old_coords": [
+          5.51762,
+          95.3305
+        ],
+        "new_coords": [
+          5.522813,
+          95.33009
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 42,
+        "db_nama": "Halte Terminal Batoh",
+        "dishub_no": 128,
+        "dishub_nama": "Halte Portabel Terminal Batoh",
+        "old_coords": [
+          5.532,
+          95.335
+        ],
+        "new_coords": [
+          5.52923,
+          95.3303429
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 43,
+        "db_nama": "Halte Sp. Batoh 2",
+        "dishub_no": 43,
+        "dishub_nama": "Halte Sp Batoh 2",
+        "old_coords": [
+          5.532,
+          95.335
+        ],
+        "new_coords": [
+          5.533917,
+          95.330143
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 44,
+        "db_nama": "Portabel Bank Aceh Batoh",
+        "dishub_no": 107,
+        "dishub_nama": "Halte Portabel Bank Aceh Batoh",
+        "old_coords": [
+          5.532,
+          95.335
+        ],
+        "new_coords": [
+          5.54069,
+          95.32996
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 45,
+        "db_nama": "Halte Sp. Surabaya",
+        "dishub_no": 44,
+        "dishub_nama": "Halte Sp Surabaya",
+        "old_coords": [
+          5.538,
+          95.332
+        ],
+        "new_coords": [
+          5.547145,
+          95.330086
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 46,
+        "db_nama": "Portabel Arena Ban",
+        "dishub_no": 109,
+        "dishub_nama": "Halte Portabel Arena Ban",
+        "old_coords": [
+          5.54424,
+          95.32912
+        ],
+        "new_coords": [
+          5.55552,
+          95.33047
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 47,
+        "db_nama": "Halte Sp. Keuramat 2",
+        "dishub_no": 22,
+        "dishub_nama": "Halte Sp Keramat 2",
+        "old_coords": [
+          5.55012,
+          95.326
+        ],
+        "new_coords": [
+          5.55800808,
+          95.32712607
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 48,
+        "db_nama": "Portabel Sp. Lima 2",
+        "dishub_no": 23,
+        "dishub_nama": "Halte Sp Lima 2",
+        "old_coords": [
+          5.556,
+          95.32312
+        ],
+        "new_coords": [
+          5.55646795,
+          95.32336817
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 49,
+        "db_nama": "Halte Peunayong",
+        "dishub_no": 24,
+        "dishub_nama": "Halte Peunayong",
+        "old_coords": [
+          5.562,
+          95.32
+        ],
+        "new_coords": [
+          5.558657,
+          95.318962
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 50,
+        "db_nama": "Halte Keudah",
+        "dishub_no": 1,
+        "dishub_nama": "Halte Keudah",
+        "old_coords": [
+          5.5763,
+          95.3132
+        ],
+        "new_coords": [
+          5.55979599,
+          95.31767663
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 51,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "campus": {
+    "total": 16,
+    "updated": 15,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Shelter Masjid Jamik",
+        "dishub_no": 189,
+        "dishub_nama": "Park and Ride Masjid Jamik",
+        "old_coords": [
+          5.5745,
+          95.3695
+        ],
+        "new_coords": [
+          5.57145,
+          95.371601
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Shelter Fak Ekonomi",
+        "dishub_no": 176,
+        "dishub_nama": "Shelter Fak. Ekonomi",
+        "old_coords": [
+          5.5755,
+          95.3705
+        ],
+        "new_coords": [
+          5.572949,
+          95.36772
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 3,
+        "db_nama": "Shelter Auditorium UIN 1",
+        "dishub_no": 195,
+        "dishub_nama": "Shelter Auditorium UIN 1",
+        "old_coords": [
+          5.5741,
+          95.3688
+        ],
+        "new_coords": [
+          5.576785,
+          95.367571
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 4,
+        "db_nama": "Shelter Bundaran UIN 1",
+        "dishub_no": 196,
+        "dishub_nama": "Shelter Bundaran UIN 1",
+        "old_coords": [
+          5.5738,
+          95.369
+        ],
+        "new_coords": [
+          5.5781,
+          95.367523
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 5,
+        "db_nama": "Shelter Bundaran UIN 2",
+        "dishub_no": 197,
+        "dishub_nama": "Shelter Bundaran UIN 2",
+        "old_coords": [
+          5.5738,
+          95.369
+        ],
+        "new_coords": [
+          5.578482,
+          95.367616
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 6,
+        "db_nama": "Shelter Auditorium UIN 2",
+        "dishub_no": 198,
+        "dishub_nama": "Shelter Auditorium UIN 2",
+        "old_coords": [
+          5.5741,
+          95.3688
+        ],
+        "new_coords": [
+          5.576956,
+          95.367749
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 7,
+        "db_nama": "Shelter SMAN 5 Banda Aceh",
+        "dishub_no": 177,
+        "dishub_nama": "Shelter SMAN 5 Banda Aceh",
+        "old_coords": [
+          5.57474,
+          95.368
+        ],
+        "new_coords": [
+          5.574833,
+          95.367458
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Shelter Asrama USK",
+        "dishub_no": 184,
+        "dishub_nama": "Shelter Asrama USK",
+        "old_coords": [
+          5.578,
+          95.369
+        ],
+        "new_coords": [
+          5.578988,
+          95.363433
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 9,
+        "db_nama": "Shelter Asrama USK",
+        "dishub_no": 184,
+        "dishub_nama": "Shelter Asrama USK",
+        "old_coords": [
+          5.578,
+          95.369
+        ],
+        "new_coords": [
+          5.578988,
+          95.363433
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 10,
+        "db_nama": "Portabel PKM Kopelma 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.57675,
+          95.36975
+        ],
+        "new_coords": [
+          5.57675,
+          95.36975
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 11,
+        "db_nama": "Halte Ekonomi",
+        "dishub_no": 15,
+        "dishub_nama": "Halte Ekonomi",
+        "old_coords": [
+          5.5755,
+          95.3705
+        ],
+        "new_coords": [
+          5.573846,
+          95.365581
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Shelter Geulanggang Mahasiswa",
+        "dishub_no": 178,
+        "dishub_nama": "Shelter Gelanggang Mahasiswa",
+        "old_coords": [
+          5.57542,
+          95.3703
+        ],
+        "new_coords": [
+          5.570409,
+          95.365029
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Shelter Fak MIPA",
+        "dishub_no": 179,
+        "dishub_nama": "Shelter Fak. MIPA",
+        "old_coords": [
+          5.5751,
+          95.37022
+        ],
+        "new_coords": [
+          5.568365,
+          95.36759
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 14,
+        "db_nama": "Shelter Sospol",
+        "dishub_no": 199,
+        "dishub_nama": "Shelter Sospol",
+        "old_coords": [
+          5.57514,
+          95.3699
+        ],
+        "new_coords": [
+          5.566063,
+          95.369895
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 15,
+        "db_nama": "Shelter Kedokteran Hewan",
+        "dishub_no": 200,
+        "dishub_nama": "Shelter Kedokteran Hewan",
+        "old_coords": [
+          5.57482,
+          95.36982
+        ],
+        "new_coords": [
+          5.567601,
+          95.371867
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 16,
+        "db_nama": "Shelter Masjid Jamik",
+        "dishub_no": 189,
+        "dishub_nama": "Park and Ride Masjid Jamik",
+        "old_coords": [
+          5.5745,
+          95.3695
+        ],
+        "new_coords": [
+          5.57145,
+          95.371601
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "darussalam": {
+    "total": 37,
+    "updated": 37,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Halte Sp. Lima 1",
+        "dishub_no": 3,
+        "dishub_nama": "Halte Sp Lima 1",
+        "old_coords": [
+          5.555053,
+          95.32262
+        ],
+        "new_coords": [
+          5.55662433,
+          95.32325626
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 3,
+        "db_nama": "Halte Sp. Keuramat 1",
+        "dishub_no": 4,
+        "dishub_nama": "Halte Sp Keramat 1",
+        "old_coords": [
+          5.555707,
+          95.3275
+        ],
+        "new_coords": [
+          5.558251,
+          95.327387
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 4,
+        "db_nama": "Halte Jambo Tape 1",
+        "dishub_no": 5,
+        "dishub_nama": "Halte Jambo Tape 1",
+        "old_coords": [
+          5.556,
+          95.3325
+        ],
+        "new_coords": [
+          5.559712,
+          95.33095
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 5,
+        "db_nama": "Halte Portabel TK Khalifah",
+        "dishub_no": 104,
+        "dishub_nama": "Halte Portabel TK Khalifah",
+        "old_coords": [
+          5.56137,
+          95.33975
+        ],
+        "new_coords": [
+          5.5624969,
+          95.3338569
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 6,
+        "db_nama": "Halte RSUZA 1",
+        "dishub_no": 6,
+        "dishub_nama": "Halte RSUZA 1",
+        "old_coords": [
+          5.5665,
+          95.347
+        ],
+        "new_coords": [
+          5.56576733,
+          95.33735116
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 7,
+        "db_nama": "Halte Kantor Gubernur",
+        "dishub_no": 7,
+        "dishub_nama": "Halte Kantor Gubernur",
+        "old_coords": [
+          5.562,
+          95.342
+        ],
+        "new_coords": [
+          5.57129828,
+          95.34300261
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Halte Lingke",
+        "dishub_no": 8,
+        "dishub_nama": "Halte Lingke",
+        "old_coords": [
+          5.564,
+          95.347
+        ],
+        "new_coords": [
+          5.575514,
+          95.347323
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 9,
+        "db_nama": "Halte Sp. Mesra",
+        "dishub_no": 17,
+        "dishub_nama": "Halte Sp Mesra",
+        "old_coords": [
+          5.5708,
+          95.3567
+        ],
+        "new_coords": [
+          5.5800089,
+          95.35303867
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 10,
+        "db_nama": "Halte Lamnyong 1",
+        "dishub_no": 9,
+        "dishub_nama": "Halte Lamnyong 1",
+        "old_coords": [
+          5.5715,
+          95.36
+        ],
+        "new_coords": [
+          5.57586649,
+          95.35520433
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 11,
+        "db_nama": "Portabel Lamgugop 1",
+        "dishub_no": 98,
+        "dishub_nama": "Halte Portabel Lamgugop 1",
+        "old_coords": [
+          5.57387,
+          95.366
+        ],
+        "new_coords": [
+          5.57129,
+          95.357
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Portabel Pasar Rukoh",
+        "dishub_no": 99,
+        "dishub_nama": "Halte Portabel Pasar Rukoh",
+        "old_coords": [
+          5.576,
+          95.372
+        ],
+        "new_coords": [
+          5.5741,
+          95.36016
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Halte F. Teknik",
+        "dishub_no": 10,
+        "dishub_nama": "Halte F.Teknik",
+        "old_coords": [
+          5.575625,
+          95.371375
+        ],
+        "new_coords": [
+          5.56617,
+          95.366663
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 14,
+        "db_nama": "Halte F. Kedokteran",
+        "dishub_no": 11,
+        "dishub_nama": "Halte F.Kedokteran",
+        "old_coords": [
+          5.57537,
+          95.37087
+        ],
+        "new_coords": [
+          5.564891,
+          95.372006
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 15,
+        "db_nama": "Halte Beurabong",
+        "dishub_no": 12,
+        "dishub_nama": "Halte Beurabong",
+        "old_coords": [
+          5.575115,
+          95.370125
+        ],
+        "new_coords": [
+          5.568617,
+          95.377415
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 16,
+        "db_nama": "Halte Masjid Jamik Darussalam",
+        "dishub_no": 13,
+        "dishub_nama": "Halte Masjid Jamik Darussalam",
+        "old_coords": [
+          5.5745,
+          95.3695
+        ],
+        "new_coords": [
+          5.57143721,
+          95.3714071
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 17,
+        "db_nama": "Halte Masjid Jamik Darussalam",
+        "dishub_no": 13,
+        "dishub_nama": "Halte Masjid Jamik Darussalam",
+        "old_coords": [
+          5.5745,
+          95.3695
+        ],
+        "new_coords": [
+          5.57143721,
+          95.3714071
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 18,
+        "db_nama": "Portabel Masjid Fatun Qarib UIN",
+        "dishub_no": 100,
+        "dishub_nama": "Halte Portabel Masjid Fatun Qarib UIN",
+        "old_coords": [
+          5.5743,
+          95.3691
+        ],
+        "new_coords": [
+          5.57754,
+          95.36968
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 19,
+        "db_nama": "Halte UIN",
+        "dishub_no": 14,
+        "dishub_nama": "Halte UIN",
+        "old_coords": [
+          5.5741,
+          95.3688
+        ],
+        "new_coords": [
+          5.58087776,
+          95.36751853
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 20,
+        "db_nama": "Portabel MAN Rukoh",
+        "dishub_no": 101,
+        "dishub_nama": "Halte Portabel Man Rukoh",
+        "old_coords": [
+          5.576,
+          95.372
+        ],
+        "new_coords": [
+          5.58115,
+          95.36326
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 21,
+        "db_nama": "Portabel Puskesmas Kopelma",
+        "dishub_no": 102,
+        "dishub_nama": "Halte Portabel Puskesmas Kopelma",
+        "old_coords": [
+          5.57599,
+          95.37125
+        ],
+        "new_coords": [
+          5.57807,
+          95.36398
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 22,
+        "db_nama": "Halte Ekonomi",
+        "dishub_no": 15,
+        "dishub_nama": "Halte Ekonomi",
+        "old_coords": [
+          5.5755,
+          95.3705
+        ],
+        "new_coords": [
+          5.573846,
+          95.365581
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 23,
+        "db_nama": "Portabel Fantasi Darussalam",
+        "dishub_no": 105,
+        "dishub_nama": "Halte Portabel Fantasi Darussalam",
+        "old_coords": [
+          5.574287,
+          95.367
+        ],
+        "new_coords": [
+          5.57287,
+          95.36361
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 24,
+        "db_nama": "Portabel Lamgugop 2",
+        "dishub_no": 97,
+        "dishub_nama": "Halte Portabel Lamgugop 2",
+        "old_coords": [
+          5.573073,
+          95.36362
+        ],
+        "new_coords": [
+          5.57181,
+          95.3569
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 25,
+        "db_nama": "Halte Lamnyong 2",
+        "dishub_no": 16,
+        "dishub_nama": "Halte Lamnyong 2",
+        "old_coords": [
+          5.5715,
+          95.36
+        ],
+        "new_coords": [
+          5.57556486,
+          95.35509735
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 26,
+        "db_nama": "Halte Sp. Mesra",
+        "dishub_no": 17,
+        "dishub_nama": "Halte Sp Mesra",
+        "old_coords": [
+          5.5708,
+          95.3567
+        ],
+        "new_coords": [
+          5.5800089,
+          95.35303867
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 27,
+        "db_nama": "Portabel Polda",
+        "dishub_no": 95,
+        "dishub_nama": "Halte Portabel Polda",
+        "old_coords": [
+          5.58274,
+          95.371
+        ],
+        "new_coords": [
+          5.576249,
+          95.348519
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 28,
+        "db_nama": "Halte Prada",
+        "dishub_no": 18,
+        "dishub_nama": "Halte Prada",
+        "old_coords": [
+          5.569,
+          95.352
+        ],
+        "new_coords": [
+          5.5739776,
+          95.3460156
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 29,
+        "db_nama": "Halte Kantor DPKA",
+        "dishub_no": 19,
+        "dishub_nama": "Halte Kantor DPKA",
+        "old_coords": [
+          5.56787,
+          95.3495
+        ],
+        "new_coords": [
+          5.5708115,
+          95.34272042
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 30,
+        "db_nama": "Halte RSUZA 2",
+        "dishub_no": 20,
+        "dishub_nama": "Halte RSUZA 2",
+        "old_coords": [
+          5.5665,
+          95.347
+        ],
+        "new_coords": [
+          5.56472478,
+          95.33653621
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 31,
+        "db_nama": "Portabel PLN",
+        "dishub_no": 103,
+        "dishub_nama": "Halte Portabel PLN",
+        "old_coords": [
+          5.56125,
+          95.33975
+        ],
+        "new_coords": [
+          5.5620461,
+          95.3337064
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 32,
+        "db_nama": "Halte Jambo Tape 2",
+        "dishub_no": 21,
+        "dishub_nama": "Halte Jambo Tape 2",
+        "old_coords": [
+          5.556,
+          95.3325
+        ],
+        "new_coords": [
+          5.55973759,
+          95.33140513
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 33,
+        "db_nama": "Halte Sp. Keramat 2",
+        "dishub_no": 22,
+        "dishub_nama": "Halte Sp Keramat 2",
+        "old_coords": [
+          5.55824,
+          95.328333
+        ],
+        "new_coords": [
+          5.55800808,
+          95.32712607
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 34,
+        "db_nama": "Halte Sp. Lima 2",
+        "dishub_no": 23,
+        "dishub_nama": "Halte Sp Lima 2",
+        "old_coords": [
+          5.56,
+          95.324287
+        ],
+        "new_coords": [
+          5.55646795,
+          95.32336817
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 35,
+        "db_nama": "Halte Peunayong",
+        "dishub_no": 24,
+        "dishub_nama": "Halte Peunayong",
+        "old_coords": [
+          5.562,
+          95.32
+        ],
+        "new_coords": [
+          5.558657,
+          95.318962
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 36,
+        "db_nama": "Halte Keudah",
+        "dishub_no": 1,
+        "dishub_nama": "Halte Keudah",
+        "old_coords": [
+          5.5763,
+          95.3132
+        ],
+        "new_coords": [
+          5.55979599,
+          95.31767663
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 37,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "lambaro": {
+    "total": 37,
+    "updated": 34,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Shelter Peuniti 1",
+        "dishub_no": 201,
+        "dishub_nama": "Shelter Peuniti 1",
+        "old_coords": [
+          5.551,
+          95.321
+        ],
+        "new_coords": [
+          5.551268,
+          95.322856
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 3,
+        "db_nama": "Shelter Flyover 1",
+        "dishub_no": 202,
+        "dishub_nama": "Shelter Flyover 1 (Pegadaian)",
+        "old_coords": [
+          5.549,
+          95.328
+        ],
+        "new_coords": [
+          5.548678,
+          95.333465
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 4,
+        "db_nama": "Shelter Panteriek 1",
+        "dishub_no": 203,
+        "dishub_nama": "Shelter panteriek 1",
+        "old_coords": [
+          5.546,
+          95.33
+        ],
+        "new_coords": [
+          5.546639,
+          95.334481
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 5,
+        "db_nama": "Shelter Mahkamah Militer 1",
+        "dishub_no": 204,
+        "dishub_nama": "Shelter Mahkamah Militer 1",
+        "old_coords": [
+          5.54362,
+          95.3325
+        ],
+        "new_coords": [
+          5.5436,
+          95.33599
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 6,
+        "db_nama": "Shelter Sp. Lueng Bata 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.541,
+          95.335
+        ],
+        "new_coords": [
+          5.541,
+          95.335
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 7,
+        "db_nama": "Shelter Terminal Lueng Bata 1",
+        "dishub_no": 205,
+        "dishub_nama": "Shelter Terminal Lueng Bata",
+        "old_coords": [
+          5.541,
+          95.335
+        ],
+        "new_coords": [
+          5.539813,
+          95.33924
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Shelter DPMPTSP 1",
+        "dishub_no": 206,
+        "dishub_nama": "Shelter DPMPTSP",
+        "old_coords": [
+          5.52062,
+          95.29762
+        ],
+        "new_coords": [
+          5.536918,
+          95.341735
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 9,
+        "db_nama": "Shelter Gp. Tanjong 1",
+        "dishub_no": 207,
+        "dishub_nama": "Shelter Gampong Tanjong 1",
+        "old_coords": [
+          5.5,
+          95.26
+        ],
+        "new_coords": [
+          5.533904,
+          95.3452
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 10,
+        "db_nama": "Shelter Harian Serambi 1",
+        "dishub_no": 217,
+        "dishub_nama": "Shelter Harian Serambi 1",
+        "old_coords": [
+          5.5125,
+          95.30762
+        ],
+        "new_coords": [
+          5.533303,
+          95.35265
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 11,
+        "db_nama": "Shelter Santan 1",
+        "dishub_no": 218,
+        "dishub_nama": "Shelter Santan 1",
+        "old_coords": [
+          5.525,
+          95.355
+        ],
+        "new_coords": [
+          5.531016,
+          95.356166
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Shelter Meunasah Krueng 1",
+        "dishub_no": 219,
+        "dishub_nama": "Shelter Meunasah Krueng 1",
+        "old_coords": [
+          5.52774,
+          95.35012
+        ],
+        "new_coords": [
+          5.528289,
+          95.360254
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Shelter Pagar Air 1",
+        "dishub_no": 220,
+        "dishub_nama": "Shelter Pagar Air 1",
+        "old_coords": [
+          5.53,
+          95.345
+        ],
+        "new_coords": [
+          5.527175,
+          95.363481
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 14,
+        "db_nama": "Shelter Dian Pelangi 1",
+        "dishub_no": 221,
+        "dishub_nama": "Shelter Dian Pelangi 1",
+        "old_coords": [
+          5.525753,
+          95.34612
+        ],
+        "new_coords": [
+          5.52234,
+          95.363989
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 15,
+        "db_nama": "Shelter Lubok Batee 1",
+        "dishub_no": 222,
+        "dishub_nama": "Shelter Lubok Batee 1",
+        "old_coords": [
+          5.521507,
+          95.347
+        ],
+        "new_coords": [
+          5.516917,
+          95.360519
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 16,
+        "db_nama": "Shelter Pasar Lambaro 1",
+        "dishub_no": 223,
+        "dishub_nama": "Shelter Pasar Lambaro 1",
+        "old_coords": [
+          5.5169,
+          95.348
+        ],
+        "new_coords": [
+          5.512546,
+          95.357746
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 17,
+        "db_nama": "Halte Lambaro 2",
+        "dishub_no": 40,
+        "dishub_nama": "Halte Lambaro 2",
+        "old_coords": [
+          5.5169,
+          95.348
+        ],
+        "new_coords": [
+          5.50747633,
+          95.35627484
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 18,
+        "db_nama": "Shelter Lambaro 2",
+        "dishub_no": 40,
+        "dishub_nama": "Halte Lambaro 2",
+        "old_coords": [
+          5.5169,
+          95.348
+        ],
+        "new_coords": [
+          5.50747633,
+          95.35627484
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 19,
+        "db_nama": "Shelter Meunasah Lambaro",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5169,
+          95.348
+        ],
+        "new_coords": [
+          5.5169,
+          95.348
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 20,
+        "db_nama": "Shelter Pasar Lambaro 2",
+        "dishub_no": 225,
+        "dishub_nama": "Shelter Pasar Lambaro 2",
+        "old_coords": [
+          5.5169,
+          95.348
+        ],
+        "new_coords": [
+          5.512055,
+          95.357458
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 21,
+        "db_nama": "Shelter Pasar Lambaro 2",
+        "dishub_no": 225,
+        "dishub_nama": "Shelter Pasar Lambaro 2",
+        "old_coords": [
+          5.5169,
+          95.348
+        ],
+        "new_coords": [
+          5.512055,
+          95.357458
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 22,
+        "db_nama": "Shelter Lubok Batee 2",
+        "dishub_no": 226,
+        "dishub_nama": "Shelter Lubok Batee 2",
+        "old_coords": [
+          5.521267,
+          95.34712
+        ],
+        "new_coords": [
+          5.516815,
+          95.360133
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 23,
+        "db_nama": "Shelter Dian Pelangi 2",
+        "dishub_no": 227,
+        "dishub_nama": "Shelter Dian Pelangi 2",
+        "old_coords": [
+          5.525753,
+          95.346
+        ],
+        "new_coords": [
+          5.522426,
+          95.363847
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 24,
+        "db_nama": "Shelter Pagar Air 2",
+        "dishub_no": 228,
+        "dishub_nama": "Shelter Pagar Air 2",
+        "old_coords": [
+          5.53,
+          95.345
+        ],
+        "new_coords": [
+          5.527113,
+          95.36308
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 25,
+        "db_nama": "Shelter Meunasah Krueng 2",
+        "dishub_no": 229,
+        "dishub_nama": "Shelter Meunasah Krueng 2",
+        "old_coords": [
+          5.5275,
+          95.35
+        ],
+        "new_coords": [
+          5.528448,
+          95.359553
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 26,
+        "db_nama": "Shelter Santan 2",
+        "dishub_no": 230,
+        "dishub_nama": "Shelter Santan 2",
+        "old_coords": [
+          5.525,
+          95.355
+        ],
+        "new_coords": [
+          5.530761,
+          95.356223
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 27,
+        "db_nama": "Shelter Harian Serambi 2",
+        "dishub_no": 231,
+        "dishub_nama": "Shelter Harian Serambi 2",
+        "old_coords": [
+          5.51274,
+          95.3075
+        ],
+        "new_coords": [
+          5.532811,
+          95.353158
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 28,
+        "db_nama": "Shelter Gp. Tanjong 2",
+        "dishub_no": 232,
+        "dishub_nama": "Shelter Gampong Tanjong 2",
+        "old_coords": [
+          5.5,
+          95.26
+        ],
+        "new_coords": [
+          5.533553,
+          95.346967
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 29,
+        "db_nama": "Shelter DPMPTSP 2",
+        "dishub_no": 233,
+        "dishub_nama": "Shelter DPMPTSP 2",
+        "old_coords": [
+          5.52062,
+          95.2975
+        ],
+        "new_coords": [
+          5.53572,
+          95.342029
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 30,
+        "db_nama": "Shelter Terminal Lueng Bata 2",
+        "dishub_no": 234,
+        "dishub_nama": "Shelter Terminal Lueng Bata 2",
+        "old_coords": [
+          5.541,
+          95.335
+        ],
+        "new_coords": [
+          5.53945,
+          95.339466
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 31,
+        "db_nama": "Shelter Sp. Lueng Bata 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.541,
+          95.335
+        ],
+        "new_coords": [
+          5.541,
+          95.335
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 32,
+        "db_nama": "Shelter Mahkamah Militer 2",
+        "dishub_no": 235,
+        "dishub_nama": "Shelter Mahkamah Militer 2",
+        "old_coords": [
+          5.54362,
+          95.33262
+        ],
+        "new_coords": [
+          5.543541,
+          95.335798
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 33,
+        "db_nama": "Shelter Panteriek 2",
+        "dishub_no": 236,
+        "dishub_nama": "Shelter panteriek 2",
+        "old_coords": [
+          5.546,
+          95.33
+        ],
+        "new_coords": [
+          5.546185,
+          95.334519
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 34,
+        "db_nama": "Shelter Flyover 2",
+        "dishub_no": 237,
+        "dishub_nama": "Shelter Flyover 2",
+        "old_coords": [
+          5.549,
+          95.328
+        ],
+        "new_coords": [
+          5.548602,
+          95.333332
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 35,
+        "db_nama": "Shelter Sp. Surabaya",
+        "dishub_no": 44,
+        "dishub_nama": "Halte Sp Surabaya",
+        "old_coords": [
+          5.55012,
+          95.3245
+        ],
+        "new_coords": [
+          5.547145,
+          95.330086
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 36,
+        "db_nama": "Shelter Peuniti 2",
+        "dishub_no": 239,
+        "dishub_nama": "Shelter Peuniti 2",
+        "old_coords": [
+          5.551,
+          95.321
+        ],
+        "new_coords": [
+          5.551132,
+          95.321898
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 37,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "malahayati": {
+    "total": 35,
+    "updated": 6,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Shelter Sp. Mesra",
+        "dishub_no": 17,
+        "dishub_nama": "Halte Sp Mesra",
+        "old_coords": [
+          5.596,
+          95.39
+        ],
+        "new_coords": [
+          5.5800089,
+          95.35303867
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Shelter Indomaret RS 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.594,
+          95.386667
+        ],
+        "new_coords": [
+          5.594,
+          95.386667
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 3,
+        "db_nama": "Shelter Fantasi 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.59212,
+          95.383453
+        ],
+        "new_coords": [
+          5.59212,
+          95.383453
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 4,
+        "db_nama": "Shelter Kantor Keuchik Cadek 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.59,
+          95.38
+        ],
+        "new_coords": [
+          5.59,
+          95.38
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 5,
+        "db_nama": "Shelter Cadek Permai 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.59,
+          95.38
+        ],
+        "new_coords": [
+          5.59,
+          95.38
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 6,
+        "db_nama": "Shelter SDN Kajhu 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.585,
+          95.372
+        ],
+        "new_coords": [
+          5.585,
+          95.372
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 7,
+        "db_nama": "Shelter Sp. Kajhu 1",
+        "dishub_no": 26,
+        "dishub_nama": "Halte Sp. Batoh 1",
+        "old_coords": [
+          5.585,
+          95.372
+        ],
+        "new_coords": [
+          5.53366058,
+          95.3303358
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Shelter Lapas Kajhu 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.585,
+          95.372
+        ],
+        "new_coords": [
+          5.585,
+          95.372
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 9,
+        "db_nama": "Shelter Sp. Cot Paya 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.592,
+          95.395
+        ],
+        "new_coords": [
+          5.592,
+          95.395
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 10,
+        "db_nama": "Shelter Puskesmas Baitussalam 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.593,
+          95.4
+        ],
+        "new_coords": [
+          5.593,
+          95.4
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 11,
+        "db_nama": "Shelter Indomaret Labuy 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.596,
+          95.41
+        ],
+        "new_coords": [
+          5.596,
+          95.41
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 12,
+        "db_nama": "Shelter Pasar Labuy 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.596,
+          95.41
+        ],
+        "new_coords": [
+          5.596,
+          95.41
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 13,
+        "db_nama": "Shelter SPBU Lamnga 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.599,
+          95.418
+        ],
+        "new_coords": [
+          5.599,
+          95.418
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 14,
+        "db_nama": "Shelter Mesjid Syuhada Neuheun 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.601,
+          95.425
+        ],
+        "new_coords": [
+          5.601,
+          95.425
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 15,
+        "db_nama": "Shelter SMKN 1 Mesjid Raya 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.60212,
+          95.42762
+        ],
+        "new_coords": [
+          5.60212,
+          95.42762
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 16,
+        "db_nama": "Shelter Gampong Baro 1",
+        "dishub_no": 111,
+        "dishub_nama": "Halte Portabel Gampong Blang 1",
+        "old_coords": [
+          5.60324,
+          95.43
+        ],
+        "new_coords": [
+          5.51742,
+          95.413
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 17,
+        "db_nama": "Shelter Poltekpel 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.604,
+          95.43262
+        ],
+        "new_coords": [
+          5.604,
+          95.43262
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 18,
+        "db_nama": "Halte Gedung Amanah",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.605,
+          95.435
+        ],
+        "new_coords": [
+          5.605,
+          95.435
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 19,
+        "db_nama": "Halte Gedung Amanah",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.605,
+          95.435
+        ],
+        "new_coords": [
+          5.605,
+          95.435
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 20,
+        "db_nama": "Shelter Poltekpel 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.60412,
+          95.43262
+        ],
+        "new_coords": [
+          5.60412,
+          95.43262
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 21,
+        "db_nama": "Shelter Gampong Baro 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.60324,
+          95.43
+        ],
+        "new_coords": [
+          5.60324,
+          95.43
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 22,
+        "db_nama": "Shelter SMKN 1 Mesjid Raya 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.602,
+          95.42762
+        ],
+        "new_coords": [
+          5.602,
+          95.42762
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 23,
+        "db_nama": "Shelter Mesjid Syuhada Neuheun 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.601,
+          95.425
+        ],
+        "new_coords": [
+          5.601,
+          95.425
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 24,
+        "db_nama": "Shelter SPBU Lamnga 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.599,
+          95.418
+        ],
+        "new_coords": [
+          5.599,
+          95.418
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 25,
+        "db_nama": "Shelter Pasar Labuy 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.596,
+          95.41
+        ],
+        "new_coords": [
+          5.596,
+          95.41
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 26,
+        "db_nama": "Shelter Indomaret Labuy 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.596,
+          95.41
+        ],
+        "new_coords": [
+          5.596,
+          95.41
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 27,
+        "db_nama": "Shelter Puskesmas Baitussalam 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.593,
+          95.4
+        ],
+        "new_coords": [
+          5.593,
+          95.4
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 28,
+        "db_nama": "Shelter Sp. Cot Paya 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.592,
+          95.395
+        ],
+        "new_coords": [
+          5.592,
+          95.395
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 29,
+        "db_nama": "Shelter Sp. Cot Paya 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.592,
+          95.395
+        ],
+        "new_coords": [
+          5.592,
+          95.395
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 30,
+        "db_nama": "Shelter Sp. Kajhu 2",
+        "dishub_no": 43,
+        "dishub_nama": "Halte Sp Batoh 2",
+        "old_coords": [
+          5.585,
+          95.372
+        ],
+        "new_coords": [
+          5.533917,
+          95.330143
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 31,
+        "db_nama": "Shelter SDN Kajhu 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.585,
+          95.372
+        ],
+        "new_coords": [
+          5.585,
+          95.372
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 32,
+        "db_nama": "Shelter Cadek Permai 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.59,
+          95.38
+        ],
+        "new_coords": [
+          5.59,
+          95.38
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 33,
+        "db_nama": "Shelter Kantor Keuchik Cadek 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.59,
+          95.38
+        ],
+        "new_coords": [
+          5.59,
+          95.38
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 34,
+        "db_nama": "Shelter Fantasi 2",
+        "dishub_no": 135,
+        "dishub_nama": "Halte Portabel Fakinah 2",
+        "old_coords": [
+          5.593,
+          95.38512
+        ],
+        "new_coords": [
+          5.530034,
+          95.303532
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 35,
+        "db_nama": "Shelter Sp. Mesra",
+        "dishub_no": 17,
+        "dishub_nama": "Halte Sp Mesra",
+        "old_coords": [
+          5.596,
+          95.39
+        ],
+        "new_coords": [
+          5.5800089,
+          95.35303867
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "mata_ie_1": {
+    "total": 31,
+    "updated": 15,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Halte Museum Aceh",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5525,
+          95.316
+        ],
+        "new_coords": [
+          5.5525,
+          95.316
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 3,
+        "db_nama": "Halte Gunongan",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.551,
+          95.313
+        ],
+        "new_coords": [
+          5.551,
+          95.313
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 4,
+        "db_nama": "Halte Taman Budaya",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.552,
+          95.314
+        ],
+        "new_coords": [
+          5.552,
+          95.314
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 5,
+        "db_nama": "Halte Pasar Seutui",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.547,
+          95.311
+        ],
+        "new_coords": [
+          5.547,
+          95.311
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 6,
+        "db_nama": "Halte Mesjid Teuku Umar",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.544,
+          95.308
+        ],
+        "new_coords": [
+          5.544,
+          95.308
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 7,
+        "db_nama": "Halte Fakinah",
+        "dishub_no": 135,
+        "dishub_nama": "Halte Portabel Fakinah 2",
+        "old_coords": [
+          5.543,
+          95.302
+        ],
+        "new_coords": [
+          5.530034,
+          95.303532
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Portabel Mushalla Meuligoe Kupi 1",
+        "dishub_no": 136,
+        "dishub_nama": "Halte Portabel Mushalla Meuligo Kupi 1",
+        "old_coords": [
+          5.535,
+          95.312
+        ],
+        "new_coords": [
+          5.52625,
+          95.303056
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 9,
+        "db_nama": "Halte Asrama TNI 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.53,
+          95.315
+        ],
+        "new_coords": [
+          5.53,
+          95.315
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 10,
+        "db_nama": "Portabel Pasar Keutapang 1",
+        "dishub_no": 142,
+        "dishub_nama": "Halte Portabel Pasar Keutapang 1",
+        "old_coords": [
+          5.517,
+          95.321
+        ],
+        "new_coords": [
+          5.5155,
+          95.303528
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 11,
+        "db_nama": "Halte TVRI 1",
+        "dishub_no": 193,
+        "dishub_nama": "Park and Ride TVRI",
+        "old_coords": [
+          5.51,
+          95.323
+        ],
+        "new_coords": [
+          5.509409,
+          95.30314
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Portabel Sp. Punie 1",
+        "dishub_no": 140,
+        "dishub_nama": "Halte Portabel Sp Punie 1",
+        "old_coords": [
+          5.4985,
+          95.32662
+        ],
+        "new_coords": [
+          5.5047137,
+          95.3032663
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Halte Mata Ie 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.488,
+          95.3292
+        ],
+        "new_coords": [
+          5.488,
+          95.3292
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 14,
+        "db_nama": "Halte Mata Ie 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.4865,
+          95.3308
+        ],
+        "new_coords": [
+          5.4865,
+          95.3308
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 15,
+        "db_nama": "Halte Mata Ie 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.4865,
+          95.3308
+        ],
+        "new_coords": [
+          5.4865,
+          95.3308
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 16,
+        "db_nama": "Portabel SDN 2 Mata Ie 2",
+        "dishub_no": 138,
+        "dishub_nama": "Halte Portabel SDN 2 Mata Ie 2",
+        "old_coords": [
+          5.487,
+          95.33
+        ],
+        "new_coords": [
+          5.500385,
+          95.300262
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 17,
+        "db_nama": "Portabel SP Punie 2",
+        "dishub_no": 139,
+        "dishub_nama": "Halte Portabel Sp Punie 2",
+        "old_coords": [
+          5.49874,
+          95.3265
+        ],
+        "new_coords": [
+          5.504562,
+          95.303166
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 18,
+        "db_nama": "Halte TVRI 2",
+        "dishub_no": 193,
+        "dishub_nama": "Park and Ride TVRI",
+        "old_coords": [
+          5.51,
+          95.323
+        ],
+        "new_coords": [
+          5.509409,
+          95.30314
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 19,
+        "db_nama": "Portabel Pasar Keutapang 2",
+        "dishub_no": 141,
+        "dishub_nama": "Halte Portabel Pasar Keutapang 2",
+        "old_coords": [
+          5.517,
+          95.321
+        ],
+        "new_coords": [
+          5.515538,
+          95.303431
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 20,
+        "db_nama": "Halte Asrama TNI 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.53,
+          95.315
+        ],
+        "new_coords": [
+          5.53,
+          95.315
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 21,
+        "db_nama": "Portabel Mushalla Meuligoe Kupi 2",
+        "dishub_no": 137,
+        "dishub_nama": "Halte Portabel Mushalla Meuligo Kupi 2",
+        "old_coords": [
+          5.535,
+          95.312
+        ],
+        "new_coords": [
+          5.525667,
+          95.302861
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 22,
+        "db_nama": "Portabel Fakinah 2",
+        "dishub_no": 135,
+        "dishub_nama": "Halte Portabel Fakinah 2",
+        "old_coords": [
+          5.543,
+          95.302
+        ],
+        "new_coords": [
+          5.530034,
+          95.303532
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 23,
+        "db_nama": "Portabel Sp. 3",
+        "dishub_no": 134,
+        "dishub_nama": "Halte Portabel Sp 3 (Halte Lama)",
+        "old_coords": [
+          5.54524,
+          95.3005
+        ],
+        "new_coords": [
+          5.535306,
+          95.304945
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 24,
+        "db_nama": "Halte Lamteumen Timur",
+        "dishub_no": 275,
+        "dishub_nama": "Shelter Lamteumen Timur",
+        "old_coords": [
+          5.547,
+          95.299
+        ],
+        "new_coords": [
+          5.532879,
+          95.301317
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 25,
+        "db_nama": "Halte Pasar Seutui 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.547,
+          95.311
+        ],
+        "new_coords": [
+          5.547,
+          95.311
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 26,
+        "db_nama": "Halte Sp. Seulawah",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.548,
+          95.3095
+        ],
+        "new_coords": [
+          5.548,
+          95.3095
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 27,
+        "db_nama": "Halte Kierkhof",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.551,
+          95.3175
+        ],
+        "new_coords": [
+          5.551,
+          95.3175
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 28,
+        "db_nama": "Halte Museum Tsunami",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.549,
+          95.317
+        ],
+        "new_coords": [
+          5.549,
+          95.317
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 29,
+        "db_nama": "Halte Blang Padang",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.55,
+          95.315
+        ],
+        "new_coords": [
+          5.55,
+          95.315
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 30,
+        "db_nama": "Halte Pasar Aceh",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5556,
+          95.3155
+        ],
+        "new_coords": [
+          5.5556,
+          95.3155
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 31,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "mata_ie_2": {
+    "total": 38,
+    "updated": 29,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Halte Museum Aceh",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5525,
+          95.316
+        ],
+        "new_coords": [
+          5.5525,
+          95.316
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 3,
+        "db_nama": "Portabel SMPN 3 Banda Aceh 1",
+        "dishub_no": 177,
+        "dishub_nama": "Shelter SMAN 5 Banda Aceh",
+        "old_coords": [
+          5.54899,
+          95.316
+        ],
+        "new_coords": [
+          5.574833,
+          95.367458
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 4,
+        "db_nama": "Portabel Pasar Neusu 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.545,
+          95.316
+        ],
+        "new_coords": [
+          5.545,
+          95.316
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 5,
+        "db_nama": "Portabel STIE 1",
+        "dishub_no": 149,
+        "dishub_nama": "Halte Portabel STIE 1",
+        "old_coords": [
+          5.53662,
+          95.314
+        ],
+        "new_coords": [
+          5.53342766,
+          95.30064969
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 6,
+        "db_nama": "Portabel Mesjid Lhong Raya 1",
+        "dishub_no": 146,
+        "dishub_nama": "Halte Portabel Mesjid Lhong Raya 1",
+        "old_coords": [
+          5.528,
+          95.312
+        ],
+        "new_coords": [
+          5.5171412,
+          95.3167716
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 7,
+        "db_nama": "Halte Stadion Lhong Raya",
+        "dishub_no": 190,
+        "dishub_nama": "Park and Ride Stadion Lhong Raya",
+        "old_coords": [
+          5.528,
+          95.312
+        ],
+        "new_coords": [
+          5.522819,
+          95.321208
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Portabel Depan Paud",
+        "dishub_no": 144,
+        "dishub_nama": "Halte Portabel Depan Paud",
+        "old_coords": [
+          5.51562,
+          95.31912
+        ],
+        "new_coords": [
+          5.51666724,
+          95.31695756
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 9,
+        "db_nama": "Portabel SMP 1 Darul Imarah 1",
+        "dishub_no": 158,
+        "dishub_nama": "Halte Portabel Smp 1 Darul Imarah",
+        "old_coords": [
+          5.503,
+          95.326
+        ],
+        "new_coords": [
+          5.5150356,
+          95.3273449
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 10,
+        "db_nama": "Halte Darul Imarah 1",
+        "dishub_no": 27,
+        "dishub_nama": "Halte Darul imarah 1",
+        "old_coords": [
+          5.503,
+          95.326
+        ],
+        "new_coords": [
+          5.51427665,
+          95.33106485
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 11,
+        "db_nama": "Portabel SMPN 1 Darul Imarah 2",
+        "dishub_no": 158,
+        "dishub_nama": "Halte Portabel Smp 1 Darul Imarah",
+        "old_coords": [
+          5.503,
+          95.326
+        ],
+        "new_coords": [
+          5.5150356,
+          95.3273449
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Portabel Hino 1",
+        "dishub_no": 157,
+        "dishub_nama": "Halte Portabel Hino 1",
+        "old_coords": [
+          5.50924,
+          95.31562
+        ],
+        "new_coords": [
+          5.515778,
+          95.322806
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Portabel Meuraxa 1",
+        "dishub_no": 156,
+        "dishub_nama": "Halte Portabel Meuraxa 1",
+        "old_coords": [
+          5.515,
+          95.305
+        ],
+        "new_coords": [
+          5.5166792,
+          95.31671296
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 14,
+        "db_nama": "Portabel Meunasah Gp. Lampeot",
+        "dishub_no": 155,
+        "dishub_nama": "Halte Portabel Meunasah Gp Lampeot",
+        "old_coords": [
+          5.515787,
+          95.310453
+        ],
+        "new_coords": [
+          5.51673708,
+          95.3005108
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 15,
+        "db_nama": "Portabel Lambheu",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.516573,
+          95.315667
+        ],
+        "new_coords": [
+          5.516573,
+          95.315667
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 16,
+        "db_nama": "Portabel Pasar Keutapang 1",
+        "dishub_no": 142,
+        "dishub_nama": "Halte Portabel Pasar Keutapang 1",
+        "old_coords": [
+          5.517,
+          95.321
+        ],
+        "new_coords": [
+          5.5155,
+          95.303528
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 17,
+        "db_nama": "Halte TVRI 1",
+        "dishub_no": 193,
+        "dishub_nama": "Park and Ride TVRI",
+        "old_coords": [
+          5.51,
+          95.323
+        ],
+        "new_coords": [
+          5.509409,
+          95.30314
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 18,
+        "db_nama": "Portabel Sp. Punie 1",
+        "dishub_no": 140,
+        "dishub_nama": "Halte Portabel Sp Punie 1",
+        "old_coords": [
+          5.49874,
+          95.32662
+        ],
+        "new_coords": [
+          5.5047137,
+          95.3032663
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 19,
+        "db_nama": "Halte Mata Ie 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.488,
+          95.3292
+        ],
+        "new_coords": [
+          5.488,
+          95.3292
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 20,
+        "db_nama": "Halte Mata Ie 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.4865,
+          95.3308
+        ],
+        "new_coords": [
+          5.4865,
+          95.3308
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 21,
+        "db_nama": "Halte Mata Ie 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.4865,
+          95.3308
+        ],
+        "new_coords": [
+          5.4865,
+          95.3308
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 22,
+        "db_nama": "Portabel SDN 2 Mata Ie 2",
+        "dishub_no": 138,
+        "dishub_nama": "Halte Portabel SDN 2 Mata Ie 2",
+        "old_coords": [
+          5.487,
+          95.33
+        ],
+        "new_coords": [
+          5.500385,
+          95.300262
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 23,
+        "db_nama": "Portabel Sp. Punie 2",
+        "dishub_no": 139,
+        "dishub_nama": "Halte Portabel Sp Punie 2",
+        "old_coords": [
+          5.49862,
+          95.3265
+        ],
+        "new_coords": [
+          5.504562,
+          95.303166
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 24,
+        "db_nama": "Halte TVRI 2",
+        "dishub_no": 193,
+        "dishub_nama": "Park and Ride TVRI",
+        "old_coords": [
+          5.51,
+          95.323
+        ],
+        "new_coords": [
+          5.509409,
+          95.30314
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 25,
+        "db_nama": "Portabel Pasar Keutapang 2",
+        "dishub_no": 141,
+        "dishub_nama": "Halte Portabel Pasar Keutapang 2",
+        "old_coords": [
+          5.517,
+          95.321
+        ],
+        "new_coords": [
+          5.515538,
+          95.303431
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 26,
+        "db_nama": "Portabel Sp. Lam Ara",
+        "dishub_no": 152,
+        "dishub_nama": "Halte Portabel Sp Lam Ara (Hope Kupi)",
+        "old_coords": [
+          5.516453,
+          95.315787
+        ],
+        "new_coords": [
+          5.51681751,
+          95.3002093
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 27,
+        "db_nama": "Portabel Gp. Lampeot",
+        "dishub_no": 154,
+        "dishub_nama": "Halte Portabel Gp. Lampeuot (Indomaret Lampeuneurut)",
+        "old_coords": [
+          5.515907,
+          95.310333
+        ],
+        "new_coords": [
+          5.51674826,
+          95.30051061
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 28,
+        "db_nama": "Halte RSUD Meuraxa 1",
+        "dishub_no": 93,
+        "dishub_nama": "Halte RSUD Meuraxa",
+        "old_coords": [
+          5.515,
+          95.305
+        ],
+        "new_coords": [
+          5.517147,
+          95.319024
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 29,
+        "db_nama": "Portabel Depan PAUD 2",
+        "dishub_no": 144,
+        "dishub_nama": "Halte Portabel Depan Paud",
+        "old_coords": [
+          5.52162,
+          95.3085
+        ],
+        "new_coords": [
+          5.51666724,
+          95.31695756
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 30,
+        "db_nama": "Halte SMK Lhong Raya",
+        "dishub_no": 94,
+        "dishub_nama": "Halte SMK Lhong Raya",
+        "old_coords": [
+          5.528,
+          95.312
+        ],
+        "new_coords": [
+          5.523088,
+          95.321342
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 31,
+        "db_nama": "Portabel Mesjid Lhong Raya 2",
+        "dishub_no": 145,
+        "dishub_nama": "Halte Portabel Mesjid Lhong Raya 2",
+        "old_coords": [
+          5.528,
+          95.312
+        ],
+        "new_coords": [
+          5.5171412,
+          95.31676022
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 32,
+        "db_nama": "Portabel STIE 2",
+        "dishub_no": 148,
+        "dishub_nama": "Halte Portabel STIE 2",
+        "old_coords": [
+          5.53662,
+          95.31412
+        ],
+        "new_coords": [
+          5.53342651,
+          95.30064969
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 33,
+        "db_nama": "Portabel Pasar Neusu 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.545,
+          95.316
+        ],
+        "new_coords": [
+          5.545,
+          95.316
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 34,
+        "db_nama": "Portabel SMPN 3 Banda Aceh 2",
+        "dishub_no": 177,
+        "dishub_nama": "Shelter SMAN 5 Banda Aceh",
+        "old_coords": [
+          5.547,
+          95.31662
+        ],
+        "new_coords": [
+          5.574833,
+          95.367458
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 35,
+        "db_nama": "Halte Museum Tsunami",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.549,
+          95.317
+        ],
+        "new_coords": [
+          5.549,
+          95.317
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 36,
+        "db_nama": "Portabel SMP 1",
+        "dishub_no": 129,
+        "dishub_nama": "Halte Portabel Smp 1",
+        "old_coords": [
+          5.55254,
+          95.31637
+        ],
+        "new_coords": [
+          5.552194,
+          95.313005
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 37,
+        "db_nama": "Halte Pasar Aceh",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5556,
+          95.3155
+        ],
+        "new_coords": [
+          5.5556,
+          95.3155
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 38,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "meudiwana": {
+    "total": 60,
+    "updated": 39,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Halte Museum Aceh",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5525,
+          95.316
+        ],
+        "new_coords": [
+          5.5525,
+          95.316
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 3,
+        "db_nama": "Halte Gunongan",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.551,
+          95.313
+        ],
+        "new_coords": [
+          5.551,
+          95.313
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 4,
+        "db_nama": "Halte Taman Budaya",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.552,
+          95.314
+        ],
+        "new_coords": [
+          5.552,
+          95.314
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 5,
+        "db_nama": "Halte Pasar Seutui",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.547,
+          95.311
+        ],
+        "new_coords": [
+          5.547,
+          95.311
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 6,
+        "db_nama": "Halte Teuku Umar",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.544,
+          95.308
+        ],
+        "new_coords": [
+          5.544,
+          95.308
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 7,
+        "db_nama": "Shelter Kementerian Perindustrian 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.543,
+          95.3065
+        ],
+        "new_coords": [
+          5.543,
+          95.3065
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 8,
+        "db_nama": "Halte Samsat",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.542,
+          95.305
+        ],
+        "new_coords": [
+          5.542,
+          95.305
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 9,
+        "db_nama": "Shelter Sp. Dodik 1",
+        "dishub_no": 273,
+        "dishub_nama": "Shelter Simpang Dodik 1",
+        "old_coords": [
+          5.538,
+          95.295
+        ],
+        "new_coords": [
+          5.528455,
+          95.293435
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 10,
+        "db_nama": "Shelter Ajun 1",
+        "dishub_no": 272,
+        "dishub_nama": "Shelter Ajun 1",
+        "old_coords": [
+          5.535,
+          95.285
+        ],
+        "new_coords": [
+          5.526362,
+          95.286885
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 11,
+        "db_nama": "Shelter Villa Buana 1",
+        "dishub_no": 271,
+        "dishub_nama": "Shelter Villa Buana 1",
+        "old_coords": [
+          5.53012,
+          95.281
+        ],
+        "new_coords": [
+          5.523741,
+          95.27956
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Shelter Sp. Rima",
+        "dishub_no": 245,
+        "dishub_nama": "Shelter Simpang Rima",
+        "old_coords": [
+          5.52524,
+          95.27712
+        ],
+        "new_coords": [
+          5.523213,
+          95.272771
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Shelter Rumoh Cut Nyak Dhien 1",
+        "dishub_no": 246,
+        "dishub_nama": "Shelter Rumoh Cut Nyak Dhien 1",
+        "old_coords": [
+          5.52,
+          95.273
+        ],
+        "new_coords": [
+          5.516804,
+          95.271526
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 14,
+        "db_nama": "Shelter Desa Wisata Nusa 1",
+        "dishub_no": 248,
+        "dishub_nama": "Shelter Desa Wisata Nusa 1",
+        "old_coords": [
+          5.51512,
+          95.26912
+        ],
+        "new_coords": [
+          5.502143,
+          95.268036
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 15,
+        "db_nama": "Shelter Puskesmas Lampisang 1",
+        "dishub_no": 247,
+        "dishub_nama": "Shelter Puskesmas Lampisang 1",
+        "old_coords": [
+          5.51,
+          95.265
+        ],
+        "new_coords": [
+          5.51379,
+          95.271956
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 16,
+        "db_nama": "Shelter Sp. Tanjong 1",
+        "dishub_no": 249,
+        "dishub_nama": "Shelter Simpang Tanjong 1",
+        "old_coords": [
+          5.5,
+          95.26
+        ],
+        "new_coords": [
+          5.497074,
+          95.262685
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 17,
+        "db_nama": "Shelter SDN 1 Tanjong 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5,
+          95.26
+        ],
+        "new_coords": [
+          5.5,
+          95.26
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 18,
+        "db_nama": "Shelter Lamcok 1",
+        "dishub_no": 250,
+        "dishub_nama": "Shelter Lamcok 1",
+        "old_coords": [
+          5.495907,
+          95.283453
+        ],
+        "new_coords": [
+          5.492014,
+          95.26204
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 19,
+        "db_nama": "Shelter Keude Bing 1",
+        "dishub_no": 251,
+        "dishub_nama": "Shelter Keude Bing 1",
+        "old_coords": [
+          5.491333,
+          95.306667
+        ],
+        "new_coords": [
+          5.487748,
+          95.260441
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 20,
+        "db_nama": "Shelter Simpang Mata Ie 1",
+        "dishub_no": 252,
+        "dishub_nama": "Shelter Simpang Mata Ie 1",
+        "old_coords": [
+          5.487,
+          95.33
+        ],
+        "new_coords": [
+          5.486117,
+          95.257773
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 21,
+        "db_nama": "Shelter Dayah Darul 1",
+        "dishub_no": 262,
+        "dishub_nama": "Shelter Dayah Darul 2",
+        "old_coords": [
+          5.47774,
+          95.292
+        ],
+        "new_coords": [
+          5.481521,
+          95.251427
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 22,
+        "db_nama": "Shelter MIN 29 Lhoknga",
+        "dishub_no": 261,
+        "dishub_nama": "Shelter MIN 29 Lhoknga",
+        "old_coords": [
+          5.468,
+          95.254
+        ],
+        "new_coords": [
+          5.477883,
+          95.245118
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 23,
+        "db_nama": "Shelter Lapangan Carlos 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.46812,
+          95.254
+        ],
+        "new_coords": [
+          5.46812,
+          95.254
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 24,
+        "db_nama": "Shelter Pasar Lhoknga 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.468,
+          95.254
+        ],
+        "new_coords": [
+          5.468,
+          95.254
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 25,
+        "db_nama": "Shelter Mon Ikeun 1",
+        "dishub_no": 255,
+        "dishub_nama": "Shelter Mon Ikeun 1",
+        "old_coords": [
+          5.4735,
+          95.2505
+        ],
+        "new_coords": [
+          5.476292,
+          95.241203
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 26,
+        "db_nama": "Shelter SMK Lampuuk 1",
+        "dishub_no": 256,
+        "dishub_nama": "Shelter SMK Lampuuk 1",
+        "old_coords": [
+          5.479,
+          95.247
+        ],
+        "new_coords": [
+          5.484533,
+          95.237662
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 27,
+        "db_nama": "Shelter Wisata Lampuuk 1",
+        "dishub_no": 257,
+        "dishub_nama": "Shelter Simpang Wisata Lampuuk 1",
+        "old_coords": [
+          5.479,
+          95.247
+        ],
+        "new_coords": [
+          5.489597,
+          95.236427
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 28,
+        "db_nama": "Shelter Sp. Lampuuk",
+        "dishub_no": 166,
+        "dishub_nama": "Halte Portabel Simpang Lambhuk",
+        "old_coords": [
+          5.479,
+          95.247
+        ],
+        "new_coords": [
+          5.55332,
+          95.33928
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 29,
+        "db_nama": "Shelter Mesjid Lampuuk",
+        "dishub_no": 258,
+        "dishub_nama": "Shelter Masjid Lampuuk",
+        "old_coords": [
+          5.479,
+          95.247
+        ],
+        "new_coords": [
+          5.493722,
+          95.235698
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 30,
+        "db_nama": "Shelter Mesjid Lampuuk",
+        "dishub_no": 258,
+        "dishub_nama": "Shelter Masjid Lampuuk",
+        "old_coords": [
+          5.479,
+          95.247
+        ],
+        "new_coords": [
+          5.493722,
+          95.235698
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 31,
+        "db_nama": "Shelter Sp. Wisata Lampuuk 2",
+        "dishub_no": 257,
+        "dishub_nama": "Shelter Simpang Wisata Lampuuk 1",
+        "old_coords": [
+          5.479,
+          95.247
+        ],
+        "new_coords": [
+          5.489597,
+          95.236427
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 32,
+        "db_nama": "Shelter SMK 1 Lhoknga 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.468,
+          95.254
+        ],
+        "new_coords": [
+          5.468,
+          95.254
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 33,
+        "db_nama": "Shelter Mon Ikeun 2",
+        "dishub_no": 260,
+        "dishub_nama": "Shelter Mon Ikeun 2",
+        "old_coords": [
+          5.468,
+          95.25412
+        ],
+        "new_coords": [
+          5.476185,
+          95.240826
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 34,
+        "db_nama": "Shelter Pasar Lhoknga 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.468,
+          95.254
+        ],
+        "new_coords": [
+          5.468,
+          95.254
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 35,
+        "db_nama": "Shelter Lapangan Carlos 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.46824,
+          95.25412
+        ],
+        "new_coords": [
+          5.46824,
+          95.25412
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 36,
+        "db_nama": "Shelter MIN 29 Lhoknga",
+        "dishub_no": 261,
+        "dishub_nama": "Shelter MIN 29 Lhoknga",
+        "old_coords": [
+          5.468,
+          95.254
+        ],
+        "new_coords": [
+          5.477883,
+          95.245118
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 37,
+        "db_nama": "Shelter Dayah Darul 2",
+        "dishub_no": 262,
+        "dishub_nama": "Shelter Dayah Darul 2",
+        "old_coords": [
+          5.47762,
+          95.29212
+        ],
+        "new_coords": [
+          5.481521,
+          95.251427
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 38,
+        "db_nama": "Shelter Sp. Mata Ie 2",
+        "dishub_no": 263,
+        "dishub_nama": "Shelter Simpang Mata Ie 2",
+        "old_coords": [
+          5.487,
+          95.33
+        ],
+        "new_coords": [
+          5.48617,
+          95.257672
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 39,
+        "db_nama": "Shelter Keude Bing 2",
+        "dishub_no": 264,
+        "dishub_nama": "Shelter Keude Bing 2",
+        "old_coords": [
+          5.491333,
+          95.306787
+        ],
+        "new_coords": [
+          5.487857,
+          95.260432
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 40,
+        "db_nama": "Shelter Lamcok 2",
+        "dishub_no": 265,
+        "dishub_nama": "Shelter Lamcok 2",
+        "old_coords": [
+          5.495787,
+          95.283333
+        ],
+        "new_coords": [
+          5.491808,
+          95.261945
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 41,
+        "db_nama": "Shelter SDN 1 Tanjong 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5,
+          95.26
+        ],
+        "new_coords": [
+          5.5,
+          95.26
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 42,
+        "db_nama": "Shelter Sp. Tanjong 2",
+        "dishub_no": 266,
+        "dishub_nama": "Shelter Simpang Tanjong 2",
+        "old_coords": [
+          5.5,
+          95.26
+        ],
+        "new_coords": [
+          5.497166,
+          95.262571
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 43,
+        "db_nama": "Shelter Desa Wisata Nusa 2",
+        "dishub_no": 267,
+        "dishub_nama": "Shelter Desa Wisata Nusa 2",
+        "old_coords": [
+          5.50512,
+          95.26262
+        ],
+        "new_coords": [
+          5.501752,
+          95.267739
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 44,
+        "db_nama": "Shelter Puskesmas Lampisang 2",
+        "dishub_no": 268,
+        "dishub_nama": "Shelter Puskesmas Lampisang 2",
+        "old_coords": [
+          5.51,
+          95.265
+        ],
+        "new_coords": [
+          5.51373,
+          95.27185
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 45,
+        "db_nama": "Shelter Rumoh Cut Nyak Dhien 2",
+        "dishub_no": 269,
+        "dishub_nama": "Shelter Rumoh Cut Nyak Dhien 2",
+        "old_coords": [
+          5.518333,
+          95.271787
+        ],
+        "new_coords": [
+          5.516804,
+          95.271526
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 46,
+        "db_nama": "Shelter Sp. Rima",
+        "dishub_no": 245,
+        "dishub_nama": "Shelter Simpang Rima",
+        "old_coords": [
+          5.526787,
+          95.278333
+        ],
+        "new_coords": [
+          5.523213,
+          95.272771
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 47,
+        "db_nama": "Shelter Ajun 2",
+        "dishub_no": 243,
+        "dishub_nama": "Shelter Ajun 2",
+        "old_coords": [
+          5.535,
+          95.285
+        ],
+        "new_coords": [
+          5.52627,
+          95.286923
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 48,
+        "db_nama": "Shelter Sp. Dodik 2",
+        "dishub_no": 242,
+        "dishub_nama": "Shelter Simpang Dodik 2",
+        "old_coords": [
+          5.538,
+          95.295
+        ],
+        "new_coords": [
+          5.528203,
+          95.293235
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 49,
+        "db_nama": "Shelter MIN 7 Banda Aceh",
+        "dishub_no": 274,
+        "dishub_nama": "Shelter MIN 7 Banda Aceh",
+        "old_coords": [
+          5.54262,
+          95.29712
+        ],
+        "new_coords": [
+          5.530354,
+          95.297296
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 50,
+        "db_nama": "Shelter Lamteumen Timur",
+        "dishub_no": 275,
+        "dishub_nama": "Shelter Lamteumen Timur",
+        "old_coords": [
+          5.547,
+          95.299
+        ],
+        "new_coords": [
+          5.532879,
+          95.301317
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 51,
+        "db_nama": "Portabel Sp. 3 Shelter Lamteumen Timur",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.547,
+          95.299
+        ],
+        "new_coords": [
+          5.547,
+          95.299
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 52,
+        "db_nama": "Halte Lamteumen Timur",
+        "dishub_no": 275,
+        "dishub_nama": "Shelter Lamteumen Timur",
+        "old_coords": [
+          5.547,
+          95.299
+        ],
+        "new_coords": [
+          5.532879,
+          95.301317
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 53,
+        "db_nama": "Halte Pasar Seutui 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.547,
+          95.311
+        ],
+        "new_coords": [
+          5.547,
+          95.311
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 54,
+        "db_nama": "Halte Sp. Seulawah",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.548,
+          95.3095
+        ],
+        "new_coords": [
+          5.548,
+          95.3095
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 55,
+        "db_nama": "Halte Kierkhof",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.551,
+          95.3175
+        ],
+        "new_coords": [
+          5.551,
+          95.3175
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 56,
+        "db_nama": "Halte Museum Tsunami",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.549,
+          95.317
+        ],
+        "new_coords": [
+          5.549,
+          95.317
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 57,
+        "db_nama": "Halte Blang Padang",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.55,
+          95.315
+        ],
+        "new_coords": [
+          5.55,
+          95.315
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 58,
+        "db_nama": "Halte Portabel SMP 1",
+        "dishub_no": 129,
+        "dishub_nama": "Halte Portabel Smp 1",
+        "old_coords": [
+          5.55292,
+          95.31525
+        ],
+        "new_coords": [
+          5.552194,
+          95.313005
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 59,
+        "db_nama": "Halte Pasar Aceh",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5556,
+          95.3155
+        ],
+        "new_coords": [
+          5.5556,
+          95.3155
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 60,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "ulee_kareng": {
+    "total": 40,
+    "updated": 26,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Halte Kesdam 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.554476,
+          95.325774
+        ],
+        "new_coords": [
+          5.554476,
+          95.325774
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 3,
+        "db_nama": "Halte Hermes",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.564,
+          95.339
+        ],
+        "new_coords": [
+          5.564,
+          95.339
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 4,
+        "db_nama": "Portabel Sp. Lambhuk",
+        "dishub_no": 166,
+        "dishub_nama": "Halte Portabel Simpang Lambhuk",
+        "old_coords": [
+          5.56024,
+          95.34112
+        ],
+        "new_coords": [
+          5.55332,
+          95.33928
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 5,
+        "db_nama": "Halte SD 56 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.556,
+          95.343
+        ],
+        "new_coords": [
+          5.556,
+          95.343
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 6,
+        "db_nama": "Portabel PT Djarum",
+        "dishub_no": 167,
+        "dishub_nama": "Halte Portabel PT Djarum",
+        "old_coords": [
+          5.554,
+          95.36
+        ],
+        "new_coords": [
+          5.551634,
+          95.354171
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 7,
+        "db_nama": "Portabel Mesjid Babussalam Lam Ujong",
+        "dishub_no": 169,
+        "dishub_nama": "Halte Portabel Masjid Babbussalam Lam Ujong",
+        "old_coords": [
+          5.55124,
+          95.371
+        ],
+        "new_coords": [
+          5.54499,
+          95.36481
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Portabel Indomaret Cot Iri",
+        "dishub_no": 170,
+        "dishub_nama": "Halte Portabel Indomaret Cot Iri",
+        "old_coords": [
+          5.548,
+          95.382
+        ],
+        "new_coords": [
+          5.54052,
+          95.36856
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 9,
+        "db_nama": "Halte KBJ 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.54912,
+          95.380667
+        ],
+        "new_coords": [
+          5.54912,
+          95.380667
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 10,
+        "db_nama": "Halte Cot Cut",
+        "dishub_no": 160,
+        "dishub_nama": "Halte Portabel Cot Cut",
+        "old_coords": [
+          5.55024,
+          95.379453
+        ],
+        "new_coords": [
+          5.53418,
+          95.37566
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 11,
+        "db_nama": "Portabel Babah Jurong 1",
+        "dishub_no": 162,
+        "dishub_nama": "Halte Portabel Babah Jurong 1",
+        "old_coords": [
+          5.551,
+          95.378
+        ],
+        "new_coords": [
+          5.531174,
+          95.383578
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Halte Abulyatama",
+        "dishub_no": 174,
+        "dishub_nama": "Halte Portabel Abulyatama (Dayah)",
+        "old_coords": [
+          5.54,
+          95.388
+        ],
+        "new_coords": [
+          5.5308802,
+          95.3881713
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Halte Lam Ateuk",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.535,
+          95.395
+        ],
+        "new_coords": [
+          5.535,
+          95.395
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 14,
+        "db_nama": "Halte Pasar Lam Ateuk",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.535,
+          95.395
+        ],
+        "new_coords": [
+          5.535,
+          95.395
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 15,
+        "db_nama": "Halte Pasar Lam Ateuk 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.535,
+          95.395
+        ],
+        "new_coords": [
+          5.535,
+          95.395
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 16,
+        "db_nama": "Portabel Cot Sawah",
+        "dishub_no": 175,
+        "dishub_nama": "Halte Portabel Cot Sawah",
+        "old_coords": [
+          5.53274,
+          95.40012
+        ],
+        "new_coords": [
+          5.5279218,
+          95.4003576
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 17,
+        "db_nama": "Halte Bueng Cala 1",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.53,
+          95.405
+        ],
+        "new_coords": [
+          5.53,
+          95.405
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 18,
+        "db_nama": "Portabel MNS Bueng Bak Jok",
+        "dishub_no": 163,
+        "dishub_nama": "Halte Portabel Mns Bueng Bak Jok",
+        "old_coords": [
+          5.52412,
+          95.40812
+        ],
+        "new_coords": [
+          5.5275471,
+          95.4114107
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 19,
+        "db_nama": "Halte Blang Bintang 1",
+        "dishub_no": 31,
+        "dishub_nama": "Halte Blang Bintang 1 (Koridor 2A)",
+        "old_coords": [
+          5.518,
+          95.411
+        ],
+        "new_coords": [
+          5.51150501,
+          95.41382778
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 20,
+        "db_nama": "Halte Bandara SIM",
+        "dishub_no": 32,
+        "dishub_nama": "Halte Bandara SIM",
+        "old_coords": [
+          5.5232,
+          95.4204
+        ],
+        "new_coords": [
+          5.51695855,
+          95.41644265
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 21,
+        "db_nama": "Halte Bandara SIM",
+        "dishub_no": 32,
+        "dishub_nama": "Halte Bandara SIM",
+        "old_coords": [
+          5.5232,
+          95.4204
+        ],
+        "new_coords": [
+          5.51695855,
+          95.41644265
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 22,
+        "db_nama": "Portabel Bundaran Bandara",
+        "dishub_no": 173,
+        "dishub_nama": "Halte Portabel Bundaran Bandara",
+        "old_coords": [
+          5.52072,
+          95.41582
+        ],
+        "new_coords": [
+          5.52078,
+          95.41363
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 23,
+        "db_nama": "Halte Blang Bintang 2",
+        "dishub_no": 34,
+        "dishub_nama": "Halte Blang Bintang 2 (Koridor 2A)",
+        "old_coords": [
+          5.518,
+          95.411
+        ],
+        "new_coords": [
+          5.511561,
+          95.41393
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 24,
+        "db_nama": "Halte Bueng Cala 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.53,
+          95.405
+        ],
+        "new_coords": [
+          5.53,
+          95.405
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 25,
+        "db_nama": "Halte Peukan Lam Ateuk 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.535,
+          95.395
+        ],
+        "new_coords": [
+          5.535,
+          95.395
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 26,
+        "db_nama": "Portabel Pesantren Dayah",
+        "dishub_no": 164,
+        "dishub_nama": "Halte Portabel Pesantren Dayah",
+        "old_coords": [
+          5.535,
+          95.392
+        ],
+        "new_coords": [
+          5.532074,
+          95.391806
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 27,
+        "db_nama": "Portabel Abulyatama",
+        "dishub_no": 174,
+        "dishub_nama": "Halte Portabel Abulyatama (Dayah)",
+        "old_coords": [
+          5.54,
+          95.388
+        ],
+        "new_coords": [
+          5.5308802,
+          95.3881713
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 28,
+        "db_nama": "Portabel Babah Jurong 2",
+        "dishub_no": 161,
+        "dishub_nama": "Halte Portabel Babah Jurong 2",
+        "old_coords": [
+          5.551,
+          95.378
+        ],
+        "new_coords": [
+          5.531069,
+          95.384148
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 29,
+        "db_nama": "Halte Portabel Cot Cut",
+        "dishub_no": 160,
+        "dishub_nama": "Halte Portabel Cot Cut",
+        "old_coords": [
+          5.55024,
+          95.379333
+        ],
+        "new_coords": [
+          5.53418,
+          95.37566
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 30,
+        "db_nama": "Halte KBJ 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.549,
+          95.380787
+        ],
+        "new_coords": [
+          5.549,
+          95.380787
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 31,
+        "db_nama": "Portabel Cot Iri",
+        "dishub_no": 172,
+        "dishub_nama": "Halte Portabel Cot Iri",
+        "old_coords": [
+          5.548,
+          95.382
+        ],
+        "new_coords": [
+          5.53958,
+          95.36904
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 32,
+        "db_nama": "Portabel Taman Bunga",
+        "dishub_no": 124,
+        "dishub_nama": "Halte Portabel Taman Bunga",
+        "old_coords": [
+          5.55474,
+          95.36512
+        ],
+        "new_coords": [
+          5.51275,
+          95.3382
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 33,
+        "db_nama": "Portabel Mesjid Ulee Kareng",
+        "dishub_no": 168,
+        "dishub_nama": "Halte Portabel Masjid Ulee Kareng",
+        "old_coords": [
+          5.561,
+          95.348
+        ],
+        "new_coords": [
+          5.551408,
+          95.355514
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 34,
+        "db_nama": "Halte SD 56 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.556,
+          95.343
+        ],
+        "new_coords": [
+          5.556,
+          95.343
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 35,
+        "db_nama": "Halte BPKP",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.559,
+          95.352
+        ],
+        "new_coords": [
+          5.559,
+          95.352
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 36,
+        "db_nama": "Portabel Moorden Beurawe",
+        "dishub_no": 165,
+        "dishub_nama": "Halte Portabel Moorden Beurawe",
+        "old_coords": [
+          5.562,
+          95.335
+        ],
+        "new_coords": [
+          5.553702,
+          95.333437
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 37,
+        "db_nama": "Halte Kesdam 2",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.55442,
+          95.3258
+        ],
+        "new_coords": [
+          5.55442,
+          95.3258
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 38,
+        "db_nama": "Halte Peunayong",
+        "dishub_no": 24,
+        "dishub_nama": "Halte Peunayong",
+        "old_coords": [
+          5.562,
+          95.32
+        ],
+        "new_coords": [
+          5.558657,
+          95.318962
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 39,
+        "db_nama": "Halte Keudah",
+        "dishub_no": 1,
+        "dishub_nama": "Halte Keudah",
+        "old_coords": [
+          5.5763,
+          95.3132
+        ],
+        "new_coords": [
+          5.55979599,
+          95.31767663
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 40,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  },
+  "ulee_lheue": {
+    "total": 20,
+    "updated": 16,
+    "log": [
+      {
+        "index": 1,
+        "db_nama": "Halte Barata",
+        "dishub_no": 45,
+        "dishub_nama": "Halte Barata",
+        "old_coords": [
+          5.5545,
+          95.3095
+        ],
+        "new_coords": [
+          5.55225169,
+          95.31893189
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 2,
+        "db_nama": "Halte Museum Tsunami",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.549,
+          95.317
+        ],
+        "new_coords": [
+          5.549,
+          95.317
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 3,
+        "db_nama": "Halte Aspol Punge",
+        "dishub_no": 46,
+        "dishub_nama": "Halte Aspol Punge",
+        "old_coords": [
+          5.556,
+          95.301
+        ],
+        "new_coords": [
+          5.5498023,
+          95.3085412
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 4,
+        "db_nama": "Halte Punge 1",
+        "dishub_no": 47,
+        "dishub_nama": "Halte Punge 1",
+        "old_coords": [
+          5.556,
+          95.301
+        ],
+        "new_coords": [
+          5.551244,
+          95.304212
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 5,
+        "db_nama": "Halte Blang Oi",
+        "dishub_no": 48,
+        "dishub_nama": "Halte Blang Oi",
+        "old_coords": [
+          5.559,
+          95.298
+        ],
+        "new_coords": [
+          5.553126,
+          95.297547
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 6,
+        "db_nama": "Halte Cot Lamkueweuh",
+        "dishub_no": 49,
+        "dishub_nama": "Halte Cot Lamkueweuh",
+        "old_coords": [
+          5.559773,
+          95.296633
+        ],
+        "new_coords": [
+          5.55321856,
+          95.29225265
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 7,
+        "db_nama": "Halte Kuburan Massal 1",
+        "dishub_no": 50,
+        "dishub_nama": "Halte Kuburan Massal 1",
+        "old_coords": [
+          5.560187,
+          95.295387
+        ],
+        "new_coords": [
+          5.55564113,
+          95.28585638
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 8,
+        "db_nama": "Halte Pelabuhan Ulee Lheue",
+        "dishub_no": 51,
+        "dishub_nama": "Halte Pelabuhan Ulee Lheue",
+        "old_coords": [
+          5.5606,
+          95.2939
+        ],
+        "new_coords": [
+          5.56478691,
+          95.29385669
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 9,
+        "db_nama": "Halte Pelabuhan Ulee Lheue",
+        "dishub_no": 51,
+        "dishub_nama": "Halte Pelabuhan Ulee Lheue",
+        "old_coords": [
+          5.5606,
+          95.2939
+        ],
+        "new_coords": [
+          5.56478691,
+          95.29385669
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 10,
+        "db_nama": "Portabel Karantina",
+        "dishub_no": 131,
+        "dishub_nama": "Halte Portabel Karantina",
+        "old_coords": [
+          5.559733,
+          95.293267
+        ],
+        "new_coords": [
+          5.55037172,
+          95.28340278
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 11,
+        "db_nama": "Halte Kuburan Massal 2",
+        "dishub_no": 52,
+        "dishub_nama": "Halte Kuburan Massal 2",
+        "old_coords": [
+          5.559107,
+          95.292753
+        ],
+        "new_coords": [
+          5.55579364,
+          95.28621554
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 12,
+        "db_nama": "Halte Lambung",
+        "dishub_no": 53,
+        "dishub_nama": "Halte Lambung",
+        "old_coords": [
+          5.558,
+          95.292
+        ],
+        "new_coords": [
+          5.55352153,
+          95.29181432
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 13,
+        "db_nama": "Halte Mesjid Blang Oi",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.559,
+          95.298
+        ],
+        "new_coords": [
+          5.559,
+          95.298
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 14,
+        "db_nama": "Halte Punge 2",
+        "dishub_no": 47,
+        "dishub_nama": "Halte Punge 1",
+        "old_coords": [
+          5.556,
+          95.301
+        ],
+        "new_coords": [
+          5.551244,
+          95.304212
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 15,
+        "db_nama": "Portabel Punge Jurong",
+        "dishub_no": 130,
+        "dishub_nama": "Halte Portabel Punge Jurong",
+        "old_coords": [
+          5.556,
+          95.301
+        ],
+        "new_coords": [
+          5.5500919,
+          95.3084568
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 16,
+        "db_nama": "Halte Blang Padang",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.55,
+          95.315
+        ],
+        "new_coords": [
+          5.55,
+          95.315
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 17,
+        "db_nama": "Portabel SMP 1",
+        "dishub_no": 129,
+        "dishub_nama": "Halte Portabel Smp 1",
+        "old_coords": [
+          5.55304,
+          95.31537
+        ],
+        "new_coords": [
+          5.552194,
+          95.313005
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 18,
+        "db_nama": "Halte Pasar Aceh",
+        "dishub_no": null,
+        "dishub_nama": null,
+        "old_coords": [
+          5.5556,
+          95.3155
+        ],
+        "new_coords": [
+          5.5556,
+          95.3155
+        ],
+        "status": "KEPT_EXISTING"
+      },
+      {
+        "index": 19,
+        "db_nama": "Halte Masjid Raya Baiturrahman",
+        "dishub_no": 2,
+        "dishub_nama": "Halte Masjid Raya Baiturrahman",
+        "old_coords": [
+          5.5544,
+          95.3175
+        ],
+        "new_coords": [
+          5.55411,
+          95.318376
+        ],
+        "status": "UPDATED_EXACT"
+      },
+      {
+        "index": 20,
+        "db_nama": "Halte Barata",
+        "dishub_no": 45,
+        "dishub_nama": "Halte Barata",
+        "old_coords": [
+          5.5545,
+          95.3095
+        ],
+        "new_coords": [
+          5.55225169,
+          95.31893189
+        ],
+        "status": "UPDATED_EXACT"
+      }
+    ]
+  }
+}

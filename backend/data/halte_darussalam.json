@@ -90,8 +90,8 @@
         "16:27"
       ]
     },
-    "lat": 5.5544,
-    "lng": 95.3175
+    "lat": 5.55411,
+    "lng": 95.318376
   },
   {
     "nama": "Halte Sp. Lima 1",
@@ -184,8 +184,8 @@
         "16:31"
       ]
     },
-    "lat": 5.555053,
-    "lng": 95.32262
+    "lat": 5.55662433,
+    "lng": 95.32325626
   },
   {
     "nama": "Halte Sp. Keuramat 1",
@@ -277,8 +277,8 @@
         "16:33"
       ]
     },
-    "lat": 5.555707,
-    "lng": 95.3275
+    "lat": 5.558251,
+    "lng": 95.327387
   },
   {
     "nama": "Halte Jambo Tape 1",
@@ -371,8 +371,8 @@
         "16:36"
       ]
     },
-    "lat": 5.556,
-    "lng": 95.3325
+    "lat": 5.559712,
+    "lng": 95.33095
   },
   {
     "nama": "Halte Portabel TK Khalifah",
@@ -465,8 +465,8 @@
         "16:37"
       ]
     },
-    "lat": 5.56137,
-    "lng": 95.33975
+    "lat": 5.5624969,
+    "lng": 95.3338569
   },
   {
     "nama": "Halte RSUZA 1",
@@ -559,8 +559,8 @@
         "16:38"
       ]
     },
-    "lat": 5.5665,
-    "lng": 95.347
+    "lat": 5.56576733,
+    "lng": 95.33735116
   },
   {
     "nama": "Halte Kantor Gubernur",
@@ -653,15 +653,15 @@
         "16:43"
       ]
     },
-    "lat": 5.562,
-    "lng": 95.342
+    "lat": 5.57129828,
+    "lng": 95.34300261
   },
   {
     "nama": "Halte Lingke",
     "arah": "Pusat Kota -> Darussalam",
     "jadwal": {},
-    "lat": 5.564,
-    "lng": 95.347
+    "lat": 5.575514,
+    "lng": 95.347323
   },
   {
     "nama": "Halte Sp. Mesra",
@@ -754,8 +754,8 @@
         "16:53"
       ]
     },
-    "lat": 5.5708,
-    "lng": 95.3567
+    "lat": 5.5800089,
+    "lng": 95.35303867
   },
   {
     "nama": "Halte Lamnyong 1",
@@ -848,15 +848,15 @@
         "16:49"
       ]
     },
-    "lat": 5.5715,
-    "lng": 95.36
+    "lat": 5.57586649,
+    "lng": 95.35520433
   },
   {
     "nama": "Portabel Lamgugop 1",
     "arah": "Pusat Kota -> Darussalam",
     "jadwal": {},
-    "lat": 5.57387,
-    "lng": 95.366
+    "lat": 5.57129,
+    "lng": 95.357
   },
   {
     "nama": "Portabel Pasar Rukoh",
@@ -949,8 +949,8 @@
         "16:51"
       ]
     },
-    "lat": 5.576,
-    "lng": 95.372
+    "lat": 5.5741,
+    "lng": 95.36016
   },
   {
     "nama": "Halte F. Teknik",
@@ -1043,36 +1043,36 @@
         "16:54"
       ]
     },
-    "lat": 5.575625,
-    "lng": 95.371375
+    "lat": 5.56617,
+    "lng": 95.366663
   },
   {
     "nama": "Halte F. Kedokteran",
     "arah": "Pusat Kota -> Darussalam",
     "jadwal": {},
-    "lat": 5.57537,
-    "lng": 95.37087
+    "lat": 5.564891,
+    "lng": 95.372006
   },
   {
     "nama": "Halte Beurabong",
     "arah": "Pusat Kota -> Darussalam",
     "jadwal": {},
-    "lat": 5.575115,
-    "lng": 95.370125
+    "lat": 5.568617,
+    "lng": 95.377415
   },
   {
     "nama": "Halte Masjid Jamik Darussalam",
     "arah": "Pusat Kota -> Darussalam",
     "jadwal": {},
-    "lat": 5.5745,
-    "lng": 95.3695
+    "lat": 5.57143721,
+    "lng": 95.3714071
   },
   {
     "nama": "Halte Masjid Jamik Darussalam",
     "arah": "Darussalam -> Pusat Kota",
     "jadwal": {},
-    "lat": 5.5745,
-    "lng": 95.3695
+    "lat": 5.57143721,
+    "lng": 95.3714071
   },
   {
     "nama": "Portabel Masjid Fatun Qarib UIN",
@@ -1165,8 +1165,8 @@
         "16:23"
       ]
     },
-    "lat": 5.5743,
-    "lng": 95.3691
+    "lat": 5.57754,
+    "lng": 95.36968
   },
   {
     "nama": "Halte UIN",
@@ -1259,15 +1259,15 @@
         "16:25"
       ]
     },
-    "lat": 5.5741,
-    "lng": 95.3688
+    "lat": 5.58087776,
+    "lng": 95.36751853
   },
   {
     "nama": "Portabel MAN Rukoh",
     "arah": "Darussalam -> Pusat Kota",
     "jadwal": {},
-    "lat": 5.576,
-    "lng": 95.372
+    "lat": 5.58115,
+    "lng": 95.36326
   },
   {
     "nama": "Portabel Puskesmas Kopelma",
@@ -1361,29 +1361,29 @@
         "16:28"
       ]
     },
-    "lat": 5.57599,
-    "lng": 95.37125
+    "lat": 5.57807,
+    "lng": 95.36398
   },
   {
     "nama": "Halte Ekonomi",
     "arah": "Darussalam -> Pusat Kota",
     "jadwal": {},
-    "lat": 5.5755,
-    "lng": 95.3705
+    "lat": 5.573846,
+    "lng": 95.365581
   },
   {
     "nama": "Portabel Fantasi Darussalam",
     "arah": "Darussalam -> Pusat Kota",
     "jadwal": {},
-    "lat": 5.574287,
-    "lng": 95.367
+    "lat": 5.57287,
+    "lng": 95.36361
   },
   {
     "nama": "Portabel Lamgugop 2",
     "arah": "Darussalam -> Pusat Kota",
     "jadwal": {},
-    "lat": 5.573073,
-    "lng": 95.36362
+    "lat": 5.57181,
+    "lng": 95.3569
   },
   {
     "nama": "Halte Lamnyong 2",
@@ -1476,8 +1476,8 @@
         "16:49"
       ]
     },
-    "lat": 5.5715,
-    "lng": 95.36
+    "lat": 5.57556486,
+    "lng": 95.35509735
   },
   {
     "nama": "Halte Sp. Mesra",
@@ -1570,8 +1570,8 @@
         "16:53"
       ]
     },
-    "lat": 5.5708,
-    "lng": 95.3567
+    "lat": 5.5800089,
+    "lng": 95.35303867
   },
   {
     "nama": "Portabel Polda",
@@ -1664,15 +1664,15 @@
         "16:38"
       ]
     },
-    "lat": 5.58274,
-    "lng": 95.371
+    "lat": 5.576249,
+    "lng": 95.348519
   },
   {
     "nama": "Halte Prada",
     "arah": "Darussalam -> Pusat Kota",
     "jadwal": {},
-    "lat": 5.569,
-    "lng": 95.352
+    "lat": 5.5739776,
+    "lng": 95.3460156
   },
   {
     "nama": "Halte Kantor DPKA",
@@ -1765,8 +1765,8 @@
         "16:41"
       ]
     },
-    "lat": 5.56787,
-    "lng": 95.3495
+    "lat": 5.5708115,
+    "lng": 95.34272042
   },
   {
     "nama": "Halte RSUZA 2",
@@ -1859,15 +1859,15 @@
         "16:46"
       ]
     },
-    "lat": 5.5665,
-    "lng": 95.347
+    "lat": 5.56472478,
+    "lng": 95.33653621
   },
   {
     "nama": "Portabel PLN",
     "arah": "Darussalam -> Pusat Kota",
     "jadwal": {},
-    "lat": 5.56125,
-    "lng": 95.33975
+    "lat": 5.5620461,
+    "lng": 95.3337064
   },
   {
     "nama": "Halte Jambo Tape 2",
@@ -1960,8 +1960,8 @@
         "16:48"
       ]
     },
-    "lat": 5.556,
-    "lng": 95.3325
+    "lat": 5.55973759,
+    "lng": 95.33140513
   },
   {
     "nama": "Halte Sp. Keramat 2",
@@ -2054,8 +2054,8 @@
         "16:51"
       ]
     },
-    "lat": 5.55824,
-    "lng": 95.328333
+    "lat": 5.55800808,
+    "lng": 95.32712607
   },
   {
     "nama": "Halte Sp. Lima 2",
@@ -2148,8 +2148,8 @@
         "16:53"
       ]
     },
-    "lat": 5.56,
-    "lng": 95.324287
+    "lat": 5.55646795,
+    "lng": 95.32336817
   },
   {
     "nama": "Halte Peunayong",
@@ -2242,8 +2242,8 @@
         "16:58"
       ]
     },
-    "lat": 5.562,
-    "lng": 95.32
+    "lat": 5.558657,
+    "lng": 95.318962
   },
   {
     "nama": "Halte Keudah",
@@ -2336,8 +2336,8 @@
         "16:25"
       ]
     },
-    "lat": 5.5763,
-    "lng": 95.3132
+    "lat": 5.55979599,
+    "lng": 95.31767663
   },
   {
     "nama": "Halte Masjid Raya Baiturrahman",
@@ -2430,7 +2430,7 @@
         "16:27"
       ]
     },
-    "lat": 5.5544,
-    "lng": 95.3175
+    "lat": 5.55411,
+    "lng": 95.318376
   }
 ]

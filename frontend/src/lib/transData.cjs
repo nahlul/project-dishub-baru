@@ -1,4 +1,4 @@
-// Trans Koetaradja 10 Corridors Full Data Dataset
+// Trans Koetaradja 10 Corridors Full Data Dataset (Synced with Official Dishub Coordinates)
 const TRANS_ROUTES = [
   {
     "id": "campus",
@@ -63,8 +63,8 @@ const TRANS_ROUTES = [
             "15:15"
           ]
         },
-        "lat": 5.5745,
-        "lng": 95.3695
+        "lat": 5.57145,
+        "lng": 95.371601
       },
       {
         "nama": "Shelter Fak Ekonomi",
@@ -119,8 +119,8 @@ const TRANS_ROUTES = [
             "15:19"
           ]
         },
-        "lat": 5.5755,
-        "lng": 95.3705
+        "lat": 5.572949,
+        "lng": 95.36772
       },
       {
         "nama": "Shelter Auditorium UIN 1",
@@ -175,8 +175,8 @@ const TRANS_ROUTES = [
             "15:21"
           ]
         },
-        "lat": 5.5741,
-        "lng": 95.3688
+        "lat": 5.576785,
+        "lng": 95.367571
       },
       {
         "nama": "Shelter Bundaran UIN 1",
@@ -231,8 +231,8 @@ const TRANS_ROUTES = [
             "15:23"
           ]
         },
-        "lat": 5.5738,
-        "lng": 95.369
+        "lat": 5.5781,
+        "lng": 95.367523
       },
       {
         "nama": "Shelter Bundaran UIN 2",
@@ -287,8 +287,8 @@ const TRANS_ROUTES = [
             "15:24"
           ]
         },
-        "lat": 5.5738,
-        "lng": 95.369
+        "lat": 5.578482,
+        "lng": 95.367616
       },
       {
         "nama": "Shelter Auditorium UIN 2",
@@ -343,8 +343,8 @@ const TRANS_ROUTES = [
             "15:26"
           ]
         },
-        "lat": 5.5741,
-        "lng": 95.3688
+        "lat": 5.576956,
+        "lng": 95.367749
       },
       {
         "nama": "Shelter SMAN 5 Banda Aceh",
@@ -399,8 +399,8 @@ const TRANS_ROUTES = [
             "15:28"
           ]
         },
-        "lat": 5.57474,
-        "lng": 95.368
+        "lat": 5.574833,
+        "lng": 95.367458
       },
       {
         "nama": "Shelter Asrama USK",
@@ -455,8 +455,8 @@ const TRANS_ROUTES = [
             "14:40"
           ]
         },
-        "lat": 5.578,
-        "lng": 95.369
+        "lat": 5.578988,
+        "lng": 95.363433
       },
       {
         "nama": "Shelter Asrama USK",
@@ -511,8 +511,8 @@ const TRANS_ROUTES = [
             "14:40"
           ]
         },
-        "lat": 5.578,
-        "lng": 95.369
+        "lat": 5.578988,
+        "lng": 95.363433
       },
       {
         "nama": "Portabel PKM Kopelma 1",
@@ -623,8 +623,8 @@ const TRANS_ROUTES = [
             "14:45"
           ]
         },
-        "lat": 5.5755,
-        "lng": 95.3705
+        "lat": 5.573846,
+        "lng": 95.365581
       },
       {
         "nama": "Shelter Geulanggang Mahasiswa",
@@ -679,8 +679,8 @@ const TRANS_ROUTES = [
             "14:48"
           ]
         },
-        "lat": 5.57542,
-        "lng": 95.3703
+        "lat": 5.570409,
+        "lng": 95.365029
       },
       {
         "nama": "Shelter Fak MIPA",
@@ -735,8 +735,8 @@ const TRANS_ROUTES = [
             "14:51"
           ]
         },
-        "lat": 5.5751,
-        "lng": 95.37022
+        "lat": 5.568365,
+        "lng": 95.36759
       },
       {
         "nama": "Shelter Sospol",
@@ -791,8 +791,8 @@ const TRANS_ROUTES = [
             "14:54"
           ]
         },
-        "lat": 5.57514,
-        "lng": 95.3699
+        "lat": 5.566063,
+        "lng": 95.369895
       },
       {
         "nama": "Shelter Kedokteran Hewan",
@@ -847,8 +847,8 @@ const TRANS_ROUTES = [
             "14:57"
           ]
         },
-        "lat": 5.57482,
-        "lng": 95.36982
+        "lat": 5.567601,
+        "lng": 95.371867
       },
       {
         "nama": "Shelter Masjid Jamik",
@@ -903,8 +903,8 @@ const TRANS_ROUTES = [
             "15:15"
           ]
         },
-        "lat": 5.5745,
-        "lng": 95.3695
+        "lat": 5.57145,
+        "lng": 95.371601
       }
     ]
   },
@@ -986,8 +986,8 @@ const TRANS_ROUTES = [
             "15:40"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       },
       {
         "nama": "Halte Sp. Lima 1",
@@ -1059,8 +1059,8 @@ const TRANS_ROUTES = [
             "16:26"
           ]
         },
-        "lat": 5.557053,
-        "lng": 95.323453
+        "lat": 5.55662433,
+        "lng": 95.32325626
       },
       {
         "nama": "Portabel Sp. Keramat 1",
@@ -1130,15 +1130,15 @@ const TRANS_ROUTES = [
             "15:45"
           ]
         },
-        "lat": 5.559467,
-        "lng": 95.329167
+        "lat": 5.558251,
+        "lng": 95.327387
       },
       {
         "nama": "Portabel Yamaha Beurawe",
         "arah": "Pusat Kota -> Bandara SIM",
         "jadwal": {},
-        "lat": 5.562,
-        "lng": 95.335
+        "lat": 5.55741,
+        "lng": 95.33023
       },
       {
         "nama": "Portabel Sp. Surabaya",
@@ -1208,8 +1208,8 @@ const TRANS_ROUTES = [
             "15:53"
           ]
         },
-        "lat": 5.54712,
-        "lng": 95.335
+        "lat": 5.547145,
+        "lng": 95.330086
       },
       {
         "nama": "Halte Batoh 1",
@@ -1279,8 +1279,8 @@ const TRANS_ROUTES = [
             "15:57"
           ]
         },
-        "lat": 5.532,
-        "lng": 95.335
+        "lat": 5.54232257,
+        "lng": 95.33032041
       },
       {
         "nama": "Halte Sp. Batoh 1",
@@ -1350,8 +1350,8 @@ const TRANS_ROUTES = [
             "15:57"
           ]
         },
-        "lat": 5.532,
-        "lng": 95.335
+        "lat": 5.53366058,
+        "lng": 95.3303358
       },
       {
         "nama": "Portabel Terminal Batoh",
@@ -1421,8 +1421,8 @@ const TRANS_ROUTES = [
             "15:59"
           ]
         },
-        "lat": 5.532,
-        "lng": 95.335
+        "lat": 5.52923,
+        "lng": 95.3303429
       },
       {
         "nama": "Halte Darul Imarah 1",
@@ -1492,8 +1492,8 @@ const TRANS_ROUTES = [
             "16:02"
           ]
         },
-        "lat": 5.503,
-        "lng": 95.326
+        "lat": 5.51427665,
+        "lng": 95.33106485
       },
       {
         "nama": "Portabel Wali Nanggroe 1",
@@ -1563,15 +1563,15 @@ const TRANS_ROUTES = [
             "16:04"
           ]
         },
-        "lat": 5.506715,
-        "lng": 95.33162
+        "lat": 5.51266,
+        "lng": 95.3391774
       },
       {
         "nama": "Portabel Nurul Quran",
         "arah": "Pusat Kota -> Bandara SIM",
         "jadwal": {},
-        "lat": 5.51007,
-        "lng": 95.337
+        "lat": 5.51105,
+        "lng": 95.34562
       },
       {
         "nama": "Portabel Metro TV 1",
@@ -1641,8 +1641,8 @@ const TRANS_ROUTES = [
             "16:08"
           ]
         },
-        "lat": 5.513425,
-        "lng": 95.34262
+        "lat": 5.50975,
+        "lng": 95.34977
       },
       {
         "nama": "Portabel Lambaro 1",
@@ -1712,36 +1712,36 @@ const TRANS_ROUTES = [
             "16:10"
           ]
         },
-        "lat": 5.5169,
-        "lng": 95.348
+        "lat": 5.50862,
+        "lng": 95.35524
       },
       {
         "nama": "Halte Siron 1",
         "arah": "Pusat Kota -> Bandara SIM",
         "jadwal": {},
-        "lat": 5.522,
-        "lng": 95.37
+        "lat": 5.51132798,
+        "lng": 95.36438048
       },
       {
         "nama": "Portabel Siron 1",
         "arah": "Pusat Kota -> Bandara SIM",
         "jadwal": {},
-        "lat": 5.522,
-        "lng": 95.37
+        "lat": 5.51132798,
+        "lng": 95.36438048
       },
       {
         "nama": "Halte BKN 1",
         "arah": "Pusat Kota -> Bandara SIM",
         "jadwal": {},
-        "lat": 5.52144,
-        "lng": 95.37832
+        "lat": 5.51248133,
+        "lng": 95.37817776
       },
       {
         "nama": "Halte Gani 1",
         "arah": "Pusat Kota -> Bandara SIM",
         "jadwal": {},
-        "lat": 5.52052,
-        "lng": 95.3864
+        "lat": 5.51194489,
+        "lng": 95.38530707
       },
       {
         "nama": "Portabel MIS Mon Malem 1",
@@ -1813,15 +1813,15 @@ const TRANS_ROUTES = [
             "15:50"
           ]
         },
-        "lat": 5.5196,
-        "lng": 95.39472
+        "lat": 5.50973,
+        "lng": 95.39047
       },
       {
         "nama": "Portabel Poliven",
         "arah": "Pusat Kota -> Bandara SIM",
         "jadwal": {},
-        "lat": 5.51904,
-        "lng": 95.4028
+        "lat": 5.51021,
+        "lng": 95.39394
       },
       {
         "nama": "Portabel SDN 1 Blang Bintang",
@@ -1893,15 +1893,15 @@ const TRANS_ROUTES = [
             "15:47"
           ]
         },
-        "lat": 5.518,
-        "lng": 95.411
+        "lat": 5.509051,
+        "lng": 95.404946
       },
       {
         "nama": "Portabel Masjid Nurul Huda 1",
         "arah": "Pusat Kota -> Bandara SIM",
         "jadwal": {},
-        "lat": 5.518,
-        "lng": 95.411
+        "lat": 5.50844,
+        "lng": 95.41056
       },
       {
         "nama": "Halte Blang Bintang 1",
@@ -1971,8 +1971,8 @@ const TRANS_ROUTES = [
             "16:31"
           ]
         },
-        "lat": 5.518,
-        "lng": 95.411
+        "lat": 5.51150501,
+        "lng": 95.41382778
       },
       {
         "nama": "Portabel Gampong Blang 1",
@@ -2044,7 +2044,7 @@ const TRANS_ROUTES = [
             "15:44"
           ]
         },
-        "lat": 5.521,
+        "lat": 5.51742,
         "lng": 95.413
       },
       {
@@ -2116,8 +2116,8 @@ const TRANS_ROUTES = [
             "15:40"
           ]
         },
-        "lat": 5.5232,
-        "lng": 95.4204
+        "lat": 5.51695855,
+        "lng": 95.41644265
       },
       {
         "nama": "Halte Bandara SIM",
@@ -2188,8 +2188,8 @@ const TRANS_ROUTES = [
             "15:40"
           ]
         },
-        "lat": 5.5232,
-        "lng": 95.4204
+        "lat": 5.51695855,
+        "lng": 95.41644265
       },
       {
         "nama": "Halte Gampong Blang",
@@ -2261,8 +2261,8 @@ const TRANS_ROUTES = [
             "15:44"
           ]
         },
-        "lat": 5.521,
-        "lng": 95.413
+        "lat": 5.517684,
+        "lng": 95.413377
       },
       {
         "nama": "Halte Blang Bintang 2",
@@ -2334,15 +2334,15 @@ const TRANS_ROUTES = [
             "15:45"
           ]
         },
-        "lat": 5.518,
-        "lng": 95.411
+        "lat": 5.511561,
+        "lng": 95.41393
       },
       {
         "nama": "Portabel Masjid Nurul Huda 2",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.51824,
-        "lng": 95.41112
+        "lat": 5.508615,
+        "lng": 95.410904
       },
       {
         "nama": "Halte SDN 1 Blang Bintang",
@@ -2414,15 +2414,15 @@ const TRANS_ROUTES = [
             "15:47"
           ]
         },
-        "lat": 5.518,
-        "lng": 95.411
+        "lat": 5.509051,
+        "lng": 95.404946
       },
       {
         "nama": "Halte Modal Bangsa",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.521,
-        "lng": 95.398
+        "lat": 5.51014245,
+        "lng": 95.39486647
       },
       {
         "nama": "Portabel MIS Mon Malem 2",
@@ -2494,36 +2494,36 @@ const TRANS_ROUTES = [
             "15:50"
           ]
         },
-        "lat": 5.52149,
-        "lng": 95.391
+        "lat": 5.50963,
+        "lng": 95.39093
       },
       {
         "nama": "Halte Gani 2",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.52162,
-        "lng": 95.38412
+        "lat": 5.51159084,
+        "lng": 95.38553238
       },
       {
         "nama": "Halte BKN 2",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.52175,
-        "lng": 95.377
+        "lat": 5.513485,
+        "lng": 95.380002
       },
       {
         "nama": "Portabel Siron 2",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.522,
-        "lng": 95.37
+        "lat": 5.511343,
+        "lng": 95.364261
       },
       {
         "nama": "Halte Siron 2",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.522,
-        "lng": 95.37
+        "lat": 5.511343,
+        "lng": 95.364261
       },
       {
         "nama": "Halte Lambaro 2",
@@ -2593,8 +2593,8 @@ const TRANS_ROUTES = [
             "16:10"
           ]
         },
-        "lat": 5.5169,
-        "lng": 95.348
+        "lat": 5.50747633,
+        "lng": 95.35627484
       },
       {
         "nama": "Portabel Metro TV 2",
@@ -2666,8 +2666,8 @@ const TRANS_ROUTES = [
             "16:02"
           ]
         },
-        "lat": 5.513665,
-        "lng": 95.3425
+        "lat": 5.51012,
+        "lng": 95.35002
       },
       {
         "nama": "Portabel Wali Nanggroe 2",
@@ -2737,15 +2737,15 @@ const TRANS_ROUTES = [
             "16:04"
           ]
         },
-        "lat": 5.51007,
-        "lng": 95.33712
+        "lat": 5.51158,
+        "lng": 95.34225
       },
       {
         "nama": "Portabel Taman Bunga",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.506475,
-        "lng": 95.3315
+        "lat": 5.51275,
+        "lng": 95.3382
       },
       {
         "nama": "Halte Darul Imarah 2",
@@ -2815,15 +2815,15 @@ const TRANS_ROUTES = [
             "16:02"
           ]
         },
-        "lat": 5.503,
-        "lng": 95.326
+        "lat": 5.51508844,
+        "lng": 95.33009112
       },
       {
         "nama": "Portabel Kejaksaan",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.51762,
-        "lng": 95.3305
+        "lat": 5.522813,
+        "lng": 95.33009
       },
       {
         "nama": "Halte Terminal Batoh",
@@ -2893,8 +2893,8 @@ const TRANS_ROUTES = [
             "15:59"
           ]
         },
-        "lat": 5.532,
-        "lng": 95.335
+        "lat": 5.52923,
+        "lng": 95.3303429
       },
       {
         "nama": "Halte Sp. Batoh 2",
@@ -2964,8 +2964,8 @@ const TRANS_ROUTES = [
             "15:57"
           ]
         },
-        "lat": 5.532,
-        "lng": 95.335
+        "lat": 5.533917,
+        "lng": 95.330143
       },
       {
         "nama": "Portabel Bank Aceh Batoh",
@@ -3037,8 +3037,8 @@ const TRANS_ROUTES = [
             "16:17"
           ]
         },
-        "lat": 5.532,
-        "lng": 95.335
+        "lat": 5.54069,
+        "lng": 95.32996
       },
       {
         "nama": "Halte Sp. Surabaya",
@@ -3108,8 +3108,8 @@ const TRANS_ROUTES = [
             "15:53"
           ]
         },
-        "lat": 5.538,
-        "lng": 95.332
+        "lat": 5.547145,
+        "lng": 95.330086
       },
       {
         "nama": "Portabel Arena Ban",
@@ -3181,8 +3181,8 @@ const TRANS_ROUTES = [
             "16:23"
           ]
         },
-        "lat": 5.54424,
-        "lng": 95.32912
+        "lat": 5.55552,
+        "lng": 95.33047
       },
       {
         "nama": "Halte Sp. Keuramat 2",
@@ -3252,8 +3252,8 @@ const TRANS_ROUTES = [
             "15:45"
           ]
         },
-        "lat": 5.55012,
-        "lng": 95.326
+        "lat": 5.55800808,
+        "lng": 95.32712607
       },
       {
         "nama": "Portabel Sp. Lima 2",
@@ -3325,22 +3325,22 @@ const TRANS_ROUTES = [
             "16:26"
           ]
         },
-        "lat": 5.556,
-        "lng": 95.32312
+        "lat": 5.55646795,
+        "lng": 95.32336817
       },
       {
         "nama": "Halte Peunayong",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.562,
-        "lng": 95.32
+        "lat": 5.558657,
+        "lng": 95.318962
       },
       {
         "nama": "Halte Keudah",
         "arah": "Bandara SIM -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.5763,
-        "lng": 95.3132
+        "lat": 5.55979599,
+        "lng": 95.31767663
       },
       {
         "nama": "Halte Masjid Raya Baiturrahman",
@@ -3410,8 +3410,8 @@ const TRANS_ROUTES = [
             "15:40"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       }
     ]
   },
@@ -3516,8 +3516,8 @@ const TRANS_ROUTES = [
             "16:27"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       },
       {
         "nama": "Halte Sp. Lima 1",
@@ -3610,8 +3610,8 @@ const TRANS_ROUTES = [
             "16:31"
           ]
         },
-        "lat": 5.555053,
-        "lng": 95.32262
+        "lat": 5.55662433,
+        "lng": 95.32325626
       },
       {
         "nama": "Halte Sp. Keuramat 1",
@@ -3703,8 +3703,8 @@ const TRANS_ROUTES = [
             "16:33"
           ]
         },
-        "lat": 5.555707,
-        "lng": 95.3275
+        "lat": 5.558251,
+        "lng": 95.327387
       },
       {
         "nama": "Halte Jambo Tape 1",
@@ -3797,8 +3797,8 @@ const TRANS_ROUTES = [
             "16:36"
           ]
         },
-        "lat": 5.556,
-        "lng": 95.3325
+        "lat": 5.559712,
+        "lng": 95.33095
       },
       {
         "nama": "Halte Portabel TK Khalifah",
@@ -3891,8 +3891,8 @@ const TRANS_ROUTES = [
             "16:37"
           ]
         },
-        "lat": 5.56137,
-        "lng": 95.33975
+        "lat": 5.5624969,
+        "lng": 95.3338569
       },
       {
         "nama": "Halte RSUZA 1",
@@ -3985,8 +3985,8 @@ const TRANS_ROUTES = [
             "16:38"
           ]
         },
-        "lat": 5.5665,
-        "lng": 95.347
+        "lat": 5.56576733,
+        "lng": 95.33735116
       },
       {
         "nama": "Halte Kantor Gubernur",
@@ -4079,15 +4079,15 @@ const TRANS_ROUTES = [
             "16:43"
           ]
         },
-        "lat": 5.562,
-        "lng": 95.342
+        "lat": 5.57129828,
+        "lng": 95.34300261
       },
       {
         "nama": "Halte Lingke",
         "arah": "Pusat Kota -> Darussalam",
         "jadwal": {},
-        "lat": 5.564,
-        "lng": 95.347
+        "lat": 5.575514,
+        "lng": 95.347323
       },
       {
         "nama": "Halte Sp. Mesra",
@@ -4180,8 +4180,8 @@ const TRANS_ROUTES = [
             "16:53"
           ]
         },
-        "lat": 5.5708,
-        "lng": 95.3567
+        "lat": 5.5800089,
+        "lng": 95.35303867
       },
       {
         "nama": "Halte Lamnyong 1",
@@ -4274,15 +4274,15 @@ const TRANS_ROUTES = [
             "16:49"
           ]
         },
-        "lat": 5.5715,
-        "lng": 95.36
+        "lat": 5.57586649,
+        "lng": 95.35520433
       },
       {
         "nama": "Portabel Lamgugop 1",
         "arah": "Pusat Kota -> Darussalam",
         "jadwal": {},
-        "lat": 5.57387,
-        "lng": 95.366
+        "lat": 5.57129,
+        "lng": 95.357
       },
       {
         "nama": "Portabel Pasar Rukoh",
@@ -4375,8 +4375,8 @@ const TRANS_ROUTES = [
             "16:51"
           ]
         },
-        "lat": 5.576,
-        "lng": 95.372
+        "lat": 5.5741,
+        "lng": 95.36016
       },
       {
         "nama": "Halte F. Teknik",
@@ -4469,36 +4469,36 @@ const TRANS_ROUTES = [
             "16:54"
           ]
         },
-        "lat": 5.575625,
-        "lng": 95.371375
+        "lat": 5.56617,
+        "lng": 95.366663
       },
       {
         "nama": "Halte F. Kedokteran",
         "arah": "Pusat Kota -> Darussalam",
         "jadwal": {},
-        "lat": 5.57537,
-        "lng": 95.37087
+        "lat": 5.564891,
+        "lng": 95.372006
       },
       {
         "nama": "Halte Beurabong",
         "arah": "Pusat Kota -> Darussalam",
         "jadwal": {},
-        "lat": 5.575115,
-        "lng": 95.370125
+        "lat": 5.568617,
+        "lng": 95.377415
       },
       {
         "nama": "Halte Masjid Jamik Darussalam",
         "arah": "Pusat Kota -> Darussalam",
         "jadwal": {},
-        "lat": 5.5745,
-        "lng": 95.3695
+        "lat": 5.57143721,
+        "lng": 95.3714071
       },
       {
         "nama": "Halte Masjid Jamik Darussalam",
         "arah": "Darussalam -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.5745,
-        "lng": 95.3695
+        "lat": 5.57143721,
+        "lng": 95.3714071
       },
       {
         "nama": "Portabel Masjid Fatun Qarib UIN",
@@ -4591,8 +4591,8 @@ const TRANS_ROUTES = [
             "16:23"
           ]
         },
-        "lat": 5.5743,
-        "lng": 95.3691
+        "lat": 5.57754,
+        "lng": 95.36968
       },
       {
         "nama": "Halte UIN",
@@ -4685,15 +4685,15 @@ const TRANS_ROUTES = [
             "16:25"
           ]
         },
-        "lat": 5.5741,
-        "lng": 95.3688
+        "lat": 5.58087776,
+        "lng": 95.36751853
       },
       {
         "nama": "Portabel MAN Rukoh",
         "arah": "Darussalam -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.576,
-        "lng": 95.372
+        "lat": 5.58115,
+        "lng": 95.36326
       },
       {
         "nama": "Portabel Puskesmas Kopelma",
@@ -4787,29 +4787,29 @@ const TRANS_ROUTES = [
             "16:28"
           ]
         },
-        "lat": 5.57599,
-        "lng": 95.37125
+        "lat": 5.57807,
+        "lng": 95.36398
       },
       {
         "nama": "Halte Ekonomi",
         "arah": "Darussalam -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.5755,
-        "lng": 95.3705
+        "lat": 5.573846,
+        "lng": 95.365581
       },
       {
         "nama": "Portabel Fantasi Darussalam",
         "arah": "Darussalam -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.574287,
-        "lng": 95.367
+        "lat": 5.57287,
+        "lng": 95.36361
       },
       {
         "nama": "Portabel Lamgugop 2",
         "arah": "Darussalam -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.573073,
-        "lng": 95.36362
+        "lat": 5.57181,
+        "lng": 95.3569
       },
       {
         "nama": "Halte Lamnyong 2",
@@ -4902,8 +4902,8 @@ const TRANS_ROUTES = [
             "16:49"
           ]
         },
-        "lat": 5.5715,
-        "lng": 95.36
+        "lat": 5.57556486,
+        "lng": 95.35509735
       },
       {
         "nama": "Halte Sp. Mesra",
@@ -4996,8 +4996,8 @@ const TRANS_ROUTES = [
             "16:53"
           ]
         },
-        "lat": 5.5708,
-        "lng": 95.3567
+        "lat": 5.5800089,
+        "lng": 95.35303867
       },
       {
         "nama": "Portabel Polda",
@@ -5090,15 +5090,15 @@ const TRANS_ROUTES = [
             "16:38"
           ]
         },
-        "lat": 5.58274,
-        "lng": 95.371
+        "lat": 5.576249,
+        "lng": 95.348519
       },
       {
         "nama": "Halte Prada",
         "arah": "Darussalam -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.569,
-        "lng": 95.352
+        "lat": 5.5739776,
+        "lng": 95.3460156
       },
       {
         "nama": "Halte Kantor DPKA",
@@ -5191,8 +5191,8 @@ const TRANS_ROUTES = [
             "16:41"
           ]
         },
-        "lat": 5.56787,
-        "lng": 95.3495
+        "lat": 5.5708115,
+        "lng": 95.34272042
       },
       {
         "nama": "Halte RSUZA 2",
@@ -5285,15 +5285,15 @@ const TRANS_ROUTES = [
             "16:46"
           ]
         },
-        "lat": 5.5665,
-        "lng": 95.347
+        "lat": 5.56472478,
+        "lng": 95.33653621
       },
       {
         "nama": "Portabel PLN",
         "arah": "Darussalam -> Pusat Kota",
         "jadwal": {},
-        "lat": 5.56125,
-        "lng": 95.33975
+        "lat": 5.5620461,
+        "lng": 95.3337064
       },
       {
         "nama": "Halte Jambo Tape 2",
@@ -5386,8 +5386,8 @@ const TRANS_ROUTES = [
             "16:48"
           ]
         },
-        "lat": 5.556,
-        "lng": 95.3325
+        "lat": 5.55973759,
+        "lng": 95.33140513
       },
       {
         "nama": "Halte Sp. Keramat 2",
@@ -5480,8 +5480,8 @@ const TRANS_ROUTES = [
             "16:51"
           ]
         },
-        "lat": 5.55824,
-        "lng": 95.328333
+        "lat": 5.55800808,
+        "lng": 95.32712607
       },
       {
         "nama": "Halte Sp. Lima 2",
@@ -5574,8 +5574,8 @@ const TRANS_ROUTES = [
             "16:53"
           ]
         },
-        "lat": 5.56,
-        "lng": 95.324287
+        "lat": 5.55646795,
+        "lng": 95.32336817
       },
       {
         "nama": "Halte Peunayong",
@@ -5668,8 +5668,8 @@ const TRANS_ROUTES = [
             "16:58"
           ]
         },
-        "lat": 5.562,
-        "lng": 95.32
+        "lat": 5.558657,
+        "lng": 95.318962
       },
       {
         "nama": "Halte Keudah",
@@ -5762,8 +5762,8 @@ const TRANS_ROUTES = [
             "16:25"
           ]
         },
-        "lat": 5.5763,
-        "lng": 95.3132
+        "lat": 5.55979599,
+        "lng": 95.31767663
       },
       {
         "nama": "Halte Masjid Raya Baiturrahman",
@@ -5856,8 +5856,8 @@ const TRANS_ROUTES = [
             "16:27"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       }
     ]
   },
@@ -5902,8 +5902,8 @@ const TRANS_ROUTES = [
             "16:40"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       },
       {
         "nama": "Shelter Peuniti 1",
@@ -5936,8 +5936,8 @@ const TRANS_ROUTES = [
             "16:43"
           ]
         },
-        "lat": 5.551,
-        "lng": 95.321
+        "lat": 5.551268,
+        "lng": 95.322856
       },
       {
         "nama": "Shelter Flyover 1",
@@ -5970,8 +5970,8 @@ const TRANS_ROUTES = [
             "16:48"
           ]
         },
-        "lat": 5.549,
-        "lng": 95.328
+        "lat": 5.548678,
+        "lng": 95.333465
       },
       {
         "nama": "Shelter Panteriek 1",
@@ -6004,8 +6004,8 @@ const TRANS_ROUTES = [
             "16:50"
           ]
         },
-        "lat": 5.546,
-        "lng": 95.33
+        "lat": 5.546639,
+        "lng": 95.334481
       },
       {
         "nama": "Shelter Mahkamah Militer 1",
@@ -6038,8 +6038,8 @@ const TRANS_ROUTES = [
             "16:52"
           ]
         },
-        "lat": 5.54362,
-        "lng": 95.3325
+        "lat": 5.5436,
+        "lng": 95.33599
       },
       {
         "nama": "Shelter Sp. Lueng Bata 1",
@@ -6106,8 +6106,8 @@ const TRANS_ROUTES = [
             "16:55"
           ]
         },
-        "lat": 5.541,
-        "lng": 95.335
+        "lat": 5.539813,
+        "lng": 95.33924
       },
       {
         "nama": "Shelter DPMPTSP 1",
@@ -6140,8 +6140,8 @@ const TRANS_ROUTES = [
             "16:57"
           ]
         },
-        "lat": 5.52062,
-        "lng": 95.29762
+        "lat": 5.536918,
+        "lng": 95.341735
       },
       {
         "nama": "Shelter Gp. Tanjong 1",
@@ -6174,8 +6174,8 @@ const TRANS_ROUTES = [
             "16:59"
           ]
         },
-        "lat": 5.5,
-        "lng": 95.26
+        "lat": 5.533904,
+        "lng": 95.3452
       },
       {
         "nama": "Shelter Harian Serambi 1",
@@ -6208,8 +6208,8 @@ const TRANS_ROUTES = [
             "17:02"
           ]
         },
-        "lat": 5.5125,
-        "lng": 95.30762
+        "lat": 5.533303,
+        "lng": 95.35265
       },
       {
         "nama": "Shelter Santan 1",
@@ -6242,8 +6242,8 @@ const TRANS_ROUTES = [
             "17:04"
           ]
         },
-        "lat": 5.525,
-        "lng": 95.355
+        "lat": 5.531016,
+        "lng": 95.356166
       },
       {
         "nama": "Shelter Meunasah Krueng 1",
@@ -6276,8 +6276,8 @@ const TRANS_ROUTES = [
             "17:06"
           ]
         },
-        "lat": 5.52774,
-        "lng": 95.35012
+        "lat": 5.528289,
+        "lng": 95.360254
       },
       {
         "nama": "Shelter Pagar Air 1",
@@ -6310,8 +6310,8 @@ const TRANS_ROUTES = [
             "17:08"
           ]
         },
-        "lat": 5.53,
-        "lng": 95.345
+        "lat": 5.527175,
+        "lng": 95.363481
       },
       {
         "nama": "Shelter Dian Pelangi 1",
@@ -6344,8 +6344,8 @@ const TRANS_ROUTES = [
             "17:10"
           ]
         },
-        "lat": 5.525753,
-        "lng": 95.34612
+        "lat": 5.52234,
+        "lng": 95.363989
       },
       {
         "nama": "Shelter Lubok Batee 1",
@@ -6378,8 +6378,8 @@ const TRANS_ROUTES = [
             "17:12"
           ]
         },
-        "lat": 5.521507,
-        "lng": 95.347
+        "lat": 5.516917,
+        "lng": 95.360519
       },
       {
         "nama": "Shelter Pasar Lambaro 1",
@@ -6412,8 +6412,8 @@ const TRANS_ROUTES = [
             "17:13"
           ]
         },
-        "lat": 5.5169,
-        "lng": 95.348
+        "lat": 5.512546,
+        "lng": 95.357746
       },
       {
         "nama": "Halte Lambaro 2",
@@ -6446,8 +6446,8 @@ const TRANS_ROUTES = [
             "17:18"
           ]
         },
-        "lat": 5.5169,
-        "lng": 95.348
+        "lat": 5.50747633,
+        "lng": 95.35627484
       },
       {
         "nama": "Shelter Lambaro 2",
@@ -6480,8 +6480,8 @@ const TRANS_ROUTES = [
             "17:18"
           ]
         },
-        "lat": 5.5169,
-        "lng": 95.348
+        "lat": 5.50747633,
+        "lng": 95.35627484
       },
       {
         "nama": "Shelter Meunasah Lambaro",
@@ -6548,8 +6548,8 @@ const TRANS_ROUTES = [
             "15:35"
           ]
         },
-        "lat": 5.5169,
-        "lng": 95.348
+        "lat": 5.512055,
+        "lng": 95.357458
       },
       {
         "nama": "Shelter Pasar Lambaro 2",
@@ -6582,8 +6582,8 @@ const TRANS_ROUTES = [
             "15:35"
           ]
         },
-        "lat": 5.5169,
-        "lng": 95.348
+        "lat": 5.512055,
+        "lng": 95.357458
       },
       {
         "nama": "Shelter Lubok Batee 2",
@@ -6616,8 +6616,8 @@ const TRANS_ROUTES = [
             "15:37"
           ]
         },
-        "lat": 5.521267,
-        "lng": 95.34712
+        "lat": 5.516815,
+        "lng": 95.360133
       },
       {
         "nama": "Shelter Dian Pelangi 2",
@@ -6650,8 +6650,8 @@ const TRANS_ROUTES = [
             "15:39"
           ]
         },
-        "lat": 5.525753,
-        "lng": 95.346
+        "lat": 5.522426,
+        "lng": 95.363847
       },
       {
         "nama": "Shelter Pagar Air 2",
@@ -6684,8 +6684,8 @@ const TRANS_ROUTES = [
             "15:41"
           ]
         },
-        "lat": 5.53,
-        "lng": 95.345
+        "lat": 5.527113,
+        "lng": 95.36308
       },
       {
         "nama": "Shelter Meunasah Krueng 2",
@@ -6718,8 +6718,8 @@ const TRANS_ROUTES = [
             "15:43"
           ]
         },
-        "lat": 5.5275,
-        "lng": 95.35
+        "lat": 5.528448,
+        "lng": 95.359553
       },
       {
         "nama": "Shelter Santan 2",
@@ -6752,8 +6752,8 @@ const TRANS_ROUTES = [
             "15:45"
           ]
         },
-        "lat": 5.525,
-        "lng": 95.355
+        "lat": 5.530761,
+        "lng": 95.356223
       },
       {
         "nama": "Shelter Harian Serambi 2",
@@ -6786,8 +6786,8 @@ const TRANS_ROUTES = [
             "15:47"
           ]
         },
-        "lat": 5.51274,
-        "lng": 95.3075
+        "lat": 5.532811,
+        "lng": 95.353158
       },
       {
         "nama": "Shelter Gp. Tanjong 2",
@@ -6820,8 +6820,8 @@ const TRANS_ROUTES = [
             "15:49"
           ]
         },
-        "lat": 5.5,
-        "lng": 95.26
+        "lat": 5.533553,
+        "lng": 95.346967
       },
       {
         "nama": "Shelter DPMPTSP 2",
@@ -6854,8 +6854,8 @@ const TRANS_ROUTES = [
             "15:51"
           ]
         },
-        "lat": 5.52062,
-        "lng": 95.2975
+        "lat": 5.53572,
+        "lng": 95.342029
       },
       {
         "nama": "Shelter Terminal Lueng Bata 2",
@@ -6888,8 +6888,8 @@ const TRANS_ROUTES = [
             "15:53"
           ]
         },
-        "lat": 5.541,
-        "lng": 95.335
+        "lat": 5.53945,
+        "lng": 95.339466
       },
       {
         "nama": "Shelter Sp. Lueng Bata 2",
@@ -6956,8 +6956,8 @@ const TRANS_ROUTES = [
             "15:57"
           ]
         },
-        "lat": 5.54362,
-        "lng": 95.33262
+        "lat": 5.543541,
+        "lng": 95.335798
       },
       {
         "nama": "Shelter Panteriek 2",
@@ -6990,8 +6990,8 @@ const TRANS_ROUTES = [
             "15:59"
           ]
         },
-        "lat": 5.546,
-        "lng": 95.33
+        "lat": 5.546185,
+        "lng": 95.334519
       },
       {
         "nama": "Shelter Flyover 2",
@@ -7024,8 +7024,8 @@ const TRANS_ROUTES = [
             "16:01"
           ]
         },
-        "lat": 5.549,
-        "lng": 95.328
+        "lat": 5.548602,
+        "lng": 95.333332
       },
       {
         "nama": "Shelter Sp. Surabaya",
@@ -7058,8 +7058,8 @@ const TRANS_ROUTES = [
             "16:03"
           ]
         },
-        "lat": 5.55012,
-        "lng": 95.3245
+        "lat": 5.547145,
+        "lng": 95.330086
       },
       {
         "nama": "Shelter Peuniti 2",
@@ -7092,8 +7092,8 @@ const TRANS_ROUTES = [
             "16:08"
           ]
         },
-        "lat": 5.551,
-        "lng": 95.321
+        "lat": 5.551132,
+        "lng": 95.321898
       },
       {
         "nama": "Halte Masjid Raya Baiturrahman",
@@ -7126,8 +7126,8 @@ const TRANS_ROUTES = [
             "16:40"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       }
     ]
   },
@@ -7167,8 +7167,8 @@ const TRANS_ROUTES = [
             "16:20"
           ]
         },
-        "lat": 5.596,
-        "lng": 95.39
+        "lat": 5.5800089,
+        "lng": 95.35303867
       },
       {
         "nama": "Shelter Indomaret RS 1",
@@ -7341,8 +7341,8 @@ const TRANS_ROUTES = [
             "16:30"
           ]
         },
-        "lat": 5.585,
-        "lng": 95.372
+        "lat": 5.53366058,
+        "lng": 95.3303358
       },
       {
         "nama": "Shelter Lapas Kajhu 1",
@@ -7580,8 +7580,8 @@ const TRANS_ROUTES = [
             "16:50"
           ]
         },
-        "lat": 5.60324,
-        "lng": 95.43
+        "lat": 5.51742,
+        "lng": 95.413
       },
       {
         "nama": "Shelter Poltekpel 1",
@@ -7964,8 +7964,8 @@ const TRANS_ROUTES = [
             "17:42"
           ]
         },
-        "lat": 5.585,
-        "lng": 95.372
+        "lat": 5.533917,
+        "lng": 95.330143
       },
       {
         "nama": "Shelter SDN Kajhu 2",
@@ -8080,8 +8080,8 @@ const TRANS_ROUTES = [
             "17:49"
           ]
         },
-        "lat": 5.593,
-        "lng": 95.38512
+        "lat": 5.530034,
+        "lng": 95.303532
       },
       {
         "nama": "Shelter Sp. Mesra",
@@ -8109,8 +8109,8 @@ const TRANS_ROUTES = [
             "16:20"
           ]
         },
-        "lat": 5.596,
-        "lng": 95.39
+        "lat": 5.5800089,
+        "lng": 95.35303867
       }
     ]
   },
@@ -8167,8 +8167,8 @@ const TRANS_ROUTES = [
             "16:20"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       },
       {
         "nama": "Halte Museum Aceh",
@@ -8442,8 +8442,8 @@ const TRANS_ROUTES = [
             "16:35"
           ]
         },
-        "lat": 5.543,
-        "lng": 95.302
+        "lat": 5.530034,
+        "lng": 95.303532
       },
       {
         "nama": "Portabel Mushalla Meuligoe Kupi 1",
@@ -8488,8 +8488,8 @@ const TRANS_ROUTES = [
             "16:37"
           ]
         },
-        "lat": 5.535,
-        "lng": 95.312
+        "lat": 5.52625,
+        "lng": 95.303056
       },
       {
         "nama": "Halte Asrama TNI 1",
@@ -8580,8 +8580,8 @@ const TRANS_ROUTES = [
             "16:42"
           ]
         },
-        "lat": 5.517,
-        "lng": 95.321
+        "lat": 5.5155,
+        "lng": 95.303528
       },
       {
         "nama": "Halte TVRI 1",
@@ -8626,8 +8626,8 @@ const TRANS_ROUTES = [
             "16:44"
           ]
         },
-        "lat": 5.51,
-        "lng": 95.323
+        "lat": 5.509409,
+        "lng": 95.30314
       },
       {
         "nama": "Portabel Sp. Punie 1",
@@ -8672,8 +8672,8 @@ const TRANS_ROUTES = [
             "16:46"
           ]
         },
-        "lat": 5.4985,
-        "lng": 95.32662
+        "lat": 5.5047137,
+        "lng": 95.3032663
       },
       {
         "nama": "Halte Mata Ie 1",
@@ -8718,8 +8718,8 @@ const TRANS_ROUTES = [
             "16:49"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.488,
+        "lng": 95.3292
       },
       {
         "nama": "Halte Mata Ie 2",
@@ -8764,8 +8764,8 @@ const TRANS_ROUTES = [
             "16:20"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.4865,
+        "lng": 95.3308
       },
       {
         "nama": "Halte Mata Ie 2",
@@ -8810,8 +8810,8 @@ const TRANS_ROUTES = [
             "16:20"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.4865,
+        "lng": 95.3308
       },
       {
         "nama": "Portabel SDN 2 Mata Ie 2",
@@ -8856,8 +8856,8 @@ const TRANS_ROUTES = [
             "16:23"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.500385,
+        "lng": 95.300262
       },
       {
         "nama": "Portabel SP Punie 2",
@@ -8902,8 +8902,8 @@ const TRANS_ROUTES = [
             "16:26"
           ]
         },
-        "lat": 5.49874,
-        "lng": 95.3265
+        "lat": 5.504562,
+        "lng": 95.303166
       },
       {
         "nama": "Halte TVRI 2",
@@ -8948,8 +8948,8 @@ const TRANS_ROUTES = [
             "16:28"
           ]
         },
-        "lat": 5.51,
-        "lng": 95.323
+        "lat": 5.509409,
+        "lng": 95.30314
       },
       {
         "nama": "Portabel Pasar Keutapang 2",
@@ -8994,8 +8994,8 @@ const TRANS_ROUTES = [
             "16:30"
           ]
         },
-        "lat": 5.517,
-        "lng": 95.321
+        "lat": 5.515538,
+        "lng": 95.303431
       },
       {
         "nama": "Halte Asrama TNI 2",
@@ -9086,8 +9086,8 @@ const TRANS_ROUTES = [
             "16:35"
           ]
         },
-        "lat": 5.535,
-        "lng": 95.312
+        "lat": 5.525667,
+        "lng": 95.302861
       },
       {
         "nama": "Portabel Fakinah 2",
@@ -9132,8 +9132,8 @@ const TRANS_ROUTES = [
             "16:37"
           ]
         },
-        "lat": 5.543,
-        "lng": 95.302
+        "lat": 5.530034,
+        "lng": 95.303532
       },
       {
         "nama": "Portabel Sp. 3",
@@ -9178,8 +9178,8 @@ const TRANS_ROUTES = [
             "16:40"
           ]
         },
-        "lat": 5.54524,
-        "lng": 95.3005
+        "lat": 5.535306,
+        "lng": 95.304945
       },
       {
         "nama": "Halte Lamteumen Timur",
@@ -9224,8 +9224,8 @@ const TRANS_ROUTES = [
             "16:42"
           ]
         },
-        "lat": 5.547,
-        "lng": 95.299
+        "lat": 5.532879,
+        "lng": 95.301317
       },
       {
         "nama": "Halte Pasar Seutui 2",
@@ -9546,8 +9546,8 @@ const TRANS_ROUTES = [
             "16:58"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       }
     ]
   },
@@ -9604,8 +9604,8 @@ const TRANS_ROUTES = [
             "17:05"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       },
       {
         "nama": "Halte Museum Aceh",
@@ -9696,8 +9696,8 @@ const TRANS_ROUTES = [
             "17:12"
           ]
         },
-        "lat": 5.54899,
-        "lng": 95.316
+        "lat": 5.574833,
+        "lng": 95.367458
       },
       {
         "nama": "Portabel Pasar Neusu 1",
@@ -9788,8 +9788,8 @@ const TRANS_ROUTES = [
             "17:17"
           ]
         },
-        "lat": 5.53662,
-        "lng": 95.314
+        "lat": 5.53342766,
+        "lng": 95.30064969
       },
       {
         "nama": "Portabel Mesjid Lhong Raya 1",
@@ -9834,8 +9834,8 @@ const TRANS_ROUTES = [
             "17:19"
           ]
         },
-        "lat": 5.528,
-        "lng": 95.312
+        "lat": 5.5171412,
+        "lng": 95.3167716
       },
       {
         "nama": "Halte Stadion Lhong Raya",
@@ -9880,8 +9880,8 @@ const TRANS_ROUTES = [
             "17:22"
           ]
         },
-        "lat": 5.528,
-        "lng": 95.312
+        "lat": 5.522819,
+        "lng": 95.321208
       },
       {
         "nama": "Portabel Depan Paud",
@@ -9926,8 +9926,8 @@ const TRANS_ROUTES = [
             "17:23"
           ]
         },
-        "lat": 5.51562,
-        "lng": 95.31912
+        "lat": 5.51666724,
+        "lng": 95.31695756
       },
       {
         "nama": "Portabel SMP 1 Darul Imarah 1",
@@ -9972,8 +9972,8 @@ const TRANS_ROUTES = [
             "17:25"
           ]
         },
-        "lat": 5.503,
-        "lng": 95.326
+        "lat": 5.5150356,
+        "lng": 95.3273449
       },
       {
         "nama": "Halte Darul Imarah 1",
@@ -10018,8 +10018,8 @@ const TRANS_ROUTES = [
             "17:27"
           ]
         },
-        "lat": 5.503,
-        "lng": 95.326
+        "lat": 5.51427665,
+        "lng": 95.33106485
       },
       {
         "nama": "Portabel SMPN 1 Darul Imarah 2",
@@ -10064,8 +10064,8 @@ const TRANS_ROUTES = [
             "17:30"
           ]
         },
-        "lat": 5.503,
-        "lng": 95.326
+        "lat": 5.5150356,
+        "lng": 95.3273449
       },
       {
         "nama": "Portabel Hino 1",
@@ -10110,8 +10110,8 @@ const TRANS_ROUTES = [
             "17:33"
           ]
         },
-        "lat": 5.50924,
-        "lng": 95.31562
+        "lat": 5.515778,
+        "lng": 95.322806
       },
       {
         "nama": "Portabel Meuraxa 1",
@@ -10156,8 +10156,8 @@ const TRANS_ROUTES = [
             "17:35"
           ]
         },
-        "lat": 5.515,
-        "lng": 95.305
+        "lat": 5.5166792,
+        "lng": 95.31671296
       },
       {
         "nama": "Portabel Meunasah Gp. Lampeot",
@@ -10202,8 +10202,8 @@ const TRANS_ROUTES = [
             "17:37"
           ]
         },
-        "lat": 5.515787,
-        "lng": 95.310453
+        "lat": 5.51673708,
+        "lng": 95.3005108
       },
       {
         "nama": "Portabel Lambheu",
@@ -10294,8 +10294,8 @@ const TRANS_ROUTES = [
             "17:41"
           ]
         },
-        "lat": 5.517,
-        "lng": 95.321
+        "lat": 5.5155,
+        "lng": 95.303528
       },
       {
         "nama": "Halte TVRI 1",
@@ -10340,8 +10340,8 @@ const TRANS_ROUTES = [
             "17:43"
           ]
         },
-        "lat": 5.51,
-        "lng": 95.323
+        "lat": 5.509409,
+        "lng": 95.30314
       },
       {
         "nama": "Portabel Sp. Punie 1",
@@ -10386,8 +10386,8 @@ const TRANS_ROUTES = [
             "17:45"
           ]
         },
-        "lat": 5.49874,
-        "lng": 95.32662
+        "lat": 5.5047137,
+        "lng": 95.3032663
       },
       {
         "nama": "Halte Mata Ie 1",
@@ -10432,8 +10432,8 @@ const TRANS_ROUTES = [
             "17:48"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.488,
+        "lng": 95.3292
       },
       {
         "nama": "Halte Mata Ie 2",
@@ -10478,8 +10478,8 @@ const TRANS_ROUTES = [
             "17:05"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.4865,
+        "lng": 95.3308
       },
       {
         "nama": "Halte Mata Ie 2",
@@ -10524,8 +10524,8 @@ const TRANS_ROUTES = [
             "17:05"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.4865,
+        "lng": 95.3308
       },
       {
         "nama": "Portabel SDN 2 Mata Ie 2",
@@ -10570,8 +10570,8 @@ const TRANS_ROUTES = [
             "17:08"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.500385,
+        "lng": 95.300262
       },
       {
         "nama": "Portabel Sp. Punie 2",
@@ -10616,8 +10616,8 @@ const TRANS_ROUTES = [
             "17:11"
           ]
         },
-        "lat": 5.49862,
-        "lng": 95.3265
+        "lat": 5.504562,
+        "lng": 95.303166
       },
       {
         "nama": "Halte TVRI 2",
@@ -10662,8 +10662,8 @@ const TRANS_ROUTES = [
             "17:13"
           ]
         },
-        "lat": 5.51,
-        "lng": 95.323
+        "lat": 5.509409,
+        "lng": 95.30314
       },
       {
         "nama": "Portabel Pasar Keutapang 2",
@@ -10708,8 +10708,8 @@ const TRANS_ROUTES = [
             "17:15"
           ]
         },
-        "lat": 5.517,
-        "lng": 95.321
+        "lat": 5.515538,
+        "lng": 95.303431
       },
       {
         "nama": "Portabel Sp. Lam Ara",
@@ -10754,8 +10754,8 @@ const TRANS_ROUTES = [
             "17:18"
           ]
         },
-        "lat": 5.516453,
-        "lng": 95.315787
+        "lat": 5.51681751,
+        "lng": 95.3002093
       },
       {
         "nama": "Portabel Gp. Lampeot",
@@ -10800,8 +10800,8 @@ const TRANS_ROUTES = [
             "17:20"
           ]
         },
-        "lat": 5.515907,
-        "lng": 95.310333
+        "lat": 5.51674826,
+        "lng": 95.30051061
       },
       {
         "nama": "Halte RSUD Meuraxa 1",
@@ -10846,8 +10846,8 @@ const TRANS_ROUTES = [
             "17:35"
           ]
         },
-        "lat": 5.515,
-        "lng": 95.305
+        "lat": 5.517147,
+        "lng": 95.319024
       },
       {
         "nama": "Portabel Depan PAUD 2",
@@ -10892,8 +10892,8 @@ const TRANS_ROUTES = [
             "17:24"
           ]
         },
-        "lat": 5.52162,
-        "lng": 95.3085
+        "lat": 5.51666724,
+        "lng": 95.31695756
       },
       {
         "nama": "Halte SMK Lhong Raya",
@@ -10938,8 +10938,8 @@ const TRANS_ROUTES = [
             "17:26"
           ]
         },
-        "lat": 5.528,
-        "lng": 95.312
+        "lat": 5.523088,
+        "lng": 95.321342
       },
       {
         "nama": "Portabel Mesjid Lhong Raya 2",
@@ -10984,8 +10984,8 @@ const TRANS_ROUTES = [
             "17:29"
           ]
         },
-        "lat": 5.528,
-        "lng": 95.312
+        "lat": 5.5171412,
+        "lng": 95.31676022
       },
       {
         "nama": "Portabel STIE 2",
@@ -11030,8 +11030,8 @@ const TRANS_ROUTES = [
             "17:30"
           ]
         },
-        "lat": 5.53662,
-        "lng": 95.31412
+        "lat": 5.53342651,
+        "lng": 95.30064969
       },
       {
         "nama": "Portabel Pasar Neusu 2",
@@ -11122,8 +11122,8 @@ const TRANS_ROUTES = [
             "17:35"
           ]
         },
-        "lat": 5.547,
-        "lng": 95.31662
+        "lat": 5.574833,
+        "lng": 95.367458
       },
       {
         "nama": "Halte Museum Tsunami",
@@ -11214,8 +11214,8 @@ const TRANS_ROUTES = [
             "17:41"
           ]
         },
-        "lat": 5.55254,
-        "lng": 95.31637
+        "lat": 5.552194,
+        "lng": 95.313005
       },
       {
         "nama": "Halte Pasar Aceh",
@@ -11306,8 +11306,8 @@ const TRANS_ROUTES = [
             "17:47"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       }
     ]
   },
@@ -11352,8 +11352,8 @@ const TRANS_ROUTES = [
             "15:30"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       },
       {
         "nama": "Halte Museum Aceh",
@@ -11624,8 +11624,8 @@ const TRANS_ROUTES = [
             "15:50"
           ]
         },
-        "lat": 5.538,
-        "lng": 95.295
+        "lat": 5.528455,
+        "lng": 95.293435
       },
       {
         "nama": "Shelter Ajun 1",
@@ -11658,8 +11658,8 @@ const TRANS_ROUTES = [
             "15:53"
           ]
         },
-        "lat": 5.535,
-        "lng": 95.285
+        "lat": 5.526362,
+        "lng": 95.286885
       },
       {
         "nama": "Shelter Villa Buana 1",
@@ -11692,8 +11692,8 @@ const TRANS_ROUTES = [
             "15:55"
           ]
         },
-        "lat": 5.53012,
-        "lng": 95.281
+        "lat": 5.523741,
+        "lng": 95.27956
       },
       {
         "nama": "Shelter Sp. Rima",
@@ -11726,8 +11726,8 @@ const TRANS_ROUTES = [
             "17:16"
           ]
         },
-        "lat": 5.52524,
-        "lng": 95.27712
+        "lat": 5.523213,
+        "lng": 95.272771
       },
       {
         "nama": "Shelter Rumoh Cut Nyak Dhien 1",
@@ -11760,8 +11760,8 @@ const TRANS_ROUTES = [
             "15:59"
           ]
         },
-        "lat": 5.52,
-        "lng": 95.273
+        "lat": 5.516804,
+        "lng": 95.271526
       },
       {
         "nama": "Shelter Desa Wisata Nusa 1",
@@ -11794,8 +11794,8 @@ const TRANS_ROUTES = [
             "16:03"
           ]
         },
-        "lat": 5.51512,
-        "lng": 95.26912
+        "lat": 5.502143,
+        "lng": 95.268036
       },
       {
         "nama": "Shelter Puskesmas Lampisang 1",
@@ -11828,8 +11828,8 @@ const TRANS_ROUTES = [
             "16:00"
           ]
         },
-        "lat": 5.51,
-        "lng": 95.265
+        "lat": 5.51379,
+        "lng": 95.271956
       },
       {
         "nama": "Shelter Sp. Tanjong 1",
@@ -11862,8 +11862,8 @@ const TRANS_ROUTES = [
             "16:05"
           ]
         },
-        "lat": 5.5,
-        "lng": 95.26
+        "lat": 5.497074,
+        "lng": 95.262685
       },
       {
         "nama": "Shelter SDN 1 Tanjong 1",
@@ -11930,8 +11930,8 @@ const TRANS_ROUTES = [
             "16:07"
           ]
         },
-        "lat": 5.495907,
-        "lng": 95.283453
+        "lat": 5.492014,
+        "lng": 95.26204
       },
       {
         "nama": "Shelter Keude Bing 1",
@@ -11964,8 +11964,8 @@ const TRANS_ROUTES = [
             "16:08"
           ]
         },
-        "lat": 5.491333,
-        "lng": 95.306667
+        "lat": 5.487748,
+        "lng": 95.260441
       },
       {
         "nama": "Shelter Simpang Mata Ie 1",
@@ -11998,8 +11998,8 @@ const TRANS_ROUTES = [
             "16:09"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.486117,
+        "lng": 95.257773
       },
       {
         "nama": "Shelter Dayah Darul 1",
@@ -12032,8 +12032,8 @@ const TRANS_ROUTES = [
             "16:11"
           ]
         },
-        "lat": 5.47774,
-        "lng": 95.292
+        "lat": 5.481521,
+        "lng": 95.251427
       },
       {
         "nama": "Shelter MIN 29 Lhoknga",
@@ -12066,8 +12066,8 @@ const TRANS_ROUTES = [
             "17:00"
           ]
         },
-        "lat": 5.468,
-        "lng": 95.254
+        "lat": 5.477883,
+        "lng": 95.245118
       },
       {
         "nama": "Shelter Lapangan Carlos 1",
@@ -12168,8 +12168,8 @@ const TRANS_ROUTES = [
             "16:19"
           ]
         },
-        "lat": 5.4735,
-        "lng": 95.2505
+        "lat": 5.476292,
+        "lng": 95.241203
       },
       {
         "nama": "Shelter SMK Lampuuk 1",
@@ -12202,8 +12202,8 @@ const TRANS_ROUTES = [
             "16:21"
           ]
         },
-        "lat": 5.479,
-        "lng": 95.247
+        "lat": 5.484533,
+        "lng": 95.237662
       },
       {
         "nama": "Shelter Wisata Lampuuk 1",
@@ -12236,8 +12236,8 @@ const TRANS_ROUTES = [
             "16:22"
           ]
         },
-        "lat": 5.479,
-        "lng": 95.247
+        "lat": 5.489597,
+        "lng": 95.236427
       },
       {
         "nama": "Shelter Sp. Lampuuk",
@@ -12270,8 +12270,8 @@ const TRANS_ROUTES = [
             "16:51"
           ]
         },
-        "lat": 5.479,
-        "lng": 95.247
+        "lat": 5.55332,
+        "lng": 95.33928
       },
       {
         "nama": "Shelter Mesjid Lampuuk",
@@ -12304,8 +12304,8 @@ const TRANS_ROUTES = [
             "16:50"
           ]
         },
-        "lat": 5.479,
-        "lng": 95.247
+        "lat": 5.493722,
+        "lng": 95.235698
       },
       {
         "nama": "Shelter Mesjid Lampuuk",
@@ -12338,8 +12338,8 @@ const TRANS_ROUTES = [
             "16:50"
           ]
         },
-        "lat": 5.479,
-        "lng": 95.247
+        "lat": 5.493722,
+        "lng": 95.235698
       },
       {
         "nama": "Shelter Sp. Wisata Lampuuk 2",
@@ -12372,8 +12372,8 @@ const TRANS_ROUTES = [
             "16:51"
           ]
         },
-        "lat": 5.479,
-        "lng": 95.247
+        "lat": 5.489597,
+        "lng": 95.236427
       },
       {
         "nama": "Shelter SMK 1 Lhoknga 2",
@@ -12440,8 +12440,8 @@ const TRANS_ROUTES = [
             "16:54"
           ]
         },
-        "lat": 5.468,
-        "lng": 95.25412
+        "lat": 5.476185,
+        "lng": 95.240826
       },
       {
         "nama": "Shelter Pasar Lhoknga 2",
@@ -12542,8 +12542,8 @@ const TRANS_ROUTES = [
             "17:00"
           ]
         },
-        "lat": 5.468,
-        "lng": 95.254
+        "lat": 5.477883,
+        "lng": 95.245118
       },
       {
         "nama": "Shelter Dayah Darul 2",
@@ -12576,8 +12576,8 @@ const TRANS_ROUTES = [
             "17:02"
           ]
         },
-        "lat": 5.47762,
-        "lng": 95.29212
+        "lat": 5.481521,
+        "lng": 95.251427
       },
       {
         "nama": "Shelter Sp. Mata Ie 2",
@@ -12610,8 +12610,8 @@ const TRANS_ROUTES = [
             "17:04"
           ]
         },
-        "lat": 5.487,
-        "lng": 95.33
+        "lat": 5.48617,
+        "lng": 95.257672
       },
       {
         "nama": "Shelter Keude Bing 2",
@@ -12644,8 +12644,8 @@ const TRANS_ROUTES = [
             "17:05"
           ]
         },
-        "lat": 5.491333,
-        "lng": 95.306787
+        "lat": 5.487857,
+        "lng": 95.260432
       },
       {
         "nama": "Shelter Lamcok 2",
@@ -12678,8 +12678,8 @@ const TRANS_ROUTES = [
             "17:06"
           ]
         },
-        "lat": 5.495787,
-        "lng": 95.283333
+        "lat": 5.491808,
+        "lng": 95.261945
       },
       {
         "nama": "Shelter SDN 1 Tanjong 2",
@@ -12746,8 +12746,8 @@ const TRANS_ROUTES = [
             "17:08"
           ]
         },
-        "lat": 5.5,
-        "lng": 95.26
+        "lat": 5.497166,
+        "lng": 95.262571
       },
       {
         "nama": "Shelter Desa Wisata Nusa 2",
@@ -12780,8 +12780,8 @@ const TRANS_ROUTES = [
             "17:10"
           ]
         },
-        "lat": 5.50512,
-        "lng": 95.26262
+        "lat": 5.501752,
+        "lng": 95.267739
       },
       {
         "nama": "Shelter Puskesmas Lampisang 2",
@@ -12814,8 +12814,8 @@ const TRANS_ROUTES = [
             "17:13"
           ]
         },
-        "lat": 5.51,
-        "lng": 95.265
+        "lat": 5.51373,
+        "lng": 95.27185
       },
       {
         "nama": "Shelter Rumoh Cut Nyak Dhien 2",
@@ -12848,8 +12848,8 @@ const TRANS_ROUTES = [
             "17:14"
           ]
         },
-        "lat": 5.518333,
-        "lng": 95.271787
+        "lat": 5.516804,
+        "lng": 95.271526
       },
       {
         "nama": "Shelter Sp. Rima",
@@ -12882,8 +12882,8 @@ const TRANS_ROUTES = [
             "17:16"
           ]
         },
-        "lat": 5.526787,
-        "lng": 95.278333
+        "lat": 5.523213,
+        "lng": 95.272771
       },
       {
         "nama": "Shelter Ajun 2",
@@ -12916,8 +12916,8 @@ const TRANS_ROUTES = [
             "17:20"
           ]
         },
-        "lat": 5.535,
-        "lng": 95.285
+        "lat": 5.52627,
+        "lng": 95.286923
       },
       {
         "nama": "Shelter Sp. Dodik 2",
@@ -12950,8 +12950,8 @@ const TRANS_ROUTES = [
             "17:23"
           ]
         },
-        "lat": 5.538,
-        "lng": 95.295
+        "lat": 5.528203,
+        "lng": 95.293235
       },
       {
         "nama": "Shelter MIN 7 Banda Aceh",
@@ -12984,8 +12984,8 @@ const TRANS_ROUTES = [
             "17:26"
           ]
         },
-        "lat": 5.54262,
-        "lng": 95.29712
+        "lat": 5.530354,
+        "lng": 95.297296
       },
       {
         "nama": "Shelter Lamteumen Timur",
@@ -13018,8 +13018,8 @@ const TRANS_ROUTES = [
             "17:28"
           ]
         },
-        "lat": 5.547,
-        "lng": 95.299
+        "lat": 5.532879,
+        "lng": 95.301317
       },
       {
         "nama": "Portabel Sp. 3 Shelter Lamteumen Timur",
@@ -13086,8 +13086,8 @@ const TRANS_ROUTES = [
             "17:28"
           ]
         },
-        "lat": 5.547,
-        "lng": 95.299
+        "lat": 5.532879,
+        "lng": 95.301317
       },
       {
         "nama": "Halte Pasar Seutui 2",
@@ -13290,8 +13290,8 @@ const TRANS_ROUTES = [
             "17:44"
           ]
         },
-        "lat": 5.55292,
-        "lng": 95.31525
+        "lat": 5.552194,
+        "lng": 95.313005
       },
       {
         "nama": "Halte Pasar Aceh",
@@ -13358,8 +13358,8 @@ const TRANS_ROUTES = [
             "17:49"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       }
     ]
   },
@@ -13450,8 +13450,8 @@ const TRANS_ROUTES = [
             "17:15"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       },
       {
         "nama": "Halte Kesdam 1",
@@ -13530,8 +13530,8 @@ const TRANS_ROUTES = [
             "17:20"
           ]
         },
-        "lat": 5.56,
-        "lng": 95.33
+        "lat": 5.554476,
+        "lng": 95.325774
       },
       {
         "nama": "Halte Hermes",
@@ -13690,8 +13690,8 @@ const TRANS_ROUTES = [
             "17:26"
           ]
         },
-        "lat": 5.56024,
-        "lng": 95.34112
+        "lat": 5.55332,
+        "lng": 95.33928
       },
       {
         "nama": "Halte SD 56 1",
@@ -13850,8 +13850,8 @@ const TRANS_ROUTES = [
             "17:32"
           ]
         },
-        "lat": 5.554,
-        "lng": 95.36
+        "lat": 5.551634,
+        "lng": 95.354171
       },
       {
         "nama": "Portabel Mesjid Babussalam Lam Ujong",
@@ -13930,8 +13930,8 @@ const TRANS_ROUTES = [
             "17:36"
           ]
         },
-        "lat": 5.55124,
-        "lng": 95.371
+        "lat": 5.54499,
+        "lng": 95.36481
       },
       {
         "nama": "Portabel Indomaret Cot Iri",
@@ -14010,8 +14010,8 @@ const TRANS_ROUTES = [
             "17:38"
           ]
         },
-        "lat": 5.548,
-        "lng": 95.382
+        "lat": 5.54052,
+        "lng": 95.36856
       },
       {
         "nama": "Halte KBJ 1",
@@ -14170,8 +14170,8 @@ const TRANS_ROUTES = [
             "17:41"
           ]
         },
-        "lat": 5.55024,
-        "lng": 95.379453
+        "lat": 5.53418,
+        "lng": 95.37566
       },
       {
         "nama": "Portabel Babah Jurong 1",
@@ -14250,8 +14250,8 @@ const TRANS_ROUTES = [
             "17:43"
           ]
         },
-        "lat": 5.551,
-        "lng": 95.378
+        "lat": 5.531174,
+        "lng": 95.383578
       },
       {
         "nama": "Halte Abulyatama",
@@ -14330,8 +14330,8 @@ const TRANS_ROUTES = [
             "17:44"
           ]
         },
-        "lat": 5.54,
-        "lng": 95.388
+        "lat": 5.5308802,
+        "lng": 95.3881713
       },
       {
         "nama": "Halte Lam Ateuk",
@@ -14650,8 +14650,8 @@ const TRANS_ROUTES = [
             "17:50"
           ]
         },
-        "lat": 5.53274,
-        "lng": 95.40012
+        "lat": 5.5279218,
+        "lng": 95.4003576
       },
       {
         "nama": "Halte Bueng Cala 1",
@@ -14810,8 +14810,8 @@ const TRANS_ROUTES = [
             "17:53"
           ]
         },
-        "lat": 5.52412,
-        "lng": 95.40812
+        "lat": 5.5275471,
+        "lng": 95.4114107
       },
       {
         "nama": "Halte Blang Bintang 1",
@@ -14890,8 +14890,8 @@ const TRANS_ROUTES = [
             "17:54"
           ]
         },
-        "lat": 5.518,
-        "lng": 95.411
+        "lat": 5.51150501,
+        "lng": 95.41382778
       },
       {
         "nama": "Halte Bandara SIM",
@@ -14970,8 +14970,8 @@ const TRANS_ROUTES = [
             "17:15"
           ]
         },
-        "lat": 5.5232,
-        "lng": 95.4204
+        "lat": 5.51695855,
+        "lng": 95.41644265
       },
       {
         "nama": "Halte Bandara SIM",
@@ -15050,8 +15050,8 @@ const TRANS_ROUTES = [
             "17:15"
           ]
         },
-        "lat": 5.5232,
-        "lng": 95.4204
+        "lat": 5.51695855,
+        "lng": 95.41644265
       },
       {
         "nama": "Portabel Bundaran Bandara",
@@ -15130,8 +15130,8 @@ const TRANS_ROUTES = [
             "17:19"
           ]
         },
-        "lat": 5.52072,
-        "lng": 95.41582
+        "lat": 5.52078,
+        "lng": 95.41363
       },
       {
         "nama": "Halte Blang Bintang 2",
@@ -15210,8 +15210,8 @@ const TRANS_ROUTES = [
             "17:20"
           ]
         },
-        "lat": 5.518,
-        "lng": 95.411
+        "lat": 5.511561,
+        "lng": 95.41393
       },
       {
         "nama": "Halte Bueng Cala 2",
@@ -15450,8 +15450,8 @@ const TRANS_ROUTES = [
             "17:28"
           ]
         },
-        "lat": 5.535,
-        "lng": 95.392
+        "lat": 5.532074,
+        "lng": 95.391806
       },
       {
         "nama": "Portabel Abulyatama",
@@ -15530,8 +15530,8 @@ const TRANS_ROUTES = [
             "17:29"
           ]
         },
-        "lat": 5.54,
-        "lng": 95.388
+        "lat": 5.5308802,
+        "lng": 95.3881713
       },
       {
         "nama": "Portabel Babah Jurong 2",
@@ -15610,8 +15610,8 @@ const TRANS_ROUTES = [
             "17:30"
           ]
         },
-        "lat": 5.551,
-        "lng": 95.378
+        "lat": 5.531069,
+        "lng": 95.384148
       },
       {
         "nama": "Halte Portabel Cot Cut",
@@ -15690,8 +15690,8 @@ const TRANS_ROUTES = [
             "17:41"
           ]
         },
-        "lat": 5.55024,
-        "lng": 95.379333
+        "lat": 5.53418,
+        "lng": 95.37566
       },
       {
         "nama": "Halte KBJ 2",
@@ -15850,8 +15850,8 @@ const TRANS_ROUTES = [
             "17:35"
           ]
         },
-        "lat": 5.548,
-        "lng": 95.382
+        "lat": 5.53958,
+        "lng": 95.36904
       },
       {
         "nama": "Portabel Taman Bunga",
@@ -15930,8 +15930,8 @@ const TRANS_ROUTES = [
             "17:36"
           ]
         },
-        "lat": 5.55474,
-        "lng": 95.36512
+        "lat": 5.51275,
+        "lng": 95.3382
       },
       {
         "nama": "Portabel Mesjid Ulee Kareng",
@@ -16010,8 +16010,8 @@ const TRANS_ROUTES = [
             "17:39"
           ]
         },
-        "lat": 5.561,
-        "lng": 95.348
+        "lat": 5.551408,
+        "lng": 95.355514
       },
       {
         "nama": "Halte SD 56 2",
@@ -16250,8 +16250,8 @@ const TRANS_ROUTES = [
             "17:48"
           ]
         },
-        "lat": 5.562,
-        "lng": 95.335
+        "lat": 5.553702,
+        "lng": 95.333437
       },
       {
         "nama": "Halte Kesdam 2",
@@ -16330,8 +16330,8 @@ const TRANS_ROUTES = [
             "17:51"
           ]
         },
-        "lat": 5.56,
-        "lng": 95.33
+        "lat": 5.55442,
+        "lng": 95.3258
       },
       {
         "nama": "Halte Peunayong",
@@ -16410,8 +16410,8 @@ const TRANS_ROUTES = [
             "17:55"
           ]
         },
-        "lat": 5.562,
-        "lng": 95.32
+        "lat": 5.558657,
+        "lng": 95.318962
       },
       {
         "nama": "Halte Keudah",
@@ -16490,8 +16490,8 @@ const TRANS_ROUTES = [
             "17:56"
           ]
         },
-        "lat": 5.5763,
-        "lng": 95.3132
+        "lat": 5.55979599,
+        "lng": 95.31767663
       },
       {
         "nama": "Halte Masjid Raya Baiturrahman",
@@ -16570,8 +16570,8 @@ const TRANS_ROUTES = [
             "17:57"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       }
     ]
   },
@@ -16626,8 +16626,8 @@ const TRANS_ROUTES = [
             "14:45"
           ]
         },
-        "lat": 5.5545,
-        "lng": 95.3095
+        "lat": 5.55225169,
+        "lng": 95.31893189
       },
       {
         "nama": "Halte Museum Tsunami",
@@ -16714,8 +16714,8 @@ const TRANS_ROUTES = [
             "14:52"
           ]
         },
-        "lat": 5.556,
-        "lng": 95.301
+        "lat": 5.5498023,
+        "lng": 95.3085412
       },
       {
         "nama": "Halte Punge 1",
@@ -16758,8 +16758,8 @@ const TRANS_ROUTES = [
             "14:54"
           ]
         },
-        "lat": 5.556,
-        "lng": 95.301
+        "lat": 5.551244,
+        "lng": 95.304212
       },
       {
         "nama": "Halte Blang Oi",
@@ -16802,8 +16802,8 @@ const TRANS_ROUTES = [
             "14:57"
           ]
         },
-        "lat": 5.559,
-        "lng": 95.298
+        "lat": 5.553126,
+        "lng": 95.297547
       },
       {
         "nama": "Halte Cot Lamkueweuh",
@@ -16846,8 +16846,8 @@ const TRANS_ROUTES = [
             "14:59"
           ]
         },
-        "lat": 5.559773,
-        "lng": 95.296633
+        "lat": 5.55321856,
+        "lng": 95.29225265
       },
       {
         "nama": "Halte Kuburan Massal 1",
@@ -16890,8 +16890,8 @@ const TRANS_ROUTES = [
             "15:01"
           ]
         },
-        "lat": 5.560187,
-        "lng": 95.295387
+        "lat": 5.55564113,
+        "lng": 95.28585638
       },
       {
         "nama": "Halte Pelabuhan Ulee Lheue",
@@ -16934,8 +16934,8 @@ const TRANS_ROUTES = [
             "16:15"
           ]
         },
-        "lat": 5.5606,
-        "lng": 95.2939
+        "lat": 5.56478691,
+        "lng": 95.29385669
       },
       {
         "nama": "Halte Pelabuhan Ulee Lheue",
@@ -16978,8 +16978,8 @@ const TRANS_ROUTES = [
             "16:15"
           ]
         },
-        "lat": 5.5606,
-        "lng": 95.2939
+        "lat": 5.56478691,
+        "lng": 95.29385669
       },
       {
         "nama": "Portabel Karantina",
@@ -17022,8 +17022,8 @@ const TRANS_ROUTES = [
             "16:19"
           ]
         },
-        "lat": 5.559733,
-        "lng": 95.293267
+        "lat": 5.55037172,
+        "lng": 95.28340278
       },
       {
         "nama": "Halte Kuburan Massal 2",
@@ -17066,8 +17066,8 @@ const TRANS_ROUTES = [
             "16:20"
           ]
         },
-        "lat": 5.559107,
-        "lng": 95.292753
+        "lat": 5.55579364,
+        "lng": 95.28621554
       },
       {
         "nama": "Halte Lambung",
@@ -17110,8 +17110,8 @@ const TRANS_ROUTES = [
             "16:23"
           ]
         },
-        "lat": 5.558,
-        "lng": 95.292
+        "lat": 5.55352153,
+        "lng": 95.29181432
       },
       {
         "nama": "Halte Mesjid Blang Oi",
@@ -17198,8 +17198,8 @@ const TRANS_ROUTES = [
             "16:28"
           ]
         },
-        "lat": 5.556,
-        "lng": 95.301
+        "lat": 5.551244,
+        "lng": 95.304212
       },
       {
         "nama": "Portabel Punge Jurong",
@@ -17242,8 +17242,8 @@ const TRANS_ROUTES = [
             "16:30"
           ]
         },
-        "lat": 5.556,
-        "lng": 95.301
+        "lat": 5.5500919,
+        "lng": 95.3084568
       },
       {
         "nama": "Halte Blang Padang",
@@ -17330,8 +17330,8 @@ const TRANS_ROUTES = [
             "16:33"
           ]
         },
-        "lat": 5.55304,
-        "lng": 95.31537
+        "lat": 5.552194,
+        "lng": 95.313005
       },
       {
         "nama": "Halte Pasar Aceh",
@@ -17418,8 +17418,8 @@ const TRANS_ROUTES = [
             "16:38"
           ]
         },
-        "lat": 5.5544,
-        "lng": 95.3175
+        "lat": 5.55411,
+        "lng": 95.318376
       },
       {
         "nama": "Halte Barata",
@@ -17462,8 +17462,8 @@ const TRANS_ROUTES = [
             "14:45"
           ]
         },
-        "lat": 5.5545,
-        "lng": 95.3095
+        "lat": 5.55225169,
+        "lng": 95.31893189
       }
     ]
   }
