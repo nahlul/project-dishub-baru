@@ -35,6 +35,7 @@ const TripPlanner = () => {
   const [planning, setPlanning] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
+  const [nearestRecommendation, setNearestRecommendation] = useState(null); // {chosen, alternatives, reason}
   const [expandedLegs, setExpandedLegs] = useState({});
 
   const renderStopList = (leg, legKey) => {
@@ -153,6 +154,7 @@ const TripPlanner = () => {
 
   const useMyLocation = () => {
     setError('');
+    setNearestRecommendation(null);
     if (!('geolocation' in navigator)) {
       setError('Browser tidak mendukung Geolocation.');
       return;
@@ -161,22 +163,107 @@ const TripPlanner = () => {
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        const nearest = getNearestHaltesClient(
-          pos.coords.latitude,
-          pos.coords.longitude,
-          1,
-          day
-        );
-        if (nearest && nearest.length) {
-          const top = nearest[0];
+        const { latitude, longitude } = pos.coords;
+        const nearest5 = getNearestHaltesClient(latitude, longitude, 5, day);
+
+        if (!nearest5 || nearest5.length === 0) {
+          setError('Tidak dapat menemukan halte terdekat dari lokasi Anda.');
+          setLocating(false);
+          return;
+        }
+
+        // Resolve destination if already filled
+        const resolvedDest = destHalte || (destText.trim()
+          ? allHaltes.find((h) => h.nama.toLowerCase().includes(destText.toLowerCase().trim()))
+          : null);
+
+        // If no destination yet → just pick nearest by distance (original behavior)
+        if (!resolvedDest) {
+          const top = nearest5[0];
           setOriginHalte(top);
           setOriginText(`${top.nama} (${formatKm(top.distance_km)} dari lokasi Anda)`);
-        } else {
-          setError('Tidak dapat menemukan halte terdekat dari lokasi Anda.');
+          setLocating(false);
+          return;
         }
+
+        // Evaluate each of 5 nearest haltes against destination
+        const scored = nearest5.map((halte) => {
+          const journey = planJourneyClient({
+            originLat: halte.lat,
+            originLng: halte.lng,
+            originName: halte.nama,
+            destLat: resolvedDest.lat,
+            destLng: resolvedDest.lng,
+            destName: resolvedDest.nama,
+            dayKey: day,
+          });
+
+          if (!journey.found || !journey.options?.length) {
+            return { halte, score: Infinity, legs: null, stops: null, found: false };
+          }
+
+          const best = journey.options[0];
+          // Score: prioritize fewer transfers, then fewer stops, then walk distance
+          const score = (best.legsCount * 1000) + (best.total_stops * 10) + (best.total_walk_km * 100);
+          return {
+            halte,
+            score,
+            legs: best.legsCount,
+            stops: best.total_stops,
+            walkKm: best.total_walk_km,
+            found: true,
+            type: best.type,
+          };
+        });
+
+        // Sort by score (lower = better)
+        const validScored = scored.filter((s) => s.found);
+        if (validScored.length === 0) {
+          // No route found from any nearby halte — fallback to nearest by distance
+          const top = nearest5[0];
+          setOriginHalte(top);
+          setOriginText(`${top.nama} (${formatKm(top.distance_km)} dari lokasi Anda)`);
+          setLocating(false);
+          return;
+        }
+
+        validScored.sort((a, b) => a.score - b.score);
+        const best = validScored[0];
+        const byDistance = nearest5[0]; // closest by GPS
+
+        setOriginHalte(best.halte);
+        setOriginText(`${best.halte.nama} (${formatKm(best.halte.distance_km)} dari lokasi Anda)`);
+
+        // Only show recommendation banner if best != nearest-by-distance
+        const bestIsDifferentFromNearest =
+          best.halte.nama.trim().toLowerCase() !== byDistance.nama.trim().toLowerCase();
+
+        if (bestIsDifferentFromNearest) {
+          const reasonParts = [];
+          if (best.legs < (validScored.find((s) => s.halte.nama === byDistance.nama)?.legs ?? 99)) {
+            reasonParts.push(`lebih sedikit transit (${best.legs === 1 ? 'langsung tanpa ganti bus' : `${best.legs - 1}× ganti bus`})`);
+          }
+          const nearestByDist = validScored.find((s) => s.halte.nama.trim().toLowerCase() === byDistance.nama.trim().toLowerCase());
+          if (nearestByDist && best.stops < nearestByDist.stops) {
+            reasonParts.push(`lebih sedikit halte (${best.stops} vs ${nearestByDist.stops})`);
+          }
+          if (reasonParts.length === 0) reasonParts.push('rute lebih efisien');
+
+          setNearestRecommendation({
+            chosen: best.halte,
+            byDistance: byDistance,
+            reason: reasonParts.join(' dan '),
+            chosenLegs: best.legs,
+            chosenStops: best.stops,
+            chosenType: best.type,
+          });
+        } else {
+          setNearestRecommendation(null);
+        }
+
         setLocating(false);
       },
-      (err) => {
+      () => {
         setLocating(false);
         setError('Gagal mengakses lokasi GPS Anda. Silakan ketik halte asal secara manual.');
       },
@@ -500,9 +587,28 @@ const TripPlanner = () => {
               ))}
             </div>
           )}
-        </div>
 
-        {/* Destination Autocomplete */}
+          {/* Smart Recommendation Banner */}
+          {nearestRecommendation && (
+            <div className="mt-3 p-3.5 bg-emerald-50 border border-emerald-300 rounded-2xl flex items-start gap-3 text-sm">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-emerald-900 text-xs uppercase tracking-wide mb-0.5">
+                  ⭐ Rekomendasi Halte Terbaik untuk Tujuan Ini
+                </p>
+                <p className="text-emerald-800 text-xs leading-relaxed">
+                  Sistem memilih{' '}
+                  <span className="font-black text-emerald-950">{nearestRecommendation.chosen.nama}</span>
+                  {' '}({formatKm(nearestRecommendation.chosen.distance_km)} dari lokasi Anda) karena{' '}
+                  <span className="font-semibold">{nearestRecommendation.reason}</span>.{' '}
+                  Halte terdekat secara GPS adalah{' '}
+                  <span className="font-semibold text-emerald-700">{nearestRecommendation.byDistance.nama}</span>
+                  {' '}({formatKm(nearestRecommendation.byDistance.distance_km)}), tetapi rutenya kurang efisien menuju tujuan Anda.
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
         <div className="mb-6 relative">
           <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
             Halte Tujuan (Destination)
