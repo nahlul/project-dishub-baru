@@ -23,6 +23,7 @@ import NotFoundPage from "@/pages/NotFoundPage";
 // Admin Pages
 import AdminLogin from "@/pages/admin/AdminLogin";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
+import AdminRoutes from "@/pages/admin/AdminRoutes";
 import AdminNews from "@/pages/admin/AdminNews";
 import AdminGallery from "@/pages/admin/AdminGallery";
 import AdminContact from "@/pages/admin/AdminContact";
@@ -100,6 +101,9 @@ function App() {
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={
               <ProtectedRoute><AdminDashboard /></ProtectedRoute>
+            } />
+            <Route path="/admin/routes" element={
+              <ProtectedRoute><AdminRoutes /></ProtectedRoute>
             } />
             <Route path="/admin/news" element={
               <ProtectedRoute><AdminNews /></ProtectedRoute>

@@ -120,3 +120,34 @@ class About(BaseModel):
     id: str = "about_content"
     content: str
     updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+# ============= ROUTE MODELS =============
+
+class HalteItem(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    nama: str
+    arah: Optional[str] = ""
+    lat: Optional[float] = None
+    lng: Optional[float] = None
+    jadwal: Optional[dict] = Field(default_factory=dict)
+
+class RouteCreate(BaseModel):
+    id: str
+    nama: str
+    warna: str = "#0284c7"
+    deskripsi: Optional[str] = ""
+    jam_operasi: Optional[str] = "06:30 - 18:30 WIB"
+    hari: Optional[str] = "Setiap Hari (Senin - Minggu)"
+    terminal_awal: Optional[str] = ""
+    terminal_akhir: Optional[str] = ""
+    halte: Optional[List[HalteItem]] = Field(default_factory=list)
+
+class RouteUpdate(BaseModel):
+    nama: Optional[str] = None
+    warna: Optional[str] = None
+    deskripsi: Optional[str] = None
+    jam_operasi: Optional[str] = None
+    hari: Optional[str] = None
+    terminal_awal: Optional[str] = None
+    terminal_akhir: Optional[str] = None
+    halte: Optional[List[HalteItem]] = None

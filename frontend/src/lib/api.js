@@ -125,6 +125,12 @@ export const routesAPI = {
     if (departAfter) params.set('depart_after', departAfter);
     return api.get(`/routes/plan?${params.toString()}`, { withCredentials: false });
   },
+
+  // Admin Endpoints
+  adminGetAll: () => api.get('/routes/admin/all'),
+  adminCreate: (data) => api.post('/routes/admin', data),
+  adminUpdate: (id, data) => api.put(`/routes/admin/${id}`, data),
+  adminDelete: (id) => api.delete(`/routes/admin/${id}`),
 };
 
 export default api;

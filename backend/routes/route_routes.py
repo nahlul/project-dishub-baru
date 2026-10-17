@@ -4,6 +4,12 @@ from typing import List, Optional
 from math import radians, sin, cos, asin, sqrt
 import logging
 import httpx
+import json
+from pathlib import Path
+
+from models.schemas import RouteCreate, RouteUpdate
+from utils.auth_utils import get_current_user
+from utils.activity_utils import log_activity
 
 logger = logging.getLogger(__name__)
 
@@ -540,6 +546,157 @@ async def plan_trip(
     except Exception as e:
         logger.error(f"Plan trip error: {e}")
         raise HTTPException(status_code=500, detail="Gagal merencanakan perjalanan")
+
+
+DATA_DIR = Path(__file__).parent.parent / "data"
+
+def _sync_route_files(routes_meta: list, route_id: Optional[str] = None, haltes: Optional[list] = None):
+    try:
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        meta_file = DATA_DIR / "routes_meta.json"
+        with open(meta_file, "w", encoding="utf-8") as f:
+            json.dump(routes_meta, f, indent=2, ensure_ascii=False)
+        
+        if route_id and haltes is not None:
+            clean_id = route_id.replace('-', '_')
+            halte_file = DATA_DIR / f"halte_{clean_id}.json"
+            with open(halte_file, "w", encoding="utf-8") as f:
+                json.dump(haltes, f, indent=2, ensure_ascii=False)
+    except Exception as err:
+        logger.error(f"Failed to sync route files: {err}")
+
+def _delete_route_files(routes_meta: list, route_id: str):
+    try:
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        meta_file = DATA_DIR / "routes_meta.json"
+        with open(meta_file, "w", encoding="utf-8") as f:
+            json.dump(routes_meta, f, indent=2, ensure_ascii=False)
+        clean_id = route_id.replace('-', '_')
+        halte_file = DATA_DIR / f"halte_{clean_id}.json"
+        if halte_file.exists():
+            halte_file.unlink()
+    except Exception as err:
+        logger.error(f"Failed to delete route file: {err}")
+
+
+# ============= ADMIN ROUTE ENDPOINTS =============
+
+@router.get("/admin/all")
+async def get_all_routes_admin(
+    request: Request,
+    db: AsyncIOMotorDatabase = Depends(get_db)
+):
+    """Admin: Get all routes with complete details and halte count"""
+    try:
+        await get_current_user(request, db)
+        routes = await db.bus_routes.find({}, {"_id": 0}).sort("id", 1).to_list(100)
+        for r in routes:
+            r["total_halte"] = len(r.get("halte", []))
+        return routes
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Admin get routes error: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch routes")
+
+
+@router.post("/admin")
+async def create_route_admin(
+    data: RouteCreate,
+    request: Request,
+    db: AsyncIOMotorDatabase = Depends(get_db)
+):
+    """Admin: Create new bus route"""
+    try:
+        admin = await get_current_user(request, db)
+        
+        clean_id = data.id.strip().lower()
+        existing = await db.bus_routes.find_one({"id": clean_id})
+        if existing:
+            raise HTTPException(status_code=400, detail="ID Rute sudah digunakan")
+        
+        route_dict = data.model_dump()
+        route_dict["id"] = clean_id
+        
+        await db.bus_routes.insert_one(route_dict)
+        
+        all_routes = await db.bus_routes.find({}, {"_id": 0, "halte": 0}).to_list(100)
+        _sync_route_files(all_routes, clean_id, route_dict.get("halte", []))
+        
+        await log_activity(db, f"Menambahkan rute baru: {data.nama} ({clean_id})", admin.get("username", "admin"))
+        
+        route_dict.pop("_id", None)
+        return {"success": True, "message": "Rute berhasil ditambahkan", "route": route_dict}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Admin create route error: {e}")
+        raise HTTPException(status_code=500, detail=f"Gagal menambahkan rute: {str(e)}")
+
+
+@router.put("/admin/{route_id}")
+async def update_route_admin(
+    route_id: str,
+    data: RouteUpdate,
+    request: Request,
+    db: AsyncIOMotorDatabase = Depends(get_db)
+):
+    """Admin: Update existing bus route"""
+    try:
+        admin = await get_current_user(request, db)
+        
+        existing = await db.bus_routes.find_one({"id": route_id})
+        if not existing:
+            raise HTTPException(status_code=404, detail="Rute tidak ditemukan")
+        
+        update_data = {k: v for k, v in data.model_dump(exclude_unset=True).items() if v is not None}
+        if not update_data:
+            return {"success": True, "message": "Tidak ada data yang diperbarui"}
+        
+        await db.bus_routes.update_one({"id": route_id}, {"$set": update_data})
+        
+        updated_route = await db.bus_routes.find_one({"id": route_id}, {"_id": 0})
+        all_routes = await db.bus_routes.find({}, {"_id": 0, "halte": 0}).to_list(100)
+        _sync_route_files(all_routes, route_id, updated_route.get("halte", []))
+        
+        await log_activity(db, f"Memperbarui rute: {updated_route.get('nama', route_id)}", admin.get("username", "admin"))
+        
+        return {"success": True, "message": "Rute berhasil diperbarui", "route": updated_route}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Admin update route error: {e}")
+        raise HTTPException(status_code=500, detail=f"Gagal memperbarui rute: {str(e)}")
+
+
+@router.delete("/admin/{route_id}")
+async def delete_route_admin(
+    route_id: str,
+    request: Request,
+    db: AsyncIOMotorDatabase = Depends(get_db)
+):
+    """Admin: Delete a bus route"""
+    try:
+        admin = await get_current_user(request, db)
+        
+        existing = await db.bus_routes.find_one({"id": route_id})
+        if not existing:
+            raise HTTPException(status_code=404, detail="Rute tidak ditemukan")
+        
+        route_name = existing.get("nama", route_id)
+        await db.bus_routes.delete_one({"id": route_id})
+        
+        all_routes = await db.bus_routes.find({}, {"_id": 0, "halte": 0}).to_list(100)
+        _delete_route_files(all_routes, route_id)
+        
+        await log_activity(db, f"Menghapus rute: {route_name} ({route_id})", admin.get("username", "admin"))
+        
+        return {"success": True, "message": f"Rute {route_name} berhasil dihapus"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Admin delete route error: {e}")
+        raise HTTPException(status_code=500, detail=f"Gagal menghapus rute: {str(e)}")
 
 
 @router.get("/{route_id}")

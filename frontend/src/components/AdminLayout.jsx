@@ -5,6 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import {
   Bus,
   LayoutDashboard,
+  Route as RouteIcon,
   Newspaper,
   Images,
   Info,
@@ -37,6 +38,7 @@ const AdminLayout = ({ children }) => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/admin/dashboard' },
+    { icon: RouteIcon, label: 'Daftar Rute', path: '/admin/routes' },
     { icon: Newspaper, label: 'Kelola Berita', path: '/admin/news' },
     { icon: Images, label: 'Kelola Galeri', path: '/admin/gallery' },
     { icon: Info, label: 'Edit Sejarah', path: '/admin/about' },
