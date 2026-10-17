@@ -113,8 +113,19 @@ const TripPlanner = () => {
   };
 
   useEffect(() => {
-    const haltesList = getAllHaltesDirectoryClient();
-    setAllHaltes(haltesList);
+    (async () => {
+      try {
+        const { data } = await routesAPI.getAllHaltes();
+        if (data && data.length) {
+          setAllHaltes(data);
+          return;
+        }
+      } catch (err) {
+        console.log('TripPlanner: using static haltes directory fallback');
+      }
+      const haltesList = getAllHaltesDirectoryClient();
+      setAllHaltes(haltesList);
+    })();
   }, []);
 
   const handleOriginChange = (val) => {

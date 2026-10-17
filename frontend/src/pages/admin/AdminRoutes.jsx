@@ -228,10 +228,10 @@ function RouteEditorDialog({
 
     if (insertPosition === 'start') {
       setHalteList([newItem, ...halteList]);
-      toast.success(`Halte "${newItem.nama}" ditambahkan di urutan pertama (#1)`);
+      toast.success(`Halte "${newItem.nama}" ditambahkan ke draft (#1). Tekan "Simpan Perubahan" di bawah.`);
     } else {
       setHalteList([...halteList, newItem]);
-      toast.success(`Halte "${newItem.nama}" ditambahkan di urutan terakhir (#${halteList.length + 1})`);
+      toast.success(`Halte "${newItem.nama}" ditambahkan ke draft (#${halteList.length + 1}). Tekan "Simpan Perubahan" di bawah.`);
     }
 
     // Reset input
@@ -877,26 +877,25 @@ function RouteEditorDialog({
         )}
 
         {/* Footer Dialog */}
-        <DialogFooter className="px-5 py-3 border-t border-gray-100 bg-white flex flex-row items-center justify-between gap-3">
-          <div className="text-xs text-gray-500 hidden sm:block">
-            {activeTab === 'info' ? (
-              <span>Tab 1/2: Info Koridor</span>
-            ) : (
-              <span>
-                Tab 2/2: <strong>{halteList.length} Halte</strong> siap disimpan
-              </span>
-            )}
+        <DialogFooter className="px-4 sm:px-6 py-3 border-t border-gray-100 bg-white flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 flex-shrink-0">
+          <div className="text-xs text-gray-600 flex items-center justify-between sm:justify-start gap-2">
+            <span className="font-semibold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200">
+              {activeTab === 'info' ? 'Tab 1/2: Info' : `Tab 2/2: ${halteList.length} Halte`}
+            </span>
+            <span className="text-[11px] text-gray-400">
+              {activeTab === 'halte' ? 'Tekan Simpan agar sinkron ke web' : ''}
+            </span>
           </div>
 
-          <div className="flex items-center gap-2.5 ml-auto">
-            <Button type="button" variant="outline" size="sm" onClick={onClose} disabled={saving}>
+          <div className="flex items-center gap-2">
+            <Button type="button" variant="outline" size="sm" onClick={onClose} disabled={saving} className="flex-1 sm:flex-none">
               Batal
             </Button>
             <Button
               type="button"
               onClick={handleSubmit}
               disabled={saving}
-              className="bg-sky-600 hover:bg-sky-700 text-xs px-5 shadow-xs"
+              className="flex-1 sm:flex-none bg-sky-600 hover:bg-sky-700 text-white font-semibold text-xs px-5 h-9 shadow-md"
             >
               {saving
                 ? isEdit

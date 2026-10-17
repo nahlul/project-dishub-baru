@@ -46,9 +46,9 @@ def _iter_haltes(routes):
 
 @router.get("/")
 async def get_all_routes(db: AsyncIOMotorDatabase = Depends(get_db)):
-    """Get all route names and basic info"""
+    """Get all routes with complete halte data"""
     try:
-        routes = await db.bus_routes.find({}, {"_id": 0, "halte": 0}).to_list(100)
+        routes = await db.bus_routes.find({}, {"_id": 0}).to_list(100)
         return routes
     except Exception as e:
         logger.error(f"Get routes error: {e}")
@@ -74,6 +74,7 @@ async def search_halte(q: str = "", db: AsyncIOMotorDatabase = Depends(get_db)):
                         "halte_arah": halte.get("arah", ""),
                         "route_id": route["id"],
                         "route_nama": route["nama"],
+                        "route_warna": route.get("warna", "#0284c7"),
                         "jadwal": halte.get("jadwal", {}),
                     })
         

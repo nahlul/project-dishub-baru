@@ -2,6 +2,8 @@
   {
     "nama": "Halte Masjid Raya Baiturrahman",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.55411,
+    "lng": 95.318376,
     "jadwal": {
       "senin_kamis": [
         "06:45",
@@ -66,13 +68,13 @@
         "14:25",
         "15:40"
       ]
-    },
-    "lat": 5.55411,
-    "lng": 95.318376
+    }
   },
   {
     "nama": "Halte Sp. Lima 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.55662433,
+    "lng": 95.32325626,
     "jadwal": {
       "senin_kamis": [
         "07:31",
@@ -139,13 +141,13 @@
         "14:51",
         "16:26"
       ]
-    },
-    "lat": 5.55662433,
-    "lng": 95.32325626
+    }
   },
   {
     "nama": "Portabel Sp. Keramat 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.558251,
+    "lng": 95.327387,
     "jadwal": {
       "senin_kamis": [
         "06:50",
@@ -210,20 +212,20 @@
         "14:30",
         "15:45"
       ]
-    },
-    "lat": 5.558251,
-    "lng": 95.327387
+    }
   },
   {
     "nama": "Portabel Yamaha Beurawe",
     "arah": "Pusat Kota -> Bandara SIM",
-    "jadwal": {},
     "lat": 5.55741,
-    "lng": 95.33023
+    "lng": 95.33023,
+    "jadwal": {}
   },
   {
     "nama": "Portabel Sp. Surabaya",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.547145,
+    "lng": 95.330086,
     "jadwal": {
       "senin_kamis": [
         "06:58",
@@ -288,13 +290,13 @@
         "14:38",
         "15:53"
       ]
-    },
-    "lat": 5.547145,
-    "lng": 95.330086
+    }
   },
   {
     "nama": "Halte Batoh 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.54232257,
+    "lng": 95.33032041,
     "jadwal": {
       "senin_kamis": [
         "07:02",
@@ -359,13 +361,13 @@
         "14:42",
         "15:57"
       ]
-    },
-    "lat": 5.54232257,
-    "lng": 95.33032041
+    }
   },
   {
     "nama": "Halte Sp. Batoh 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.53366058,
+    "lng": 95.3303358,
     "jadwal": {
       "senin_kamis": [
         "07:02",
@@ -430,13 +432,13 @@
         "14:42",
         "15:57"
       ]
-    },
-    "lat": 5.53366058,
-    "lng": 95.3303358
+    }
   },
   {
     "nama": "Portabel Terminal Batoh",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.52923,
+    "lng": 95.3303429,
     "jadwal": {
       "senin_kamis": [
         "07:04",
@@ -501,13 +503,13 @@
         "14:44",
         "15:59"
       ]
-    },
-    "lat": 5.52923,
-    "lng": 95.3303429
+    }
   },
   {
     "nama": "Halte Darul Imarah 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.51427665,
+    "lng": 95.33106485,
     "jadwal": {
       "senin_kamis": [
         "07:07",
@@ -572,13 +574,13 @@
         "14:47",
         "16:02"
       ]
-    },
-    "lat": 5.51427665,
-    "lng": 95.33106485
+    }
   },
   {
     "nama": "Portabel Wali Nanggroe 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.51266,
+    "lng": 95.3391774,
     "jadwal": {
       "senin_kamis": [
         "07:09",
@@ -643,20 +645,20 @@
         "14:49",
         "16:04"
       ]
-    },
-    "lat": 5.51266,
-    "lng": 95.3391774
+    }
   },
   {
     "nama": "Portabel Nurul Quran",
     "arah": "Pusat Kota -> Bandara SIM",
-    "jadwal": {},
     "lat": 5.51105,
-    "lng": 95.34562
+    "lng": 95.34562,
+    "jadwal": {}
   },
   {
     "nama": "Portabel Metro TV 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.50975,
+    "lng": 95.34977,
     "jadwal": {
       "senin_kamis": [
         "07:13",
@@ -721,13 +723,13 @@
         "14:53",
         "16:08"
       ]
-    },
-    "lat": 5.50975,
-    "lng": 95.34977
+    }
   },
   {
     "nama": "Portabel Lambaro 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.50862,
+    "lng": 95.35524,
     "jadwal": {
       "senin_kamis": [
         "07:15",
@@ -792,41 +794,41 @@
         "14:55",
         "16:10"
       ]
-    },
-    "lat": 5.50862,
-    "lng": 95.35524
+    }
   },
   {
     "nama": "Halte Siron 1",
     "arah": "Pusat Kota -> Bandara SIM",
-    "jadwal": {},
     "lat": 5.51132798,
-    "lng": 95.36438048
+    "lng": 95.36438048,
+    "jadwal": {}
   },
   {
     "nama": "Portabel Siron 1",
     "arah": "Pusat Kota -> Bandara SIM",
-    "jadwal": {},
     "lat": 5.51132798,
-    "lng": 95.36438048
+    "lng": 95.36438048,
+    "jadwal": {}
   },
   {
     "nama": "Halte BKN 1",
     "arah": "Pusat Kota -> Bandara SIM",
-    "jadwal": {},
     "lat": 5.51248133,
-    "lng": 95.37817776
+    "lng": 95.37817776,
+    "jadwal": {}
   },
   {
     "nama": "Halte Gani 1",
     "arah": "Pusat Kota -> Bandara SIM",
-    "jadwal": {},
     "lat": 5.51194489,
-    "lng": 95.38530707
+    "lng": 95.38530707,
+    "jadwal": {}
   },
   {
     "nama": "Portabel MIS Mon Malem 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.50973,
+    "lng": 95.39047,
     "jadwal": {
       "senin_kamis": [
         "06:55",
@@ -893,20 +895,20 @@
         "14:35",
         "15:50"
       ]
-    },
-    "lat": 5.50973,
-    "lng": 95.39047
+    }
   },
   {
     "nama": "Portabel Poliven",
     "arah": "Pusat Kota -> Bandara SIM",
-    "jadwal": {},
     "lat": 5.51021,
-    "lng": 95.39394
+    "lng": 95.39394,
+    "jadwal": {}
   },
   {
     "nama": "Portabel SDN 1 Blang Bintang",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.509051,
+    "lng": 95.404946,
     "jadwal": {
       "senin_kamis": [
         "06:52",
@@ -973,20 +975,20 @@
         "14:32",
         "15:47"
       ]
-    },
-    "lat": 5.509051,
-    "lng": 95.404946
+    }
   },
   {
     "nama": "Portabel Masjid Nurul Huda 1",
     "arah": "Pusat Kota -> Bandara SIM",
-    "jadwal": {},
     "lat": 5.50844,
-    "lng": 95.41056
+    "lng": 95.41056,
+    "jadwal": {}
   },
   {
     "nama": "Halte Blang Bintang 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.51150501,
+    "lng": 95.41382778,
     "jadwal": {
       "senin_kamis": [
         "07:36",
@@ -1051,13 +1053,13 @@
         "15:01",
         "16:31"
       ]
-    },
-    "lat": 5.51150501,
-    "lng": 95.41382778
+    }
   },
   {
     "nama": "Portabel Gampong Blang 1",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.51742,
+    "lng": 95.413,
     "jadwal": {
       "senin_kamis": [
         "06:49",
@@ -1124,13 +1126,13 @@
         "14:29",
         "15:44"
       ]
-    },
-    "lat": 5.51742,
-    "lng": 95.413
+    }
   },
   {
     "nama": "Halte Bandara SIM",
     "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.51695855,
+    "lng": 95.41644265,
     "jadwal": {
       "senin_kamis": [
         "06:45",
@@ -1196,13 +1198,13 @@
         "14:25",
         "15:40"
       ]
-    },
-    "lat": 5.51695855,
-    "lng": 95.41644265
+    }
   },
   {
     "nama": "Halte Bandara SIM",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.51695855,
+    "lng": 95.41644265,
     "jadwal": {
       "senin_kamis": [
         "06:45",
@@ -1268,13 +1270,13 @@
         "14:25",
         "15:40"
       ]
-    },
-    "lat": 5.51695855,
-    "lng": 95.41644265
+    }
   },
   {
     "nama": "Halte Gampong Blang",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.517684,
+    "lng": 95.413377,
     "jadwal": {
       "senin_kamis": [
         "06:49",
@@ -1341,13 +1343,13 @@
         "14:29",
         "15:44"
       ]
-    },
-    "lat": 5.517684,
-    "lng": 95.413377
+    }
   },
   {
     "nama": "Halte Blang Bintang 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.511561,
+    "lng": 95.41393,
     "jadwal": {
       "senin_kamis": [
         "06:50",
@@ -1414,20 +1416,20 @@
         "14:30",
         "15:45"
       ]
-    },
-    "lat": 5.511561,
-    "lng": 95.41393
+    }
   },
   {
     "nama": "Portabel Masjid Nurul Huda 2",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.508615,
-    "lng": 95.410904
+    "lng": 95.410904,
+    "jadwal": {}
   },
   {
     "nama": "Halte SDN 1 Blang Bintang",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.509051,
+    "lng": 95.404946,
     "jadwal": {
       "senin_kamis": [
         "06:52",
@@ -1494,20 +1496,20 @@
         "14:32",
         "15:47"
       ]
-    },
-    "lat": 5.509051,
-    "lng": 95.404946
+    }
   },
   {
     "nama": "Halte Modal Bangsa",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.51014245,
-    "lng": 95.39486647
+    "lng": 95.39486647,
+    "jadwal": {}
   },
   {
     "nama": "Portabel MIS Mon Malem 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.50963,
+    "lng": 95.39093,
     "jadwal": {
       "senin_kamis": [
         "06:55",
@@ -1574,41 +1576,41 @@
         "14:35",
         "15:50"
       ]
-    },
-    "lat": 5.50963,
-    "lng": 95.39093
+    }
   },
   {
     "nama": "Halte Gani 2",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.51159084,
-    "lng": 95.38553238
+    "lng": 95.38553238,
+    "jadwal": {}
   },
   {
     "nama": "Halte BKN 2",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.513485,
-    "lng": 95.380002
+    "lng": 95.380002,
+    "jadwal": {}
   },
   {
     "nama": "Portabel Siron 2",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.511343,
-    "lng": 95.364261
+    "lng": 95.364261,
+    "jadwal": {}
   },
   {
     "nama": "Halte Siron 2",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.511343,
-    "lng": 95.364261
+    "lng": 95.364261,
+    "jadwal": {}
   },
   {
     "nama": "Halte Lambaro 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.50747633,
+    "lng": 95.35627484,
     "jadwal": {
       "senin_kamis": [
         "07:15",
@@ -1673,13 +1675,13 @@
         "14:55",
         "16:10"
       ]
-    },
-    "lat": 5.50747633,
-    "lng": 95.35627484
+    }
   },
   {
     "nama": "Portabel Metro TV 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.51012,
+    "lng": 95.35002,
     "jadwal": {
       "senin_kamis": [
         "07:07",
@@ -1746,13 +1748,13 @@
         "14:47",
         "16:02"
       ]
-    },
-    "lat": 5.51012,
-    "lng": 95.35002
+    }
   },
   {
     "nama": "Portabel Wali Nanggroe 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.51158,
+    "lng": 95.34225,
     "jadwal": {
       "senin_kamis": [
         "07:09",
@@ -1817,20 +1819,20 @@
         "14:49",
         "16:04"
       ]
-    },
-    "lat": 5.51158,
-    "lng": 95.34225
+    }
   },
   {
     "nama": "Portabel Taman Bunga",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.51275,
-    "lng": 95.3382
+    "lng": 95.3382,
+    "jadwal": {}
   },
   {
     "nama": "Halte Darul Imarah 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.51508844,
+    "lng": 95.33009112,
     "jadwal": {
       "senin_kamis": [
         "07:07",
@@ -1895,20 +1897,20 @@
         "14:47",
         "16:02"
       ]
-    },
-    "lat": 5.51508844,
-    "lng": 95.33009112
+    }
   },
   {
     "nama": "Portabel Kejaksaan",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.522813,
-    "lng": 95.33009
+    "lng": 95.33009,
+    "jadwal": {}
   },
   {
     "nama": "Halte Terminal Batoh",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.52923,
+    "lng": 95.3303429,
     "jadwal": {
       "senin_kamis": [
         "07:04",
@@ -1973,13 +1975,13 @@
         "14:44",
         "15:59"
       ]
-    },
-    "lat": 5.52923,
-    "lng": 95.3303429
+    }
   },
   {
     "nama": "Halte Sp. Batoh 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.533917,
+    "lng": 95.330143,
     "jadwal": {
       "senin_kamis": [
         "07:02",
@@ -2044,13 +2046,13 @@
         "14:42",
         "15:57"
       ]
-    },
-    "lat": 5.533917,
-    "lng": 95.330143
+    }
   },
   {
     "nama": "Portabel Bank Aceh Batoh",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.54069,
+    "lng": 95.32996,
     "jadwal": {
       "senin_kamis": [
         "07:22",
@@ -2117,13 +2119,13 @@
         "15:02",
         "16:17"
       ]
-    },
-    "lat": 5.54069,
-    "lng": 95.32996
+    }
   },
   {
     "nama": "Halte Sp. Surabaya",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.547145,
+    "lng": 95.330086,
     "jadwal": {
       "senin_kamis": [
         "06:58",
@@ -2188,13 +2190,13 @@
         "14:38",
         "15:53"
       ]
-    },
-    "lat": 5.547145,
-    "lng": 95.330086
+    }
   },
   {
     "nama": "Portabel Arena Ban",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.55552,
+    "lng": 95.33047,
     "jadwal": {
       "senin_kamis": [
         "07:28",
@@ -2261,13 +2263,13 @@
         "15:08",
         "16:23"
       ]
-    },
-    "lat": 5.55552,
-    "lng": 95.33047
+    }
   },
   {
     "nama": "Halte Sp. Keuramat 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.55800808,
+    "lng": 95.32712607,
     "jadwal": {
       "senin_kamis": [
         "06:50",
@@ -2332,13 +2334,13 @@
         "14:30",
         "15:45"
       ]
-    },
-    "lat": 5.55800808,
-    "lng": 95.32712607
+    }
   },
   {
     "nama": "Portabel Sp. Lima 2",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.55646795,
+    "lng": 95.32336817,
     "jadwal": {
       "senin_kamis": [
         "07:31",
@@ -2405,27 +2407,27 @@
         "14:51",
         "16:26"
       ]
-    },
-    "lat": 5.55646795,
-    "lng": 95.32336817
+    }
   },
   {
     "nama": "Halte Peunayong",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.558657,
-    "lng": 95.318962
+    "lng": 95.318962,
+    "jadwal": {}
   },
   {
     "nama": "Halte Keudah",
     "arah": "Bandara SIM -> Pusat Kota",
-    "jadwal": {},
     "lat": 5.55979599,
-    "lng": 95.31767663
+    "lng": 95.31767663,
+    "jadwal": {}
   },
   {
     "nama": "Halte Masjid Raya Baiturrahman",
     "arah": "Bandara SIM -> Pusat Kota",
+    "lat": 5.55411,
+    "lng": 95.318376,
     "jadwal": {
       "senin_kamis": [
         "06:45",
@@ -2490,8 +2492,12 @@
         "14:25",
         "15:40"
       ]
-    },
-    "lat": 5.55411,
-    "lng": 95.318376
+    }
+  },
+  {
+    "nama": "monka",
+    "arah": "Pusat Kota -> Bandara SIM",
+    "lat": 5.55,
+    "lng": 95.31
   }
 ]
