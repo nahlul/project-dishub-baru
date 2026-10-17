@@ -124,7 +124,7 @@ class About(BaseModel):
 # ============= ROUTE MODELS =============
 
 class HalteItem(BaseModel):
-    model_config = ConfigDict(extra="ignore")
+    model_config = ConfigDict(extra="allow")
     nama: str
     arah: Optional[str] = ""
     lat: Optional[float] = None
